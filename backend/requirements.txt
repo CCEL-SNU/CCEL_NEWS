@@ -1,0 +1,19 @@
+# CCEL Daily News - Python Dependencies
+# Install: pip install -r requirements.txt
+
+# Core
+pyyaml>=6.0
+requests>=2.31.0
+
+# Claude API
+anthropic>=0.39.0
+
+# PDF processing (install one of these)
+PyMuPDF>=1.24.0     # Recommended: faster, better extraction
+# pdfplumber>=0.11.0  # Alternative if PyMuPDF doesn't install
+
+# RSS parsing (stdlib xml.etree is used, but feedparser is nicer)
+# feedparser>=6.0.0   # Optional: better RSS parsing
+
+# Git operations
+# gitpython>=3.1.0    # Optional: programmatic git (we use subprocess instead)

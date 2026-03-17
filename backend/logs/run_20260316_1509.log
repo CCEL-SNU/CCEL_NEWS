@@ -1,0 +1,121 @@
+2026-03-16 15:09:43,221 [INFO] ccel-news: CCEL Daily News Pipeline started
+2026-03-16 15:09:43,221 [INFO] ccel-news: Date: 2026-03-16 15:09:43
+2026-03-16 15:09:43,221 [INFO] ccel-news: ============================================================
+2026-03-16 15:09:43,221 [INFO] ccel-news: STEP 1: Collecting paper metadata...
+2026-03-16 15:09:43,222 [INFO] ccel-news: ============================================================
+2026-03-16 15:09:43,222 [INFO] collectors: ==================================================
+2026-03-16 15:09:43,222 [INFO] collectors: Collecting from arXiv...
+2026-03-16 15:09:43,226 [INFO] collectors.arxiv_collector: arXiv search: 'heterogeneous catalysis DFT'
+2026-03-16 15:09:43,521 [INFO] collectors.arxiv_collector:   Fetched 0, accepted 0 (date-filtered)
+2026-03-16 15:09:46,523 [INFO] collectors.arxiv_collector: arXiv search: 'machine learning interatomic potential'
+2026-03-16 15:09:46,626 [INFO] collectors.arxiv_collector:   Fetched 30, accepted 0 (date-filtered)
+2026-03-16 15:09:49,627 [INFO] collectors.arxiv_collector: arXiv search: 'PEMFC catalyst'
+2026-03-16 15:09:49,728 [INFO] collectors.arxiv_collector:   Fetched 1, accepted 0 (date-filtered)
+2026-03-16 15:09:52,729 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen reduction reaction catalyst'
+2026-03-16 15:09:52,834 [INFO] collectors.arxiv_collector:   Fetched 1, accepted 0 (date-filtered)
+2026-03-16 15:09:55,834 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen evolution reaction'
+2026-03-16 15:09:55,929 [INFO] collectors.arxiv_collector:   Fetched 30, accepted 0 (date-filtered)
+2026-03-16 15:09:58,930 [INFO] collectors.arxiv_collector: arXiv search: 'solid oxide fuel cell catalyst'
+2026-03-16 15:09:59,039 [INFO] collectors.arxiv_collector:   Fetched 0, accepted 0 (date-filtered)
+2026-03-16 15:10:02,040 [INFO] collectors.arxiv_collector: arXiv search: 'electrochemical CO2 reduction'
+2026-03-16 15:10:02,157 [INFO] collectors.arxiv_collector:   Fetched 11, accepted 0 (date-filtered)
+2026-03-16 15:10:05,158 [INFO] collectors.arxiv_collector: arXiv search: 'single atom catalyst'
+2026-03-16 15:10:05,256 [INFO] collectors.arxiv_collector:   Fetched 30, accepted 0 (date-filtered)
+2026-03-16 15:10:08,257 [INFO] collectors.arxiv_collector: arXiv search: 'high entropy alloy catalyst'
+2026-03-16 15:10:08,363 [INFO] collectors.arxiv_collector:   Fetched 3, accepted 0 (date-filtered)
+2026-03-16 15:10:11,364 [INFO] collectors.arxiv_collector: arXiv search: 'solid state battery electrolyte'
+2026-03-16 15:10:11,456 [INFO] collectors.arxiv_collector:   Fetched 1, accepted 0 (date-filtered)
+2026-03-16 15:10:14,457 [INFO] collectors.arxiv_collector: arXiv search: 'lithium ion battery cathode DFT'
+2026-03-16 15:10:14,571 [INFO] collectors.arxiv_collector:   Fetched 0, accepted 0 (date-filtered)
+2026-03-16 15:10:17,572 [INFO] collectors.arxiv_collector: arXiv search: 'machine learning force field'
+2026-03-16 15:10:17,662 [INFO] collectors.arxiv_collector:   Fetched 30, accepted 0 (date-filtered)
+2026-03-16 15:10:20,663 [INFO] collectors.arxiv_collector: arXiv search: 'graph neural network potential'
+2026-03-16 15:10:20,824 [INFO] collectors.arxiv_collector:   Fetched 13, accepted 0 (date-filtered)
+2026-03-16 15:10:23,825 [INFO] collectors.arxiv_collector: arXiv search: 'active learning molecular dynamics'
+2026-03-16 15:10:23,918 [INFO] collectors.arxiv_collector:   Fetched 0, accepted 0 (date-filtered)
+2026-03-16 15:10:26,919 [INFO] collectors.arxiv_collector: arXiv search: 'scaling relations catalysis'
+2026-03-16 15:10:26,988 [INFO] collectors.arxiv_collector:   Fetched 0, accepted 0 (date-filtered)
+2026-03-16 15:10:29,989 [INFO] collectors.arxiv_collector: arXiv total: 0 unique papers
+2026-03-16 15:10:29,989 [INFO] collectors: ==================================================
+2026-03-16 15:10:29,989 [INFO] collectors: Collecting from Semantic Scholar (groups)...
+2026-03-16 15:10:29,989 [INFO] collectors.s2_collector: S2 author search: ccel (ID: 2257137686, 7d window)
+2026-03-16 15:10:30,457 [INFO] collectors.s2_collector:   ccel: 0 papers in 7d window
+2026-03-16 15:10:31,458 [INFO] collectors.s2_collector: S2 author search: norskov (ID: 1397051203, 7d window)
+2026-03-16 15:10:32,318 [INFO] collectors.s2_collector:   norskov: 0 papers in 7d window
+2026-03-16 15:10:33,318 [INFO] collectors.s2_collector: S2 author search: persson (ID: 2243399706, 7d window)
+2026-03-16 15:10:34,173 [INFO] collectors.s2_collector:   persson: 0 papers in 7d window
+2026-03-16 15:10:35,174 [INFO] collectors.s2_collector: S2 author search: curtarolo (ID: 3445901, 7d window)
+2026-03-16 15:10:35,918 [INFO] collectors.s2_collector:   curtarolo: 0 papers in 7d window
+2026-03-16 15:10:36,918 [INFO] collectors.s2_collector: S2 groups total: 0 papers
+2026-03-16 15:10:36,918 [INFO] collectors: ==================================================
+2026-03-16 15:10:36,918 [INFO] collectors: Collecting from RSS feeds...
+2026-03-16 15:10:36,919 [INFO] collectors.rss_collector: RSS fetch: Nature Catalysis (no filter)
+2026-03-16 15:10:36,956 [INFO] collectors.rss_collector:   Nature Catalysis: 8 parsed, 0 accepted
+2026-03-16 15:10:37,956 [INFO] collectors.rss_collector: RSS fetch: Nature Energy (no filter)
+2026-03-16 15:10:38,021 [INFO] collectors.rss_collector:   Nature Energy: 8 parsed, 1 accepted
+2026-03-16 15:10:39,022 [INFO] collectors.rss_collector: RSS fetch: Nature Materials (keyword-filtered)
+2026-03-16 15:10:39,087 [INFO] collectors.rss_collector:   Nature Materials: 8 parsed, 2 accepted
+2026-03-16 15:10:40,088 [INFO] collectors.rss_collector: RSS fetch: Science (keyword-filtered)
+2026-03-16 15:10:40,312 [INFO] collectors.rss_collector:   Science: 39 parsed, 0 accepted
+2026-03-16 15:10:41,313 [INFO] collectors.rss_collector: RSS fetch: JACS (keyword-filtered)
+2026-03-16 15:10:41,542 [INFO] collectors.rss_collector:   JACS: 106 parsed, 0 accepted
+2026-03-16 15:10:42,542 [INFO] collectors.rss_collector: RSS fetch: ACS Catalysis (no filter)
+2026-03-16 15:10:43,616 [INFO] collectors.rss_collector:   ACS Catalysis: 87 parsed, 0 accepted
+2026-03-16 15:10:44,617 [INFO] collectors.rss_collector: RSS fetch: ACS Energy Letters (no filter)
+2026-03-16 15:10:44,849 [INFO] collectors.rss_collector:   ACS Energy Letters: 61 parsed, 3 accepted
+2026-03-16 15:10:45,850 [INFO] collectors.rss_collector: RSS fetch: Energy Environ. Sci. (no filter)
+2026-03-16 15:10:47,660 [INFO] collectors.rss_collector:   Energy Environ. Sci.: 88 parsed, 0 accepted
+2026-03-16 15:10:48,661 [INFO] collectors.rss_collector: RSS fetch: Joule (no filter)
+2026-03-16 15:10:48,725 [ERROR] collectors.rss_collector:   RSS HTTP error for Joule: 403 Forbidden
+2026-03-16 15:10:49,725 [INFO] collectors.rss_collector: RSS fetch: Advanced Energy Materials (no filter)
+2026-03-16 15:10:49,855 [INFO] collectors.rss_collector:   Advanced Energy Materials: 119 parsed, 7 accepted
+2026-03-16 15:10:50,856 [INFO] collectors.rss_collector: RSS total: 13 papers
+2026-03-16 15:10:50,856 [INFO] collectors: ==================================================
+2026-03-16 15:10:50,856 [INFO] collectors: Total collected: 13 unique papers
+2026-03-16 15:10:50,856 [INFO] collectors:   CCEL group: 0
+2026-03-16 15:10:50,857 [INFO] ccel-news: Collected 13 papers
+2026-03-16 15:10:50,857 [INFO] ccel-news: ============================================================
+2026-03-16 15:10:50,857 [INFO] ccel-news: STEP 2: Downloading PDFs...
+2026-03-16 15:10:50,857 [INFO] ccel-news: ============================================================
+2026-03-16 15:10:50,857 [INFO] downloader:   Downloading: 10_1002_aenm_202505262.pdf
+2026-03-16 15:10:50,858 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202505262
+2026-03-16 15:10:50,928 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:50,929 [INFO] downloader:   Already exists: 10_1038_s41560-026-01965-3.pdf
+2026-03-16 15:10:50,929 [INFO] downloader:   Already exists: 10_1038_s41563-026-02511-y.pdf
+2026-03-16 15:10:50,929 [INFO] downloader:   Already exists: 10_1038_s41563-026-02501-0.pdf
+2026-03-16 15:10:50,929 [INFO] downloader:   Downloading: 10_1021_acsenergylett_6c00508.pdf
+2026-03-16 15:10:50,929 [INFO] downloader:     URL: https://pubs.acs.org/doi/pdf/10.1021/acsenergylett.6c00508
+2026-03-16 15:10:50,985 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:50,985 [INFO] downloader:   Downloading: 10_1021_nzv011i003_2053540.pdf
+2026-03-16 15:10:50,985 [INFO] downloader:     URL: https://pubs.acs.org/doi/pdf/10.1021/nzv011i003_2053540
+2026-03-16 15:10:51,042 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,042 [INFO] downloader:   Downloading: 10_1021_nzv011i003_2053539.pdf
+2026-03-16 15:10:51,043 [INFO] downloader:     URL: https://pubs.acs.org/doi/pdf/10.1021/nzv011i003_2053539
+2026-03-16 15:10:51,113 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,113 [INFO] downloader:   Downloading: 10_1002_aenm_70831.pdf
+2026-03-16 15:10:51,113 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.70831
+2026-03-16 15:10:51,298 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,299 [INFO] downloader:   Downloading: 10_1002_aenm_70806.pdf
+2026-03-16 15:10:51,299 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.70806
+2026-03-16 15:10:51,363 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,363 [INFO] downloader:   Downloading: 10_1002_aenm_70833.pdf
+2026-03-16 15:10:51,363 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.70833
+2026-03-16 15:10:51,433 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,433 [INFO] downloader:   Downloading: 10_1002_aenm_70817.pdf
+2026-03-16 15:10:51,433 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.70817
+2026-03-16 15:10:51,501 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,502 [INFO] downloader:   Downloading: 10_1002_aenm_202506760.pdf
+2026-03-16 15:10:51,502 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.202506760
+2026-03-16 15:10:51,559 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,560 [INFO] downloader:   Downloading: 10_1002_aenm_70821.pdf
+2026-03-16 15:10:51,560 [INFO] downloader:     URL: https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/aenm.70821
+2026-03-16 15:10:51,630 [WARNING] downloader:     Access denied (403) - may not be subscribed
+2026-03-16 15:10:51,631 [INFO] downloader: Download stats: {'total': 13, 'downloaded': 3, 'skipped': 0, 'failed': 10, 'limit_reached': False}
+2026-03-16 15:10:51,631 [INFO] ccel-news: Download complete: {'total': 13, 'downloaded': 3, 'skipped': 0, 'failed': 10, 'limit_reached': False}
+2026-03-16 15:10:51,632 [INFO] ccel-news: Saved 13 papers to data\news.json
+2026-03-16 15:10:51,634 [INFO] ccel-news: History saved to data\history\news_20260316.json
+2026-03-16 15:10:51,634 [INFO] ccel-news: ============================================================
+2026-03-16 15:10:51,634 [INFO] ccel-news: Pipeline complete!
+2026-03-16 15:10:51,634 [INFO] ccel-news:   Papers: 13
+2026-03-16 15:10:51,634 [INFO] ccel-news:   CCEL: 0
+2026-03-16 15:10:51,634 [INFO] ccel-news: ============================================================

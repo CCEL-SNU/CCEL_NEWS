@@ -1,0 +1,26 @@
+2026-03-16 14:32:26,950 [INFO] ccel-news: CCEL Daily News Pipeline started
+2026-03-16 14:32:26,950 [INFO] ccel-news: Date: 2026-03-16 14:32:26
+2026-03-16 14:32:26,950 [INFO] ccel-news: ============================================================
+2026-03-16 14:32:26,950 [INFO] ccel-news: STEP 1: Collecting paper metadata...
+2026-03-16 14:32:26,950 [INFO] ccel-news: ============================================================
+2026-03-16 14:32:26,951 [INFO] collectors: ==================================================
+2026-03-16 14:32:26,951 [INFO] collectors: Collecting from arXiv...
+2026-03-16 14:32:26,954 [INFO] collectors.arxiv_collector: arXiv search: 'heterogeneous catalysis DFT'
+2026-03-16 14:32:28,000 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:31,001 [INFO] collectors.arxiv_collector: arXiv search: 'machine learning interatomic potential'
+2026-03-16 14:32:31,898 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:34,901 [INFO] collectors.arxiv_collector: arXiv search: 'PEMFC catalyst'
+2026-03-16 14:32:35,367 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:38,369 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen reduction reaction catalyst'
+2026-03-16 14:32:38,966 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:41,968 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen evolution reaction'
+2026-03-16 14:32:42,532 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:45,533 [INFO] collectors.arxiv_collector: arXiv search: 'solid oxide fuel cell catalyst'
+2026-03-16 14:32:46,357 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:49,359 [INFO] collectors.arxiv_collector: arXiv search: 'electrochemical CO2 reduction'
+2026-03-16 14:32:49,940 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:52,941 [INFO] collectors.arxiv_collector: arXiv search: 'single atom catalyst'
+2026-03-16 14:32:53,877 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:32:56,879 [INFO] collectors.arxiv_collector: arXiv search: 'high entropy alloy catalyst'
+2026-03-16 14:32:57,589 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:00,592 [INFO] collectors.arxiv_collector: arXiv search: 'solid state battery electrolyte'

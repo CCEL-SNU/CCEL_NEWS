@@ -1,0 +1,178 @@
+2026-03-16 14:33:09,982 [INFO] ccel-news: CCEL Daily News Pipeline started
+2026-03-16 14:33:09,983 [INFO] ccel-news: Date: 2026-03-16 14:33:09
+2026-03-16 14:33:09,983 [INFO] ccel-news: ============================================================
+2026-03-16 14:33:09,983 [INFO] ccel-news: STEP 1: Collecting paper metadata...
+2026-03-16 14:33:09,983 [INFO] ccel-news: ============================================================
+2026-03-16 14:33:09,983 [INFO] collectors: ==================================================
+2026-03-16 14:33:09,983 [INFO] collectors: Collecting from arXiv...
+2026-03-16 14:33:09,987 [INFO] collectors.arxiv_collector: arXiv search: 'heterogeneous catalysis DFT'
+2026-03-16 14:33:10,323 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:13,324 [INFO] collectors.arxiv_collector: arXiv search: 'machine learning interatomic potential'
+2026-03-16 14:33:13,438 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:16,441 [INFO] collectors.arxiv_collector: arXiv search: 'PEMFC catalyst'
+2026-03-16 14:33:16,560 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:19,561 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen reduction reaction catalyst'
+2026-03-16 14:33:19,715 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:22,717 [INFO] collectors.arxiv_collector: arXiv search: 'oxygen evolution reaction'
+2026-03-16 14:33:22,822 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:25,824 [INFO] collectors.arxiv_collector: arXiv search: 'solid oxide fuel cell catalyst'
+2026-03-16 14:33:25,926 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:28,927 [INFO] collectors.arxiv_collector: arXiv search: 'electrochemical CO2 reduction'
+2026-03-16 14:33:29,030 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:32,031 [INFO] collectors.arxiv_collector: arXiv search: 'single atom catalyst'
+2026-03-16 14:33:32,138 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:35,139 [INFO] collectors.arxiv_collector: arXiv search: 'high entropy alloy catalyst'
+2026-03-16 14:33:35,288 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:38,291 [INFO] collectors.arxiv_collector: arXiv search: 'solid state battery electrolyte'
+2026-03-16 14:33:38,841 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:41,842 [INFO] collectors.arxiv_collector: arXiv search: 'lithium ion battery cathode DFT'
+2026-03-16 14:33:42,385 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:45,387 [INFO] collectors.arxiv_collector: arXiv search: 'machine learning force field'
+2026-03-16 14:33:46,719 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:49,723 [INFO] collectors.arxiv_collector: arXiv search: 'graph neural network potential'
+2026-03-16 14:33:50,355 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:53,357 [INFO] collectors.arxiv_collector: arXiv search: 'active learning molecular dynamics'
+2026-03-16 14:33:54,033 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:33:57,034 [INFO] collectors.arxiv_collector: arXiv search: 'scaling relations catalysis'
+2026-03-16 14:33:57,588 [INFO] collectors.arxiv_collector:   Found 20 results
+2026-03-16 14:34:00,590 [INFO] collectors.arxiv_collector: arXiv total: 143 unique papers
+2026-03-16 14:34:00,591 [INFO] collectors: ==================================================
+2026-03-16 14:34:00,591 [INFO] collectors: Collecting from Semantic Scholar (groups)...
+2026-03-16 14:34:00,591 [INFO] collectors.s2_collector: S2 author search: ccel (ID: 2257137686)
+2026-03-16 14:34:00,789 [INFO] collectors.s2_collector:   ccel: 0 recent papers
+2026-03-16 14:34:01,790 [INFO] collectors.s2_collector: S2 author search: norskov (ID: 1397051203)
+2026-03-16 14:34:02,705 [INFO] collectors.s2_collector:   norskov: 0 recent papers
+2026-03-16 14:34:03,705 [INFO] collectors.s2_collector: S2 author search: persson (ID: 2243399706)
+2026-03-16 14:34:03,941 [INFO] collectors.s2_collector:   persson: 0 recent papers
+2026-03-16 14:34:04,942 [INFO] collectors.s2_collector: S2 author search: curtarolo (ID: 3445901)
+2026-03-16 14:34:05,811 [INFO] collectors.s2_collector:   curtarolo: 0 recent papers
+2026-03-16 14:34:06,812 [INFO] collectors: ==================================================
+2026-03-16 14:34:06,812 [INFO] collectors: Collecting from RSS feeds...
+2026-03-16 14:34:06,812 [INFO] collectors.rss_collector: RSS fetch: Nature Catalysis
+2026-03-16 14:34:06,872 [INFO] collectors.rss_collector:   Nature Catalysis: 0 items in feed
+2026-03-16 14:34:07,873 [INFO] collectors.rss_collector: RSS fetch: Nature Energy
+2026-03-16 14:34:07,926 [INFO] collectors.rss_collector:   Nature Energy: 0 items in feed
+2026-03-16 14:34:08,927 [INFO] collectors.rss_collector: RSS fetch: Nature Materials
+2026-03-16 14:34:08,978 [INFO] collectors.rss_collector:   Nature Materials: 0 items in feed
+2026-03-16 14:34:09,979 [INFO] collectors.rss_collector: RSS fetch: Science
+2026-03-16 14:34:10,262 [INFO] collectors.rss_collector:   Science: 0 items in feed
+2026-03-16 14:34:11,263 [INFO] collectors.rss_collector: RSS fetch: JACS
+2026-03-16 14:34:11,515 [INFO] collectors.rss_collector:   JACS: 0 items in feed
+2026-03-16 14:34:12,517 [INFO] collectors.rss_collector: RSS fetch: ACS Catalysis
+2026-03-16 14:34:13,026 [INFO] collectors.rss_collector:   ACS Catalysis: 0 items in feed
+2026-03-16 14:34:14,027 [INFO] collectors.rss_collector: RSS fetch: ACS Energy Letters
+2026-03-16 14:34:14,245 [INFO] collectors.rss_collector:   ACS Energy Letters: 0 items in feed
+2026-03-16 14:34:15,246 [INFO] collectors.rss_collector: RSS fetch: Energy Environ. Sci.
+2026-03-16 14:34:17,158 [INFO] collectors.rss_collector:   Energy Environ. Sci.: 88 items in feed
+2026-03-16 14:34:18,161 [INFO] collectors.rss_collector: RSS fetch: Joule
+2026-03-16 14:34:18,266 [ERROR] collectors.rss_collector: RSS error for Joule: HTTP Error 403: Forbidden
+2026-03-16 14:34:19,267 [INFO] collectors.rss_collector: RSS fetch: Advanced Energy Materials
+2026-03-16 14:34:19,853 [INFO] collectors.rss_collector:   Advanced Energy Materials: 119 items in feed
+2026-03-16 14:34:20,858 [INFO] collectors.rss_collector: RSS total: 0 papers
+2026-03-16 14:34:20,859 [INFO] collectors: ==================================================
+2026-03-16 14:34:20,859 [INFO] collectors: Total collected: 143 unique papers
+2026-03-16 14:34:20,859 [INFO] collectors:   CCEL group: 0
+2026-03-16 14:34:20,860 [INFO] ccel-news: Collected 143 papers
+2026-03-16 14:34:20,860 [INFO] ccel-news: ============================================================
+2026-03-16 14:34:20,860 [INFO] ccel-news: STEP 2: Downloading PDFs...
+2026-03-16 14:34:20,860 [INFO] ccel-news: ============================================================
+2026-03-16 14:34:20,861 [INFO] downloader:   Downloading: 10_1002_nag_70286.pdf
+2026-03-16 14:34:20,861 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13190v1
+2026-03-16 14:34:21,422 [INFO] downloader:     Success: 8550110 bytes
+2026-03-16 14:34:29,424 [INFO] downloader:   Downloading: arxiv_2603.13075v1.pdf
+2026-03-16 14:34:29,424 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13075v1
+2026-03-16 14:34:31,760 [INFO] downloader:     Success: 5717300 bytes
+2026-03-16 14:34:39,761 [INFO] downloader:   Downloading: arxiv_2603.13059v1.pdf
+2026-03-16 14:34:39,761 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13059v1
+2026-03-16 14:34:39,880 [INFO] downloader:     Success: 551319 bytes
+2026-03-16 14:34:47,880 [INFO] downloader:   Downloading: arxiv_2603.13044v1.pdf
+2026-03-16 14:34:47,880 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13044v1
+2026-03-16 14:34:48,678 [INFO] downloader:     Success: 15040389 bytes
+2026-03-16 14:34:56,679 [INFO] downloader:   Downloading: arxiv_2603.13032v1.pdf
+2026-03-16 14:34:56,680 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13032v1
+2026-03-16 14:34:58,884 [INFO] downloader:     Success: 31690563 bytes
+2026-03-16 14:35:06,886 [INFO] downloader:   Downloading: arxiv_2603.13028v1.pdf
+2026-03-16 14:35:06,887 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13028v1
+2026-03-16 14:35:09,852 [INFO] downloader:     Success: 39279072 bytes
+2026-03-16 14:35:17,854 [INFO] downloader:   Downloading: arxiv_2603.13019v1.pdf
+2026-03-16 14:35:17,854 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13019v1
+2026-03-16 14:35:18,218 [INFO] downloader:     Success: 849443 bytes
+2026-03-16 14:35:26,218 [INFO] downloader:   Downloading: arxiv_2603.12967v1.pdf
+2026-03-16 14:35:26,218 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12967v1
+2026-03-16 14:35:27,635 [INFO] downloader:     Success: 4723957 bytes
+2026-03-16 14:35:35,635 [INFO] downloader:   Downloading: arxiv_2603.12959v1.pdf
+2026-03-16 14:35:35,635 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12959v1
+2026-03-16 14:35:36,267 [INFO] downloader:     Success: 306019 bytes
+2026-03-16 14:35:44,268 [INFO] downloader:   Downloading: arxiv_2603.12933v1.pdf
+2026-03-16 14:35:44,268 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12933v1
+2026-03-16 14:35:48,332 [INFO] downloader:     Success: 7577078 bytes
+2026-03-16 14:35:56,333 [INFO] downloader:   Downloading: arxiv_2603.12892v1.pdf
+2026-03-16 14:35:56,333 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12892v1
+2026-03-16 14:36:01,803 [INFO] downloader:     Success: 8711184 bytes
+2026-03-16 14:36:09,805 [INFO] downloader:   Downloading: arxiv_2603.12881v1.pdf
+2026-03-16 14:36:09,805 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12881v1
+2026-03-16 14:36:10,151 [INFO] downloader:     Success: 710432 bytes
+2026-03-16 14:36:18,151 [INFO] downloader:   Downloading: arxiv_2603.12849v1.pdf
+2026-03-16 14:36:18,151 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12849v1
+2026-03-16 14:36:21,987 [INFO] downloader:     Success: 6468467 bytes
+2026-03-16 14:36:29,988 [INFO] downloader:   Downloading: arxiv_2603.12845v1.pdf
+2026-03-16 14:36:29,988 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12845v1
+2026-03-16 14:36:31,444 [INFO] downloader:     Success: 2989785 bytes
+2026-03-16 14:36:39,446 [INFO] downloader:   Downloading: arxiv_2603.12775v1.pdf
+2026-03-16 14:36:39,446 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12775v1
+2026-03-16 14:36:39,731 [INFO] downloader:     Success: 407187 bytes
+2026-03-16 14:36:47,732 [INFO] downloader:   Downloading: arxiv_2603.12737v1.pdf
+2026-03-16 14:36:47,732 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12737v1
+2026-03-16 14:36:50,670 [INFO] downloader:     Success: 5664256 bytes
+2026-03-16 14:36:58,671 [INFO] downloader:   Downloading: arxiv_2603.12734v1.pdf
+2026-03-16 14:36:58,671 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12734v1
+2026-03-16 14:36:58,878 [INFO] downloader:     Success: 2120900 bytes
+2026-03-16 14:37:06,879 [INFO] downloader:   Downloading: arxiv_2603.12707v1.pdf
+2026-03-16 14:37:06,879 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12707v1
+2026-03-16 14:37:07,208 [INFO] downloader:     Success: 424342 bytes
+2026-03-16 14:37:15,209 [INFO] downloader:   Downloading: arxiv_2603.12669v1.pdf
+2026-03-16 14:37:15,209 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12669v1
+2026-03-16 14:37:19,005 [INFO] downloader:     Success: 9495402 bytes
+2026-03-16 14:37:27,006 [INFO] downloader:   Downloading: arxiv_2603.12653v1.pdf
+2026-03-16 14:37:27,007 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.12653v1
+2026-03-16 14:37:27,298 [INFO] downloader:     Success: 385857 bytes
+2026-03-16 14:37:35,299 [INFO] downloader:   Downloading: arxiv_2603.13228v1.pdf
+2026-03-16 14:37:35,299 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13228v1
+2026-03-16 14:37:35,669 [INFO] downloader:     Success: 5389806 bytes
+2026-03-16 14:37:43,670 [INFO] downloader:   Downloading: arxiv_2603.13227v1.pdf
+2026-03-16 14:37:43,670 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13227v1
+2026-03-16 14:37:44,225 [INFO] downloader:     Success: 4420121 bytes
+2026-03-16 14:37:52,226 [INFO] downloader:   Downloading: arxiv_2603.13224v1.pdf
+2026-03-16 14:37:52,226 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13224v1
+2026-03-16 14:37:52,629 [INFO] downloader:     Success: 5127439 bytes
+2026-03-16 14:38:00,630 [INFO] downloader:   Downloading: arxiv_2603.13223v1.pdf
+2026-03-16 14:38:00,630 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13223v1
+2026-03-16 14:38:00,749 [INFO] downloader:     Success: 972239 bytes
+2026-03-16 14:38:08,751 [INFO] downloader:   Downloading: arxiv_2603.13219v1.pdf
+2026-03-16 14:38:08,751 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13219v1
+2026-03-16 14:38:08,935 [INFO] downloader:     Success: 704955 bytes
+2026-03-16 14:38:16,936 [INFO] downloader:   Downloading: arxiv_2603.13215v1.pdf
+2026-03-16 14:38:16,936 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13215v1
+2026-03-16 14:38:17,633 [INFO] downloader:     Success: 11106099 bytes
+2026-03-16 14:38:25,634 [INFO] downloader:   Downloading: arxiv_2603.13214v1.pdf
+2026-03-16 14:38:25,635 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13214v1
+2026-03-16 14:38:25,755 [INFO] downloader:     Success: 1243596 bytes
+2026-03-16 14:38:33,755 [INFO] downloader:   Downloading: arxiv_2603.13213v1.pdf
+2026-03-16 14:38:33,755 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13213v1
+2026-03-16 14:38:34,017 [INFO] downloader:     Success: 3102588 bytes
+2026-03-16 14:38:42,018 [INFO] downloader:   Downloading: arxiv_2603.13211v1.pdf
+2026-03-16 14:38:42,018 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13211v1
+2026-03-16 14:38:42,167 [INFO] downloader:     Success: 1320310 bytes
+2026-03-16 14:38:50,168 [INFO] downloader:   Downloading: arxiv_2603.13194v1.pdf
+2026-03-16 14:38:50,168 [INFO] downloader:     URL: https://arxiv.org/pdf/2603.13194v1
+2026-03-16 14:38:50,512 [INFO] downloader:     Success: 4431446 bytes
+2026-03-16 14:38:58,514 [WARNING] downloader: Daily limit reached, stopping downloads
+2026-03-16 14:38:58,514 [INFO] downloader: Download stats: {'total': 143, 'downloaded': 30, 'skipped': 0, 'failed': 0, 'limit_reached': True}
+2026-03-16 14:38:58,514 [INFO] ccel-news: Download complete: {'total': 143, 'downloaded': 30, 'skipped': 0, 'failed': 0, 'limit_reached': True}
+2026-03-16 14:38:58,523 [INFO] ccel-news: Saved 143 papers to data\news.json
+2026-03-16 14:38:58,525 [INFO] ccel-news: History saved to data\history\news_20260316.json
+2026-03-16 14:38:58,525 [INFO] ccel-news: ============================================================
+2026-03-16 14:38:58,525 [INFO] ccel-news: Pipeline complete!
+2026-03-16 14:38:58,525 [INFO] ccel-news:   Papers: 143
+2026-03-16 14:38:58,525 [INFO] ccel-news:   CCEL: 0
+2026-03-16 14:38:58,525 [INFO] ccel-news: ============================================================
