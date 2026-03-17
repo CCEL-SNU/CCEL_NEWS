@@ -7,7 +7,7 @@ Usage:
     python run_daily.py              # Full daily pipeline
     python run_daily.py --collect    # Only collect metadata
     python run_daily.py --summarize  # Only summarize (skip collection)
-    python run_daily.py --digest     # Generate weekly digest
+    python run_daily.py --digest     # Generate weekly digest + category trends
     python run_daily.py --deploy     # Only push to GitHub
 """
 
@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from collectors import collect_all
 from downloader import PaperDownloader
-from summarizer import summarize_batch, generate_weekly_digest
+from summarizer import summarize_batch, generate_weekly_digest, generate_category_trends
 
 # ---- Logging setup ----
 LOG_DIR = Path(__file__).parent / "logs"
@@ -55,20 +55,22 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
-def load_existing_data(path: str) -> list:
-    """Load existing news.json data if it exists."""
+def load_existing_data(path: str) -> dict:
+    """Load existing news.json data if it exists. Returns full data dict."""
     p = Path(path)
     if p.exists():
         with open(p, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("papers", [])
-    return []
+            return json.load(f)
+    return {}
 
 
-def save_output(papers: list, digest: str, config: dict):
-    """Save papers and digest to news.json."""
+def save_output(papers: list, digest: str, category_trends: dict, config: dict):
+    """Save papers, digest, and category trends to news.json."""
     output_path = Path(config["output"]["json_path"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Load existing data to preserve fields not being updated
+    existing = load_existing_data(str(output_path))
 
     # Also save to history
     history_dir = Path(config["output"]["history_dir"])
@@ -79,14 +81,14 @@ def save_output(papers: list, digest: str, config: dict):
         "date": datetime.now().strftime("%Y-%m-%d"),
         "total_papers": len(papers),
         "ccel_papers": sum(1 for p in papers if p.get("ccel")),
-        "weekly_digest": digest,
+        "weekly_digest": digest or existing.get("weekly_digest", ""),
+        "category_trends": category_trends or existing.get("category_trends", {}),
         "papers": papers,
     }
 
-    # Clean papers for JSON serialization (remove local_pdf paths, etc.)
+    # Clean papers for JSON serialization
     for p in output["papers"]:
         p.pop("local_pdf", None)
-        # Ensure all fields are JSON-serializable
         for key in list(p.keys()):
             if isinstance(p[key], set):
                 p[key] = list(p[key])
@@ -156,7 +158,7 @@ def run_collect(config: dict) -> list:
 def run_summarize(papers: list, config: dict) -> list:
     """Step 3: AI summarization."""
     logger.info("=" * 60)
-    logger.info("STEP 3: AI Summarization (Claude API)...")
+    logger.info("STEP 3: AI Summarization (Gemini API)...")
     logger.info("=" * 60)
 
     papers = summarize_batch(papers, config)
@@ -164,8 +166,12 @@ def run_summarize(papers: list, config: dict) -> list:
     return papers
 
 
-def run_digest(papers: list, config: dict) -> str:
-    """Generate weekly digest (runs on Sundays or when explicitly requested)."""
+def run_digest(papers: list, config: dict) -> tuple:
+    """
+    Generate weekly digest and category trends.
+    Returns (digest_text, category_trends_dict).
+    Runs on the configured digest day (default: Sunday) or when --digest is used.
+    """
     today = datetime.now().strftime("%A")
     digest_day = config.get("schedule", {}).get("weekly_digest_day", "Sunday")
 
@@ -183,25 +189,36 @@ def run_digest(papers: list, config: dict) -> str:
     if not week_papers:
         week_papers = papers  # Fallback to current papers
 
+    digest = ""
+    category_trends = {}
+
     if today == digest_day or not papers:
+        logger.info("=" * 60)
         logger.info("Generating weekly digest...")
-        return generate_weekly_digest(week_papers, config)
+        logger.info("=" * 60)
+        digest = generate_weekly_digest(week_papers, config)
 
-    # Load previous digest if not digest day
-    output_path = Path(config["output"]["json_path"])
-    if output_path.exists():
-        with open(output_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data.get("weekly_digest", "")
+        logger.info("=" * 60)
+        logger.info("Generating category trend columns...")
+        logger.info("=" * 60)
+        category_trends = generate_category_trends(week_papers, config)
+    else:
+        # Load previous digest and trends if not digest day
+        output_path = Path(config["output"]["json_path"])
+        if output_path.exists():
+            with open(output_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                digest = data.get("weekly_digest", "")
+                category_trends = data.get("category_trends", {})
 
-    return ""
+    return digest, category_trends
 
 
 def main():
     parser = argparse.ArgumentParser(description="CCEL Daily News Pipeline")
     parser.add_argument("--collect", action="store_true", help="Only collect papers")
     parser.add_argument("--summarize", action="store_true", help="Only summarize")
-    parser.add_argument("--digest", action="store_true", help="Generate weekly digest")
+    parser.add_argument("--digest", action="store_true", help="Generate weekly digest + category trends")
     parser.add_argument("--deploy", action="store_true", help="Only push to GitHub")
     args = parser.parse_args()
 
@@ -218,22 +235,40 @@ def main():
         papers = run_collect(config)
     else:
         # Load from existing data
-        papers = load_existing_data(config["output"]["json_path"])
+        existing = load_existing_data(config["output"]["json_path"])
+        papers = existing.get("papers", [])
         if not papers:
             logger.warning("No existing data found, running collection first")
             papers = run_collect(config)
 
-    if args.summarize or not args.collect:
+    # Summarize only when explicitly requested or in full pipeline
+    # --digest and --collect should NOT trigger summarization
+    if args.summarize or not (args.collect or args.digest or args.deploy):
         papers = run_summarize(papers, config)
 
     digest = ""
+    category_trends = {}
+
     if args.digest:
-        digest = run_digest(papers, config)
+        # Force generation regardless of day
+        logger.info("Forced digest + category trends generation")
+        week_papers = papers
+        history_dir = Path(config["output"]["history_dir"])
+        for i in range(7):
+            d = datetime.now() - timedelta(days=i)
+            hist_file = history_dir / f"news_{d:%Y%m%d}.json"
+            if hist_file.exists():
+                with open(hist_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    week_papers = week_papers + data.get("papers", [])
+
+        digest = generate_weekly_digest(week_papers, config)
+        category_trends = generate_category_trends(week_papers, config)
     elif not (args.collect or args.summarize):
-        digest = run_digest(papers, config)
+        digest, category_trends = run_digest(papers, config)
 
     # Save output
-    save_output(papers, digest, config)
+    save_output(papers, digest, category_trends, config)
 
     # Deploy
     if not (args.collect or args.summarize or args.digest):
@@ -243,6 +278,8 @@ def main():
     logger.info("Pipeline complete!")
     logger.info(f"  Papers: {len(papers)}")
     logger.info(f"  CCEL: {sum(1 for p in papers if p.get('ccel'))}")
+    logger.info(f"  Digest: {'Yes' if digest else 'No'}")
+    logger.info(f"  Category trends: {len(category_trends)} categories")
     logger.info("=" * 60)
 
 

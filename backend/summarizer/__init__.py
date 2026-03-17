@@ -1,15 +1,16 @@
 """
 AI Summarizer using Google Gemini API.
 Generates Korean summaries, categorizes papers (multi-label), scores relevance,
-and produces weekly digests.
+produces weekly digests, and category trend columns.
 """
 
 import json
 import os
 import logging
 import time
-from typing import List, Optional
+from typing import List, Optional, Dict
 from pathlib import Path
+from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)
 
@@ -108,11 +109,43 @@ def _extract_text_from_pdf(pdf_path: str, max_chars: int = 8000) -> str:
     return ""
 
 
+def _get_paper_cats(paper: dict) -> List[str]:
+    """Get categories list from paper (backward compatible)."""
+    cats = paper.get("categories")
+    if cats and isinstance(cats, list) and len(cats) > 0:
+        return cats
+    cat = paper.get("category", "")
+    return [cat] if cat else []
+
+
+def _load_history_papers(config: dict) -> List[dict]:
+    """Load all papers from history directory for long-term trend analysis."""
+    history_dir = Path(config.get("output", {}).get("history_dir", "./data/history"))
+    all_papers = {}
+
+    if not history_dir.exists():
+        return []
+
+    for hist_file in sorted(history_dir.glob("news_*.json")):
+        try:
+            with open(hist_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                for p in data.get("papers", []):
+                    key = p.get("doi") or p.get("title", "")
+                    if key and key not in all_papers:
+                        all_papers[key] = p
+        except Exception as e:
+            logger.warning(f"Failed to load history file {hist_file}: {e}")
+
+    papers = list(all_papers.values())
+    logger.info(f"Loaded {len(papers)} unique papers from history")
+    return papers
+
+
 def summarize_paper(paper: dict, categories: List, config: dict = None) -> dict:
     """
     Generate a Korean summary, categories (multi-label), and relevance score for a paper.
     """
-    # Build context from abstract and/or PDF text
     context = paper.get("abstract") or ""
     if paper.get("local_pdf") and os.path.exists(paper["local_pdf"]):
         pdf_text = _extract_text_from_pdf(paper["local_pdf"])
@@ -145,7 +178,7 @@ Available categories:
 
 Respond ONLY with valid JSON (no markdown, no explanation, no backticks):
 {{
-  "summary": "5-line Korean summary of the paper's key findings and significance for CCEL research. Be specific about methods and results.",
+  "summary": "5-line Korean summary covering: (1) research objective, (2) methods used, (3) key results, (4) significance, (5) relevance to CCEL. Be specific about materials, techniques, and quantitative results.",
   "categories": ["primary_category_id", "secondary_category_id"],
   "relevance": 85,
   "relevance_reason": "Brief Korean explanation of why this is relevant (or not) to CCEL"
@@ -178,7 +211,6 @@ The relevance score (0-100) should reflect how relevant this paper is to CCEL's 
         }
 
     try:
-        # Clean response (remove potential markdown fences)
         cleaned = response.strip()
         import re
         cleaned = re.sub(r'^```\w*\n?', '', cleaned)
@@ -187,14 +219,11 @@ The relevance score (0-100) should reflect how relevant this paper is to CCEL's 
 
         result = json.loads(cleaned)
 
-        # Handle both old "category" (string) and new "categories" (list) format
         cats = result.get("categories")
         if not cats:
-            # Fallback to single category
             cat = result.get("category", "dft")
             cats = [cat] if isinstance(cat, str) else cat
 
-        # Ensure it's a list of strings
         if isinstance(cats, str):
             cats = [cats]
         cats = [c for c in cats if isinstance(c, str) and c.strip()]
@@ -204,7 +233,7 @@ The relevance score (0-100) should reflect how relevant this paper is to CCEL's 
         return {
             "summary": result.get("summary", ""),
             "categories": cats,
-            "category": cats[0],  # Keep backward compat: primary category
+            "category": cats[0],
             "relevance": min(100, max(0, int(result.get("relevance", 50)))),
             "relevance_reason": result.get("relevance_reason", ""),
         }
@@ -221,10 +250,7 @@ def generate_weekly_digest(papers: List, config: dict = None) -> str:
 
     by_cat = {}
     for p in papers:
-        # Use categories list if available, fallback to category string
-        cats = p.get("categories") or [p.get("category", "other")]
-        if isinstance(cats, str):
-            cats = [cats]
+        cats = _get_paper_cats(p)
         for cat in cats:
             if cat not in by_cat:
                 by_cat[cat] = []
@@ -265,6 +291,148 @@ Do NOT use markdown formatting. Just plain text paragraphs."""
     return digest or "Weekly digest generation failed."
 
 
+def generate_category_trends(current_papers: List, config: dict = None) -> Dict:
+    """
+    Generate per-category trend columns (1-month and long-term).
+    Returns a dict with category IDs as keys, each containing
+    monthly_trend and yearly_trend text.
+    """
+    # Load history for long-term trends
+    history_papers = _load_history_papers(config) if config else []
+
+    # Merge current + history (dedup by DOI/title)
+    all_papers_map = {}
+    for p in history_papers:
+        key = p.get("doi") or p.get("title", "")
+        if key:
+            all_papers_map[key] = p
+    for p in current_papers:
+        key = p.get("doi") or p.get("title", "")
+        if key:
+            all_papers_map[key] = p
+    all_papers = list(all_papers_map.values())
+
+    # Split by time window
+    now = datetime.now()
+    one_month_ago = (now - timedelta(days=30)).strftime("%Y-%m-%d")
+    one_year_ago = (now - timedelta(days=365)).strftime("%Y-%m-%d")
+
+    monthly_papers = [p for p in all_papers if (p.get("date") or "") >= one_month_ago]
+    yearly_papers = [p for p in all_papers if (p.get("date") or "") >= one_year_ago]
+
+    # Group by category
+    cat_ids = ["dft", "catalysis", "electrochemistry", "battery", "ml", "policy"]
+    cat_labels = {
+        "dft": "DFT / Computational Chemistry",
+        "catalysis": "Catalysis",
+        "electrochemistry": "Electrochemistry / Fuel Cells",
+        "battery": "Battery",
+        "ml": "ML / MLIP",
+        "policy": "Industry / Policy",
+    }
+
+    trends = {}
+
+    system = """You are a research trend analyst for CCEL (Computational Catalysis and Emerging Materials Laboratory) at Seoul National University.
+You write concise, insightful trend analysis in Korean for lab members.
+Focus on specific research themes, methodologies, and notable findings.
+Be concrete with paper titles and findings, not vague generalizations."""
+
+    for cat_id in cat_ids:
+        label = cat_labels[cat_id]
+        logger.info(f"Generating trend for: {label}")
+
+        # Filter papers for this category
+        monthly_cat = [p for p in monthly_papers if cat_id in _get_paper_cats(p)]
+        yearly_cat = [p for p in yearly_papers if cat_id in _get_paper_cats(p)]
+
+        # Build paper lists for prompt
+        def format_papers(papers, max_count=100):
+            sorted_p = sorted(papers, key=lambda p: -(p.get("relevance") or 0))[:max_count]
+            lines = []
+            for p in sorted_p:
+                rel = p.get("relevance", "?")
+                summary_short = (p.get("summary") or p.get("abstract") or "")[:200]
+                lines.append(f"- [{p.get('date','')}] {p['title'][:120]} (rel:{rel})\n  {summary_short}")
+            return "\n".join(lines) if lines else "(No papers)"
+
+        monthly_list = format_papers(monthly_cat, 100)
+        yearly_list = format_papers(yearly_cat, 100)
+
+        prompt = f"""Analyze the research trends for the "{label}" category and write two trend columns in Korean.
+
+=== Recent 1 month ({len(monthly_cat)} papers) ===
+{monthly_list}
+
+=== Past 1 year ({len(yearly_cat)} papers) ===
+{yearly_list}
+
+Respond ONLY with valid JSON (no markdown, no backticks):
+{{
+  "monthly_trend": "2-3 paragraphs analyzing the past month's trends in this category. Mention specific research themes, notable papers, emerging methods, and what CCEL should pay attention to. Be concrete and specific.",
+  "yearly_trend": "2-3 paragraphs analyzing the broader yearly trends. Identify major shifts, growing/declining topics, breakthrough papers, and strategic implications for CCEL's research direction.",
+  "hot_topics": ["topic1", "topic2", "topic3"],
+  "paper_count_monthly": {len(monthly_cat)},
+  "paper_count_yearly": {len(yearly_cat)}
+}}
+
+Guidelines:
+- Write in Korean, professional but accessible tone
+- Be specific: mention actual paper topics, methods, materials
+- For CCEL relevance: connect trends to DFT, catalysis, electrochemistry, batteries, or ML research
+- If few papers exist, note this and focus on available data
+- Do NOT use markdown formatting in the text fields
+- hot_topics should be 3-5 short Korean keywords/phrases for this category"""
+
+        response = _call_gemini(prompt, system, config)
+
+        if response:
+            try:
+                import re
+                cleaned = response.strip()
+                cleaned = re.sub(r'^```\w*\n?', '', cleaned)
+                cleaned = re.sub(r'\n?```$', '', cleaned)
+                cleaned = cleaned.strip()
+
+                result = json.loads(cleaned)
+                trends[cat_id] = {
+                    "label": label,
+                    "monthly_trend": result.get("monthly_trend", ""),
+                    "yearly_trend": result.get("yearly_trend", ""),
+                    "hot_topics": result.get("hot_topics", []),
+                    "paper_count_monthly": len(monthly_cat),
+                    "paper_count_yearly": len(yearly_cat),
+                    "generated_at": datetime.now().isoformat(),
+                }
+                logger.info(f"  {label}: monthly={len(monthly_cat)}, yearly={len(yearly_cat)}, topics={result.get('hot_topics', [])}")
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.warning(f"Failed to parse trend for {cat_id}: {e}")
+                trends[cat_id] = {
+                    "label": label,
+                    "monthly_trend": response[:500],
+                    "yearly_trend": "",
+                    "hot_topics": [],
+                    "paper_count_monthly": len(monthly_cat),
+                    "paper_count_yearly": len(yearly_cat),
+                    "generated_at": datetime.now().isoformat(),
+                }
+        else:
+            trends[cat_id] = {
+                "label": label,
+                "monthly_trend": "Trend generation failed.",
+                "yearly_trend": "",
+                "hot_topics": [],
+                "paper_count_monthly": len(monthly_cat),
+                "paper_count_yearly": len(yearly_cat),
+                "generated_at": datetime.now().isoformat(),
+            }
+
+        # Rate limiting
+        time.sleep(4)
+
+    return trends
+
+
 def summarize_batch(papers: List, config: dict) -> List:
     """Summarize a batch of papers."""
     categories = config.get("categories", [])
@@ -279,7 +447,7 @@ def summarize_batch(papers: List, config: dict) -> List:
         paper["relevance"] = result["relevance"]
         paper.setdefault("ccel", paper.get("group") == "ccel")
 
-        # Rate limiting for Gemini API (free tier: 15 RPM for 2.5 Pro)
+        # Rate limiting
         time.sleep(4)
 
     papers.sort(key=lambda p: (-p.get("relevance", 0), p.get("date") or ""), reverse=False)

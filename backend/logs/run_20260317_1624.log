@@ -1,0 +1,6 @@
+2026-03-17 16:24:01,647 [INFO] ccel-news: CCEL Daily News Pipeline started
+2026-03-17 16:24:01,647 [INFO] ccel-news: Date: 2026-03-17 16:24:01
+2026-03-17 16:24:01,650 [INFO] ccel-news: ============================================================
+2026-03-17 16:24:01,650 [INFO] ccel-news: STEP 3: AI Summarization (Gemini API)...
+2026-03-17 16:24:01,650 [INFO] ccel-news: ============================================================
+2026-03-17 16:24:01,650 [INFO] summarizer: Summarizing [1/363]: High-Throughput Computational Exploration of MOFs for Short-...

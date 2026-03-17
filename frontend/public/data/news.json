@@ -1,9 +1,101 @@
 {
-  "generated_at": "2026-03-17T14:50:04.481226",
+  "generated_at": "2026-03-17T16:28:05.139456",
   "date": "2026-03-17",
   "total_papers": 363,
   "ccel_papers": 0,
-  "weekly_digest": "",
+  "weekly_digest": "CCEL 주간 연구 동향 보고서\n\n이번 주 연구 동향을 살펴보면, 촉매, DFT, ML 분야에서 높은 관련성(rel: 92)을 보인 \"High-Throughput Computational Exploration of MOFs for Short-Chain PFAS Removal\" 논문이 눈에 띕니다. 이는 계산 재료 과학이 환경 문제 해결, 특히 PFAS(과불화화합물) 제거를 위한 MOF(금속-유기 골격체) 탐색에 활발히 활용되고 있음을 시사합니다. 또한, \"Strain boosts propanol electrosynthesis from CO on copper\" 논문은 촉매, DFT, 전기화학 분야에서 공통적으로 높은 관련성(rel: 92)을 보이며, CO 전환을 통한 고부가가치 화학물질(프로판올) 생산을 위한 전기가스 촉매 및 변형(strain) 공학의 중요성을 강조합니다. ML과 DFT는 상호 보완적으로 작용하여 새로운 재료의 설계 공간을 탐색하고(예: \"Design Space of Self--Consistent Electrostatic Machine Learning Interatomic Pote\"), 강유전체 스위칭 메커니즘을 이해하는 데 핵심적인 역할을 하고 있습니다. 배터리 분야에서는 고성능 및 고속 충방전이 가능한 차세대 배터리(Li-S, Zn-CO2, Al-ion) 개발과 계면 안정성 및 이온 수송 메커니즘 규명에 대한 연구가 활발합니다.\n\nCCEL의 연구 방향과 관련하여 특히 주목할 만한 논문은 세 가지입니다. 첫째, \"High-Throughput Computational Exploration of MOFs for Short-Chain PFAS Removal\"은 고처리량 계산 스크리닝을 통해 환경 오염 물질 제거를 위한 신소재를 발굴하는 접근법을 제시합니다. 이는 CCEL이 추구하는 계산 재료 설계 및 지속 가능한 기술 개발에 직접적인 영감을 줄 수 있습니다. 둘째, \"Strain boosts propanol electrosynthesis from CO on copper\"는 구리 촉매에 변형을 가하여 CO로부터 프로판올을 효율적으로 합성하는 방법을 보여줍니다. 이는 전기가스 촉매 반응의 효율과 선택성을 높이는 전략을 제공하며, CCEL의 에너지 전환 및 촉매 연구에 중요한 시사점을 줍니다. 셋째, \"Design Space of Self--Consistent Electrostatic Machine Learning Interatomic Pote\"는 ML 기반 원자간 포텐셜의 설계 공간을 탐구하여, 복잡한 재료 시스템의 거동을 정확하게 예측하고 새로운 재료를 설계하는 데 필요한 계산 방법론의 발전을 보여줍니다. 이는 CCEL의 ML 기반 재료 연구에 있어 핵심적인 기반 기술의 중요성을 강조합니다.\n\n정책 및 산업 동향 측면에서는 \"Pathways to commercially viable organic photovoltaic materials\"와 \"Design Matters: How Cell Architecture Shapes the Performance, Cost, and Environm\" 논문이 중요합니다. 이들은 유기 태양전지 및 전지 아키텍처 설계가 단순한 성능 향상을 넘어 상업적 실현 가능성, 비용 효율성, 그리고 환경적 영향까지 고려해야 함을 강조합니다. 이는 연구실에서 개발되는 신소재 및 기술이 실제 산업에 적용되기 위해서는 초기 단계부터 경제성 및 지속 가능성을 함께 고려해야 한다는 점을 시사하며, CCEL의 연구가 사회적, 경제적 가치를 창출하는 방향으로 나아가야 함을 보여줍니다.\n\n이번 주 동향은 계산 재료 과학(DFT, ML)이 환경 문제 해결 및 에너지 전환 분야에서 핵심적인 역할을 하고 있음을 명확히 보여줍니다. CCEL은 이러한 흐름에 발맞춰, 고성능 신소재 개발을 위한 계산 방법론의 고도화와 함께, 실제 적용 가능성 및 상업적 가치를 염두에 둔 연구를 강화할 필요가 있습니다. 특히, PFAS 제거와 같은 환경 문제 해결, CO 전환과 같은 지속 가능한 에너지 기술, 그리고 차세대 배터리 개발 등 사회적 파급력이 큰 분야에 집중하고, 연구 초기 단계부터 경제성 및 환경 영향을 고려하는 다학제적 접근을 모색하는 것이 중요합니다. 이를 통해 CCEL이 계산 재료 과학 분야의 선두 주자로서 지속 가능한 미래를 위한 혁신적인 솔루션을 제공할 수 있을 것입니다.",
+  "category_trends": {
+    "dft": {
+      "label": "DFT / Computational Chemistry",
+      "monthly_trend": "최근 한 달간 DFT/계산화학 분야 연구 동향은 머신러닝(ML) 기반 방법론의 통합과 이를 활용한 에너지 및 환경 문제 해결에 집중되는 양상을 보였습니다. 특히, MLIP(Machine Learning Interatomic Potentials)와 MLFF(Machine-Learning Force Field)를 분자 동역학(MD) 시뮬레이션과 결합하여 복잡한 시스템의 원자 수준 메커니즘을 규명하는 연구가 두드러졌습니다. 예를 들어, 'Revealing Hydroxide Ion Transport Mechanisms...' 논문은 MLIP 기반 MD 시뮬레이션으로 음이온 교환막(AEM) 내 수산화 이온 수송 메커니즘을 분석했고, 'Decoupling structural and bonding effects...' 논문은 MLFF 기반 MD로 ScAlN 강유전체의 스위칭 거동을 연구했습니다. 이는 기존 DFT의 계산 비용 한계를 극복하면서도 정확도를 유지하려는 시도로 해석됩니다.\n\n또한, 고처리량 계산 스크리닝(HTCS)을 통해 신소재를 발굴하는 연구도 활발했습니다. 'High-Throughput Computational Exploration of MOFs for Short-Chain PFAS Removal' 논문은 MOF를 이용한 PFAS 제거를 위해 UFF와 MLIP를 결합한 Monte Carlo 시뮬레이션을 활용하여 흡착 친화도와 선택성을 예측했습니다. 에너지 전환 분야에서는 'Strain boosts propanol electrosynthesis from CO on copper' 논문이 구리 나노결정의 형태가 CO 전기환원 반응(CORR)에서 n-프로판올 선택성을 높이는 데 기여함을 밝혔습니다. 'Oxygen‐Driven Structural Reorganization...' 논문은 미량의 물이 고체 전해질의 리튬 이온 수송을 촉진하는 메커니즘을 DFT를 포함한 계산 화학으로 분석하여 차세대 배터리 소재 개발에 기여했습니다.\n\nCCEL은 이러한 ML-augmented 계산 방법론, 특히 MLIP/MLFF 개발 및 응용에 주목해야 합니다. 'Design Space of Self--Consistent Electrostatic Machine Learning Interatomic Potentials'와 같이 MLIP 자체의 설계 공간을 탐구하는 연구는 CCEL이 계산 방법론의 최전선에서 기여할 수 있는 중요한 방향을 제시합니다. 촉매, 전극, 전해질 등 CCEL의 주요 연구 분야에 ML 기반 시뮬레이션을 적극적으로 도입하여, 대규모 시스템의 동역학적 특성 및 복합 계면 반응 메커니즘을 심층적으로 이해하고 신소재 설계에 활용하는 전략이 필요합니다.",
+      "yearly_trend": "지난 1년간 DFT/계산화학 분야는 ML 기반 계산 방법론의 확고한 정착과 이를 통한 다학제적 문제 해결 역량 강화가 가장 큰 흐름을 이루었습니다. MLIP 및 MLFF는 더 이상 보조적인 도구가 아닌, 대규모 시스템의 복잡한 동역학적 거동과 원자 수준의 상호작용을 예측하고 이해하는 핵심적인 방법론으로 자리매김했습니다. 이는 기존 DFT의 높은 계산 비용으로 인해 접근하기 어려웠던 실제 환경 조건에서의 소재 거동 분석을 가능하게 하며, 재료 과학 및 화학 공학 분야에서 계산 연구의 지평을 넓히고 있습니다.\n\n연구 주제의 측면에서는 에너지 저장 및 변환, 환경 정화와 같은 지속 가능한 미래를 위한 기술 개발에 계산화학이 필수적인 역할을 수행하고 있습니다. 고체 전해질 및 음이온 교환막과 같은 차세대 배터리 및 연료전지 소재의 이온 수송 메커니즘 규명, CO 전기환원 반응과 같은 고부가가치 화학물질 생산을 위한 촉매 설계, 그리고 MOF를 이용한 PFAS 제거와 같은 환경 오염 물질 처리 기술 개발에 계산화학이 적극적으로 활용되었습니다. 특히, 미량의 불순물이나 환경 인자가 소재의 성능에 미치는 미묘한 영향을 ML 기반 MD 시뮬레이션으로 밝혀내는 등, 실제 응용 환경을 모사하는 연구가 심화되고 있습니다.\n\nCCEL은 이러한 흐름 속에서 DFT의 근본적인 이해를 바탕으로 ML과의 시너지를 극대화하는 전략을 지속해야 합니다. MLIP/MLFF의 개발 및 최적화에 대한 자체적인 연구 역량을 강화하고, 이를 CCEL의 강점인 촉매 및 전기화학 분야에 적용하여 새로운 반응 메커니즘을 예측하고 신소재를 설계하는 데 활용해야 합니다. 고처리량 스크리닝과 ML 기반 예측 모델을 통해 실험적 한계를 보완하고, 궁극적으로는 계산-실험 간의 긴밀한 피드백 루프를 구축하여 연구 개발 속도를 가속화하는 것이 CCEL의 전략적 방향이 될 것입니다.",
+      "hot_topics": [
+        "머신러닝 상호작용 전위 (MLIP)",
+        "고처리량 계산 스크리닝 (HTCS)",
+        "전기화학 촉매 (Electrocatalysis)",
+        "이온 수송 메커니즘 (Ion Transport Mechanisms)",
+        "에너지 저장 소재 (Energy Storage Materials)"
+      ],
+      "paper_count_monthly": 8,
+      "paper_count_yearly": 8,
+      "generated_at": "2026-03-17T16:26:40.284106"
+    },
+    "catalysis": {
+      "label": "Catalysis",
+      "monthly_trend": "최근 한 달간 촉매 분야 연구 동향은 크게 두 가지 핵심 주제로 요약됩니다. 첫째는 환경 정화 분야에서 MOF(금속-유기 골격체)를 활용한 유해 물질 제거 연구입니다. \"High-Throughput Computational Exploration of MOFs for Short-Chain PFAS Removal\" 논문은 단쇄 PFAS(PFBA) 제거를 위해 고처리량 계산 스크리닝(HTCS) 전략을 개발했으며, 고전적 UFF와 머신러닝 기반 MLIP를 결합한 Monte Carlo 시뮬레이션을 통해 MOF의 흡착 성능을 예측했습니다. 이는 CCEL의 계산 촉매 연구 역량을 환경 문제 해결에 적용할 수 있는 중요한 방향성을 제시합니다.\n\n둘째는 전기화학 촉매 분야에서 CO 및 CO2 환원 반응을 통한 고부가가치 다중 탄소 생성물 합성 연구입니다. \"Strain boosts propanol electrosynthesis from CO on copper\" 논문은 구리 나노결정의 변형률(strain)이 CO 전기환원 반응(CORR)에서 n-프로판올과 같은 C3+ 생성물의 선택성을 높이는 데 핵심적인 역할을 함을 밝혔습니다. 또한, \"HEDP‐Modified Cu2O Catalyst Enables Efficient C2+ Product Formation in Acidic CO2 Electroreduction\" 논문은 HEDP 변형 Cu2O 촉매를 이용한 산성 조건에서의 CO2 전기환원 반응에서 C2+ 생성물 형성 효율을 높이는 연구를 보고했습니다 (다만, 이 논문의 상세 내용은 제한적입니다). 이 두 연구는 구리 기반 촉매의 표면 구조 및 변형을 제어하여 C-C 결합 형성 효율을 극대화하려는 노력이 활발함을 보여줍니다. CCEL은 DFT 계산을 통해 이러한 촉매의 활성점 및 반응 메커니즘을 규명하여 새로운 촉매 설계에 기여할 수 있을 것입니다.",
+      "yearly_trend": "지난 1년간의 촉매 연구 동향은 최근 한 달간의 경향과 동일하게 환경 촉매와 전기화학 촉매 분야에 집중되어 있음을 알 수 있습니다. 다만, 제공된 데이터가 지난 한 달간의 3개 논문과 동일하므로, 광범위한 연간 트렌드를 분석하기에는 제한적입니다. 그럼에도 불구하고, 이 세 논문은 지속 가능한 화학 및 에너지 전환이라는 큰 흐름 속에서 중요한 연구 방향을 제시합니다.\n\n특히, 계산 과학의 역할이 더욱 중요해지고 있습니다. MOF 기반 PFAS 제거 연구에서 보듯이, 고처리량 계산 스크리닝과 머신러닝 인터아토믹 포텐셜(MLIP)의 결합은 새로운 물질을 효율적으로 탐색하고 성능을 예측하는 데 필수적인 도구로 자리 잡고 있습니다. 이는 CCEL이 보유한 계산 화학 및 머신러닝 역량을 활용하여 촉매 설계 및 최적화 시간을 단축할 수 있는 전략적 기회를 의미합니다. 또한, CO/CO2 전기환원 반응에서 C2+ 이상의 고부가가치 생성물을 얻기 위한 촉매 설계, 특히 구리 기반 촉매의 표면 구조 및 변형률 제어는 여전히 핵심적인 연구 주제입니다. CCEL은 이러한 촉매의 전자 구조 및 반응 경로에 대한 심층적인 DFT 분석을 통해 실험적 발견을 이론적으로 뒷받침하고 새로운 촉매 디자인 원리를 제시하는 데 기여할 수 있을 것입니다.",
+      "hot_topics": [
+        "PFAS 제거",
+        "MOF 계산 스크리닝",
+        "CO/CO2 전기환원",
+        "다중 탄소 생성물 합성",
+        "촉매 변형률 제어"
+      ],
+      "paper_count_monthly": 3,
+      "paper_count_yearly": 3,
+      "generated_at": "2026-03-17T16:26:58.502396"
+    },
+    "electrochemistry": {
+      "label": "Electrochemistry / Fuel Cells",
+      "monthly_trend": "최근 한 달간 '전기화학/연료전지' 분야에서는 CO/CO2 전기환원 반응(CORR/CO2RR) 촉매 개발 및 메커니즘 규명, 그리고 차세대 배터리 소재의 성능 향상 및 이온 수송 메커니즘 분석이 주요 연구 주제로 부각되었습니다. 특히, 구리 나노결정을 활용하여 CO 전기환원 반응에서 n-프로판올과 같은 다중 탄소 생성물의 선택성을 높이는 연구(Strain boosts propanol electrosynthesis from CO on copper)는 촉매 형태 및 변형률이 반응 선택성에 미치는 영향을 심층적으로 다루었습니다. 또한, HEDP 변형 Cu2O 촉매를 이용한 산성 CO2 전기환원에서의 C2+ 생성 효율 증대 연구도 주목할 만합니다.\n\n연료전지 및 전해질 분야에서는 음이온 교환막(AEM) 내 수산화 이온 수송 메커니즘을 머신러닝 상호작용 전위(MLIP) 기반 분자 동역학 시뮬레이션으로 규명한 연구(Revealing Hydroxide Ion Transport Mechanisms in Commercial Anion-Exchange Membranes at Nano-Scale from Machine-learned I)가 발표되어, 나노스케일에서의 이온 동역학 이해를 심화시켰습니다. 배터리 분야에서는 4.6V 고전압 NCM811 양극의 고율 성능을 위한 계면 안정성 바인더 설계(Structure and Interfacial‐Stable Binder Engineering Enables High‐Rate Capability of NCM811 Cathodes at 4.6 V)와 유연한 고체 전해질 내 미량의 물에 의한 산소 구동 구조 재편성을 통한 빠른 리튬 이온 수송 메커니즘(Oxygen‐Driven Structural Reorganization by Trace Water Enabling Fast Li‐Ion Transport in a Pliable Solid Electrolyte) 연구가 진행되었습니다. 이는 CCEL의 촉매 설계, 계산화학(DFT, ML), 그리고 배터리 소재 연구 방향과 밀접하게 연관되어 있으며, 특히 MLIP를 활용한 이온 수송 메커니즘 분석은 향후 CCEL의 계산화학 연구에 중요한 시사점을 제공합니다.",
+      "yearly_trend": "지난 1년간 '전기화학/연료전지' 분야의 연구 동향은 최근 한 달간의 흐름과 일관되게, 에너지 전환 및 저장 효율 극대화를 위한 핵심 소재 및 메커니즘 이해에 집중되어 있습니다. 특히 CO/CO2 전기환원 반응을 통한 고부가가치 화학물질 생산은 지속적인 관심사이며, 촉매의 구조적 특성(나노결정 형태, 변형률)과 표면 개질(HEDP 변형)이 반응 선택성과 효율에 미치는 영향에 대한 심도 깊은 연구가 활발합니다. 이는 CCEL의 촉매 디자인 및 반응 메커니즘 규명 연구에 중요한 방향성을 제시합니다.\n\n또한, 차세대 에너지 저장 장치인 배터리 및 연료전지의 성능을 좌우하는 이온 수송 메커니즘에 대한 원자/나노스케일 이해가 강조되고 있습니다. 음이온 교환막 및 고체 전해질 내 이온 수송 경로와 속도를 결정하는 요인(수분 함량, 구조 재편성)을 계산화학(MLIP 기반 MD, DFT)을 통해 분석하는 연구는 CCEL의 계산화학 역량을 활용하여 재료 설계에 기여할 수 있는 핵심 분야입니다. 고전압 배터리 양극의 계면 안정성 확보를 위한 바인더 엔지니어링과 같은 실용적인 문제 해결 노력 또한 지속되고 있으며, 이는 CCEL이 이론적 이해를 바탕으로 실제 적용 가능한 소재 솔루션을 제공하는 데 집중해야 함을 시사합니다. 전반적으로 계산화학 및 머신러닝 기법을 활용하여 복잡한 전기화학 시스템의 메커니즘을 규명하고, 이를 통해 고성능 소재를 설계하는 융합 연구가 핵심적인 트렌드로 자리 잡고 있습니다.",
+      "hot_topics": [
+        "CO/CO2 전기환원 촉매",
+        "이온 수송 메커니즘",
+        "차세대 배터리 소재",
+        "머신러닝 기반 계산화학",
+        "계면 안정성 및 바인더 공학"
+      ],
+      "paper_count_monthly": 6,
+      "paper_count_yearly": 6,
+      "generated_at": "2026-03-17T16:27:14.345121"
+    },
+    "battery": {
+      "label": "Battery",
+      "monthly_trend": "최근 한 달간 배터리 분야에서는 총 4편의 논문이 발표되었으며, 이들은 고성능 리튬 이온 배터리 및 차세대 배터리 기술의 핵심 과제들을 다루고 있습니다. 특히, 'Structure and Interfacial‐Stable Binder Engineering Enables High‐Rate Capability of NCM811 Cathodes at 4.6 V' 논문은 4.6V 고전압 NCM811 양극의 고율 성능을 위한 계면 안정성 바인더 설계의 중요성을 강조하며, 고에너지 밀도 리튬 이온 배터리 개발의 방향성을 제시합니다. 이는 CCEL의 전극-전해질 계면 연구 및 재료 설계 역량과 밀접하게 연관됩니다.\n\n또한, 'Oxygen‐Driven Structural Reorganization by Trace Water Enabling Fast Li‐Ion Transport in a Pliable Solid Electrolyte' 논문은 유연한 고체 전해질 내 리튬 이온 수송 메커니즘을 미량의 물과 산소의 역할과 연관 지어 DFT 계산을 통해 규명했습니다. 이는 고체 전해질 배터리의 성능 향상을 위한 근본적인 이해를 제공하며, CCEL의 계산 화학 역량이 기여할 수 있는 중요한 분야입니다.\n\n이 외에도 흐름형 아연-이산화탄소 수계 배터리('Pseudo‐Zero‐Gap Flow‐Type Aqueous Zn‐CO2 Batteries')와 중성자 기반 오페란도 기법 및 AI를 활용한 Li-S 배터리 메커니즘 분석('Neutron‐Based Mechanistic Mapping Across the Li–S Battery Landscape') 연구가 보고되었습니다. 이는 리튬 이온을 넘어선 새로운 배터리 시스템과 AI/머신러닝을 활용한 심층 분석 방법론의 중요성이 커지고 있음을 시사합니다. CCEL은 이러한 다각적인 접근 방식, 특히 계산 및 AI 기반의 재료 및 메커니즘 분석에 주목해야 할 것입니다.",
+      "yearly_trend": "지난 1년간 배터리 연구 동향은 고성능 리튬 이온 배터리의 한계를 돌파하고 차세대 배터리 시스템을 탐색하는 데 집중되었음을 알 수 있습니다. 특히, 'Structure and Interfacial‐Stable Binder Engineering Enables High‐Rate Capability of NCM811 Cathodes at 4.6 V'와 같은 연구는 고전압 양극 소재의 안정성과 성능을 동시에 확보하기 위한 계면 제어 기술의 중요성이 지속적으로 강조되고 있음을 보여줍니다. 이는 고에너지 밀도 배터리 상용화를 위한 핵심 과제입니다.\n\n고체 전해질 배터리 분야에서는 'Oxygen‐Driven Structural Reorganization by Trace Water Enabling Fast Li‐Ion Transport in a Pliable Solid Electrolyte' 논문처럼 미시적 메커니즘 규명을 통해 이온 전도도를 향상시키려는 노력이 활발합니다. DFT와 같은 계산 화학 방법론이 이러한 복잡한 계면 및 벌크 내 이온 수송 현상을 이해하는 데 필수적인 도구로 자리매김하고 있으며, CCEL의 강점인 계산 재료 과학이 큰 역할을 할 수 있는 영역입니다.\n\n또한, 아연-이산화탄소 수계 배터리 및 Li-S 배터리 연구는 리튬 이온 배터리의 대안을 모색하고 지속 가능한 에너지 저장 시스템을 개발하려는 움직임을 반영합니다. 특히, 중성자 기반 오페란도 분석과 AI를 결합한 Li-S 배터리 연구는 복잡한 전기화학 시스템의 실시간 분석 및 데이터 기반 이해의 중요성을 부각시킵니다. CCEL은 기존의 계산 역량을 바탕으로 새로운 배터리 시스템의 탐색, AI/머신러닝을 활용한 재료 및 공정 최적화 연구로 확장하는 전략을 고려할 필요가 있습니다.",
+      "hot_topics": [
+        "고전압 양극",
+        "고체 전해질",
+        "계면 공학",
+        "AI 기반 배터리 분석",
+        "CO2 활용 배터리"
+      ],
+      "paper_count_monthly": 4,
+      "paper_count_yearly": 4,
+      "generated_at": "2026-03-17T16:27:33.892948"
+    },
+    "ml": {
+      "label": "ML / MLIP",
+      "monthly_trend": "지난 한 달간 ML/MLIP 분야에서는 머신러닝 상호작용 전위(MLIP)를 활용한 대규모 분자 동역학(MD) 시뮬레이션 및 고처리량 스크리닝 연구가 두드러졌습니다. 특히, MOF를 이용한 PFAS 제거 연구에서는 고전적 UFF와 MLIP를 결합한 Monte Carlo 시뮬레이션을 통해 흡착 친화도를 예측하며 환경 촉매 분야에서의 MLIP 활용 가능성을 보여주었습니다. 음이온 교환막(AEM) 내 수산화 이온 수송 메커니즘 규명 연구에서는 MLIP 기반 MD를 통해 나노스케일 동역학을 분석하여 전기화학 시스템 이해에 기여했습니다. 방법론적 측면에서는 기존 MLIP의 단거리 상호작용 한계를 극복하기 위해 장거리 정전기 효과(전하 이동, 유도 분극)를 통합하는 새로운 MLIP 프레임워크 개발 논문이 발표되어, MLIP 모델의 정확도와 적용 범위를 확장하려는 노력이 활발함을 알 수 있습니다. CCEL은 MLIP를 활용한 대규모 시스템 시뮬레이션 및 새로운 MLIP 개발 동향에 주목하여, 촉매 및 전기화학 시스템의 복잡한 동역학을 이해하고 새로운 재료를 설계하는 데 활용할 수 있을 것입니다.",
+      "yearly_trend": "지난 1년간 ML/MLIP 분야의 연구 동향은 월간 동향과 동일한 논문들로 구성되어 있어, 최근의 연구 흐름이 연간 트렌드를 대표한다고 볼 수 있습니다. 이는 MLIP가 다양한 재료 과학 분야에서 원자 수준의 메커니즘을 이해하고 재료 특성을 예측하는 핵심 도구로 확고히 자리매김하고 있음을 시사합니다. 특히, MOF를 이용한 환경 오염물질 제거, AEM 내 이온 수송 메커니즘 규명, 강유전체 스위칭 분석 등 광범위한 응용 분야에서 MLIP 기반 MD 시뮬레이션이 활발히 적용되고 있습니다. 또한, MLIP 자체의 방법론적 개선, 특히 장거리 상호작용을 정확하게 모델링하려는 시도는 MLIP의 신뢰성과 예측력을 높이는 데 중요한 방향성을 제시합니다. CCEL은 이러한 MLIP의 광범위한 적용 가능성과 방법론적 발전에 주목하여, DFT 계산의 한계를 넘어선 대규모 시스템 연구 및 복잡한 반응 메커니즘 분석에 MLIP를 적극적으로 통합하고, 나아가 CCEL의 전문 분야에 특화된 MLIP 개발에도 기여할 전략을 모색해야 할 것입니다.",
+      "hot_topics": [
+        "MLIP 개발 및 개선",
+        "대규모 분자 동역학",
+        "이온 수송 메커니즘",
+        "고처리량 재료 스크리닝",
+        "장거리 정전기 효과"
+      ],
+      "paper_count_monthly": 5,
+      "paper_count_yearly": 5,
+      "generated_at": "2026-03-17T16:27:47.329112"
+    },
+    "policy": {
+      "label": "Industry / Policy",
+      "monthly_trend": "지난 한 달간 '산업/정책' 카테고리에서는 보고된 논문이 없습니다. 이는 CCEL과 같은 계산 촉매 및 신소재 연구실의 주된 연구 성과가 주로 기초 과학 및 응용 과학 분야의 학술지에 게재되기 때문일 수 있습니다. '산업/정책' 분야의 직접적인 논문보다는, 이 카테고리는 연구 방향과 자금 지원에 영향을 미치는 외부 요인들을 반영하는 경향이 있습니다. 따라서 직접적인 논문이 없더라도, CCEL은 정부의 R&D 예산 배정, 친환경 에너지 전환 정책, 그리고 특정 소재(예: 배터리 소재, 수소 생산 촉매)에 대한 산업계의 수요 변화 등 간접적인 동향을 지속적으로 주시해야 합니다. 이러한 외부 동향은 DFT, 전기화학, 머신러닝 기반 촉매 설계 등 CCEL의 핵심 연구 분야에 대한 수요와 기회를 창출합니다.",
+      "yearly_trend": "지난 1년간 '산업/정책' 카테고리에서 보고된 논문이 없다는 점은 월간 동향과 유사하게 해석될 수 있습니다. 그러나 더 넓은 관점에서 볼 때, 전 세계적으로 탄소 중립 목표 달성을 위한 정책적 노력과 친환경 에너지 기술(수소 경제, CO2 전환, 차세대 배터리) 개발에 대한 막대한 투자는 CCEL의 연구 방향에 중요한 영향을 미치고 있습니다. 각국 정부는 이러한 전략적 기술 분야에 대한 R&D 자금을 확대하고 있으며, 이는 계산 촉매 및 신소재 연구에 대한 수요를 증가시키는 주요 동인입니다. 특히, 인공지능과 머신러닝을 활용한 소재 개발 가속화는 산업계에서도 큰 관심을 받고 있으며, 이는 CCEL의 ML 기반 연구에 대한 잠재적 협력 기회를 시사합니다. CCEL은 이러한 거시적인 산업 및 정책 동향을 이해하고, 연구 주제를 국가 및 국제적 우선순위에 맞춰 조정함으로써 연구의 파급력과 실용성을 높일 수 있습니다.",
+      "hot_topics": [
+        "친환경 에너지 정책",
+        "탄소중립 기술 개발",
+        "산업-학연 협력",
+        "R&D 투자 동향",
+        "지속가능 소재 전략"
+      ],
+      "paper_count_monthly": 0,
+      "paper_count_yearly": 0,
+      "generated_at": "2026-03-17T16:28:01.135089"
+    }
+  },
   "papers": [
     {
       "source": "arXiv",

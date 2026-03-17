@@ -1,0 +1,25 @@
+2026-03-17 16:26:03,544 [INFO] ccel-news: CCEL Daily News Pipeline started
+2026-03-17 16:26:03,545 [INFO] ccel-news: Date: 2026-03-17 16:26:03
+2026-03-17 16:26:03,547 [INFO] ccel-news: Forced digest + category trends generation
+2026-03-17 16:26:19,071 [INFO] summarizer: Loaded 374 unique papers from history
+2026-03-17 16:26:19,071 [INFO] summarizer: Generating trend for: DFT / Computational Chemistry
+2026-03-17 16:26:40,284 [INFO] summarizer:   DFT / Computational Chemistry: monthly=8, yearly=8, topics=['머신러닝 상호작용 전위 (MLIP)', '고처리량 계산 스크리닝 (HTCS)', '전기화학 촉매 (Electrocatalysis)', '이온 수송 메커니즘 (Ion Transport Mechanisms)', '에너지 저장 소재 (Energy Storage Materials)']
+2026-03-17 16:26:44,288 [INFO] summarizer: Generating trend for: Catalysis
+2026-03-17 16:26:58,502 [INFO] summarizer:   Catalysis: monthly=3, yearly=3, topics=['PFAS 제거', 'MOF 계산 스크리닝', 'CO/CO2 전기환원', '다중 탄소 생성물 합성', '촉매 변형률 제어']
+2026-03-17 16:27:02,503 [INFO] summarizer: Generating trend for: Electrochemistry / Fuel Cells
+2026-03-17 16:27:14,345 [INFO] summarizer:   Electrochemistry / Fuel Cells: monthly=6, yearly=6, topics=['CO/CO2 전기환원 촉매', '이온 수송 메커니즘', '차세대 배터리 소재', '머신러닝 기반 계산화학', '계면 안정성 및 바인더 공학']
+2026-03-17 16:27:18,346 [INFO] summarizer: Generating trend for: Battery
+2026-03-17 16:27:33,893 [INFO] summarizer:   Battery: monthly=4, yearly=4, topics=['고전압 양극', '고체 전해질', '계면 공학', 'AI 기반 배터리 분석', 'CO2 활용 배터리']
+2026-03-17 16:27:37,894 [INFO] summarizer: Generating trend for: ML / MLIP
+2026-03-17 16:27:47,329 [INFO] summarizer:   ML / MLIP: monthly=5, yearly=5, topics=['MLIP 개발 및 개선', '대규모 분자 동역학', '이온 수송 메커니즘', '고처리량 재료 스크리닝', '장거리 정전기 효과']
+2026-03-17 16:27:51,330 [INFO] summarizer: Generating trend for: Industry / Policy
+2026-03-17 16:28:01,135 [INFO] summarizer:   Industry / Policy: monthly=0, yearly=0, topics=['친환경 에너지 정책', '탄소중립 기술 개발', '산업-학연 협력', 'R&D 투자 동향', '지속가능 소재 전략']
+2026-03-17 16:28:05,147 [INFO] ccel-news: Saved 363 papers to data\news.json
+2026-03-17 16:28:05,149 [INFO] ccel-news: History saved to data\history\news_20260317.json
+2026-03-17 16:28:05,149 [INFO] ccel-news: ============================================================
+2026-03-17 16:28:05,149 [INFO] ccel-news: Pipeline complete!
+2026-03-17 16:28:05,149 [INFO] ccel-news:   Papers: 363
+2026-03-17 16:28:05,150 [INFO] ccel-news:   CCEL: 0
+2026-03-17 16:28:05,150 [INFO] ccel-news:   Digest: Yes
+2026-03-17 16:28:05,150 [INFO] ccel-news:   Category trends: 6 categories
+2026-03-17 16:28:05,150 [INFO] ccel-news: ============================================================
