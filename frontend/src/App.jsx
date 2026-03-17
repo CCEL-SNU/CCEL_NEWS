@@ -237,6 +237,93 @@ function SourceBreakdown({papers}){
   </div>;
 }
 
+function CategoryTrends({trends}){
+  const [activeCat,setActiveCat]=useState(null);
+  const [timeView,setTimeView]=useState("monthly"); // "monthly" or "yearly"
+
+  if(!trends||Object.keys(trends).length===0) return null;
+
+  const catOrder=["dft","catalysis","electrochemistry","battery","ml","policy"];
+  const available=catOrder.filter(c=>trends[c]);
+
+  // Default to first category
+  const current=activeCat&&trends[activeCat]?activeCat:available[0];
+  if(!current)return null;
+  const t=trends[current];
+
+  const text=timeView==="monthly"?t.monthly_trend:t.yearly_trend;
+  const hotTopics=t.hot_topics||[];
+
+  return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
+    {/* Header */}
+    <div style={{padding:"16px 20px 0",borderBottom:`1px solid ${C.borderLight}`}}>
+      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+        <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:10,fontWeight:800,flexShrink:0}}>AI</div>
+        <div>
+          <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Category Research Trends</h4>
+          <p style={{fontSize:11,color:C.gray500,margin:0}}>AI-generated analysis per research area</p>
+        </div>
+      </div>
+
+      {/* Category tabs */}
+      <div style={{display:"flex",gap:0,overflowX:"auto"}}>
+        {available.map(catId=>{
+          const label=CATEGORIES.find(c=>c.id===catId)?.label||catId;
+          const color=cc(catId);
+          const isActive=catId===current;
+          const count=trends[catId]?.paper_count_monthly||0;
+          return <button key={catId} onClick={()=>setActiveCat(catId)} style={{
+            padding:"8px 14px",border:"none",borderBottom:isActive?`2.5px solid ${color}`:"2.5px solid transparent",
+            background:"transparent",cursor:"pointer",fontFamily:"inherit",fontSize:11.5,
+            fontWeight:isActive?700:400,color:isActive?color:C.gray500,transition:"all .15s",whiteSpace:"nowrap",
+          }}>
+            {label} <span style={{fontSize:10,opacity:.7}}>({count})</span>
+          </button>;
+        })}
+      </div>
+    </div>
+
+    {/* Content */}
+    <div style={{padding:"16px 20px"}}>
+      {/* Time toggle */}
+      <div style={{display:"flex",gap:3,marginBottom:14}}>
+        {[["monthly","Recent 1 Month"],["yearly","Past 1 Year"]].map(([k,l])=>
+          <button key={k} onClick={()=>setTimeView(k)} style={{
+            padding:"4px 14px",border:"none",fontFamily:"inherit",cursor:"pointer",fontSize:11.5,fontWeight:600,borderRadius:2,
+            background:timeView===k?cc(current)+"18":"transparent",
+            color:timeView===k?cc(current):C.gray500,
+          }}>{l}</button>
+        )}
+        <div style={{marginLeft:"auto",display:"flex",gap:5,alignItems:"center"}}>
+          <span style={{fontSize:10,color:C.gray500}}>
+            {timeView==="monthly"?t.paper_count_monthly:t.paper_count_yearly} papers
+          </span>
+        </div>
+      </div>
+
+      {/* Hot topics */}
+      {hotTopics.length>0&&<div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:12}}>
+        {hotTopics.map((topic,i)=><span key={i} style={{
+          padding:"2px 10px",borderRadius:10,fontSize:11,fontWeight:500,
+          color:cc(current),background:cc(current)+"10",border:`1px solid ${cc(current)}25`,
+        }}>{topic}</span>)}
+      </div>}
+
+      {/* Trend text */}
+      {text?text.split("\n\n").map((p,i)=>
+        <p key={i} style={{fontSize:13.5,color:C.textBody,lineHeight:1.75,margin:i===0?0:"10px 0 0"}}>{p}</p>
+      ):<p style={{fontSize:13,color:C.gray500,textAlign:"center",padding:"20px 0"}}>
+        {timeView==="yearly"?"Not enough historical data yet. Trends will appear after data accumulates.":"No trend data available. Run --digest to generate."}
+      </p>}
+
+      {/* Generated timestamp */}
+      {t.generated_at&&<p style={{fontSize:10,color:C.gray300,marginTop:12,textAlign:"right"}}>
+        Generated: {t.generated_at.slice(0,10)}
+      </p>}
+    </div>
+  </div>;
+}
+
 function WeeklyDigest({text}){
   if(!text)return null;
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,borderLeft:`4px solid ${C.accent}`,padding:20,boxShadow:C.shadow}}>
@@ -286,6 +373,7 @@ export default function App(){
 
   const papers=data?.papers||[];
   const digest=data?.weekly_digest||"";
+  const categoryTrends=data?.category_trends||{};
   const genDate=data?.date||data?.generated_at?.slice(0,10)||"";
 
   const filtered=useMemo(()=>{
@@ -429,6 +517,7 @@ export default function App(){
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:14}}>
           <WeeklyDigest text={digest}/>
+          <CategoryTrends trends={categoryTrends}/>
           <TrendChart papers={papers}/>
           <SourceBreakdown papers={papers}/>
         </div>
