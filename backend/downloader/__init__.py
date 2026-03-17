@@ -1,7 +1,17 @@
 """
-PDF Downloader.
-Downloads paper PDFs using SNU institutional IP access.
-Includes rate limiting, retry logic, and publisher-specific URL resolution.
+PDF Downloader with Selenium support.
+Uses Selenium (headless Chrome) for publishers that block urllib requests (ACS, Wiley, Science, RSC).
+Falls back to urllib for open-access sources (arXiv, Nature).
+
+Requirements:
+    pip install selenium
+    Chrome browser installed on the system
+    ChromeDriver matching Chrome version (or use selenium 4.6+ with auto driver management)
+
+Setup on lab server:
+    pip install selenium --break-system-packages
+    # Chrome is usually pre-installed on Windows
+    # Selenium 4.6+ auto-downloads ChromeDriver
 """
 
 import os
@@ -10,27 +20,33 @@ import time
 import urllib.request
 import urllib.error
 import logging
+import hashlib
 from typing import Optional
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+# Publishers that need Selenium (block direct urllib requests)
+SELENIUM_PUBLISHERS = {"10.1021", "10.1002", "10.1039", "10.1126"}
+
+# Publishers where urllib works fine
+URLLIB_PUBLISHERS = {"10.1038"}  # Nature
+
 # Publisher-specific PDF URL patterns
-# Maps DOI prefixes to functions that construct PDF download URLs
-PUBLISHER_PATTERNS = {
+PUBLISHER_PDF_URLS = {
     # ACS (JACS, ACS Catal., ACS Energy Lett., etc.)
     "10.1021": lambda doi: f"https://pubs.acs.org/doi/pdf/{doi}",
     # Wiley (Angew. Chem., Adv. Energy Mater., Small, etc.)
     "10.1002": lambda doi: f"https://onlinelibrary.wiley.com/doi/pdfdirect/{doi}",
-    # Elsevier (Joule, Applied Catalysis B, etc.)
-    "10.1016": lambda doi: f"https://www.sciencedirect.com/science/article/pii/{{pii}}/pdfft",
     # RSC (Energy Environ. Sci., J. Mater. Chem. A, etc.)
     "10.1039": lambda doi: f"https://pubs.rsc.org/en/content/articlepdf/{doi.split('/')[-1]}",
-    # Nature group (Nature, Nat. Catal., Nat. Energy, etc.)
+    # Nature group
     "10.1038": lambda doi: f"https://www.nature.com/articles/{doi.split('/')[-1]}.pdf",
     # Science / AAAS
     "10.1126": lambda doi: f"https://www.science.org/doi/pdf/{doi}",
-    # APS (Phys. Rev. Lett., Phys. Rev. B, etc.)
+    # Elsevier
+    "10.1016": lambda doi: f"https://doi.org/{doi}",
+    # APS
     "10.1103": lambda doi: f"https://journals.aps.org/prl/pdf/{doi}",
     # Springer
     "10.1007": lambda doi: f"https://link.springer.com/content/pdf/{doi}.pdf",
@@ -40,7 +56,7 @@ PUBLISHER_PATTERNS = {
 
 
 class PaperDownloader:
-    """Downloads PDFs with rate limiting and SNU IP institutional access."""
+    """Downloads PDFs with Selenium for paywalled publishers, urllib for open access."""
 
     def __init__(self, config: dict):
         dl_cfg = config.get("downloader", {})
@@ -50,9 +66,80 @@ class PaperDownloader:
         self.pdf_dir = Path(dl_cfg.get("pdf_directory", "./data/papers"))
         self.user_agent = dl_cfg.get("user_agent", "CCEL-DailyNews/1.0")
         self.downloaded_today = 0
+        self._driver = None
+        self._selenium_available = None
 
         # Create PDF directory
         self.pdf_dir.mkdir(parents=True, exist_ok=True)
+
+    def _check_selenium(self) -> bool:
+        """Check if Selenium is available."""
+        if self._selenium_available is not None:
+            return self._selenium_available
+        try:
+            from selenium import webdriver
+            self._selenium_available = True
+            logger.info("Selenium is available")
+        except ImportError:
+            self._selenium_available = False
+            logger.warning("Selenium not installed. Install with: pip install selenium")
+            logger.warning("Paywalled PDFs (ACS, Wiley, Science, RSC) will be skipped.")
+        return self._selenium_available
+
+    def _get_driver(self):
+        """Get or create a Selenium Chrome WebDriver."""
+        if self._driver is not None:
+            return self._driver
+
+        if not self._check_selenium():
+            return None
+
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+        from selenium.webdriver.chrome.service import Service
+
+        options = Options()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument(f"--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+        # Configure download directory
+        prefs = {
+            "download.default_directory": str(self.pdf_dir.resolve()),
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "plugins.always_open_pdf_externally": True,  # Don't open PDF in browser
+        }
+        options.add_experimental_option("prefs", prefs)
+
+        try:
+            # Selenium 4.6+ auto-manages ChromeDriver
+            self._driver = webdriver.Chrome(options=options)
+            self._driver.set_page_load_timeout(self.timeout)
+            logger.info("Chrome WebDriver initialized (headless)")
+            return self._driver
+        except Exception as e:
+            logger.error(f"Failed to initialize Chrome WebDriver: {e}")
+            logger.error("Make sure Chrome is installed and up to date.")
+            self._selenium_available = False
+            return None
+
+    def _close_driver(self):
+        """Close the Selenium driver."""
+        if self._driver:
+            try:
+                self._driver.quit()
+            except Exception:
+                pass
+            self._driver = None
+
+    def _get_doi_prefix(self, doi: str) -> str:
+        """Extract publisher prefix from DOI."""
+        if not doi:
+            return ""
+        return doi.split("/")[0] if "/" in doi else ""
 
     def _resolve_pdf_url(self, paper: dict) -> Optional[str]:
         """Resolve the PDF download URL for a paper."""
@@ -69,47 +156,166 @@ class PaperDownloader:
         if not doi:
             return None
 
-        # Match DOI prefix to publisher
-        for prefix, url_fn in PUBLISHER_PATTERNS.items():
-            if doi.startswith(prefix):
-                return url_fn(doi)
+        prefix = self._get_doi_prefix(doi)
+        if prefix in PUBLISHER_PDF_URLS:
+            return PUBLISHER_PDF_URLS[prefix](doi)
 
-        # 4. Fallback: try Unpaywall API for OA copies
-        try:
-            url = f"https://api.unpaywall.org/v2/{doi}?email=ccel@snu.ac.kr"
-            req = urllib.request.Request(url, headers={"User-Agent": self.user_agent})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                import json
-                data = json.loads(resp.read())
-                oa_loc = data.get("best_oa_location")
-                if oa_loc and oa_loc.get("url_for_pdf"):
-                    return oa_loc["url_for_pdf"]
-        except Exception:
-            pass
-
-        # 5. Generic DOI redirect (works with SNU IP for subscribed journals)
+        # 4. Generic DOI redirect
         return f"https://doi.org/{doi}"
 
     def _safe_filename(self, paper: dict) -> str:
         """Generate a safe filename for the PDF."""
-        # Use DOI or arxiv_id as base
         if paper.get("doi"):
             name = paper["doi"].replace("/", "_").replace(".", "_")
         elif paper.get("arxiv_id"):
             name = f"arxiv_{paper['arxiv_id'].replace('/', '_')}"
         else:
-            # Title hash
-            import hashlib
             name = hashlib.md5(paper["title"].encode()).hexdigest()[:16]
         return f"{name}.pdf"
 
-    def download_one(self, paper: dict) -> Optional[str]:
-        """
-        Download a single paper's PDF.
+    def _needs_selenium(self, paper: dict) -> bool:
+        """Check if this paper's publisher requires Selenium."""
+        doi = paper.get("doi", "")
+        prefix = self._get_doi_prefix(doi)
+        return prefix in SELENIUM_PUBLISHERS
 
-        Returns:
-            Local file path if successful, None otherwise.
-        """
+    def _download_with_urllib(self, paper: dict, pdf_url: str, filepath: Path) -> Optional[str]:
+        """Download PDF using urllib (for open-access / Nature)."""
+        try:
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Accept": "application/pdf,*/*",
+                "Referer": paper.get("url", ""),
+            }
+            req = urllib.request.Request(pdf_url, headers=headers)
+
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                content_type = resp.headers.get("Content-Type", "")
+
+                if "html" in content_type.lower() and "pdf" not in content_type.lower():
+                    logger.warning(f"    Got HTML instead of PDF (urllib), skipping")
+                    return None
+
+                data = resp.read()
+
+                if len(data) < 1000 or not data[:5] == b'%PDF-':
+                    logger.warning(f"    Not a valid PDF ({len(data)} bytes)")
+                    return None
+
+                with open(filepath, "wb") as f:
+                    f.write(data)
+
+            paper["local_pdf"] = str(filepath)
+            logger.info(f"    Success (urllib): {len(data)} bytes")
+            return str(filepath)
+
+        except urllib.error.HTTPError as e:
+            if e.code == 403:
+                logger.warning(f"    Access denied (403/urllib)")
+            elif e.code == 404:
+                logger.warning(f"    Not found (404/urllib)")
+            else:
+                logger.error(f"    HTTP error {e.code} (urllib)")
+            return None
+        except Exception as e:
+            logger.error(f"    urllib download failed: {e}")
+            return None
+
+    def _download_with_selenium(self, paper: dict, pdf_url: str, filepath: Path) -> Optional[str]:
+        """Download PDF using Selenium headless Chrome (for paywalled publishers)."""
+        driver = self._get_driver()
+        if not driver:
+            logger.warning(f"    Selenium not available, skipping paywalled PDF")
+            return None
+
+        try:
+            # Navigate to PDF URL - browser handles institutional auth via IP
+            logger.info(f"    Selenium navigating to PDF...")
+            driver.get(pdf_url)
+
+            # Wait for page to load / PDF to render
+            time.sleep(3)
+
+            # Check if we got redirected to a login page
+            current_url = driver.current_url
+            page_source = driver.page_source[:500].lower() if driver.page_source else ""
+
+            if "login" in current_url.lower() or "signin" in current_url.lower():
+                logger.warning(f"    Redirected to login page, no institutional access")
+                return None
+
+            if "access denied" in page_source or "purchase" in page_source:
+                logger.warning(f"    Access denied page detected")
+                return None
+
+            # Method 1: Try to get PDF from Chrome's PDF viewer
+            # If Chrome opened the PDF, we can get it via CDP
+            try:
+                import base64
+                result = driver.execute_cdp_cmd("Page.printToPDF", {
+                    "printBackground": True,
+                    "preferCSSPageSize": True,
+                })
+                pdf_data = base64.b64decode(result["data"])
+
+                if len(pdf_data) > 5000:  # Reasonable PDF size
+                    with open(filepath, "wb") as f:
+                        f.write(pdf_data)
+                    paper["local_pdf"] = str(filepath)
+                    logger.info(f"    Success (selenium/CDP): {len(pdf_data)} bytes")
+                    return str(filepath)
+            except Exception:
+                pass
+
+            # Method 2: Use requests with cookies from Selenium session
+            try:
+                import urllib.request
+                cookies = driver.get_cookies()
+                cookie_str = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
+
+                req = urllib.request.Request(pdf_url, headers={
+                    "User-Agent": driver.execute_script("return navigator.userAgent"),
+                    "Cookie": cookie_str,
+                    "Accept": "application/pdf,*/*",
+                    "Referer": paper.get("url", pdf_url),
+                })
+
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    data = resp.read()
+
+                if len(data) > 1000 and data[:5] == b'%PDF-':
+                    with open(filepath, "wb") as f:
+                        f.write(data)
+                    paper["local_pdf"] = str(filepath)
+                    logger.info(f"    Success (selenium/cookies): {len(data)} bytes")
+                    return str(filepath)
+            except Exception as e2:
+                logger.debug(f"    Cookie-based download failed: {e2}")
+
+            # Method 3: Check if file was auto-downloaded to pdf_dir
+            time.sleep(2)
+            for f in self.pdf_dir.iterdir():
+                if f.suffix == ".pdf" and f.stat().st_size > 1000:
+                    # Check if this is a newly downloaded file (within last 30 seconds)
+                    import datetime
+                    mtime = datetime.datetime.fromtimestamp(f.stat().st_mtime)
+                    if (datetime.datetime.now() - mtime).total_seconds() < 30:
+                        # Rename to our standard filename
+                        if f.name != filepath.name:
+                            f.rename(filepath)
+                        paper["local_pdf"] = str(filepath)
+                        logger.info(f"    Success (selenium/auto-download): {filepath.stat().st_size} bytes")
+                        return str(filepath)
+
+            logger.warning(f"    Selenium could not retrieve PDF")
+            return None
+
+        except Exception as e:
+            logger.error(f"    Selenium download failed: {e}")
+            return None
+
+    def download_one(self, paper: dict) -> Optional[str]:
+        """Download a single paper's PDF."""
         if self.downloaded_today >= self.max_per_day:
             logger.warning(f"Daily download limit reached ({self.max_per_day})")
             return None
@@ -132,73 +338,28 @@ class PaperDownloader:
         logger.info(f"  Downloading: {filename}")
         logger.info(f"    URL: {pdf_url}")
 
-        try:
-            headers = {
-                "User-Agent": self.user_agent,
-                "Accept": "application/pdf,*/*",
-                "Referer": paper.get("url", ""),
-            }
-            req = urllib.request.Request(pdf_url, headers=headers)
+        # Choose download method based on publisher
+        if self._needs_selenium(paper):
+            result = self._download_with_selenium(paper, pdf_url, filepath)
+        else:
+            result = self._download_with_urllib(paper, pdf_url, filepath)
 
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                content_type = resp.headers.get("Content-Type", "")
-
-                # Check if we got a PDF (not an HTML login page)
-                if "html" in content_type.lower() and "pdf" not in content_type.lower():
-                    # Might be a redirect to login page
-                    # Try following the response URL for DOI redirects
-                    final_url = resp.url
-                    if final_url != pdf_url:
-                        logger.info(f"    Redirected to: {final_url}")
-                        # Try to find PDF link on the page
-                        # For now, skip these
-                        logger.warning(f"    Got HTML instead of PDF, skipping")
-                        return None
-
-                data = resp.read()
-
-                # Verify it looks like a PDF
-                if len(data) < 1000 or not data[:5] == b'%PDF-':
-                    logger.warning(f"    Downloaded file is not a valid PDF ({len(data)} bytes)")
-                    return None
-
-                with open(filepath, "wb") as f:
-                    f.write(data)
-
+        if result:
             self.downloaded_today += 1
-            paper["local_pdf"] = str(filepath)
-            logger.info(f"    Success: {len(data)} bytes")
-
-            # Rate limiting
             time.sleep(self.delay)
-            return str(filepath)
 
-        except urllib.error.HTTPError as e:
-            if e.code == 403:
-                logger.warning(f"    Access denied (403) - may not be subscribed")
-            elif e.code == 404:
-                logger.warning(f"    Not found (404)")
-            elif e.code == 429:
-                logger.warning(f"    Rate limited (429) - waiting 60s")
-                time.sleep(60)
-            else:
-                logger.error(f"    HTTP error {e.code}: {e.reason}")
-            return None
-        except Exception as e:
-            logger.error(f"    Download failed: {e}")
-            return None
+        return result
 
     def download_batch(self, papers: list) -> dict:
-        """
-        Download PDFs for a batch of papers.
-
-        Args:
-            papers: List of paper dicts.
-
-        Returns:
-            Dict with download statistics.
-        """
-        stats = {"total": len(papers), "downloaded": 0, "skipped": 0, "failed": 0, "limit_reached": False}
+        """Download PDFs for a batch of papers."""
+        stats = {
+            "total": len(papers),
+            "downloaded": 0,
+            "skipped": 0,
+            "failed": 0,
+            "selenium_used": 0,
+            "limit_reached": False,
+        }
 
         # Prioritize: CCEL papers first, then by relevance
         sorted_papers = sorted(papers, key=lambda p: (
@@ -212,6 +373,9 @@ class PaperDownloader:
                 logger.warning("Daily limit reached, stopping downloads")
                 break
 
+            if self._needs_selenium(paper):
+                stats["selenium_used"] += 1
+
             result = self.download_one(paper)
             if result:
                 stats["downloaded"] += 1
@@ -219,6 +383,9 @@ class PaperDownloader:
                 stats["skipped"] += 1
             else:
                 stats["failed"] += 1
+
+        # Clean up Selenium driver
+        self._close_driver()
 
         logger.info(f"Download stats: {stats}")
         return stats

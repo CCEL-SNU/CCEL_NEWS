@@ -1,7 +1,7 @@
 """
-arXiv paper collector v3.
-No category pre-filtering - Claude AI will classify relevance later.
-Only filters by date and deduplicates.
+arXiv paper collector v4.
+Fetches by keyword, then filters by CCEL-relevant arXiv categories in Python.
+This avoids the URL-too-long issue from v2 while keeping results relevant.
 """
 
 import urllib.request
@@ -16,6 +16,44 @@ logger = logging.getLogger(__name__)
 
 ARXIV_API = "http://export.arxiv.org/api/query"
 NS = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
+
+# CCEL-relevant arXiv categories (post-fetch filter)
+# Catalysis/battery papers live under cond-mat.mtrl-sci and physics.chem-ph
+ALLOWED_CATEGORIES = {
+    # Condensed Matter
+    "cond-mat.mtrl-sci",   # Materials Science (battery, catalysis materials)
+    "cond-mat.str-el",     # Strongly Correlated Electrons
+    "cond-mat.other",      # Other condensed matter
+    "cond-mat.stat-mech",  # Statistical Mechanics (thermodynamics)
+    "cond-mat.soft",       # Soft Condensed Matter (polymers, electrolytes)
+    # Physics
+    "physics.chem-ph",     # Chemical Physics (DFT, reaction mechanisms)
+    "physics.comp-ph",     # Computational Physics (simulations)
+    "physics.atm-clus",    # Atomic and Molecular Clusters
+    "physics.app-ph",      # Applied Physics
+    # Chemistry (if present)
+    "chem-ph",             # Chemical Physics (older tag)
+    # Machine Learning (for MLIP, GNN potentials)
+    "cs.LG",               # Machine Learning
+    "cs.AI",               # Artificial Intelligence
+    "stat.ML",             # Statistical ML
+    "cs.CE",               # Computational Engineering
+}
+
+
+def _has_relevant_category(categories: List[str]) -> bool:
+    """Check if any of the paper's categories match CCEL-relevant ones."""
+    for cat in categories:
+        # Exact match
+        if cat in ALLOWED_CATEGORIES:
+            return True
+        # Parent match (e.g., "cond-mat.mtrl-sci" matches if "cond-mat" is checked)
+        parent = cat.split(".")[0]
+        if parent == "cond-mat" or parent == "physics":
+            # Allow all cond-mat.* and physics.* subcategories
+            # since catalysis/battery papers appear across many
+            return True
+    return False
 
 
 def _parse_entry(entry) -> Optional[dict]:
@@ -72,8 +110,7 @@ def _parse_entry(entry) -> Optional[dict]:
 def collect(keywords: List[str], days_back: int = 3, max_results_per_query: int = 30) -> List[dict]:
     """
     Search arXiv for recent papers matching keywords.
-    No category filtering - keywords are specific enough for CCEL topics.
-    Claude AI will handle relevance scoring later.
+    Post-fetch filtering by CCEL-relevant categories to remove irrelevant results.
     """
     all_papers = {}
     cutoff = (datetime.utcnow() - timedelta(days=days_back)).strftime("%Y-%m-%d")
@@ -99,21 +136,26 @@ def collect(keywords: List[str], days_back: int = 3, max_results_per_query: int 
             root = ET.fromstring(data)
             entries = root.findall("atom:entry", NS)
 
-            matched = 0
+            date_ok = 0
+            cat_ok = 0
             for entry in entries:
                 paper = _parse_entry(entry)
                 if paper is None:
                     continue
-                # Date filter only
+                # 1) Date filter
                 if paper["date"] < cutoff:
                     continue
-                # Dedup
+                date_ok += 1
+                # 2) Category filter (post-fetch, in Python)
+                if not _has_relevant_category(paper.get("categories", [])):
+                    continue
+                cat_ok += 1
+                # 3) Dedup
                 key = paper["arxiv_id"]
                 if key not in all_papers:
                     all_papers[key] = paper
-                    matched += 1
 
-            logger.info(f"  Fetched {len(entries)}, accepted {matched} (date-filtered)")
+            logger.info(f"  Fetched {len(entries)}, date-ok {date_ok}, category-ok {cat_ok}")
 
         except Exception as e:
             logger.error(f"arXiv API error for '{keyword}': {e}")
@@ -122,5 +164,5 @@ def collect(keywords: List[str], days_back: int = 3, max_results_per_query: int 
         time.sleep(3)
 
     papers = list(all_papers.values())
-    logger.info(f"arXiv total: {len(papers)} unique papers")
+    logger.info(f"arXiv total: {len(papers)} unique relevant papers")
     return papers

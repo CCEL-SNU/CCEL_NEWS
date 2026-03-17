@@ -1,6 +1,6 @@
 """
 AI Summarizer using Google Gemini API.
-Generates Korean summaries, categorizes papers, scores relevance,
+Generates Korean summaries, categorizes papers (multi-label), scores relevance,
 and produces weekly digests.
 """
 
@@ -110,7 +110,7 @@ def _extract_text_from_pdf(pdf_path: str, max_chars: int = 8000) -> str:
 
 def summarize_paper(paper: dict, categories: List, config: dict = None) -> dict:
     """
-    Generate a Korean summary, category, and relevance score for a paper.
+    Generate a Korean summary, categories (multi-label), and relevance score for a paper.
     """
     # Build context from abstract and/or PDF text
     context = paper.get("abstract") or ""
@@ -145,11 +145,22 @@ Available categories:
 
 Respond ONLY with valid JSON (no markdown, no explanation, no backticks):
 {{
-  "summary": "3-line Korean summary of the paper's key findings and significance for CCEL research. Be specific about methods and results.",
-  "category": "category_id from the list above",
+  "summary": "5-line Korean summary of the paper's key findings and significance for CCEL research. Be specific about methods and results.",
+  "categories": ["primary_category_id", "secondary_category_id"],
   "relevance": 85,
   "relevance_reason": "Brief Korean explanation of why this is relevant (or not) to CCEL"
 }}
+
+IMPORTANT rules for categories:
+- Assign 1 to 3 categories from the list above, ordered by relevance (primary first).
+- The FIRST category should be the primary research topic (e.g., "battery" for a battery paper).
+- Additional categories should reflect the methodology or secondary aspects.
+  Examples:
+  - A paper using DFT to study catalysis -> ["catalysis", "dft"]
+  - A paper using ML to discover battery materials -> ["battery", "ml"]
+  - A paper on fuel cell catalysts studied with DFT -> ["electrochemistry", "catalysis", "dft"]
+  - A pure policy paper -> ["policy"]
+- Only assign categories that are genuinely relevant. Do NOT pad with weakly related ones.
 
 The relevance score (0-100) should reflect how relevant this paper is to CCEL's research:
 - 95-100: Directly related to CCEL's active research topics
@@ -162,30 +173,45 @@ The relevance score (0-100) should reflect how relevant this paper is to CCEL's 
     if not response:
         return {
             "summary": (paper.get("abstract") or paper.get("title") or "")[:200],
-            "category": "dft",
+            "categories": [paper.get("category", "dft")],
             "relevance": 50,
         }
 
     try:
         # Clean response (remove potential markdown fences)
         cleaned = response.strip()
-        # Remove all markdown fences (```json ... ``` or ``` ... ```)
         import re
         cleaned = re.sub(r'^```\w*\n?', '', cleaned)
         cleaned = re.sub(r'\n?```$', '', cleaned)
         cleaned = cleaned.strip()
 
         result = json.loads(cleaned)
+
+        # Handle both old "category" (string) and new "categories" (list) format
+        cats = result.get("categories")
+        if not cats:
+            # Fallback to single category
+            cat = result.get("category", "dft")
+            cats = [cat] if isinstance(cat, str) else cat
+
+        # Ensure it's a list of strings
+        if isinstance(cats, str):
+            cats = [cats]
+        cats = [c for c in cats if isinstance(c, str) and c.strip()]
+        if not cats:
+            cats = ["dft"]
+
         return {
             "summary": result.get("summary", ""),
-            "category": result.get("category", "dft"),
+            "categories": cats,
+            "category": cats[0],  # Keep backward compat: primary category
             "relevance": min(100, max(0, int(result.get("relevance", 50)))),
             "relevance_reason": result.get("relevance_reason", ""),
         }
     except (json.JSONDecodeError, ValueError) as e:
         logger.warning(f"Failed to parse Gemini response: {e}")
         logger.warning(f"Raw response: {response[:300]}")
-        return {"summary": response[:300], "category": "dft", "relevance": 50}
+        return {"summary": response[:300], "categories": ["dft"], "category": "dft", "relevance": 50}
 
 
 def generate_weekly_digest(papers: List, config: dict = None) -> str:
@@ -195,10 +221,14 @@ def generate_weekly_digest(papers: List, config: dict = None) -> str:
 
     by_cat = {}
     for p in papers:
-        cat = p.get("category", "other")
-        if cat not in by_cat:
-            by_cat[cat] = []
-        by_cat[cat].append(p)
+        # Use categories list if available, fallback to category string
+        cats = p.get("categories") or [p.get("category", "other")]
+        if isinstance(cats, str):
+            cats = [cats]
+        for cat in cats:
+            if cat not in by_cat:
+                by_cat[cat] = []
+            by_cat[cat].append(p)
 
     papers_summary = ""
     for cat, cat_papers in by_cat.items():
@@ -244,7 +274,8 @@ def summarize_batch(papers: List, config: dict) -> List:
 
         result = summarize_paper(paper, categories, config)
         paper["summary"] = result["summary"]
-        paper["category"] = result["category"]
+        paper["categories"] = result["categories"]
+        paper["category"] = result.get("category", result["categories"][0] if result["categories"] else "dft")
         paper["relevance"] = result["relevance"]
         paper.setdefault("ccel", paper.get("group") == "ccel")
 
