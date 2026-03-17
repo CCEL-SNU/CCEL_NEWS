@@ -27,7 +27,7 @@ def _call_gemini(prompt: str, system: str = "", config: dict = None) -> Optional
     cfg = config or {}
     scfg = cfg.get("summarizer", {})
     model_name = scfg.get("model", "gemini-2.5-pro")
-    temperature = scfg.get("temperature", 0.3)
+    temperature = scfg.get("temperature", 0.1)
     api_key = os.environ.get("GOOGLE_API_KEY", "")
 
     if not api_key:
@@ -45,7 +45,7 @@ def _call_gemini(prompt: str, system: str = "", config: dict = None) -> Optional
                 prompt,
                 generation_config=genai.types.GenerationConfig(
                     temperature=temperature,
-                    max_output_tokens=10000,
+                    max_output_tokens=100000,
                 ),
             )
             return response.text
