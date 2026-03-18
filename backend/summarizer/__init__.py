@@ -29,10 +29,10 @@ def _call_gemini(prompt: str, system: str = "", config: dict = None) -> Optional
     scfg = cfg.get("summarizer", {})
     model_name = scfg.get("model", "gemini-2.5-pro")
     temperature = scfg.get("temperature", 0.1)
-    api_key = os.environ.get("GOOGLE_API_KEY", "")
+    api_key = cfg.get("gemini_api_key") or os.environ.get("GOOGLE_API_KEY", "")
 
     if not api_key:
-        logger.error("GOOGLE_API_KEY not set")
+        logger.error("gemini_api_key not found in config.yaml and GOOGLE_API_KEY env var not set")
         return None
 
     if HAS_SDK:

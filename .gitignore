@@ -4,6 +4,9 @@ __pycache__/
 *.pyo
 backend/venv/
 
+# Config (contains API keys)
+backend/config.yaml
+
 # PDF papers (large binary files)
 backend/data/papers/
 frontend/public/data/papers/
