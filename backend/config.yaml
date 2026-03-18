@@ -5,6 +5,8 @@
 # --- API Keys (set via environment variables for security) ---
 # ANTHROPIC_API_KEY: set in environment or .env file
 # SEMANTIC_SCHOLAR_API_KEY: optional, higher rate limits if set
+# OPENALEX_API_KEY: free key from https://openalex.org/settings/api (100k credits/day)
+openalex_api_key: "pjr324266tUkYuYOCqCZhy"
 
 # --- Search Keywords ---
 keywords:
@@ -39,7 +41,8 @@ groups:
   ccel:
     name: "CCEL"
     pi: "Jeong Woo Han"
-    semantic_scholar_id: "2257137686"   # Update with actual S2 author ID
+    semantic_scholar_id: "2257137686"
+    openalex_id: "A5033014275"
     affiliation: "Seoul National University"
     aliases:
       - "Han, J.W."
@@ -49,6 +52,7 @@ groups:
     name: "Norskov"
     pi: "Jens K. Norskov"
     semantic_scholar_id: "1397051203"
+    openalex_id: "A5055238911"
     affiliation: "DTU"
     aliases:
       - "Norskov, J.K."
@@ -57,6 +61,7 @@ groups:
     name: "Persson"
     pi: "Kristin A. Persson"
     semantic_scholar_id: "2243399706"
+    openalex_id: "A5037535334"
     affiliation: "UC Berkeley"
     aliases:
       - "Persson, K.A."
@@ -65,10 +70,130 @@ groups:
     name: "Curtarolo"
     pi: "Stefano Curtarolo"
     semantic_scholar_id: "3445901"
+    openalex_id: "A5006314784"
     affiliation: "Duke University"
     aliases:
       - "Curtarolo, S."
       - "Curtarolo, Stefano"
+
+  # --- MLIP & Fundamental Methods ---
+  ceriotti:
+    name: "Ceriotti"
+    pi: "Michele Ceriotti"
+    semantic_scholar_id: "1917770"
+    openalex_id: "A5021241296"
+    affiliation: "EPFL"
+    aliases:
+      - "Ceriotti, M."
+      - "Ceriotti, Michele"
+  csanyi:
+    name: "Csanyi"
+    pi: "Gabor Csanyi"
+    semantic_scholar_id: "2559761"
+    openalex_id: "A5025442671"
+    affiliation: "University of Cambridge"
+    aliases:
+      - "Csanyi, G."
+      - "Csanyi, Gabor"
+  vonlilienfeld:
+    name: "von Lilienfeld"
+    pi: "Anatole von Lilienfeld"
+    semantic_scholar_id: "11615881"
+    openalex_id: "A5088793872"
+    affiliation: "University of Toronto"
+    aliases:
+      - "von Lilienfeld, O.A."
+      - "von Lilienfeld, Anatole"
+  behler:
+    name: "Behler"
+    pi: "Jorg Behler"
+    semantic_scholar_id: "144136091"
+    openalex_id: "A5026774143"
+    affiliation: "University of Gottingen"
+    aliases:
+      - "Behler, J."
+      - "Behler, Jorg"
+
+  # --- GNN & Deep Learning Architectures ---
+  kozinsky:
+    name: "Kozinsky"
+    pi: "Boris Kozinsky"
+    semantic_scholar_id: "51443274"
+    openalex_id: "A5075010416"
+    affiliation: "Harvard University"
+    aliases:
+      - "Kozinsky, B."
+      - "Kozinsky, Boris"
+  ong:
+    name: "Ong"
+    pi: "Shyue Ping Ong"
+    semantic_scholar_id: "2381325"
+    openalex_id: "A5002723657"
+    affiliation: "UCSD"
+    aliases:
+      - "Ong, S.P."
+      - "Ong, Shyue Ping"
+  schutt:
+    name: "Schutt"
+    pi: "Kristof Schutt"
+    semantic_scholar_id: "51257580"
+    openalex_id: "A5084363234"
+    affiliation: "TU Berlin"
+    aliases:
+      - "Schutt, K."
+      - "Schutt, K.T."
+      - "Schutt, Kristof"
+
+  # --- Generative Models & Inverse Design ---
+  aspuruguzik:
+    name: "Aspuru-Guzik"
+    pi: "Alan Aspuru-Guzik"
+    semantic_scholar_id: "1380248954"
+    openalex_id: "A5071495561"
+    affiliation: "University of Toronto"
+    aliases:
+      - "Aspuru-Guzik, A."
+      - "Aspuru-Guzik, Alan"
+  kulik:
+    name: "Kulik"
+    pi: "Heather Kulik"
+    semantic_scholar_id: "3434648"
+    openalex_id: "A5050671822"
+    affiliation: "MIT"
+    aliases:
+      - "Kulik, H.J."
+      - "Kulik, Heather"
+      - "Kulik, Heather J."
+  kimjihan:
+    name: "Kim Jihan"
+    pi: "Jihan Kim"
+    semantic_scholar_id: "40570296"
+    openalex_id: "A5018605846"
+    affiliation: "KAIST"
+    aliases:
+      - "Kim, J."
+      - "Kim, Jihan"
+
+  schwalbekoda:
+    name: "Schwalbe-Koda"
+    pi: "Daniel Schwalbe-Koda"
+    semantic_scholar_id: "1415163723"
+    openalex_id: "A5049028674"
+    affiliation: ""
+    aliases:
+      - "Schwalbe-Koda, D."
+      - "Schwalbe-Koda, Daniel"
+
+  # --- Datasets & Platforms ---
+  rignanese:
+    name: "Rignanese"
+    pi: "Gian-Marco Rignanese"
+    semantic_scholar_id: "2972615"
+    openalex_id: "A5085863268"
+    affiliation: "UCLouvain"
+    aliases:
+      - "Rignanese, G.-M."
+      - "Rignanese, Gian-Marco"
 
 # --- RSS Feeds ---
 rss_feeds:
@@ -139,3 +264,4 @@ schedule:
   summarize_time: "07:30"
   weekly_digest_day: "Sunday"
   days_back: 365 # days
+  openalex_days_back: 730 # OpenAlex group tracking: 2 years

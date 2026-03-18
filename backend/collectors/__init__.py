@@ -8,7 +8,7 @@ import hashlib
 from typing import List
 
 from . import arxiv_collector
-from . import s2_collector
+from . import openalex_collector
 from . import rss_collector
 
 logger = logging.getLogger(__name__)
@@ -47,12 +47,13 @@ def collect_all(config: dict) -> List:
         if key not in all_papers:
             all_papers[key] = p
 
-    # 2. Semantic Scholar (group tracking)
+    # 2. OpenAlex (group tracking)
     logger.info("=" * 50)
-    logger.info("Collecting from Semantic Scholar (groups)...")
+    logger.info("Collecting from OpenAlex (groups)...")
     groups = config.get("groups", {})
-    s2_key = config.get("semantic_scholar_api_key")
-    group_papers = s2_collector.collect_groups(groups, days_back=config.get("days_back", 30), api_key=s2_key)
+    oa_key = config.get("openalex_api_key")
+    oa_days = config.get("schedule", {}).get("openalex_days_back", config.get("days_back", 30))
+    group_papers = openalex_collector.collect_groups(groups, days_back=oa_days, api_key=oa_key)
     for p in group_papers:
         key = _make_key(p)
         if key not in all_papers:
