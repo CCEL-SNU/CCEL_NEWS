@@ -116,7 +116,7 @@ categories:
 
 # --- Downloader Settings ---
 downloader:
-  max_papers_per_day: 30
+  max_papers_per_day: 9999
   delay_between_requests_sec: 8
   timeout_sec: 30
   pdf_directory: "./data/papers"
@@ -138,3 +138,4 @@ schedule:
   collect_time: "07:00"
   summarize_time: "07:30"
   weekly_digest_day: "Sunday"
+  days_back: 365 # days

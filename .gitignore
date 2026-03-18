@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/venv/
+
+# PDF papers (large binary files)
+backend/data/papers/
+frontend/public/data/papers/
+
+# Logs
+backend/logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

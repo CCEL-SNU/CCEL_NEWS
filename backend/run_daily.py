@@ -136,7 +136,7 @@ def git_push(config: dict):
 
 
 def run_collect(config: dict) -> list:
-    """Step 1-2: Collect metadata and download PDFs."""
+    """Step 1-2: Collect metadata, download PDFs, and filter out papers without PDFs."""
     logger.info("=" * 60)
     logger.info("STEP 1: Collecting paper metadata...")
     logger.info("=" * 60)
@@ -151,6 +151,15 @@ def run_collect(config: dict) -> list:
     downloader = PaperDownloader(config)
     stats = downloader.download_batch(papers)
     logger.info(f"Download complete: {stats}")
+
+    # Filter: only keep papers with successfully downloaded PDFs
+    before = len(papers)
+    papers = [p for p in papers if p.get("local_pdf")]
+    after = len(papers)
+    removed = before - after
+    logger.info("=" * 60)
+    logger.info(f"PDF filter: {before} -> {after} papers ({removed} removed without PDF)")
+    logger.info("=" * 60)
 
     return papers
 

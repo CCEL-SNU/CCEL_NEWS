@@ -41,7 +41,7 @@ def collect_all(config: dict) -> List:
     logger.info("=" * 50)
     logger.info("Collecting from arXiv...")
     keywords = config.get("keywords", {}).get("primary", [])
-    arxiv_papers = arxiv_collector.collect(keywords, days_back=3)
+    arxiv_papers = arxiv_collector.collect(keywords, days_back=config.get("days_back", 30))
     for p in arxiv_papers:
         key = _make_key(p)
         if key not in all_papers:
@@ -52,7 +52,7 @@ def collect_all(config: dict) -> List:
     logger.info("Collecting from Semantic Scholar (groups)...")
     groups = config.get("groups", {})
     s2_key = config.get("semantic_scholar_api_key")
-    group_papers = s2_collector.collect_groups(groups, api_key=s2_key)
+    group_papers = s2_collector.collect_groups(groups, days_back=config.get("days_back", 30), api_key=s2_key)
     for p in group_papers:
         key = _make_key(p)
         if key not in all_papers:
@@ -70,7 +70,7 @@ def collect_all(config: dict) -> List:
     logger.info("Collecting from RSS feeds...")
     feeds = config.get("rss_feeds", [])
     flat_keywords = keywords + config.get("keywords", {}).get("secondary", [])
-    rss_papers = rss_collector.collect(feeds, filter_keywords=flat_keywords)
+    rss_papers = rss_collector.collect(feeds, days_back=config.get("days_back", 30), filter_keywords=flat_keywords)
     for p in rss_papers:
         key = _make_key(p)
         if key not in all_papers:

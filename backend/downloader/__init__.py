@@ -221,6 +221,63 @@ class PaperDownloader:
             logger.error(f"    urllib download failed: {e}")
             return None
 
+    _ERROR_PATTERNS = [
+        "page not found",
+        "404 not found",
+        "this page is not available",
+        "we couldn't find the page",
+        "couldn't find the page you were looking for",
+        "sorry, we couldn't find",
+        "the page you requested",
+        "page does not exist",
+        "article not found",
+        "no longer available",
+        "has been removed",
+        "you do not have access",
+        "institutional login required",
+    ]
+
+    _TITLE_ERROR_PATTERNS = ["404", "not found", "error", "page not found", "access denied"]
+
+    def _is_error_page(self, driver) -> bool:
+        """Check if the current browser page is an error/login page."""
+        current_url = driver.current_url.lower()
+
+        url_patterns = ["/404", "/403", "error=", "errorpage"]
+        if any(p in current_url for p in url_patterns):
+            return True
+
+        title = ""
+        try:
+            title = driver.title.lower()
+        except Exception:
+            pass
+
+        if title and any(p in title for p in self._TITLE_ERROR_PATTERNS):
+            return True
+
+        try:
+            page_text = driver.page_source[:3000].lower() if driver.page_source else ""
+        except Exception:
+            return False
+
+        if any(p in page_text for p in self._ERROR_PATTERNS):
+            return True
+
+        return False
+
+    def _wait_for_download(self, existing_files: set, max_wait: int = 15) -> Optional[Path]:
+        """Wait for a new PDF to appear in the download directory."""
+        for _ in range(max_wait):
+            time.sleep(1)
+            for f in self.pdf_dir.iterdir():
+                if f.name.endswith(".crdownload") or f.name.endswith(".tmp"):
+                    continue
+                if f.suffix == ".pdf" and f.name not in existing_files:
+                    if f.stat().st_size > 1000:
+                        return f
+        return None
+
     def _download_with_selenium(self, paper: dict, pdf_url: str, filepath: Path) -> Optional[str]:
         """Download PDF using Selenium headless Chrome (for paywalled publishers)."""
         driver = self._get_driver()
@@ -229,47 +286,41 @@ class PaperDownloader:
             return None
 
         try:
-            # Navigate to PDF URL - browser handles institutional auth via IP
+            existing_files = {f.name for f in self.pdf_dir.iterdir() if f.suffix == ".pdf"}
+
             logger.info(f"    Selenium navigating to PDF...")
             driver.get(pdf_url)
-
-            # Wait for page to load / PDF to render
             time.sleep(3)
 
-            # Check if we got redirected to a login page
-            current_url = driver.current_url
-            page_source = driver.page_source[:500].lower() if driver.page_source else ""
+            # Check for quick auto-download first (PDF may already be downloading)
+            downloaded = self._wait_for_download(existing_files, max_wait=5)
+            if downloaded:
+                if downloaded.name != filepath.name:
+                    if filepath.exists():
+                        filepath.unlink()
+                    downloaded.rename(filepath)
+                paper["local_pdf"] = str(filepath)
+                logger.info(f"    Success (selenium/auto-download): {filepath.stat().st_size} bytes")
+                return str(filepath)
 
-            if "login" in current_url.lower() or "signin" in current_url.lower():
-                logger.warning(f"    Redirected to login page, no institutional access")
+            # No quick download — check if this is an error page
+            if self._is_error_page(driver):
+                logger.warning(f"    Error page detected, skipping")
                 return None
 
-            if "access denied" in page_source or "purchase" in page_source:
-                logger.warning(f"    Access denied page detected")
-                return None
+            # Wait longer for slower downloads
+            downloaded = self._wait_for_download(existing_files, max_wait=10)
+            if downloaded:
+                if downloaded.name != filepath.name:
+                    if filepath.exists():
+                        filepath.unlink()
+                    downloaded.rename(filepath)
+                paper["local_pdf"] = str(filepath)
+                logger.info(f"    Success (selenium/auto-download): {filepath.stat().st_size} bytes")
+                return str(filepath)
 
-            # Method 1: Try to get PDF from Chrome's PDF viewer
-            # If Chrome opened the PDF, we can get it via CDP
+            # Fallback: use cookies from Selenium session for direct HTTP download
             try:
-                import base64
-                result = driver.execute_cdp_cmd("Page.printToPDF", {
-                    "printBackground": True,
-                    "preferCSSPageSize": True,
-                })
-                pdf_data = base64.b64decode(result["data"])
-
-                if len(pdf_data) > 5000:  # Reasonable PDF size
-                    with open(filepath, "wb") as f:
-                        f.write(pdf_data)
-                    paper["local_pdf"] = str(filepath)
-                    logger.info(f"    Success (selenium/CDP): {len(pdf_data)} bytes")
-                    return str(filepath)
-            except Exception:
-                pass
-
-            # Method 2: Use requests with cookies from Selenium session
-            try:
-                import urllib.request
                 cookies = driver.get_cookies()
                 cookie_str = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
 
@@ -289,23 +340,10 @@ class PaperDownloader:
                     paper["local_pdf"] = str(filepath)
                     logger.info(f"    Success (selenium/cookies): {len(data)} bytes")
                     return str(filepath)
+                else:
+                    logger.warning(f"    Cookie-based download returned non-PDF ({len(data)} bytes)")
             except Exception as e2:
                 logger.debug(f"    Cookie-based download failed: {e2}")
-
-            # Method 3: Check if file was auto-downloaded to pdf_dir
-            time.sleep(2)
-            for f in self.pdf_dir.iterdir():
-                if f.suffix == ".pdf" and f.stat().st_size > 1000:
-                    # Check if this is a newly downloaded file (within last 30 seconds)
-                    import datetime
-                    mtime = datetime.datetime.fromtimestamp(f.stat().st_mtime)
-                    if (datetime.datetime.now() - mtime).total_seconds() < 30:
-                        # Rename to our standard filename
-                        if f.name != filepath.name:
-                            f.rename(filepath)
-                        paper["local_pdf"] = str(filepath)
-                        logger.info(f"    Success (selenium/auto-download): {filepath.stat().st_size} bytes")
-                        return str(filepath)
 
             logger.warning(f"    Selenium could not retrieve PDF")
             return None
@@ -313,6 +351,43 @@ class PaperDownloader:
         except Exception as e:
             logger.error(f"    Selenium download failed: {e}")
             return None
+
+    def _validate_pdf(self, filepath: Path) -> bool:
+        """Validate that a downloaded PDF contains actual paper content."""
+        if not filepath.exists() or filepath.stat().st_size < 1000:
+            return False
+
+        with open(filepath, "rb") as f:
+            header = f.read(5)
+        if header != b'%PDF-':
+            logger.warning(f"    Validation failed: not a PDF file")
+            return False
+
+        try:
+            import fitz
+            doc = fitz.open(str(filepath))
+            if len(doc) == 0:
+                doc.close()
+                return False
+            text = doc[0].get_text()[:500].lower()
+            doc.close()
+
+            error_indicators = [
+                "page not found", "not found",
+                "we couldn't find", "couldn't find the page",
+                "page you were looking for",
+                "this page is not available",
+                "access denied", "forbidden",
+            ]
+            if any(ind in text for ind in error_indicators):
+                logger.warning(f"    Validation failed: error page content detected")
+                return False
+        except ImportError:
+            pass
+        except Exception as e:
+            logger.debug(f"    PDF validation (fitz) skipped: {e}")
+
+        return True
 
     def download_one(self, paper: dict) -> Optional[str]:
         """Download a single paper's PDF."""
@@ -323,11 +398,15 @@ class PaperDownloader:
         filename = self._safe_filename(paper)
         filepath = self.pdf_dir / filename
 
-        # Skip if already downloaded
+        # Skip if already downloaded and valid
         if filepath.exists() and filepath.stat().st_size > 1000:
-            logger.info(f"  Already exists: {filename}")
-            paper["local_pdf"] = str(filepath)
-            return str(filepath)
+            if self._validate_pdf(filepath):
+                logger.info(f"  Already exists: {filename}")
+                paper["local_pdf"] = str(filepath)
+                return str(filepath)
+            else:
+                logger.info(f"  Removing invalid existing file: {filename}")
+                filepath.unlink()
 
         # Resolve URL
         pdf_url = self._resolve_pdf_url(paper)
@@ -343,6 +422,12 @@ class PaperDownloader:
             result = self._download_with_selenium(paper, pdf_url, filepath)
         else:
             result = self._download_with_urllib(paper, pdf_url, filepath)
+
+        if result and not self._validate_pdf(filepath):
+            logger.warning(f"    Post-download validation failed, removing: {filename}")
+            filepath.unlink(missing_ok=True)
+            paper.pop("local_pdf", None)
+            result = None
 
         if result:
             self.downloaded_today += 1
