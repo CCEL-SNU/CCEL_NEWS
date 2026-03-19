@@ -575,24 +575,33 @@ def generate_category_trends(current_papers: List, config: dict = None) -> Dict:
 
         logger.info(f"Generating category digest: {label} (monthly={len(monthly_cat)}, yearly={len(yearly_cat)})")
 
-        digest = _generate_structured_digest(
+        digest_monthly = _generate_structured_digest(
             monthly_cat,
             context_type="category",
-            context_label=label,
+            context_label=f"{label} (최근 1개월)",
             config=config,
         )
+        logger.info(f"  {label} monthly: depth={digest_monthly['depth']}, issues={len(digest_monthly.get('hot_issues', []))}")
+        if digest_monthly["depth"] != "skip":
+            time.sleep(4)
+
+        digest_yearly = _generate_structured_digest(
+            yearly_cat,
+            context_type="category",
+            context_label=f"{label} (최근 1년)",
+            config=config,
+        )
+        logger.info(f"  {label} yearly: depth={digest_yearly['depth']}, issues={len(digest_yearly.get('hot_issues', []))}")
+        if digest_yearly["depth"] != "skip":
+            time.sleep(4)
 
         trends[cat_id] = {
             "label": label,
             "paper_count_monthly": len(monthly_cat),
             "paper_count_yearly": len(yearly_cat),
-            "digest": digest,
+            "digest_monthly": digest_monthly,
+            "digest_yearly": digest_yearly,
         }
-
-        logger.info(f"  {label}: depth={digest['depth']}, issues={len(digest.get('hot_issues', []))}")
-
-        if digest["depth"] != "skip":
-            time.sleep(4)
 
     return trends
 

@@ -239,6 +239,7 @@ function SourceBreakdown({papers}){
 
 function CategoryTrends({trends}){
   const [activeCat,setActiveCat]=useState(null);
+  const [timeView,setTimeView]=useState("monthly");
 
   if(!trends||Object.keys(trends).length===0) return null;
 
@@ -248,16 +249,31 @@ function CategoryTrends({trends}){
   const current=activeCat&&trends[activeCat]?activeCat:available[0];
   if(!current)return null;
   const t=trends[current];
-  const digest=t.digest||t;
+  const digest=timeView==="monthly"
+    ?(t.digest_monthly||t.digest||t)
+    :(t.digest_yearly||t.digest||t);
   const color=cc(current);
+  const paperCount=timeView==="monthly"?t.paper_count_monthly:t.paper_count_yearly;
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
     <div style={{padding:"16px 20px 0",borderBottom:`1px solid ${C.borderLight}`}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
         <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:10,fontWeight:800,flexShrink:0}}>AI</div>
-        <div>
+        <div style={{flex:1}}>
           <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Category Research Digests</h4>
           <p style={{fontSize:11,color:C.gray500,margin:0}}>AI-generated analysis per research area</p>
+        </div>
+        <div style={{display:"flex",background:C.bg,borderRadius:6,padding:2,gap:0}}>
+          {[{id:"monthly",label:"Monthly"},{id:"yearly",label:"Yearly"}].map(v=>
+            <button key={v.id} onClick={()=>setTimeView(v.id)} style={{
+              padding:"5px 12px",border:"none",borderRadius:5,cursor:"pointer",fontFamily:"inherit",
+              fontSize:11,fontWeight:v.id===timeView?700:400,
+              background:v.id===timeView?C.white:"transparent",
+              color:v.id===timeView?C.textDark:C.gray500,
+              boxShadow:v.id===timeView?"0 1px 3px rgba(0,0,0,.1)":"none",
+              transition:"all .15s",
+            }}>{v.label}</button>
+          )}
         </div>
       </div>
 
@@ -266,13 +282,13 @@ function CategoryTrends({trends}){
           const label=CATEGORIES.find(c=>c.id===catId)?.label||catId;
           const catColor=cc(catId);
           const isActive=catId===current;
-          const count=trends[catId]?.paper_count_monthly||0;
+          const count=timeView==="monthly"?trends[catId]?.paper_count_monthly:trends[catId]?.paper_count_yearly;
           return <button key={catId} onClick={()=>setActiveCat(catId)} style={{
             padding:"8px 14px",border:"none",borderBottom:isActive?`2.5px solid ${catColor}`:"2.5px solid transparent",
             background:"transparent",cursor:"pointer",fontFamily:"inherit",fontSize:11.5,
             fontWeight:isActive?700:400,color:isActive?catColor:C.gray500,transition:"all .15s",whiteSpace:"nowrap",
           }}>
-            {label} <span style={{fontSize:10,opacity:.7}}>({count})</span>
+            {label} <span style={{fontSize:10,opacity:.7}}>({count||0})</span>
           </button>;
         })}
       </div>
@@ -280,9 +296,7 @@ function CategoryTrends({trends}){
 
     <div style={{padding:"0"}}>
       <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8}}>
-        <span style={{fontSize:11,color:C.gray500}}>Monthly: {t.paper_count_monthly} papers</span>
-        <span style={{fontSize:11,color:C.gray300}}>|</span>
-        <span style={{fontSize:11,color:C.gray500}}>Yearly: {t.paper_count_yearly} papers</span>
+        <span style={{fontSize:11,color:C.gray500}}>{timeView==="monthly"?"Monthly":"Yearly"}: {paperCount} papers</span>
         {digest.depth&&<span style={{fontSize:10,color,marginLeft:"auto",fontWeight:600,textTransform:"uppercase"}}>{digest.depth}</span>}
       </div>
       <StructuredDigestContent digest={digest} accentColor={color}/>
