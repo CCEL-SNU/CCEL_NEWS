@@ -243,10 +243,13 @@ The relevance score (0-100) should reflect how relevant this paper is to CCEL's 
         return {"summary": response[:300], "categories": ["dft"], "category": "dft", "relevance": 50}
 
 
-def generate_weekly_digest(papers: List, config: dict = None) -> str:
-    """Generate a weekly research digest summarizing trends and highlights."""
+def generate_weekly_digest(papers: List, config: dict = None):
+    """
+    Generate a structured weekly research digest.
+    Returns a dict with sectioned content, or a plain string as fallback.
+    """
     if not papers:
-        return "This week no relevant papers were found."
+        return {"sections": [], "hot_issues": [], "generated_at": datetime.now().isoformat()}
 
     by_cat = {}
     for p in papers:
@@ -259,36 +262,175 @@ def generate_weekly_digest(papers: List, config: dict = None) -> str:
     papers_summary = ""
     for cat, cat_papers in by_cat.items():
         papers_summary += f"\n[{cat}] ({len(cat_papers)} papers)\n"
-        for p in cat_papers[:5]:
-            papers_summary += f"  - {p['title'][:80]} (rel: {p.get('relevance', '?')})\n"
+        for p in sorted(cat_papers, key=lambda x: -(x.get("relevance") or 0))[:8]:
+            summary_short = (p.get("summary") or p.get("abstract") or "")[:150]
+            papers_summary += f"  - {p['title'][:100]} (rel: {p.get('relevance', '?')})\n    {summary_short}\n"
 
     ccel_papers = [p for p in papers if p.get("ccel")]
     ccel_section = ""
     if ccel_papers:
-        ccel_section = "\nCCEL group papers this week:\n"
+        ccel_section = "\nCCEL group papers:\n"
         for p in ccel_papers:
-            ccel_section += f"  - {p['title'][:80]}\n"
+            ccel_section += f"  - {p['title'][:100]}\n"
 
-    system = """You are a research analyst for CCEL at Seoul National University.
-Write a concise weekly research digest in Korean that highlights trends,
-important findings, and their relevance to CCEL's research."""
+    system = """You are a research trend analyst writing for researchers at CCEL (Computational Catalysis and Emerging Materials Laboratory), Seoul National University.
 
-    prompt = f"""Write a weekly research digest based on these papers collected this week.
+Rules:
+- Write in Korean.
+- Use a plain, objective, concise tone. No flattery or hype ("매우 주목할 만한", "획기적인" 등은 금지).
+- Evaluate novelty critically: what is genuinely new vs. incremental improvement.
+- Focus on what problems the field is trying to solve and what approaches are gaining traction.
+- Be specific: mention materials, methods, and quantitative results where available."""
+
+    prompt = f"""Analyze the following papers collected this week and produce a structured research digest.
 
 {papers_summary}
 {ccel_section}
 
-Write 3-4 paragraphs in Korean:
-1. Overall trends this week (which topics are hot, any emerging patterns)
-2. Highlight 2-3 most important papers and why they matter for CCEL
-3. Any relevant policy/industry news
-4. Brief outlook or suggested actions for the lab
+Respond ONLY with valid JSON (no markdown, no backticks):
+{{
+  "hot_issues": [
+    {{
+      "topic": "짧은 이슈 제목 (Korean, 10자 내외)",
+      "description": "이 이슈가 왜 중요한지, 현재 어떤 접근법이 시도되고 있는지 2-3문장으로 객관적으로 설명"
+    }}
+  ],
+  "sections": [
+    {{
+      "title": "섹션 제목",
+      "content": "해당 섹션 내용 (2-4문장, 구체적 논문/방법론 언급)"
+    }}
+  ]
+}}
 
-Keep it concise and actionable. Write in a professional but accessible tone.
-Do NOT use markdown formatting. Just plain text paragraphs."""
+Required sections (in order):
+1. "핵심 연구 동향" - 이번 주 가장 활발한 연구 방향 2-3개를 짧게 정리. 각 방향에서 어떤 문제를 해결하려 하는지 명시.
+2. "주목할 논문" - 실제 novelty가 있는 논문 2-3편을 선별하고, 왜 새로운지 비판적으로 평가. 단순 성능 개선은 낮게, 새로운 방법론이나 관점은 높게 평가.
+3. "CCEL 관련성" - CCEL의 연구(DFT, 촉매, 전기화학, 배터리, MLIP)와 직접 연결되는 시사점을 1-2문장으로 담백하게 정리.
+4. "산업/정책 동향" - 관련 산업/정책 뉴스가 있으면 1-2문장. 없으면 이 섹션은 빈 문자열로 남겨도 됨.
 
-    digest = _call_gemini(prompt, system, config)
-    return digest or "Weekly digest generation failed."
+hot_issues: 이번 주 논문들에서 반복적으로 등장하는 미해결 과제나 핫한 연구 질문 3-5개."""
+
+    response = _call_gemini(prompt, system, config)
+    if not response:
+        return {"sections": [], "hot_issues": [], "generated_at": datetime.now().isoformat()}
+
+    try:
+        import re
+        cleaned = response.strip()
+        cleaned = re.sub(r'^```\w*\n?', '', cleaned)
+        cleaned = re.sub(r'\n?```$', '', cleaned)
+        cleaned = cleaned.strip()
+        result = json.loads(cleaned)
+        result["generated_at"] = datetime.now().isoformat()
+        return result
+    except (json.JSONDecodeError, ValueError) as e:
+        logger.warning(f"Failed to parse digest JSON: {e}")
+        return {"sections": [{"title": "Weekly Digest", "content": response[:2000]}], "hot_issues": [], "generated_at": datetime.now().isoformat()}
+
+
+def generate_group_digests(papers: List, config: dict = None) -> Dict:
+    """
+    Generate per-group research digests.
+    Returns a dict keyed by group_id, each containing structured analysis.
+    """
+    groups = config.get("groups", {}) if config else {}
+    if not groups:
+        return {}
+
+    by_group = {}
+    for p in papers:
+        gid = p.get("group")
+        if gid:
+            by_group.setdefault(gid, []).append(p)
+
+    digests = {}
+
+    system = """You are a research trend analyst. Write concise, objective analysis in Korean.
+Rules:
+- No hype or flattery. No "매우 주목할 만한", "획기적인" etc.
+- Evaluate novelty critically: distinguish genuine advances from incremental work.
+- Be specific about methods, materials, and results.
+- Focus on what problems are being tackled and what approaches are gaining traction."""
+
+    for gid, gcfg in groups.items():
+        group_papers = by_group.get(gid, [])
+        if not group_papers:
+            continue
+
+        pi_name = gcfg.get("pi", gid)
+        group_name = gcfg.get("name", gid)
+
+        paper_list = ""
+        for p in sorted(group_papers, key=lambda x: -(x.get("relevance") or 0)):
+            summary_short = (p.get("summary") or p.get("abstract") or "")[:200]
+            paper_list += f"- [{p.get('date','')}] {p['title'][:120]}\n  {summary_short}\n"
+
+        prompt = f"""Analyze the recent papers from the research group "{group_name}" (PI: {pi_name}).
+
+Papers ({len(group_papers)} total):
+{paper_list}
+
+Respond ONLY with valid JSON (no markdown, no backticks):
+{{
+  "focus_areas": ["이 그룹이 현재 집중하는 연구 주제 2-3개, 각 5-10자"],
+  "summary": "이 그룹의 최근 연구 방향을 2-3문장으로 객관적으로 요약. 어떤 문제를 풀고 있고, 어떤 방법론을 사용하는지.",
+  "notable_papers": [
+    {{
+      "title": "논문 제목 (원문 그대로)",
+      "reason": "왜 주목할 만한지 1문장 (비판적 평가 포함)"
+    }}
+  ]
+}}
+
+notable_papers: novelty가 있는 논문만 최대 2편. 없으면 빈 배열."""
+
+        logger.info(f"Generating group digest: {group_name} ({len(group_papers)} papers)")
+        response = _call_gemini(prompt, system, config)
+
+        if response:
+            try:
+                import re
+                cleaned = response.strip()
+                cleaned = re.sub(r'^```\w*\n?', '', cleaned)
+                cleaned = re.sub(r'\n?```$', '', cleaned)
+                cleaned = cleaned.strip()
+                result = json.loads(cleaned)
+                digests[gid] = {
+                    "group_name": group_name,
+                    "pi": pi_name,
+                    "paper_count": len(group_papers),
+                    "focus_areas": result.get("focus_areas", []),
+                    "summary": result.get("summary", ""),
+                    "notable_papers": result.get("notable_papers", []),
+                    "generated_at": datetime.now().isoformat(),
+                }
+                logger.info(f"  {group_name}: {len(group_papers)} papers, focus={result.get('focus_areas', [])}")
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.warning(f"Failed to parse group digest for {gid}: {e}")
+                digests[gid] = {
+                    "group_name": group_name,
+                    "pi": pi_name,
+                    "paper_count": len(group_papers),
+                    "focus_areas": [],
+                    "summary": response[:500],
+                    "notable_papers": [],
+                    "generated_at": datetime.now().isoformat(),
+                }
+        else:
+            digests[gid] = {
+                "group_name": group_name,
+                "pi": pi_name,
+                "paper_count": len(group_papers),
+                "focus_areas": [],
+                "summary": "Digest generation failed.",
+                "notable_papers": [],
+                "generated_at": datetime.now().isoformat(),
+            }
+
+        time.sleep(4)
+
+    return digests
 
 
 def generate_category_trends(current_papers: List, config: dict = None) -> Dict:
@@ -433,22 +575,76 @@ Guidelines:
     return trends
 
 
+def _load_existing_summaries(config: dict) -> dict:
+    """Load summaries from the most recent history file, keyed by DOI or title."""
+    history_dir = Path(config.get("output", {}).get("history_dir", "./data/history"))
+    if not history_dir.exists():
+        return {}
+
+    hist_files = sorted(history_dir.glob("news_*.json"), reverse=True)
+    if not hist_files:
+        return {}
+
+    cache = {}
+    for hist_file in hist_files[:3]:
+        try:
+            with open(hist_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for p in data.get("papers", []):
+                if not p.get("summary"):
+                    continue
+                key = p.get("doi") or p.get("title", "")
+                if key and key not in cache:
+                    cache[key] = {
+                        "summary": p["summary"],
+                        "categories": p.get("categories", []),
+                        "category": p.get("category", ""),
+                        "relevance": p.get("relevance", 50),
+                        "relevance_reason": p.get("relevance_reason", ""),
+                    }
+        except Exception as e:
+            logger.warning(f"Failed to load history for cache: {e}")
+
+    logger.info(f"Loaded {len(cache)} existing summaries from history")
+    return cache
+
+
 def summarize_batch(papers: List, config: dict) -> List:
-    """Summarize a batch of papers."""
+    """Summarize a batch of papers, reusing existing summaries from history."""
     categories = config.get("categories", [])
+    cache = _load_existing_summaries(config)
+
+    skipped = 0
+    summarized = 0
 
     for i, paper in enumerate(papers):
-        logger.info(f"Summarizing [{i+1}/{len(papers)}]: {paper['title'][:60]}...")
+        key = paper.get("doi") or paper.get("title", "")
 
+        if key and key in cache:
+            cached = cache[key]
+            paper["summary"] = cached["summary"]
+            paper["categories"] = cached["categories"]
+            paper["category"] = cached.get("category", cached["categories"][0] if cached["categories"] else "dft")
+            paper["relevance"] = cached["relevance"]
+            if cached.get("relevance_reason"):
+                paper["relevance_reason"] = cached["relevance_reason"]
+            paper.setdefault("ccel", paper.get("group") == "ccel")
+            skipped += 1
+            logger.info(f"Summarizing [{i+1}/{len(papers)}]: (cached) {paper['title'][:60]}...")
+            continue
+
+        logger.info(f"Summarizing [{i+1}/{len(papers)}]: {paper['title'][:60]}...")
         result = summarize_paper(paper, categories, config)
         paper["summary"] = result["summary"]
         paper["categories"] = result["categories"]
         paper["category"] = result.get("category", result["categories"][0] if result["categories"] else "dft")
         paper["relevance"] = result["relevance"]
         paper.setdefault("ccel", paper.get("group") == "ccel")
+        summarized += 1
 
-        # Rate limiting
         time.sleep(4)
+
+    logger.info(f"Summary complete: {summarized} new, {skipped} cached (reused)")
 
     papers.sort(key=lambda p: (-p.get("relevance", 0), p.get("date") or ""), reverse=False)
     papers.sort(key=lambda p: p.get("date") or "", reverse=True)

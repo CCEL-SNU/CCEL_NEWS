@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from collectors import collect_all
 from downloader import PaperDownloader
-from summarizer import summarize_batch, generate_weekly_digest, generate_category_trends
+from summarizer import summarize_batch, generate_weekly_digest, generate_category_trends, generate_group_digests
 
 # ---- Logging setup ----
 LOG_DIR = Path(__file__).parent / "logs"
@@ -64,15 +64,13 @@ def load_existing_data(path: str) -> dict:
     return {}
 
 
-def save_output(papers: list, digest: str, category_trends: dict, config: dict):
-    """Save papers, digest, and category trends to news.json."""
+def save_output(papers: list, digest, category_trends: dict, config: dict, group_digests: dict = None):
+    """Save papers, digest, category trends, and group digests to news.json."""
     output_path = Path(config["output"]["json_path"])
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Load existing data to preserve fields not being updated
     existing = load_existing_data(str(output_path))
 
-    # Also save to history
     history_dir = Path(config["output"]["history_dir"])
     history_dir.mkdir(parents=True, exist_ok=True)
 
@@ -88,6 +86,7 @@ def save_output(papers: list, digest: str, category_trends: dict, config: dict):
         "ccel_papers": sum(1 for p in papers if p.get("ccel")),
         "weekly_digest": digest or existing.get("weekly_digest", ""),
         "category_trends": category_trends or existing.get("category_trends", {}),
+        "group_digests": group_digests or existing.get("group_digests", {}),
         "groups": groups_meta,
         "papers": papers,
     }
@@ -184,13 +183,12 @@ def run_summarize(papers: list, config: dict) -> list:
 def run_digest(papers: list, config: dict) -> tuple:
     """
     Generate weekly digest and category trends.
-    Returns (digest_text, category_trends_dict).
+    Returns (digest_dict, category_trends_dict).
     Runs on the configured digest day (default: Sunday) or when --digest is used.
     """
     today = datetime.now().strftime("%A")
     digest_day = config.get("schedule", {}).get("weekly_digest_day", "Sunday")
 
-    # Load this week's papers from history
     history_dir = Path(config["output"]["history_dir"])
     week_papers = []
     for i in range(7):
@@ -202,9 +200,9 @@ def run_digest(papers: list, config: dict) -> tuple:
                 week_papers.extend(data.get("papers", []))
 
     if not week_papers:
-        week_papers = papers  # Fallback to current papers
+        week_papers = papers
 
-    digest = ""
+    digest = {}
     category_trends = {}
 
     if today == digest_day or not papers:
@@ -218,12 +216,11 @@ def run_digest(papers: list, config: dict) -> tuple:
         logger.info("=" * 60)
         category_trends = generate_category_trends(week_papers, config)
     else:
-        # Load previous digest and trends if not digest day
         output_path = Path(config["output"]["json_path"])
         if output_path.exists():
             with open(output_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                digest = data.get("weekly_digest", "")
+                digest = data.get("weekly_digest", {})
                 category_trends = data.get("category_trends", {})
 
     return digest, category_trends
@@ -263,10 +260,10 @@ def main():
 
     digest = ""
     category_trends = {}
+    group_digests = {}
 
     if args.digest:
-        # Force generation regardless of day
-        logger.info("Forced digest + category trends generation")
+        logger.info("Forced digest + category trends + group digests generation")
         week_papers = papers
         history_dir = Path(config["output"]["history_dir"])
         for i in range(7):
@@ -279,11 +276,12 @@ def main():
 
         digest = generate_weekly_digest(week_papers, config)
         category_trends = generate_category_trends(week_papers, config)
+        group_digests = generate_group_digests(week_papers, config)
     elif not (args.collect or args.summarize):
         digest, category_trends = run_digest(papers, config)
+        group_digests = generate_group_digests(papers, config) if digest else {}
 
-    # Save output
-    save_output(papers, digest, category_trends, config)
+    save_output(papers, digest, category_trends, config, group_digests)
 
     # Deploy
     if not (args.collect or args.summarize or args.digest):
@@ -295,6 +293,7 @@ def main():
     logger.info(f"  CCEL: {sum(1 for p in papers if p.get('ccel'))}")
     logger.info(f"  Digest: {'Yes' if digest else 'No'}")
     logger.info(f"  Category trends: {len(category_trends)} categories")
+    logger.info(f"  Group digests: {len(group_digests)} groups")
     logger.info("=" * 60)
 
 
