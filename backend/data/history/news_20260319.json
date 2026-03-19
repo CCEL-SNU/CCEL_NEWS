@@ -1,133 +1,307 @@
 {
-  "generated_at": "2026-03-19T10:35:48.171103",
+  "generated_at": "2026-03-19T13:33:24.652517",
   "date": "2026-03-19",
   "total_papers": 618,
   "ccel_papers": 22,
   "weekly_digest": {
     "hot_issues": [
       {
-        "topic": "MLIP 활용 대규모 시뮬레이션",
-        "description": "양자 역학적 정확도를 유지하면서 복잡한 재료 시스템의 대규모 동역학 시뮬레이션을 수행하기 위해 머신러닝 상호작용 포텐셜(MLIP) 개발 및 적용이 활발합니다. 이를 통해 기존 DFT/AIMD의 계산 비용 및 시간적 제약을 극복하려는 시도가 이어지고 있습니다."
+        "topic": "MLIP 활용 가속화",
+        "description": "DFT/AIMD의 높은 계산 비용을 극복하고 대규모 및 장시간 원자 수준 시뮬레이션을 가능하게 하기 위해, 다양한 MLIP (머신러닝 원자간 포텐셜) 개발 및 적용이 활발합니다. 이는 재료 특성 예측 및 반응 메커니즘 규명에 활용됩니다."
       },
       {
-        "topic": "ML 기반 재료 발견 가속화",
-        "description": "머신러닝을 활용하여 고전도성 전해질, 고효율 촉매 등 신소재를 고속으로 스크리닝하거나, 실험과 연동된 클로즈드 루프 최적화 워크플로우를 통해 재료 조성을 효율적으로 탐색하는 연구가 주목받고 있습니다."
+        "topic": "재료 고속 탐색",
+        "description": "촉매 및 전해질과 같은 신소재 발견 속도를 높이기 위해 머신러닝 기반의 고속 스크리닝 및 최적화 워크플로우가 도입되고 있습니다. 예측-실험 클로즈드 루프 최적화 및 MLIP 기반 데이터베이스 스크리닝이 주요 접근법입니다."
       },
       {
-        "topic": "계면 현상 원자 수준 규명",
-        "description": "전고체 배터리 고체-전해질 계면(SEI) 형성 및 음이온 교환막 내 이온 수송 메커니즘과 같은 복잡한 계면 반응 및 확산 현상을 MLIP를 활용하여 원자 수준에서 규명하려는 노력이 증가하고 있습니다."
+        "topic": "계면 반응 메커니즘 규명",
+        "description": "전고체 배터리의 고체-전해질 계면(SEI) 형성 및 촉매 반응 계면과 같은 복잡한 계면 현상을 원자 수준에서 이해하려는 노력이 지속되고 있습니다. MLIP를 활용한 양자 정확도의 대규모 시뮬레이션이 이 문제 해결에 기여하고 있습니다."
       }
     ],
     "sections": [
       {
         "title": "핵심 연구 동향",
-        "content": "이번 주 연구 동향은 머신러닝 상호작용 포텐셜(MLIP)의 개발 및 활용에 집중되어 있습니다. 특히, 고전도성 유리 전해질의 확산도 스크리닝, 전고체 배터리 SEI 형성 메커니즘 규명, 이종 촉매 반응 시뮬레이션, 음이온 교환막 내 수산화 이온 수송 메커니즘 분석 등 다양한 재료 시스템에서 MLIP를 활용하여 대규모 원자 수준 시뮬레이션의 효율성을 높이는 접근법이 두드러집니다. 또한, ML 기반의 예측-실험 클로즈드 루프 워크플로우를 통해 역수성가스전환(RWGS) 촉매를 발굴하는 등 재료 발견 프로세스를 가속화하려는 시도도 활발합니다."
+        "content": "이번 주 연구 동향은 머신러닝 원자간 포텐셜(MLIP)의 광범위한 적용에 집중되어 있습니다. 고전도성 유리 전해질의 확산도 스크리닝, 전고체 배터리 고체-전해질 계면(SEI)의 형성 및 진화 메커니즘 규명, 이종 촉매 반응 연구 등 다양한 분야에서 MLIP가 활용되고 있습니다. 또한, MLIP 프레임워크 자체의 성능 개선(NequIP 및 Allegro 훈련/추론 성능 향상) 및 설계 공간 확장(E(3)-equivariant 포텐셜) 연구도 진행 중입니다. 재료 과학 및 화학 분야를 위한 오픈소스 그래프 딥러닝 라이브러리인 MatGL의 등장은 ML 기반 연구의 접근성을 높이는 데 기여합니다."
       },
       {
         "title": "주목할 논문",
-        "content": "첫째, 'Coupled reaction and diffusion governing interface evolution in solid-state batteries' 논문은 전고체 배터리의 고체-전해질 계면(SEI) 형성 및 진화 메커니즘을 활성 학습과 딥 등변 신경망 MLIP를 활용하여 양자 정확도로 대규모 시뮬레이션한 점이 주목할 만합니다. 이는 복잡한 계면 반응을 원자 수준에서 분석하는 새로운 접근법을 제시합니다. 둘째, 'Machine-Learning-Guided Discovery and Statistical Analysis of Multielemental Reverse Water–Gas Shift' 논문은 35회 반복되는 예측-실험 클로즈드 루프 최적화 워크플로우를 통해 저함량 귀금속 RWGS 촉매를 발굴한 점이 인상적입니다. 이는 ML이 실제 실험 기반 재료 발견을 효율적으로 가속화할 수 있음을 보여줍니다. 셋째, 'The design space of E(3)-equivariant atom-centred interatomic potentials' 논문은 E(3)-equivariant MLIP의 다양한 아키텍처를 통합하는 수학적 프레임워크를 제시하여, MLIP 설계에 대한 근본적인 이해를 높이고 향후 모델 개발에 기여할 수 있는 이론적 기반을 제공합니다."
+        "content": "MLIP의 실용성을 높이는 데 기여하는 'High-performance training and inference for deep equivariant interatomic potentials' 논문은 PyTorch 2.0 TorchInductor 컴파일러를 활용하여 NequIP 및 Allegro 프레임워크의 훈련 및 추론 성능을 개선했습니다. 'The design space of E(3)-equivariant atom-centred interatomic potentials'는 E(3)-equivariant MLIP의 다양한 아키텍처를 통합하는 수학적 프레임워크를 제시하고 Atomic Cluster Expansion(ACE)을 다층 아키텍처로 확장하여 MLIP 설계의 유연성을 높였습니다. 'Materials Graph Library (MatGL), an open-source graph deep learning library for materials science an'는 M3GNet, MEGNet, CHGNet 등 다양한 그래프 신경망 모델을 효율적으로 구현하는 오픈소스 라이브러리를 제공하여 재료 과학 분야의 ML 연구 생산성 향상에 기여합니다."
       },
       {
         "title": "CCEL 관련성",
-        "content": "CCEL의 DFT, 촉매, 전기화학, 배터리, MLIP 연구 분야와 이번 주 논문들은 높은 관련성을 보입니다. 특히 MLIP를 활용한 고전도성 유리 전해질 탐색, 전고체 배터리 계면 분석, 이종 촉매 반응 시뮬레이션 등은 CCEL의 계산 촉매 및 신소재 연구 방향과 직접적으로 연결됩니다. 또한, ML 기반의 고속 촉매 스크리닝 및 설계 원리 규명 연구는 CCEL의 촉매 설계 역량을 강화하는 데 기여할 수 있습니다."
+        "content": "이번 주 논문들은 MLIP를 활용한 고전도성 유리 전해질 탐색, 전고체 배터리 계면 진화 시뮬레이션, 이종 촉매 반응 메커니즘 규명 등 CCEL의 DFT 및 MLIP 기반 재료 시뮬레이션 연구 방향과 직접적으로 연결됩니다. 특히, 촉매 및 배터리 분야에서 MLIP를 활용한 고속 스크리닝 및 원자 수준 메커니즘 분석은 CCEL의 관련 연구에 적용될 수 있는 방법론적 시사점을 제공합니다."
       },
       {
         "title": "산업/정책 동향",
-        "content": "'Setting standards for data driven materials science' 논문은 데이터 기반 재료 과학 연구의 엄격성을 유지하기 위한 표준의 필요성을 강조하며, ML 연구의 신뢰성 확보에 대한 학계의 인식을 보여줍니다. 또한, 'Degradation through filaments' 논문은 PEM 수전해 스택의 장기 성능 저하 메커니즘을 규명하여, 수소 생산 기술의 상업화에 필요한 내구성 문제 해결에 대한 산업적 관심을 반영합니다."
+        "content": "데이터 기반 재료 과학 분야에서 기계 학습(ML) 연구의 엄격성을 유지하기 위한 표준의 필요성을 강조하는 논문('Setting standards for data driven materials science')은 ML 연구의 신뢰성 및 재현성 확보에 대한 학술적, 정책적 논의가 활발함을 시사합니다. 또한, PEM 수전해 스택의 장기 성능 저하 메커니즘 규명 및 메탄 광분해를 통한 청정 수소 생산 기술 개발은 에너지 전환 및 지속 가능한 기술 개발 정책 방향과 부합합니다."
       }
     ],
-    "generated_at": "2026-03-19T10:27:09.679989"
+    "generated_at": "2026-03-19T13:22:19.863604"
   },
   "category_trends": {
     "dft": {
       "label": "DFT / Computational Chemistry",
-      "monthly_trend": "지난 한 달간 DFT/전산 화학 분야 연구 동향은 머신러닝 원자간 포텐셜(MLIP)의 개발과 응용이 압도적인 비중을 차지하고 있습니다. 특히, MLIP의 정확도와 효율성을 높이기 위한 다양한 방법론이 제시되었습니다. 예를 들어, \"Transfer Learning Meets Embedded Correlated Wavefunction Theory\" 논문은 고수준 양자화학 이론의 정확도를 MLIP의 효율성과 결합하는 ECW-TL 프레임워크를 제안했으며, \"Design Space of Self--Consistent Electrostatic Machine Learning Interatomic Potentials\"는 MLIP의 장거리 정전기적 효과 모델링 한계를 극복하려는 시도를 보였습니다. 또한, \"UniMatSim\"과 같은 자동화 프레임워크 개발은 범용 MLIP(UMLIP)의 활용성을 높이는 데 기여하고 있습니다.\n\nMLIP의 신뢰성과 견고성 확보 또한 중요한 주제로 부상했습니다. \"Proof-Carrying Materials\"는 MLIP의 신뢰성 보장을 위한 형식적 검증 방법을 제시했으며, \"Bias in Universal Machine-Learned Interatomic Potentials\"는 UMLIP의 편향 분석 및 미세 조정 전략을 다루었습니다. DFT는 이러한 MLIP 개발의 핵심 기반 데이터 소스로 활용되며, 동시에 촉매 반응 메커니즘 규명, 배터리 소재의 이온 수송 및 안정성 분석 등 전통적인 전산 화학 연구에서도 여전히 중요한 역할을 하고 있습니다. 예를 들어, \"HEDP‐Modified Cu2O Catalyst\"는 CO2 전기환원 촉매의 계면 미세환경 최적화를 DFT로 분석했고, \"Atomic‐Level Regulation of Gibbs Free Energy\"는 V6O13 양극의 바나듐 용해 억제 메커니즘을 DFT로 규명했습니다.\n\nCCEL은 MLIP의 최신 개발 동향, 특히 장거리 상호작용, 전하 이동, 그리고 신뢰성 검증 방법에 주목해야 합니다. 또한, DFT를 기반으로 한 촉매 및 배터리 재료의 원자 수준 메커니즘 분석 역량을 MLIP와 결합하여 대규모 시스템 및 동적 현상 시뮬레이션으로 확장하는 전략이 중요해 보입니다.",
-      "yearly_trend": "지난 1년간 DFT/전산 화학 분야의 가장 두드러진 트렌드는 머신러닝 원자간 포텐셜(MLIP)의 폭발적인 성장과 범용화 노력입니다. \"MP-ALOE: an r2SCAN dataset for universal machine learning interatomic potentials\" 및 \"Massive Atomic Diversity\"와 같은 대규모 고품질 DFT 데이터셋 구축은 다양한 원소와 비평형 구조를 포괄하는 범용 MLIP(UMLIP) 개발의 기반이 되고 있습니다. Matlantis-PFP v8과 같은 모델은 r2SCAN 기능으로 훈련되어 실험값과의 일치도를 높이는 등, MLIP의 예측 정확도를 실제에 가깝게 끌어올리려는 노력이 지속되고 있습니다.\n\nMLIP의 활용 범위는 고체 전해질 계면 진화(\"Coupled reaction and diffusion governing interface evolution\"), 액체 전해질 특성 예측(\"A predictive framework for liquid electrolytes takes root with BAMBOO\"), 금속 자성체 동역학(\"Machine-learning force-field models for dynamical simulations of metallic magnets\") 등 다양한 재료 시스템으로 확장되고 있습니다. 또한, MLIP의 신뢰성과 투명성을 높이기 위한 벤치마크 플랫폼(\"MLIP Arena\")과 형식적 검증 방법(\"Proof-Carrying Materials\")에 대한 연구도 활발합니다. 이는 MLIP가 실제 재료 설계 및 발견에 더욱 광범위하게 적용되기 위한 필수적인 단계로 해석됩니다.\n\nDFT는 여전히 MLIP 훈련 데이터의 '황금 표준'이자, 단일 원자 촉매의 반응성 기원 규명(\"Structural flexibility dictates reactivity of single-atom catalysts\"), 배터리 전극의 이온 이동 메커니즘 분석(\"Highly Conductive and Dendrite‐Free Li–Ga Compound Anodes\") 등 원자 수준의 정밀한 메커니즘 연구에 필수적인 도구로 활용되고 있습니다. CCEL은 이러한 MLIP의 발전과 함께, DFT 기반의 심층적인 물리화학적 이해를 결합하여 새로운 재료를 설계하고 기존 재료의 한계를 극복하는 데 집중해야 할 것입니다. 특히, 생성형 AI를 활용한 결정 구조 예측(\"Generative AI for crystal structures: a review\")과 같은 새로운 AI/ML 방법론의 도입 가능성도 주목할 만합니다.",
-      "hot_topics": [
-        "머신러닝 원자간 포텐셜 (MLIP)",
-        "DFT 기반 촉매 및 배터리 메커니즘",
-        "범용 머신러닝 포텐셜 (UMLIP)",
-        "MLIP 신뢰성 및 검증",
-        "AI/ML 기반 재료 설계"
-      ],
       "paper_count_monthly": 170,
       "paper_count_yearly": 265,
-      "generated_at": "2026-03-19T10:27:28.983387"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 신뢰성 및 확장성",
+            "description": "MLIP의 예측 신뢰성을 보장하고, 훈련 데이터 범위를 넘어선 외삽 성능을 확보하는 것은 고처리량 재료 스크리닝 및 복잡한 동역학 시뮬레이션의 핵심 과제입니다. 특히 장거리 상호작용, 동적 환경, 그리고 모델의 안전성 검증에 대한 연구가 활발합니다."
+          },
+          {
+            "topic": "동적 촉매 계면 이해",
+            "description": "실제 반응 조건에서 촉매 표면의 동적 재구성, 용매/이온 효과 등 복합적인 계면 현상을 원자 수준에서 이해하고 제어하는 것이 고효율 촉매 설계의 병목입니다. operando 기법과 고급 계산 방법론을 결합하여 활성 부위와 반응 경로를 규명하려는 시도가 증가하고 있습니다."
+          },
+          {
+            "topic": "차세대 전지 소재 안정화",
+            "description": "리튬 금속 덴드라이트, 고체 전해질 계면 불안정성, 전극 재료의 상 변태 및 열화 메커니즘을 규명하여 고에너지 밀도 및 장수명 전지를 구현하는 것이 중요합니다. 특히 결함 공학, 전해질 설계, 그리고 다중 스케일 모델링을 통해 문제를 해결하려는 접근이 주목받고 있습니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "DFT 수준의 정확도를 유지하면서 계산 비용을 획기적으로 낮추는 머신러닝 원자간 상호작용 포텐셜(MLIP) 개발이 활발합니다. ECW-TL(Embedded Correlated Wavefunction Transfer Learning)과 같이 고수준 양자화학 이론과 MLIP를 결합하거나, MoE(Mixture-of-Experts), AllScAIP와 같은 새로운 아키텍처를 통해 장거리 상호작용 및 외삽 성능을 개선하려는 시도가 이루어지고 있습니다. 또한, MLIP의 신뢰성을 형식적으로 검증하는 Proof-Carrying Materials 프레임워크나, 고처리량 시뮬레이션 자동화를 위한 UniMatSim과 같은 플랫폼 개발도 진행 중입니다. 촉매 분야에서는 단일 원자 촉매(SAC) 및 이중 원자 촉매(DAC)의 활성 부위와 반응 메커니즘을 원자 수준에서 규명하기 위해 DFT 계산과 operando 분광학(SERS, XAS, DRIFT)을 결합한 연구가 주를 이룹니다. 특히 CO2 전기환원, 산소 발생 반응(OER), 수소 발생 반응(HER) 등 주요 전기화학 반응에서 촉매 표면의 동적 재구성, 리간드 효과, 금속-지지체 상호작용(MSI)이 반응성에 미치는 영향을 심층적으로 분석합니다. 배터리 분야에서는 리튬 금속 전지의 덴드라이트 억제를 위한 집전체 및 전해질 설계, 전고체 전지의 이온 전도도 및 계면 안정성 향상을 위한 할라이드 고체 전해질의 산소 도입 전략, 그리고 층상 산화물 양극의 고속 충전 메커니즘 규명 등이 주요 연구 방향입니다. DFT 계산은 바나듐 용해 억제, 양이온 정렬 효과, 이온 수송 경로 분석 등 다양한 전지 소재의 특성 예측 및 메커니즘 이해에 활용됩니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "MLIP는 훈련 데이터 범위 내에서 높은 정확도를 보이지만, 새로운 화학적 환경이나 극단적인 조건(고압, 고온, 상전이)에서의 예측 신뢰성 및 외삽 능력은 여전히 제한적입니다. DFT 데이터의 편향이 MLIP의 미세 조정에 미치는 영향이나, 모델의 안전성을 형식적으로 검증하는 방법론은 초기 단계에 있습니다. 촉매 반응의 경우, 실제 반응 조건에서 촉매 표면의 동적 재구성, 용매/이온 효과, 전위 의존적 중간체 흡착 등 복합적인 계면 현상을 기존 정적 DFT 계산만으로는 충분히 포착하기 어렵습니다. operando 기법과 ab initio 분자 동역학(AIMD) 시뮬레이션의 통합적 해석 및 적용은 여전히 도전 과제입니다. 전지 소재는 원자 스케일의 이온 수송부터 나노/마이크로 스케일의 계면 형성, 그리고 매크로 스케일의 열 폭주에 이르기까지 다중 스케일에서 복합적인 문제들을 내포합니다. 특히, 고체 전해질의 결정립계 공학이나 실리콘 음극의 열 폭주 메커니즘처럼, 서로 다른 스케일의 현상들이 상호작용하는 방식을 통합적으로 이해하고 제어하는 데 어려움이 있습니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 DFT 및 계산 화학 전문성은 MLIP 개발 및 검증, 촉매 반응 메커니즘 규명, 그리고 차세대 전지 소재 설계에 핵심적인 기여를 할 수 있습니다. 특히 고수준 양자 계산(ECW)과 MLIP를 결합하여 화학적 정확도를 높이거나, operando 실험 데이터와 AIMD 시뮬레이션을 연계하여 동적 계면 현상을 이해하는 연구는 CCEL의 강점과 시너지를 낼 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Transfer Learning Meets Embedded Correlated Wavefunction Theory for Chemically Accurate Molecular Simulations: Applicati",
+            "reason": "고수준 상관 파동함수 이론(CW)의 정확도와 MLIP의 효율성을 결합한 ECW-TL 프레임워크를 제안하여 응집상 분자 시뮬레이션의 화학적 정확도와 계산 효율성 문제를 동시에 해결하려는 방법론적 시도입니다."
+          },
+          {
+            "title": "Proof-Carrying Materials: Falsifiable Safety Certificates for Machine-Learned Interatomic Potentials",
+            "reason": "MLIP의 신뢰성 부족 문제를 해결하기 위해 조성 공간에서의 적대적 오류 탐색, 신뢰 구간을 통한 안전성 경계 정제, 그리고 형식적 검증을 포함하는 Proof-Carrying Materials 프레임워크를 제안하여 MLIP의 신뢰성 보장이라는 새로운 관점을 제시합니다."
+          },
+          {
+            "title": "Latent space design of interatomic potentials",
+            "reason": "오토인코더에서 영감을 받아 DFT 및 해석적 제약 조건을 기반으로 잠재 공간 패턴과 양자 임베딩을 직접 구성하는 새로운 MLIP 설계 접근법을 제안하여 기존 MLIP의 조합론적 복잡성 및 해석 가능성 한계를 극복하려 합니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:22:44.009773"
+      }
     },
     "catalysis": {
       "label": "Catalysis",
-      "monthly_trend": "지난 한 달간 촉매 분야 연구는 인공지능(AI) 및 머신러닝(ML)의 활용이 더욱 심화되고, 다양한 전기화학 반응을 위한 고성능 촉매 설계에 집중되는 경향을 보였습니다. 특히 MLIP(Machine Learning Interatomic Potentials)의 발전이 두드러져, \"Scaling Machine Learning Interatomic Potentials with Mixtures of Experts\" (2026-03-09)와 \"A recipe for scalable attention-based MLIPs\" (2026-03-06) 논문에서 대규모 시스템 및 장거리 상호작용 예측 정확도를 높이는 새로운 아키텍처가 제안되었습니다. 또한 \"Projected Hessian Learning\" (2026-03-04)은 MLIP의 정확도와 견고성을 향상시키는 효율적인 곡률 정보 통합 방법을 제시하며, CCEL의 전산 촉매 연구에 중요한 시사점을 제공합니다.\n\n전기화학 촉매 분야에서는 CO2 전기환원(CO2RR), 산소 발생 반응(OER), 수소 발생 반응(HER) 등 핵심 반응의 효율 및 안정성 향상에 초점을 맞추고 있습니다. \"HEDP‐Modified Cu2O Catalyst Enables Efficient C2+ Product Formation in Acidic CO2 Electroreduction\" (2026-03-15)은 산성 조건에서 C2+ 생성물 선택성을 획기적으로 높였으며, \"Strain boosts propanol electrosynthesis from CO on copper\" (2026-03-16)는 구리 촉매의 'strain'이 n-propanol 선택성을 조절함을 규명했습니다. OER 연구에서는 Ru, Os, Ni, Fe 기반 촉매의 활성 부위 재구성 및 전자 구조 조절 메커니즘을 심층적으로 탐구하고 있습니다. 단일 원자 촉매(SAC) 및 이중 원자 촉매(DAC) 설계도 활발하며, \"Molecular Bottom‐Up Design of Single‐Site Copper‐Palladium Catalysts\" (2026-03-11)는 글리세롤 전기 산화 반응을 위한 고선택성 Cu-Pd SSC를 분자 바텀업 방식으로 개발했습니다.\n\nCCEL은 ML/AI를 활용한 촉매 발견 및 설계 역량을 더욱 강화하고, MLIP 및 LLM 기반 프레임워크를 다양한 촉매 시스템에 적용하는 연구를 확대할 필요가 있습니다. 특히 전기화학 반응의 복잡한 계면 현상과 동적 활성 부위 변화를 in-situ/operando 분석 및 DFT 계산과 연계하여 심층적으로 이해하는 연구에 집중해야 할 것입니다.",
-      "yearly_trend": "지난 1년간 촉매 연구 분야는 인공지능(AI)과 머신러닝(ML)의 전방위적인 통합이 가장 두드러진 트렌드였습니다. MLIP는 이제 단순한 DFT 대체재를 넘어, 대규모 시스템 시뮬레이션, 전하를 띠는 결함 예측, 동적 계면 반응 분석 등 복잡한 문제 해결의 핵심 도구로 자리매김하고 있습니다. \"High-Throughput Screening of Ru-Based MOF-Supported Single-Atom Catalysts for Hydrogen Evolution Reaction Via Machine Learning\" (2025-11-13)과 같은 연구는 MLIP를 활용한 고처리량 스크리닝이 촉매 발견을 가속화하는 대표적인 사례입니다. 또한, \"Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework\" (2026-02-25)와 \"Synthesis of Highly Crystalline Covalent Organic Frameworks Using Large Language Models\" (2026-02-23)는 LLM이 촉매 설계 및 합성 조건 도출에까지 활용되는 새로운 패러다임을 제시하며, AI 기반 재료 역설계의 가능성을 확장하고 있습니다.\n\n에너지 전환 및 환경 문제 해결을 위한 전기화학 촉매 연구는 여전히 핵심 동력입니다. CO2 전기환원, 물 분해(OER, HER), 연료전지(ORR, MOR) 등 다양한 반응에서 효율, 선택성, 안정성을 동시에 확보하기 위한 노력이 지속되고 있습니다. 특히 단일 원자 촉매(SAC) 및 이중 원자 촉매(DAC)는 \"Structural flexibility dictates reactivity of single-atom catalysts\" (2026-03-12)에서 보듯이 구조적 유연성, 배위 환경, 금속-지지체 상호작용(MSI/SMSI) 등을 정밀하게 제어하여 반응성을 최적화하는 방향으로 발전하고 있습니다. Operando/in-situ 분석 기법은 촉매의 실제 작동 환경에서의 동적 변화를 이해하는 데 필수적인 도구로 광범위하게 활용되고 있습니다.\n\nCCEL은 이러한 거대한 변화의 흐름 속에서 AI/ML 기반의 계산 촉매 연구를 선도하고, 특히 생성형 AI 및 LLM을 활용한 촉매 설계 및 반응 경로 예측 분야에서 독자적인 경쟁력을 확보해야 합니다. DFT를 기반으로 한 심층적인 메커니즘 연구와 MLIP/AIMD를 통한 대규모 시스템 및 동적 현상 시뮬레이션을 결합하여, 실제 촉매 시스템의 복잡성을 해결하고 새로운 촉매 재료를 발굴하는 데 기여할 수 있을 것입니다.",
-      "hot_topics": [
-        "AI/ML 기반 촉매 설계",
-        "머신러닝 원자간 포텐셜",
-        "전기화학적 CO2 전환",
-        "단일/이중 원자 촉매",
-        "Operando/In-situ 분석"
-      ],
       "paper_count_monthly": 144,
       "paper_count_yearly": 185,
-      "generated_at": "2026-03-19T10:27:51.308094"
+      "digest": {
+        "depth": "full",
+        "hot_issues": [],
+        "sections": [
+          {
+            "title": "Digest",
+            "content": "```json\n{\n  \"hot_issues\": [\n    {\n      \"topic\": \"AI/ML 촉매 설계\",\n      \"description\": \"인공지능 및 머신러닝(ML)을 활용하여 촉매 물질을 발굴하고 설계하는 연구가 활발합니다. 특히 ML 원자간 상호작용 포텐셜(MLIP)의 정확도와 확장성을 높이고, 대규모 언어 모델(LLM)을 촉매 설계 및 합성 조건 최적화에 적용하는 시도가 주목받고 있습니다.\"\n    },\n    {\n      \"topic\": \"지속가능 전기화학\",\n      \"description\": \"수소 생산(OER/HER), 이산화탄소 환원(CO2RR), 과산화수소 전기합성 등 지속 가능한 에너지 전환을 위한 전기화학 촉매 개발이 중요합니다. 고효율, 고선택성, 장기 안정성을 동시에 달성하기 위해 촉매의 동적 재구성, 계면 미세환경, 전자 구조 조절 메커니즘을 이해하려는 노력이 집중됩니다.\"\n    },\n    {\n      \"topic\": \"Operando/In situ 분석\",\n      \"description\": \"실제 반응 조건에서 촉매의 활성 부위, 중간체, 동적 변화를 실시간으로 관찰하는 operando 및 in situ 분석 기법이 활발히 적용되고 있습니다. 이를 통해 기존의 정적 모델로는 파악하기 어려웠던 촉매 작동 메커니즘에 대한 심층적인 이해를 추구합니다.\"\n    }\n  ],\n  \"sections\": [\n    {\n      \"title\": \"핵심 연구 동향\",\n      \"content\": \"최근 촉매 분야에서는 AI/ML 기술을 활용한 촉매 설계 및 발견 가속화가 두드러집니다. MLIP는 대규모 시스템 및 전하를 띠는 결함에 대한 정확도를 높이는 방향으로 발전하고 있으며([2026-03-09], [2026-03-06], [2026-03-05]), LLM은 단일 원자 촉매(SAC) 설계([2026-02-25]) 및 공유 유기 골격(COF) 합성 조건 최적화([2026-02-23]) 등 새로운 활용 가능성을 제시합"
+          }
+        ],
+        "notable_papers": [],
+        "generated_at": "2026-03-19T13:23:30.252410"
+      }
     },
     "electrochemistry": {
       "label": "Electrochemistry / Fuel Cells",
-      "monthly_trend": "지난 한 달간 전기화학/연료전지 분야 연구는 탄소 중립 목표 달성을 위한 CO2 전기환원(CO2R) 및 수소 생산 기술, 그리고 차세대 배터리 시스템의 안정성과 성능 향상에 집중되는 경향을 보였습니다. 특히 CO2R 분야에서는 구리(Cu) 기반 촉매를 활용하여 n-propanol과 같은 다중 탄소(C2+) 생성물의 선택성을 높이는 연구(\"Strain boosts propanol electrosynthesis from CO on copper\")와 산성 조건에서 Cu2O 촉매를 HEDP로 개질하여 C2+ 생성 효율을 79.3%까지 끌어올린 연구(\"HEDP‐Modified Cu2O Catalyst Enables Efficient C2+ Product Formation in Acidic CO2 Electroreduction\")가 주목됩니다. 이는 촉매의 미세 구조(strain) 및 계면 환경(K+ 미세환경, 음이온 경쟁 흡착) 제어를 통해 반응 선택성을 조절하려는 노력이 활발함을 보여줍니다. 또한, 수계 Zn-CO2 배터리 개발(\"Pseudo‐Zero‐Gap Flow‐Type Aqueous Zn‐CO2 Batteries\")과 CO2/H2O 동시 전기분해를 통한 합성가스 생산(\"Co‐Electrolysis of CO2 and H2O to Syngas on Bimetallic PdxCu1‐x Catalysts for Tandem Thermochemical Conversion to Carbon\") 등 CO2 활용의 다각화도 관찰됩니다.\n\n수전해 및 연료전지 분야에서는 음이온 교환막(AEM) 내 수산화 이온 수송 메커니즘을 머신러닝 상호작용 포텐셜(MLIP) 기반 분자 동역학 시뮬레이션으로 규명하거나(\"Revealing Hydroxide Ion Transport Mechanisms in Commercial Anion-Exchange Membranes at Nano-Scale from Machine-learned I\"), 해수 전기분해에서 염소 발생을 억제하는 이중 경로 전략(\"Dual‐Pathway Chloride Suppression Enables Stable Industrial‐Scale Anion Exchange Membrane Seawater Electrolysis\") 등 실용적 문제 해결에 초점을 맞추고 있습니다. 또한, 단일 원자 촉매(SAC) 및 이중 원자 촉매(DAC) 설계에 대한 관심이 여전하며, 특히 대규모 언어 모델(LLM)을 활용한 SAC 설계 프레임워크(\"Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework\")는 AI 기반 재료 설계의 새로운 가능성을 제시합니다. CCEL은 DFT 및 MLIP를 활용한 촉매 및 전해질 계면 연구, 특히 CO2R 및 수전해 촉매의 동적 거동 분석에 집중하여 이러한 트렌드를 선도할 수 있을 것입니다.\n\n배터리 분야에서는 전고체 리튬-황 배터리(ASSLSBs)의 계면 안정성 문제 해결을 위한 '폴리 이온 브릿지' 개발(\"In Situ Constructed “Poly‐Ionic Bridges” Promoting Performances of All‐Solid‐State Lithium‐Sulfur Batteries\")과 고니켈 배터리의 전이금속 용해를 억제하는 생분해성 분리막 개발(\"Engineering Interfacial Immunity in High‐Nickel Batteries with a Mediating Biodegradable Separator\") 등 다양한 차세대 배터리 시스템의 핵심 난제를 해결하려는 시도가 활발합니다. 오페란도(operando) XAS/PDF 분석을 통해 리튬 과량 망간 산화물 양극의 구조적, 산화환원 거동을 심층적으로 이해하려는 연구(\"A Complete Operando Structural and Redox Perspective on the O2‐Type Lithium‐Rich Manganese Oxide LiMn0.75O2\")는 실제 작동 환경에서의 메커니즘 규명의 중요성을 강조합니다.",
-      "yearly_trend": "지난 1년간 전기화학/연료전지 분야는 에너지 전환 및 저장 기술의 발전이라는 큰 틀 아래, 촉매 설계의 정교화, 차세대 배터리 시스템의 실용화, 그리고 첨단 분석 및 계산 과학의 융합이라는 세 가지 주요 흐름을 보였습니다. 촉매 연구는 CO2 전기환원(CO2R), 수소 발생 반응(HER), 산소 발생 반응(OER) 등 핵심 반응의 효율과 안정성을 높이는 데 집중되었으며, 특히 단일 원자 촉매(SAC) 및 이중 원자 촉매(DAC)의 분자 수준 설계(\"Molecular Bottom‐Up Design of Single‐Site Copper‐Palladium Catalysts for Selective Glycerol Electro‐Oxidation\", \"Dual‐Channel σ‐Donation/π‐Backdonation‐Driven ‐p‐p‐ Coupling in Calcium Dual‐Atom Catalysts Enables Accelerated ORR\")가 활발했습니다. MOF, h-BN 등 다양한 지지체 위에 활성점을 고정하고, 리간드 조절(\"Ligand-Driven Tuning of Adsorption Energy in Nanocrystals for High-Performance H2O2 Electrosynthesis\")이나 전자 구조 제어(\"Magnetic Free‐Standing Electrodes Achieving Efficient Oxygen Evolution Reaction via Electronic Structure Regulation\")를 통해 성능을 최적화하는 연구가 두드러집니다. 또한, PEM 수전해 스택의 장기 성능 저하 메커니즘 규명(\"Degradation through filaments\")과 같은 실용적 안정성 문제 해결도 중요하게 다루어졌습니다.\n\n배터리 분야에서는 리튬 이온 배터리의 성능 한계를 뛰어넘기 위한 나트륨 이온(Na-ion), 아연 이온(Zn-ion), 마그네슘 이온(Mg-ion) 배터리 연구가 크게 성장했습니다. 특히 전고체 배터리는 계면 안정성, 덴드라이트 성장 억제, 열 안정성 확보가 핵심 과제로 다루어지며, 할라이드 기반 고체 전해질과 양극재의 SoC(State-of-Charge) 의존적 노화 메커니즘 규명(\"State‐of‐Charge Dependent Aging Mechanism of Halide‐Based Composite Cathodes for All‐Solid‐State Batteries\")이나 Na3PS4|Na 계면의 전기화학-화학-기계적 결함 분석(\"Addressing Electro‐Chemo‐Mechanical Coupling Failure at the Sodium|Na3PS4 Interface towards Durable All‐Solid‐State Sodi\")과 같은 심층 연구가 진행되었습니다. 또한, 넓은 온도 범위에서 작동 가능한 하이드로젤 고분자 전해질 개발(\"Molecular Engineering of Hydrogel Polymer Electrolytes for Climate‐Resilient Rechargeable Batteries\") 등 전해질 공학을 통한 배터리 성능 향상 노력도 지속되고 있습니다.\n\nCCEL의 관점에서 주목할 점은 계산 과학, 특히 DFT 및 분자 동역학(MD) 시뮬레이션이 촉매 반응 메커니즘 규명, 전해질 내 이온 수송 분석, 계면 현상 이해에 필수적인 도구로 자리매김했다는 것입니다. 나아가 머신러닝(ML) 및 대규모 언어 모델(LLM)을 활용한 재료 탐색 및 설계(\"High-Throughput Screening of Ru-Based MOF-Supported Single-Atom Catalysts for Hydrogen Evolution Reaction Via Machine Le\", \"Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework\")는 연구 패러다임의 변화를 예고합니다. 오페란도(operando) X선 흡수 분광법(XAS), 라만 분광법, 전기화학 질량 분석법(EC-MS) 등 첨단 분석 기법과 계산 과학의 결합은 실제 작동 환경에서의 동적 변화를 이해하는 데 결정적인 역할을 하고 있습니다. CCEL은 이러한 계산 및 AI 기반 재료 설계 역량을 강화하고, 오페란도 실험 데이터와의 시너지를 통해 전기화학 시스템의 근본적인 이해를 심화하는 방향으로 연구를 확장할 전략적 기회를 모색해야 할 것입니다.",
-      "hot_topics": [
-        "CO2 전기환원",
-        "차세대 배터리",
-        "수전해 촉매",
-        "오페란도/계면 분석",
-        "AI/ML 기반 재료 설계"
-      ],
       "paper_count_monthly": 117,
       "paper_count_yearly": 136,
-      "generated_at": "2026-03-19T10:28:34.412583"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "CO2/CO 전기환원 촉매",
+            "description": "다중 탄소 생성물(C2+, C3+)의 선택성 및 효율을 높이기 위해 촉매의 국부적 구조(strain), 표면 화학(산화 상태), 전해질 계면 미세환경(K+ 농도, 음이온 흡착)을 제어하는 연구가 활발합니다. 특히 산성 조건에서의 효율 향상과 특정 생성물(예: n-propanol) 선택성 조절에 초점을 맞춥니다."
+          },
+          {
+            "topic": "차세대 배터리 계면 안정성",
+            "description": "고체 전해질 배터리 및 금속 양극의 안정성 확보를 위해 전극-전해질 계면의 전기화학-화학-기계적 결합 메커니즘을 이해하고 제어하는 연구가 중요하게 다루어집니다. 이를 위해 새로운 고분자 전해질, 첨가제, 분리막 설계 및 operando 분석 기법이 활용됩니다."
+          },
+          {
+            "topic": "계산과학/AI 기반 재료 설계",
+            "description": "머신러닝 상호작용 포텐셜(MLIP) 및 대규모 언어 모델(LLM)을 활용하여 이온 수송 메커니즘을 원자 수준에서 규명하거나, 촉매를 자율적으로 설계하는 등 계산과학 도구의 활용 범위가 확장되고 있습니다. 이는 재료의 근본적인 물리 법칙을 발견하고 설계 공간을 효율적으로 탐색하는 데 기여합니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "CO2/CO 전기환원 반응에서는 구리 촉매의 'strain'을 조절하여 n-propanol 선택성을 높이거나(2026-03-16), HEDP 개질 Cu2O 촉매로 산성 조건에서 C2+ 생성물 패러데이 효율을 79.3%까지 달성하는(2026-03-15) 등 촉매의 미세구조 및 계면 환경 제어를 통한 성능 향상 연구가 주목받고 있습니다. 배터리 분야에서는 고전압 NCM811 양극의 구조적 열화를 완화하는 3D 고분자 바인더(2026-03-15)나, 아연 덴드라이트 성장을 억제하는 동적 양쪽성 이온 흡착 계면(2026-03-12) 등 계면 안정성 확보를 위한 재료 공학적 접근이 활발합니다. 또한, MLIP 기반 대규모 분자 동역학 시뮬레이션으로 상업용 음이온 교환막 내 수산화 이온 수송 메커니즘을 원자 수준에서 규명하거나(2026-03-14), LLM을 활용하여 단일 원자 촉매를 자율적으로 설계하는(2026-02-25) 등 계산과학 및 AI를 통한 재료 설계 및 메커니즘 규명 연구가 증가하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "CO2/CO 전기환원 반응에서는 여전히 특정 고부가가치 생성물(예: n-propanol)에 대한 높은 선택성과 장기 안정성을 동시에 확보하는 것이 어렵습니다. 수전해 촉매의 경우, 산업적 고전류 밀도 조건에서 촉매의 동적 재구성으로 인한 활성 부위 용출 및 장기 안정성 저하 문제가 지속적으로 발생하며, 이를 제어하기 위한 명확한 설계 원리가 부족합니다. 또한, 전고체 배터리 및 금속 양극 기반 배터리에서는 전극-전해질 계면의 복합적인 전기화학-화학-기계적 열화 메커니즘을 통합적으로 이해하고 제어하는 데 어려움이 있습니다. 특히, 단거리 기계 학습 원자간 포텐셜이 극성 용매 계면에서 장거리 정전기 상호작용을 정확히 묘사하지 못하여 '가짜 금속화' 현상을 유발하는 등 계산 모델 자체의 한계도 존재합니다(2026-03-04)."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 DFT 및 AIMD 전문성은 CO2/CO 전기환원 반응에서 촉매의 국부적 구조(strain) 및 계면 미세환경이 반응 경로에 미치는 영향을 규명하고, 음이온 교환막 내 이온 수송 메커니즘을 원자 수준에서 이해하는 데 기여할 수 있습니다. 또한, LLM 기반 촉매 설계 프레임워크 개발은 CCEL의 촉매 설계 역량을 강화하고, 전극-전해질 계면의 전기화학-기계적 결합 현상에 대한 심층적인 이론적 분석을 통해 차세대 배터리 소재 개발에 중요한 통찰력을 제공할 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Revealing Hydroxide Ion Transport Mechanisms in Commercial Anion-Exchange Membranes at Nano-Scale from Machine-learned I",
+            "reason": "미세 조정된 머신러닝 상호작용 포텐셜(MLIP) 기반 대규모 분자 동역학 시뮬레이션을 상업용 음이온 교환막에 적용하여 수산화 이온 수송 메커니즘을 원자 수준에서 규명, 기존 시뮬레이션의 한계를 극복했습니다."
+          },
+          {
+            "title": "Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework",
+            "reason": "다중 에이전트 대규모 언어 모델(LLM) 프레임워크인 MAESTRO를 제안하여 LLM의 과학적 지식과 심볼릭 회귀를 결합, 자율적이고 추론 기반의 단일 원자 촉매 설계를 가능하게 했습니다."
+          },
+          {
+            "title": "Controlled Interfacial Stress Platform for Electrochemical‐Mechanical Coupling Measurements",
+            "reason": "단일 전극/전해질 계면에서 전기화학-기계적(ECM) 결합을 직접 측정할 수 있는 새로운 제어된 계면 응력 플랫폼(CISP-ECM)을 개발하여 복합적인 계면 현상 연구의 새로운 길을 열었습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:24:14.133598"
+      }
     },
     "battery": {
       "label": "Battery",
-      "monthly_trend": "지난 한 달간 배터리 분야 연구는 차세대 배터리 기술, 특히 전고체 배터리(ASSB)와 나트륨 이온 배터리(SIB)에 대한 집중적인 탐구가 두드러졌습니다. 전고체 배터리 분야에서는 고전도성 유리 전해질의 머신러닝 기반 발견(예: 'Accelerating the Discovery of High‐Conductivity Glass Electrolytes via Machine Learning'), 할라이드 고체 전해질의 산소 도입 전략('Universal Oxychlorination Strategy in Halide Solid Electrolytes'), 그리고 고분자 및 유기 공결정 전해질 개발(예: 'Ion-Conductive Wires Form High-Performance All-Solid-State Polymer Electrolytes', 'Grain‐Boundary Engineered Co‐Crystal Electrolytes') 등 다양한 고체 전해질 물질에 대한 연구가 활발했습니다. 특히, 리튬 금속 음극의 덴드라이트 형성 억제와 고체-고체 계면 안정화가 핵심 과제로 다루어졌으며, Li-Ga 복합체 음극 개발('Highly Conductive and Dendrite‐Free Li–Ga Compound Anodes') 및 Na3PS4|Na 계면의 전기화학-화학-기계적 결함 메커니즘 규명('Addressing Electro‐Chemo‐Mechanical Coupling Failure at the Sodium|Na3PS4 Interface')과 같은 구체적인 해결책이 제시되었습니다. CCEL은 이러한 전고체 전해질 및 계면 설계에 DFT 및 ML을 적극적으로 활용하여 새로운 물질을 탐색하고 안정화 메커니즘을 규명하는 데 집중할 수 있습니다. 나트륨 이온 배터리 분야에서는 하드 카본 음극의 성능 향상(예: 'Unlocking Kinetic Limitations in Hard‐Carbon Anodes', 'Tuning the Microstructure and Functional Groups of Coal-Derived Hard Carbons')과 P2형 양극재의 전압 강하 문제 해결을 위한 양이온 정렬 전략('Multiple‐Center Cation Ordering Mitigates Voltage Decay and Hysteresis in Sodium Layered Oxides')이 주요 연구 주제였습니다. 수계 아연 이온 배터리(AZIB) 및 알루미늄 이온 배터리(AAIB) 또한 안전성과 비용 효율성 측면에서 주목받으며, 아연 덴드라이트 억제 및 넓은 온도 범위에서 안정적인 하이드로젤 전해질 개발(예: 'Engineering a Gradient Zwitterionic Interphase and Dehydrated Solvation Shell for Dendrite‐Free Zn Anodes', 'Molecular Engineering of Hydrogel Polymer Electrolytes')이 활발히 진행되었습니다. 리튬-황(Li-S) 배터리 연구는 중성자 기반 오페란도 분석법과 AI를 활용하여 복잡한 메커니즘을 이해하고('Neutron‐Based Mechanistic Mapping Across the Li–S Battery Landscape'), 단일 원자 촉매(예: 'Single‐Atomic Fe‐S3‐Mo Sites Triggered Fast Redox Conversion in Li‐S Batteries')를 통해 느린 반응 속도와 셔틀 효과를 극복하려는 노력이 이어졌습니다. 전반적으로, 머신러닝(MLIP, MLFF)과 제일원리 계산(DFT)은 새로운 재료의 발견, 특성 예측, 그리고 복잡한 계면 반응 메커니즘 이해에 필수적인 도구로 광범위하게 활용되고 있습니다. CCEL은 이러한 전산 재료 과학 역량을 바탕으로 차세대 배터리 재료의 설계 및 최적화에 기여할 수 있을 것입니다.",
-      "yearly_trend": "지난 1년간 배터리 연구 트렌드는 월간 트렌드와 일관되게 차세대 배터리 시스템의 근본적인 문제 해결에 집중하고 있음을 보여줍니다. 특히, 전고체 배터리(ASSB)는 리튬 금속 배터리의 안전성과 에너지 밀도 한계를 극복하기 위한 핵심 기술로 부상했으며, 고체 전해질의 이온 전도도 향상, 전극-전해질 계면 안정화, 그리고 덴드라이트 억제 기술 개발이 지속적으로 강조되었습니다. 'Coupled reaction and diffusion governing interface evolution in solid-state batteries'와 같이 MLIP를 활용하여 고체-전해질 계면의 원자 수준 반응을 규명하는 연구는 전산 재료 과학의 중요성을 잘 보여줍니다. 나트륨 이온 배터리(SIB)는 리튬의 공급망 문제와 비용을 대체할 대안으로 꾸준히 연구되고 있으며, 하드 카본 및 Ti 기반 음극, 그리고 다상 산화물 양극재 개발이 활발합니다. 아연 이온 배터리(ZIB)와 같은 수계 배터리도 안전성과 저비용이라는 장점으로 인해 덴드라이트 제어 및 넓은 작동 온도 범위 확보를 위한 전해질 및 전극 재료 연구가 지속적으로 이루어지고 있습니다. 리튬 금속 배터리(LMB)의 경우, 불소화 용매의 분자 공학('Molecular Engineering of Fluorinated Solvents Enables Practical Lithium Metal Batteries')이나 분자 가교 하이브리드 계면 형성('Unlocking Kinetic Limitations in Hard‐Carbon Anodes')을 통해 리튬 덴드라이트 문제를 해결하려는 노력이 이어지고 있습니다. 실리콘(Si) 기반 음극의 열 폭주 메커니즘('Thermal Runaway Mechanisms and Mitigation Strategies of Silicon‐Based Anode in Lithium‐Ion Batteries') 및 리튬 이온 배터리 전극-전해질 계면의 열화 진단을 위한 리튬 동위원소 분별 현상 연구('Depth-Resolved Lithium Isotope Fractionation as a Diagnostic of Interphase Evolution and Degradation in Lithium-Ion Batt')와 같이 배터리 열화 및 안전성에 대한 근본적인 이해를 높이는 연구도 중요하게 다루어졌습니다. 또한, 폐 NCM 및 LFP 양극재의 재활용 기술('Defect‐Driven Upcycling of Spent NCM With Tailored Oxygen Vacancies', 'Streamlined Precise Delamination and Structural Restoration of Spent LiFePO4 Cathode Materials')은 배터리 산업의 지속가능성에 대한 관심이 증가하고 있음을 시사합니다. CCEL은 ML 및 DFT를 활용한 신소재 설계 및 계면 현상 분석 역량을 강화하고, 오페란도(operando) 분석 기법과의 시너지를 통해 배터리 성능 저하 메커니즘을 심층적으로 이해하는 데 집중해야 할 것입니다.",
-      "hot_topics": [
-        "전고체 배터리",
-        "차세대 이온 배터리 (Na, Zn, Al)",
-        "머신러닝 및 전산 재료 설계",
-        "계면 공학 및 덴드라이트 억제",
-        "Operando 분석 기법"
-      ],
       "paper_count_monthly": 76,
       "paper_count_yearly": 91,
-      "generated_at": "2026-03-19T10:29:08.972249"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "고체 전해질 계면 안정화",
+            "description": "전고체 전지의 고에너지 밀도 및 안전성 확보를 위해 고체 전해질과 전극 간의 계면 저항을 낮추고 부반응을 억제하는 것이 핵심 과제이다. 할라이드, 유리, 고분자 등 다양한 고체 전해질의 이온 전도도 향상 및 리튬/나트륨 금속 음극과의 안정적인 계면 형성을 위한 연구가 활발하다."
+          },
+          {
+            "topic": "금속 음극 덴드라이트 억제",
+            "description": "리튬, 나트륨, 아연 등 차세대 금속 음극은 높은 이론 용량을 제공하지만, 충방전 시 발생하는 덴드라이트 성장과 부피 변화로 인해 안전성 및 사이클 수명이 저하된다. 이를 해결하기 위해 집전체 설계, 전해질 첨가제, 계면층 공학 등 다양한 전략이 시도되고 있다."
+          },
+          {
+            "topic": "AI/ML 기반 신소재 발굴",
+            "description": "배터리 소재 개발의 시간과 비용을 절감하기 위해 머신러닝 원자간 포텐셜(MLIP) 및 기타 AI/ML 기법을 활용하여 고전도성 전해질, 고성능 전극 소재를 예측하고 스크리닝하는 연구가 주목받고 있다. 이는 실험적 한계를 극복하고 새로운 소재 후보군을 효율적으로 탐색하는 데 기여한다."
+          },
+          {
+            "topic": "복합 열화 메커니즘 규명",
+            "description": "고전압/고용량 배터리 소재에서 발생하는 구조적 불안정성, 상전이, 전이금속 용해, SEI 불안정성 등 복합적인 열화 메커니즘을 이해하고 제어하는 것이 중요하다. Operando 분석, 동위원소 분별, 전기화학-기계적 결합 측정 등 고급 분석 기법을 통해 실시간으로 열화 과정을 추적하고 있다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "고체 전해질 기반 전고체 전지 개발은 여전히 핵심 동향으로, 할라이드, 유리, 고분자 전해질의 이온 전도도 향상 및 리튬/나트륨 금속 음극과의 계면 안정성 확보에 집중하고 있다. 특히 MLIP를 활용한 고전도성 유리 전해질 탐색([2026-03-11] Accelerating the Discovery of High‐Conductivity Glass Electrolytes), WO2Cl2를 이용한 할라이드 전해질의 산소 도입 전략([2026-03-06] Universal Oxychlorination Strategy), 그리고 유기 공결정 전해질([2026-03-05] Grain‐Boundary Engineered Co‐Crystal Electrolytes) 개발이 시도되고 있다. 또한, 리튬, 나트륨, 아연 금속 음극의 덴드라이트 억제 및 부피 변화 완화를 위한 집전체, 전해질 첨가제, 계면층 설계가 활발하며, F-도핑된 탄소-CuZn 합금 집전체([2026-03-13] One‐Step Constructed F‐Doped Porous Carbon‐Gradient CuZn Alloy Current Collector) 및 Li-Ga 복합체 음극([2026-03-11] Highly Conductive and Dendrite‐Free Li–Ga Compound Anodes) 등이 제안되었다. 고니켈 NCM, Li-S, 하드 카본, Si, Sn 기반 양/음극의 고에너지 밀도 및 고속 충전 성능 확보를 위한 구조 및 계면 공학 연구도 지속되고 있으며, Operando 중성자 이미징, XCT, XAS, iSCAT 등 실시간 분석 기법과 MLIP, DFT 등 계산 과학을 활용하여 복잡한 배터리 메커니즘을 규명하고 신소재를 발굴하는 연구가 활발하다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "전고체 전지 계면의 복합 열화 메커니즘은 여전히 해결되지 않은 핵심 과제이다. 고체 전해질과 전극 간의 전기화학-화학-기계적 결합 열화는 높은 계면 저항, 부반응층 형성, 전해질 균열 등을 유발하여 전고체 전지의 성능 및 수명 저하의 주요 원인으로 작용한다. 특히 나트륨 금속 전지에서 Na3PS4|Na 계면의 2시간 내 65 µm 두께 부반응층 형성 및 불균일한 Na 전착으로 인한 전해질 균열([2026-03-11] Addressing Electro‐Chemo‐Mechanical Coupling Failure)과 같은 복합적인 문제가 관찰되며, 이를 근본적으로 해결할 통합적 접근법이 요구된다. 또한, 리튬, 나트륨, 아연 등 금속 음극의 덴드라이트 성장은 안전성 및 사이클 수명에 치명적이다. 최근 연구에서 리튬 덴드라이트가 기존 예상과 달리 ~150 MPa 이상의 파괴 응력을 가진 강하고 취성 있는 특성([2026-03-12] Strong and brittle lithium dendrites)을 가짐이 밝혀졌으나, 이를 바탕으로 덴드라이트 성장을 완전히 억제하고 충방전 시 발생하는 큰 부피 변화를 효과적으로 완화할 수 있는 실용적인 전략은 아직 부족하다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 DFT 및 MLIP 전문성은 고전도성 고체 전해질 및 차세대 전극 소재 탐색, 복잡한 계면 반응 메커니즘 규명에 중요한 기여를 할 수 있다. 특히, operando 분석과 결합된 이론 계산은 배터리 열화 경로 예측 및 소재 설계에 중요한 통찰력을 제공할 것으로 예상되며, 촉매 설계 역량은 Li-S 배터리 및 CO2 전환 배터리 분야에 적용될 수 있다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Accelerating the Discovery of High‐Conductivity Glass Electrolytes via Machine Learning",
+            "reason": "원자 클러스터 확장(ACE) 기반 MLIP를 개발하여 1,303가지 유리 조성의 확산도를 효율적으로 스크리닝한 방법론적 접근이 새롭다."
+          },
+          {
+            "title": "Neutron‐Based Mechanistic Mapping Across the Li–S Battery Landscape: Operando Methods, Standardization, and AI‐Assisted",
+            "reason": "Operando 중성자 이미징, SANS, 회절 등 다양한 중성자 기반 분석법과 AI를 통합하여 Li-S 배터리의 복잡한 메커니즘을 다차원적으로 규명한 점이 주목할 만하다."
+          },
+          {
+            "title": "Strong and brittle lithium dendrites",
+            "reason": "리튬 덴드라이트가 기존 예상과 달리 ~150 MPa 이상의 파괴 응력을 가진 강하고 취성 있는 기계적 특성을 가짐을 나노조작기 인장 시험으로 규명하여 근본적인 이해를 제시했다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:24:40.066610"
+      }
     },
     "ml": {
       "label": "ML / MLIP",
-      "monthly_trend": "지난 한 달간 'ML / MLIP' 분야에서는 머신러닝 원자간 포텐셜(MLIP) 자체의 성능 개선과 다양한 재료 시스템에 대한 적용 연구가 활발히 진행되었습니다. 특히, MLIP의 정확도와 효율성을 높이기 위한 새로운 아키텍처 및 훈련 방법론 개발이 두드러집니다. 예를 들어, 장거리 정전기적 효과를 모델링하는 'Self-Consistent Electrostatic MLIP' 설계, 고수준 양자역학 이론과 MLIP를 결합한 전이 학습(Transfer Learning) 프레임워크, 그리고 희소 활성화 및 공유 전문가(Mixture-of-Experts)를 활용한 MLIP 확장 연구 등이 발표되었습니다. 또한, 2차 미분 정보(Hessian)를 통합하여 MLIP의 정확도를 높이는 Projected Hessian Learning, 고정된 Cutoff radius의 한계를 극복하는 Flexible Cutoff Learning 등 MLIP의 근본적인 한계를 해결하려는 시도들이 주목할 만합니다. CCEL은 이러한 MLIP 개발 동향을 주시하며, 장거리 상호작용 및 전하 이동 모델링 역량을 강화하고, DFT 계산의 정확도를 MLIP로 효율적으로 전이하는 연구에 집중할 필요가 있습니다.\n\n응용 분야에서는 배터리 및 촉매 연구가 여전히 강세입니다. 고전도성 유리 전해질, 음이온 교환막 내 수산화 이온 수송 메커니즘, 고체 전해질 물질의 MLFF 훈련 지침 등 전해질 관련 연구가 다수 보고되었습니다. 촉매 분야에서는 역수성가스전환(RWGS) 촉매 발굴, 단일 원자 촉매(SAC) 설계, 이종 촉매에서의 사전 학습된 MLIP 활용 가능성 등이 다뤄졌습니다. 특히, 대규모 언어 모델(LLM)을 활용하여 단일 원자 촉매를 설계하거나, 재료의 물리 법칙을 발견하고, 공유 유기 골격(COF) 합성을 가속화하는 등 LLM의 과학적 추론 및 생성 능력을 활용하는 새로운 접근법이 등장했습니다. 이는 CCEL이 촉매 및 전극 재료 설계에 LLM을 통합하는 방안을 모색할 전략적 기회를 제공합니다. 또한, MLIP의 신뢰성과 안전성을 보장하기 위한 'Proof-Carrying Materials'와 같은 연구는 MLIP의 실제 적용을 위한 중요한 과제로, CCEL의 MLIP 개발 시 불확실성 정량화 및 검증에 대한 고려가 필수적임을 시사합니다.",
-      "yearly_trend": "지난 1년간 'ML / MLIP' 분야는 MLIP의 범용성, 정확성, 효율성을 높이는 방향으로 꾸준히 발전해 왔습니다. 특히, 다양한 원소를 포괄하고 비평형 구조까지 정확하게 예측할 수 있는 범용 MLIP(uMLIP) 개발이 핵심 트렌드였습니다. r2SCAN 기능으로 훈련된 Matlantis-PFP v8, 97개 원소(악티나이드 포함)를 지원하는 MACE-Osa, 그리고 MP-ALOE 및 Massive Atomic Diversity(MAD)와 같은 대규모 고품질 데이터셋 구축 노력은 uMLIP의 기반을 강화했습니다. 이는 CCEL이 광범위한 재료 시스템에 MLIP를 적용하고, 특히 핵 재료나 다성분 합금과 같은 복잡한 시스템 연구에 활용할 수 있는 잠재력을 의미합니다.\n\n생성형 인공지능(Generative AI)의 부상은 재료 과학 분야의 주요 변곡점으로 작용하고 있습니다. 결정 구조, 비정질 재료, MOF 등 다양한 신소재를 역설계하고 생성하는 확산 모델(Diffusion Model) 및 트랜스포머 기반 아키텍처 연구가 활발합니다. 특히, 화학적 유효성(Valence Constrained Design)을 고려하여 현실적인 재료를 생성하거나, 양자 자연어 처리(QNLP)를 활용하여 MOF의 특성을 예측하는 등 생성 모델의 실용성을 높이는 연구가 주목됩니다. 또한, 능동 학습(Active Learning)과 자율 주행 연구실(Self-driving laboratory)을 결합하여 재료 발견 및 합성 과정을 가속화하는 시도들은 ML과 실험의 통합을 통한 연구 패러다임 변화를 예고합니다. CCEL은 이러한 생성형 AI 및 자율 연구실 동향을 적극적으로 탐색하여, 기존의 DFT 및 MLIP 기반 시뮬레이션과 결합함으로써 새로운 촉매 및 전극 재료의 발견 속도를 획기적으로 높일 수 있는 기회를 모색해야 합니다. MLIP의 교차 함수 전이성(Cross-functional transferability) 문제 해결 및 벤치마크 플랫폼(MLIP Arena) 개발 노력은 MLIP의 신뢰성 확보가 여전히 중요한 과제임을 보여줍니다.",
-      "hot_topics": [
-        "범용 MLIP 개발 및 성능 개선",
-        "MLIP의 장거리 상호작용 및 전하 이동 모델링",
-        "배터리 및 촉매 시스템에 MLIP 적용",
-        "LLM 및 생성형 AI를 활용한 재료 설계",
-        "MLIP의 신뢰성, 불확실성 정량화 및 전이성"
-      ],
       "paper_count_monthly": 49,
       "paper_count_yearly": 140,
-      "generated_at": "2026-03-19T10:29:35.596474"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 신뢰성 및 외삽",
+            "description": "훈련 데이터 범위를 벗어나는 조건에서 MLIP의 예측 신뢰성을 확보하는 것이 중요합니다. 특히 결함, 상전이, 반응 경로 등 복잡한 시스템에서 MLIP의 예측 오류를 줄이는 방법론이 모색되고 있습니다."
+          },
+          {
+            "topic": "장거리 상호작용 모델링",
+            "description": "기존 MLIP는 단거리 상호작용에 강점을 보이나, 전하 이동, 유도 분극, 반데르발스 힘과 같은 장거리 정전기적 효과를 정확하게 포착하는 데 한계가 있습니다. 이는 극성 환경이나 이온성 물질 시뮬레이션에서 중요한 문제입니다."
+          },
+          {
+            "topic": "범용 MLIP 확장 및 미세 조정",
+            "description": "다양한 원소와 화학적 환경에 적용 가능한 범용 MLIP 개발이 지속되고 있으나, 특정 시스템에 대한 정확도를 높이기 위한 효율적인 미세 조정 전략과 그 과정에서 발생하는 편향 문제를 해결하는 것이 중요합니다."
+          },
+          {
+            "topic": "AI 기반 자율 재료 설계",
+            "description": "MLIP를 넘어 대규모 언어 모델(LLM), 생성형 AI, 능동 학습 등을 활용하여 촉매, 박막, 유기 골격 등 신소재의 역설계 및 합성 조건을 자율적으로 탐색하고 최적화하는 연구가 활발합니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "MLIP의 정확도와 신뢰성을 높이기 위해 고수준 양자역학(CW) 이론과의 결합([2026-03-16] ECW-TL), 장거리 정전기적 효과 모델링([2026-03-16] Self-Consistent Electrostatic MLIP), 2차 미분 정보 통합([2026-03-04] Projected Hessian Learning) 등 다양한 방법론이 시도되고 있습니다. 또한, 97개 원소까지 지원하는 범용 MLIP([2026-03-03] Expanding Universal MLIPs to 97 Elements) 개발을 통해 핵 분야 등 광범위한 재료 시스템에 대한 시뮬레이션 가능성이 확대되고 있습니다. MLIP를 활용한 고처리량 시뮬레이션 자동화 프레임워크([2026-03-11] UniMatSim)와 더불어, 대규모 언어 모델(LLM)을 활용한 단일 원자 촉매 설계([2026-02-25] Reasoning-Driven Design of Single Atom Catalysts) 및 해석 가능한 물리 법칙 발견([2026-02-26] Discovery of Interpretable Physical Laws) 등 AI가 재료 과학 연구의 전 과정을 자율적으로 안내하고 가속화하는 방향으로 발전하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "MLIP는 훈련 데이터 분포를 벗어나는 새로운 화학적 환경이나 극단적인 조건에서 예측 정확도가 급격히 저하될 수 있습니다. 특히, 단거리 MLIP가 극성 용매 계면에서 비물리적인 '가짜 금속화' 현상을 유발하는 한계([2026-03-04] False Metallization)가 보고되었으며, 이는 MLIP의 적용 범위를 제한하는 주요 원인입니다. 고엔트로피 합금이나 다단계 촉매 반응과 같이 다양한 원소와 복잡한 상호작용이 얽힌 시스템에서 MLIP의 정확도와 효율성을 동시에 확보하는 것이 어려우며, 반응 경로 탐색 시 전이 상태 에너지 장벽을 정확하게 예측하는 데 여전히 어려움이 있습니다. 고품질 DFT 데이터셋 구축은 MLIP 훈련의 필수 요소이나, 방대한 계산 비용과 시간 소모가 크고, 강성 구조를 가지는 물질은 훈련 데이터의 다양성을 확보하기 어렵다는 문제가 있습니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 DFT, 촉매, 전기화학, 배터리, MLIP 연구는 MLIP의 정확도, 신뢰성, 범용성을 높이는 방법론 개발과 이를 실제 재료 시스템에 적용하여 새로운 현상을 규명하고 설계 원리를 도출하는 데 기여할 수 있습니다. 특히, 장거리 상호작용, 전하 이동, 복잡한 다성분계 및 결함 시스템에 대한 MLIP 개발은 촉매 및 배터리 재료의 성능 예측 및 최적화에 중요한 역할을 할 것입니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Transfer Learning Meets Embedded Correlated Wavefunction Theory for Chemically Accurate Molecular Simulations: Applicati",
+            "reason": "고수준 양자화학 이론(CW)의 정확도와 MLIP의 효율성을 결합하여 응집상 분자 시뮬레이션에서 화학적 정확도를 달성하는 새로운 ECW-TL 프레임워크를 제안했습니다."
+          },
+          {
+            "title": "Design Space of Self--Consistent Electrostatic Machine Learning Interatomic Potentials",
+            "reason": "기존 MLIP의 단거리 상호작용 한계를 넘어 전하 이동 및 유도 분극과 같은 장거리 정전기적 효과를 체계적으로 모델링하는 새로운 설계 공간과 프레임워크를 제시했습니다."
+          },
+          {
+            "title": "Reasoning-Driven Design of Single Atom Catalysts via a Multi-Agent Large Language Model Framework",
+            "reason": "다중 에이전트 대규모 언어 모델(LLM) 프레임워크인 MAESTRO를 통해 촉매 설계 과정을 자율적으로 추론하고 최적화하는 새로운 AI 기반 접근법을 제안했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:25:11.150176"
+      }
     },
     "policy": {
       "label": "Industry / Policy",
-      "monthly_trend": "지난 한 달간 '산업/정책' 분야 연구 동향은 에너지 전환 기술의 상업적 실현 가능성과 사회적 수용성 확보에 초점을 맞추고 있습니다. 특히, PEM 수전해 스택의 장기 성능 저하 메커니즘 규명('Degradation through filaments')과 유기 태양전지(OPV) 재료의 상업화 경로 분석('Pathways to commercially viable organic photovoltaic materials')은 핵심 에너지 기술의 내구성 및 경제성 확보가 중요한 연구 과제임을 보여줍니다. CCEL은 전산 촉매 및 전기화학 연구를 통해 이러한 핵심 재료의 안정성과 효율성 개선에 기여할 수 있을 것입니다.\n\n또한, 배터리 셀 아키텍처가 성능, 비용, 환경에 미치는 영향을 통합적으로 평가하는 프레임워크 제시('Design Matters: How Cell Architecture Shapes the Performance, Cost, and Environmental Impact of Battery Technologies')는 재료 설계 단계부터 전 생애주기 관점의 중요성을 강조합니다. 알루미늄을 장기 에너지 저장 및 수소 운반체로 활용하는 방안('Towards Climate Neutrality by 2050: Role of Aluminum for Short‐ and Long‐Term Energy and Hydrogen Storage')과 CO2 포집을 위한 고효율 흡착제 개발('Local Symmetry Breaking in 3D Hybrid Perovskites with 3-Hydroxyazetidinium') 역시 기후 중립 목표 달성을 위한 구체적인 재료 솔루션 탐색이 활발함을 시사합니다.\n\n흥미롭게도, AI가 학술 출판 과정에 미치는 영향('When AI Writes, Reviews, and Reads')과 탈탄소 난방 시스템에 대한 대중의 선호도 분석('Understanding UK public preferences and attitudes to a decarbonized heating system')은 기술 개발뿐만 아니라 연구 방법론의 변화 및 사회적 수용성이라는 비기술적 요소가 산업 및 정책 결정에 미치는 영향이 커지고 있음을 보여줍니다. CCEL은 AI/ML을 활용한 재료 설계 및 분석 연구를 수행하는 만큼, AI의 윤리적 사용과 연구 효율성 증진 방안에 대한 논의에도 주목할 필요가 있습니다.",
-      "yearly_trend": "지난 1년간 '산업/정책' 분야의 연구 동향은 기후 변화 대응을 위한 에너지 시스템 전환과 함께, 연구 개발 과정 자체의 효율성과 신뢰성을 높이는 방향으로 진화하고 있음을 보여줍니다. 특히, 메탄 광분해를 통한 지속 가능한 수소 생산 및 탄소 나노튜브 합성('Methane photolysis to clean hydrogen and carbon nanotubes')과 장기 에너지 저장 솔루션으로서의 알루미늄 활용 등 청정에너지 기술 개발이 꾸준히 강조되고 있습니다. 이는 CCEL의 촉매 및 전기화학 연구가 수소 생산, 연료전지, 배터리 등 핵심 분야에서 산업적 파급력을 가질 수 있음을 의미합니다.\n\n또한, 자율주행 연구실(SDL)의 안전성 확보('Steering towards safe self-driving laboratories')와 AI와 수학 및 물리 과학(MPS) 분야의 미래 연계 전략('The Future of Artificial Intelligence and the Mathematical and Physical Sciences (AI+MPS)')에 대한 논의는 AI/ML이 과학적 발견을 가속화하는 핵심 도구로 자리매김하고 있음을 명확히 보여줍니다. 데이터 추출 도구의 상호운용성을 위한 프레임워크('Datatractor: Metadata, automation, and registries...') 제안은 FAIR 데이터 원칙의 중요성과 함께, 연구 데이터 관리 및 활용의 자동화가 미래 연구 경쟁력의 핵심임을 시사합니다. CCEL은 ML 기반 재료 탐색 및 DFT 계산 자동화 연구를 통해 이러한 흐름에 적극적으로 동참해야 할 것입니다.\n\n전반적으로, 기술의 상업적 실현 가능성(유기 태양전지 재료, 배터리 셀 아키텍처)과 사회적 수용성(탈탄소 난방 시스템 대중 선호도)을 동시에 고려하는 연구가 증가하고 있습니다. 이는 실험실 수준의 기초 연구를 넘어 실제 산업 적용과 정책 수립에 필요한 다학제적 접근 방식이 중요해지고 있음을 반영합니다. CCEL은 계산 재료 과학 분야의 전문성을 바탕으로, 이러한 산업 및 정책적 요구사항을 충족시킬 수 있는 실용적이고 영향력 있는 연구 방향을 모색해야 할 것입니다.",
-      "hot_topics": [
-        "에너지 전환 기술 상업화",
-        "AI 기반 연구 자동화 및 윤리",
-        "지속 가능한 재료 및 시스템 설계",
-        "대중 수용성 및 정책 연계",
-        "장기 에너지 저장 솔루션"
-      ],
       "paper_count_monthly": 11,
       "paper_count_yearly": 16,
-      "generated_at": "2026-03-19T10:29:55.042089"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "에너지 시스템 탈탄소화",
+            "description": "PEM 수전해, CO2 포집, 배터리, 냉난방 시스템 등 핵심 기술의 장기 안정성 확보 및 상업화 경로 모색이 중요하게 다루어집니다."
+          },
+          {
+            "topic": "지속가능성 통합 평가",
+            "description": "기술 개발 초기 단계부터 성능, 비용, 환경 영향을 통합적으로 평가하여 지속 가능한 산업 솔루션을 도출하려는 경향이 나타납니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 동향",
+            "content": "산업 및 정책 분야에서는 에너지 시스템의 탈탄소화를 위한 기술 개발과 그 상업적 실현 가능성에 초점을 맞추고 있습니다. PEM 수전해 스택의 산업적 조건에서의 장기 성능 저하 메커니즘을 규명하고, 할로이사이트 점토를 활용한 고효율 CO2 흡착제(LTA 제올라이트)를 개발하는 등 구체적인 문제 해결 접근법이 주목받습니다. 또한, 배터리 셀의 성능, 경제성, 환경 영향을 통합적으로 평가하는 다차원 프레임워크를 제시하여 기술 선택 및 정책 수립에 기여하려는 시도가 있습니다. 냉난방 분야의 온실가스 배출 저감을 위한 가역적 흡착 구동 용해 냉동 사이클과 같은 지속 가능한 대안 기술 개발도 진행 중입니다. 이와 함께, 탈탄소화 기술에 대한 대중의 선호도 및 태도 분석과 기후 변화가 어업 생산량에 미치는 장기적 영향 예측 등 정책 수립에 필요한 사회경제적 연구도 활발히 이루어지고 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Degradation through filaments",
+            "reason": "산업적으로 중요한 조건에서 PEM 수전해 스택의 장기 성능 저하 메커니즘을 이리듐 필라멘트 형성을 통해 구체적으로 규명하여, 스택의 내구성 향상 및 상업화에 필요한 핵심 정보를 제공합니다."
+          },
+          {
+            "title": "Design Matters: How Cell Architecture Shapes the Performance, Cost, and Environmental Impact of Battery Technologies",
+            "reason": "배터리 셀의 성능, 경제성, 환경 영향을 통합적으로 평가하는 다차원 프레임워크를 제시하고 140개 셀에 적용하여, 배터리 기술 개발 및 정책 수립에 대한 포괄적인 관점과 방법론을 제공합니다."
+          }
+        ],
+        "depth": "light",
+        "generated_at": "2026-03-19T13:25:33.154729"
+      }
     }
   },
   "group_digests": {
@@ -135,353 +309,799 @@
       "group_name": "CCEL",
       "pi": "Jeong Woo Han",
       "paper_count": 66,
-      "focus_areas": [
-        "촉매/전극 소재",
-        "계산/분석 방법",
-        "나노 기능성 소재"
-      ],
-      "summary": "이 연구 그룹은 에너지 전환 및 저장, 그리고 다양한 기능성 소재 개발을 목표로 합니다. 이를 위해 이종 촉매, 전극 재료, 2D 소재 및 광학 소재 등을 설계하며, 밀도범함수 이론(DFT), 분자 동역학(MD), 인공지능(AI) 기반 시뮬레이션과 같은 계산 방법론을 실험적 합성 및 in situ/operando 특성 분석과 통합하여 재료의 특성과 반응 메커니즘을 규명합니다.",
-      "notable_papers": [
-        {
-          "title": "Chirality-Induced Suppression of Singlet Oxygen in Lithium–Oxygen Batteries with Extended Cycle Life",
-          "reason": "키랄 코발트 산화물 나노시트의 CISS(Chirality-Induced Spin Selectivity) 효과를 리튬-산소 배터리에 적용하여 단일항 산소 생성을 억제하고 수명을 연장한 것은 배터리 열화 문제 해결을 위한 새로운 접근법을 제시합니다."
-        },
-        {
-          "title": "Hypotaxy of wafer-scale single-crystal transition metal dichalcogenides",
-          "reason": "비정질 기판 위에서 그래핀 템플릿을 활용하여 웨이퍼 스케일 단결정 전이금속 디칼코게나이드(TMD)를 성장시키는 '하이포택시'라는 새로운 합성 방법을 제시하여 2D 소재의 대면적 고품질 생산 가능성을 높였습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:30:18.017109"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "촉매 반응 메커니즘 규명",
+            "description": "다양한 촉매 반응(하이드로포르밀화, OER, HER, CO 산화)에서 촉매의 활성 및 안정성을 향상시키기 위해 크기 효과, 이종 구조 계면, 지지체 영향, 원자 재구성 등 미시적 메커니즘을 규명하는 연구가 활발합니다. 이론 계산과 in situ 분석을 병행하여 촉매 설계 원리를 도출하는 데 중점을 둡니다."
+          },
+          {
+            "topic": "차세대 전지 성능 및 수명 향상",
+            "description": "리튬-산소, 리튬-황, 전고체 리튬 금속 전지 등 차세대 전지의 고질적인 문제인 수명 저하와 성능 한계를 극복하기 위한 소재 및 구조 설계가 중요하게 다루어집니다. 단일항 산소 억제, 보호층 형성, 전해질-전극 계면 최적화 등 다양한 접근법이 시도됩니다."
+          },
+          {
+            "topic": "계산과학 기반 신소재 설계 및 공정 개발",
+            "description": "밀도범함수 이론(DFT)은 물론, 머신러닝(ML), 분자 동역학(MD), 그래프 신경망(GNN) 등 계산과학 방법론을 활용하여 액상 유기 수소 운반체(LOHC) 물질 및 촉매를 설계하고, 2D 물질의 대면적 단결정 성장 메커니즘을 이해하며, 기계적 시뮬레이션의 효율을 높이는 연구가 진행됩니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "촉매 반응 메커니즘 심층 분석은 올레핀 하이드로포르밀화 반응에서 Rh 클러스터 촉매의 최적 크기 효과([2025-12-09]), CO 산화 반응 중 Pt 나노입자의 TiO2 결정면 의존적 재구성([2025-09-10]), 알칼라인 HER에서 Co-Mo2C 이종 구조 촉매의 전하 재분배 효과([2025-01-01]) 등 다양한 촉매 시스템에서 활성 및 선택성 발현 메커니즘을 원자 수준에서 규명하는 데 집중하고 있습니다. 고성능 에너지 저장 장치 소재 개발은 리튬-산소 전지에서 키랄 코발트 산화물 나노시트를 활용한 단일항 산소 생성 억제([2025-08-25]), 리튬-황 전지에서 금속 촉매 표면의 피리딘 N이 내장된 흑연 탄소 보호층을 통한 Li2S 전환 반응 최적화([2025-02-14]), 고체 리튬 금속 전지용 딥 유택틱 용매 기반 고분자 전해질 개발([2026-02-03]) 등 차세대 전지의 성능과 안정성을 향상시키기 위한 혁신적인 소재 및 계면 설계 연구가 진행 중입니다. 차세대 기능성 소재 합성 및 특성 제어는 웨이퍼 스케일 전이금속 디칼코게나이드(TMD) 단결정 성장을 위한 '하이포택시' 방법론 개발([2025-02-19]), MoSe2/MoS2 이종이중층에서 격자 불일치 장벽을 극복하고 원자 재구성을 유도하는 연구([2025-11-25]), 단일 파장 여기로 풀컬러 발광을 구현하는 다층 코어-쉘 나노입자 설계([2025-03-11]) 등 2D 물질 및 광학 소재의 새로운 합성 전략과 특성 제어 기술 개발에 주력하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "촉매의 장기 안정성 및 스케일업 측면에서 Rh 클러스터, Co-Mo2C 이종 구조 등 고활성 촉매들이 제시되었으나, 실제 산업 공정 적용을 위한 장기적인 안정성 확보와 대량 생산 스케일업에 대한 구체적인 해결책은 아직 제시되지 않았습니다. 전지 시스템의 복합 열화 메커니즘 통합 이해는 리튬-산소 전지의 단일항 산소 문제, 리튬-황 전지의 폴리설파이드 셔틀, NMC 양극 활물질의 화학-기계적 열화([2025-08-15]) 등 다양한 전지 시스템에서 발생하는 복합적인 열화 메커니즘을 통합적으로 이해하고, 이를 바탕으로 전지 수명을 예측하고 개선하는 데 필요한 다중 스케일 모델링 및 검증이 여전히 도전 과제입니다. 계산과학 모델의 예측 정확도 및 범용성 향상은 DFT, ML, MD 등 계산 방법론이 활발히 활용되지만, 실제 복잡한 실험 환경에서의 촉매 거동이나 전지 열화 현상을 정확하게 예측하고, 새로운 물질 시스템에 대한 범용적인 설계 가이드라인을 제시하기 위해서는 여전히 모델의 정확도와 적용 범위 확장이 요구됩니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL은 DFT를 포함한 다양한 계산화학 방법론을 활용하여 촉매 반응 메커니즘, 전지 소재의 전자 구조 및 계면 현상을 심층적으로 이해하고, 이를 기반으로 고성능 촉매 및 에너지 소재를 설계하는 데 기여하고 있습니다. 특히 in situ 실험 및 고급 특성 분석과의 유기적인 결합을 통해 이론적 예측의 신뢰성을 높이고 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Hypotaxy of wafer-scale single-crystal transition metal dichalcogenides",
+            "reason": "웨이퍼 스케일 2D 물질 단결정 성장을 위한 '하이포택시'라는 새로운 합성 방법론을 제시하여 2D 물질 연구의 중요한 난제를 해결하는 데 기여했습니다."
+          },
+          {
+            "title": "Chirality-Induced Suppression of Singlet Oxygen in Lithium–Oxygen Batteries with Extended Cycle Life",
+            "reason": "리튬-산소 전지의 핵심 열화 원인인 단일항 산소 생성을 키랄 촉매의 CISS 효과를 통해 억제하는 새로운 개념적 접근법을 제시했습니다."
+          },
+          {
+            "title": "TiO2-facet-dependent reconstruction of Pt nanoparticles during CO oxidation",
+            "reason": "상관 현미경, 분광 분석, DFT 및 그래프 신경망 기반 분자 동역학 시뮬레이션을 결합하여 Pt 나노입자의 동적이고 결정면 의존적인 재구성 메커니즘을 심층적으로 규명했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:26:02.715331"
+      }
     },
     "norskov": {
       "group_name": "Norskov",
       "pi": "Jens K. Norskov",
       "paper_count": 18,
-      "focus_areas": [
-        "암모니아 전기합성",
-        "전기화학 메커니즘",
-        "계산 촉매학"
-      ],
-      "summary": "Norskov 그룹은 최근 암모니아 전기합성 및 산소 발생 반응과 같은 주요 전기화학 반응의 근본적인 메커니즘을 규명하는 데 집중하고 있습니다. 이들은 DFT 계산 및 미세역학 모델링을 활용하여 반응 중간체의 전위 응답, 스핀 효과, 그리고 장 효과를 분석하며, 동시에 연속 흐름 반응기, 신규 용매, 효율적인 양성자 셔틀 개발을 통해 암모니아 전기합성의 지속 가능성과 장기 운전 안정성을 개선하는 실용적인 접근법을 모색하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "Field effects explain the unintuitive potential response of electrochemical oxygen evolution in acid",
-          "reason": "이 연구는 DFT 계산과 미세역학 모델링을 통해 IrO2 촉매에서의 산소 발생 반응(OER) 중 흡착 산소 원자의 정전기적 불안정화, 즉 장 효과가 유효 전위 응답에 미치는 영향을 규명하여, 기존에 '직관적이지 않다'고 여겨지던 현상에 대한 새로운 메커니즘적 설명을 제시했습니다."
-        },
-        {
-          "title": "Phenol as proton shuttle and buffer for lithium-mediated ammonia electrosynthesis",
-          "reason": "이 논문은 리튬 매개 질소 환원 반응(Li-NRR)에서 페놀이 기존 에탄올보다 우수한 양성자 셔틀임을 실험적으로 입증하고, operando 분석 및 물질 전달 모델링을 통해 효율적인 양성자 셔틀 설계 원리를 제시하여 공정 효율 개선에 기여했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:30:36.752830"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "암모니아 전기합성",
+            "description": "지속 가능한 암모니아 전기합성 공정을 위한 용매, 양성자원 및 반응기 설계 개선에 집중하고 있습니다."
+          },
+          {
+            "topic": "촉매 반응 메커니즘",
+            "description": "전기화학 반응(OER)의 전위 응답 및 흡착/촉매 반응에서의 스핀 효과 등 미시적 메커니즘을 규명하고 있습니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 동향",
+            "content": "Norskov 연구 그룹은 최근 지속 가능한 암모니아 전기합성(NRR) 공정 개발과 전기화학 반응 메커니즘 규명에 중점을 두고 있습니다. NRR 분야에서는 연속 흐름 반응기, 새로운 용매 및 양성자 셔틀 발굴을 통해 장기 운전 및 효율 향상을 목표로 하며, OER 분야에서는 DFT 및 미세역학 모델링을 활용하여 반응 중간체의 분극 효과와 같은 미시적 요인을 분석합니다. 또한, 흡착 및 촉매 반응에서 스핀 효과의 계산적 견고성을 검증하고 스핀이 촉매 성능에 미치는 영향을 탐구하여 계산 촉매 방법론의 신뢰성을 높이고 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Field effects explain the unintuitive potential response of electrochemical oxygen evolution in acid",
+            "reason": "전기화학 산소 발생 반응(OER)의 전위 응답에 대한 기존 해석에 반응 중간체의 정전기적 분극 효과라는 새로운 기계론적 관점을 제시합니다."
+          },
+          {
+            "title": "Surface Spin Effect in Chemisorption and Catalysis: Computational Robustness",
+            "reason": "흡착 및 촉매 반응에서 스핀 효과 계산의 신뢰성을 다양한 DFT 교환-상관 함수를 사용하여 체계적으로 검증하여 계산 촉매 방법론의 기반을 강화합니다."
+          }
+        ],
+        "depth": "light",
+        "generated_at": "2026-03-19T13:26:23.947682"
+      }
     },
     "persson": {
       "group_name": "Persson",
       "pi": "Kristin A. Persson",
       "paper_count": 123,
-      "focus_areas": [
-        "ML 원자 포텐셜",
-        "재료 데이터/워크플로우",
-        "배터리 소재 탐색"
-      ],
-      "summary": "이 연구 그룹은 재료 발견 및 이해를 가속화하기 위해 계산 재료 과학 방법론을 발전시키는 데 집중합니다. 특히, 고품질 DFT 계산 기반의 대규모 데이터셋을 구축하고, 이를 활용하여 머신러닝 원자간 상호작용 포텐셜(MLIP)을 개발 및 평가하며, 고처리량 워크플로우를 통해 배터리 및 기타 기능성 재료의 특성을 예측하고 새로운 소재를 탐색합니다.",
-      "notable_papers": [
-        {
-          "title": "MP-ALOE: an r2SCAN dataset for universal machine learning interatomic potentials",
-          "reason": "약 100만 개의 r2SCAN meta-GGA DFT 계산으로 구성된 대규모 데이터셋을 능동 학습을 통해 비평형 구조를 포함하도록 구축하여, 범용 MLIP의 정확도와 적용 범위를 확장하려는 시도는 기존 GGA 기반 데이터셋의 한계를 보완합니다."
-        },
-        {
-          "title": "A Foundational Potential Energy Surface Dataset for Materials",
-          "reason": "2억 8천만 개 이상의 분자 동역학 스냅샷에서 약 40만 개의 구조를 샘플링하여 r2SCAN 기반의 고충실도 PES 데이터를 구축한 MatPES는 기존 DFT 이완 데이터셋의 한계를 넘어선 재료 시뮬레이션용 기반 데이터셋을 제공합니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:30:54.678055"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 신뢰성 및 확장",
+            "description": "범용 MLIP가 훈련 데이터 분포를 벗어나는 환경에서 에너지/힘을 과소평가하는 '연화 현상'을 극복하고, 고정밀도 DFT 데이터로의 전이 학습 효율을 높이는 방법론 연구가 활발합니다. 이는 MLIP의 실제 재료 시뮬레이션 적용 범위를 넓히는 데 필수적입니다."
+          },
+          {
+            "topic": "대규모 고품질 데이터셋",
+            "description": "MLIP의 정확도와 범용성을 향상시키기 위해 r2SCAN meta-GGA 수준의 대규모 DFT 계산 데이터셋(예: MP-ALOE, MatPES)을 구축하고, 비평형 구조 데이터를 포함하여 실제 재료 거동을 더 잘 반영하려는 노력이 지속됩니다. 이는 MLIP 학습의 기반을 강화합니다."
+          },
+          {
+            "topic": "AI 기반 재료 설계",
+            "description": "확산 모델 기반 구조 생성, LLM을 활용한 결정 구조 발굴, MLIP를 이용한 복잡한 반응 네트워크 및 동역학 시뮬레이션 등 AI 기술을 재료 발견 및 설계 워크플로우에 통합하여 효율성을 극대화하는 접근법이 주목받고 있습니다. 이는 재료 연구의 속도를 높이는 데 기여합니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Persson 그룹은 범용 MLIP의 한계를 극복하고 정확도를 높이는 데 집중하고 있습니다. r2SCAN meta-GGA 수준의 고품질 DFT 데이터셋(MP-ALOE, MatPES)을 구축하고, 이를 활용하여 MLIP의 '연화 현상(softening)' 문제를 분석하며 전이 학습 및 미세 조정 기법을 통해 성능을 개선하고 있습니다. 또한, MLIP를 활용하여 금 나노클러스터 동역학, MOF 포논 계산, SEI 내 Li+ 전도상 규명 등 복잡한 시스템의 장시간/대규모 시뮬레이션을 가속화하고 있습니다. 확산 모델 기반 생성 구조 예측, LLM을 이용한 결정 구조 발굴(MatLLMSearch) 등 AI를 재료 설계 및 발견 파이프라인에 통합하는 새로운 방법론도 제시하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "M3GNet, CHGNet, MACE-MP-0와 같은 범용 MLIP들이 훈련 데이터 분포를 벗어나는 표면, 결함, 이온 이동 장벽 등 복잡한 원자 환경에서 에너지와 힘을 일관되게 과소 예측하는 '체계적인 연화 현상(systematic softening)'이 주요 과제로 남아 있습니다. 또한, GGA 데이터셋에서 r2SCAN과 같은 고정밀도 데이터셋으로 전이 학습 시, 에너지 스케일 변화와 낮은 상관관계로 인해 전이 학습의 이점이 충분히 발휘되지 못하는 문제가 있습니다. 비정질 재료의 다양성과 복잡한 반응 네트워크의 장시간 스케일 모델링은 여전히 방대한 계산 비용과 데이터 요구량을 수반합니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Persson 그룹의 MLIP 개발 및 고품질 데이터셋 구축 노력은 CCEL의 DFT 계산 및 MLIP 연구에 직접적인 참고가 될 수 있습니다. 특히, MLIP의 OOD 성능 한계 분석 및 전이 학습 전략은 CCEL이 개발하는 MLIP의 신뢰성과 범용성을 높이는 데 활용될 수 있으며, AI 기반 재료 발견 워크플로우는 촉매 및 배터리 소재 탐색 연구에 적용될 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "MP-ALOE: an r2SCAN dataset for universal machine learning interatomic potentials",
+            "reason": "대규모 r2SCAN meta-GGA DFT 계산 기반의 범용 MLIP 학습용 데이터셋을 구축하고, 능동 학습을 통해 비평형 구조 데이터를 포함시켜 기존 데이터셋의 한계를 극복하려는 시도는 MLIP의 정확도와 범용성 향상에 기여하는 근본적인 접근입니다."
+          },
+          {
+            "title": "Systematic softening in universal machine learning interatomic potentials",
+            "reason": "범용 MLIP가 훈련 데이터 분포를 벗어나는 복잡한 환경에서 에너지와 힘을 체계적으로 과소 예측하는 '연화 현상'을 명확히 규명하고 다양한 벤치마크를 통해 분석한 것은 MLIP의 신뢰성 있는 적용을 위한 중요한 문제 제기입니다."
+          },
+          {
+            "title": "Crystal structure prediction with host-guided inpainting generation and foundation potentials",
+            "reason": "확산 모델의 대규모 단위 셀 대칭 구조 생성 문제를 해결하기 위해 호스트 구조 기반의 인페인팅 생성과 파운데이션 포텐셜을 통합한 CHGGen 프레임워크를 제안한 것은 AI 기반 결정 구조 예측 방법론의 새로운 방향을 제시합니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:26:50.833752"
+      }
     },
     "curtarolo": {
       "group_name": "Curtarolo",
       "pi": "Stefano Curtarolo",
       "paper_count": 36,
-      "focus_areas": [
-        "고엔트로피 재료",
-        "무질서 재료",
-        "계산 재료 방법론"
-      ],
-      "summary": "이 그룹은 AFLOW, MLIP, 능동 학습 등 고처리량 재료 발견 및 특성화를 위한 계산 방법론과 도구 개발에 집중합니다. 특히 고엔트로피 합금 및 금속 유리와 같은 무질서 재료의 이해와 설계를 위해 Soliquidy와 같은 새로운 디스크립터 및 DVC와 같은 시뮬레이션 접근법을 개발합니다. 이들의 연구는 극한 환경 및 생체 의료 응용을 위한 재료의 예측 및 설계를 목표로 합니다.",
-      "notable_papers": [
-        {
-          "title": "Soliquidy: a descriptor for atomic geometrical confusion",
-          "reason": "이 논문은 무질서-질서 상태 간 원자 배열의 유클리드 수송 비용을 정량화하는 'Soliquidy'라는 새로운 기하학적 디스크립터를 제안하여 물질의 고체화 과정을 이해하는 데 기여합니다."
-        },
-        {
-          "title": "Disorder viscosity correction approach to calculate spinodal temperature and wavelength",
-          "reason": "이 연구는 작은 셀에서 스피노달 분해를 예측하기 위해 '무질서 점성 보정(DVC)'이라는 새로운 계산 접근법을 도입하여 계면 특성의 ab initio 매개변수화 없이 자유 에너지 영역을 안정화합니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:31:14.492995"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "고엔트로피 재료 설계",
+            "description": "복잡한 다원소 무질서 재료의 안정성, 특성 예측 및 새로운 응용 분야 (고온 플라즈몬, 바이오세라믹) 탐색이 활발합니다. 기존 재료의 한계를 극복하기 위해 무질서도가 높은 시스템의 구조-물성 관계를 이해하는 것이 중요합니다."
+          },
+          {
+            "topic": "MLIP 자동화 및 확장",
+            "description": "능동 학습을 통해 다양한 원소 시스템 (삼원 탄화물)에 대한 머신러닝 원자간 포텐셜(MLIP, 특히 MTP) 훈련을 자동화하고, DFT 계산 비용을 절감하여 고처리량 재료 탐색을 가속화하는 연구가 진행 중입니다. 이는 복잡한 재료 시스템의 대규모 시뮬레이션을 가능하게 합니다."
+          },
+          {
+            "topic": "무질서 재료 거동 이해",
+            "description": "무질서-질서 전이, 스피노달 분해, 전단 밴드 형성 등 무질서 재료의 복잡한 미세구조 진화 및 기계적 특성을 설명하기 위한 새로운 디스크립터 및 계산 방법론 개발에 집중하고 있습니다. 이는 재료의 거동을 예측하고 제어하는 데 필수적입니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Curtarolo 연구 그룹은 고엔트로피 재료의 다기능성 탐색에 주력하고 있으며, 1000°C 이상 고온에서 플라즈몬 공명 특성을 가지는 고엔트로피 전이 금속 탄화물(HECs)을 개발하고 열 순환 안정성을 입증했습니다 ([2025-07-21]). 또한, 환자 맞춤형 골 대체재를 위한 고엔트로피 바이오세라믹스(HEBs)의 잠재력을 제시하며 기존 바이오세라믹스의 기계적 한계 극복을 목표로 합니다 ([2026-01-14]). 머신러닝 원자간 포텐셜(MLIP) 기반 재료 탐색 자동화 측면에서는 Moment Tensor Potentials (MTPs) 훈련 및 활용을 자동화하는 소프트웨어 패키지 PRAPs를 개발하여 능동 학습 절차를 통해 견고하고 정확한 포텐셜 생성을 지원합니다 ([2025-12-13]). 무질서 재료 특성 예측 방법론 개발을 위해 무질서-질서 상태 간 유클리드 수송 비용을 정량화하는 새로운 기하학적 디스크립터 'Soliquidy'를 제안하여 고체화 과정을 이해하고 ([2025-01-29]), 스피노달 분해 예측을 위한 '무질서 점성 보정(DVC)' 접근법을 도입하여 작은 셀에서 계면 특성 매개변수화 없이 미세구조 형성을 설명합니다 ([2026-02-09])."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "복잡한 무질서 시스템의 정확한 자유 에너지 계산은 여전히 도전적인 과제입니다. 고엔트로피 재료와 같은 시스템에서 '무질서 점성 보정(DVC)'과 같은 접근법이 계면 특성의 완전한 ab initio 매개변수화를 우회하지만, 그 적용 범위와 일반화 가능성에 대한 추가 검증이 필요합니다 ([2026-02-09]). 또한, MLIP의 전이성 및 외삽 능력 향상도 중요한 과제입니다. 능동 학습을 통해 MLIP의 정확도를 높이고 있으나, 훈련 데이터 범위를 벗어나는 새로운 구조나 조성에 대한 MLIP의 예측 신뢰성은 여전히 제한적이며, 다원소 시스템에서 광범위한 상 공간을 포괄하는 견고한 포텐셜을 생성하는 것은 계산 비용과 데이터 요구량 측면에서 병목으로 작용합니다 ([2025-12-13], [2024-07-02])."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Curtarolo 그룹의 AFLOW 기반 고처리량 계산 및 MLIP 개발은 CCEL의 DFT 및 MLIP 연구에 직접적인 참고가 됩니다. 특히, 능동 학습을 통한 MTP 훈련 자동화 및 무질서 재료에 특화된 AFLOW4는 CCEL의 MLIP 개발 및 복잡한 촉매/배터리 재료 탐색에 활용될 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Soliquidy: a descriptor for atomic geometrical confusion",
+            "reason": "무질서-질서 상태 간의 원자 이동 비용을 정량화하는 새로운 기하학적 디스크립터 'Soliquidy'를 제안하여 고체화 과정 이해에 새로운 관점을 제시했습니다."
+          },
+          {
+            "title": "Disorder viscosity correction approach to calculate spinodal temperature and wavelength",
+            "reason": "계면 특성의 완전한 ab initio 매개변수화 없이 스피노달 분해를 예측하는 '무질서 점성 보정'이라는 새로운 계산 접근법을 제안했습니다."
+          },
+          {
+            "title": "A Software Package for Generating Robust and Accurate Potentials using the Moment Tensor Potential Framework",
+            "reason": "능동 학습을 통해 MTP 훈련을 자동화하고 AFLOW와 연동하는 PRAPs 소프트웨어 패키지를 개발하여 MLIP 활용의 효율성을 높였습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:27:16.365781"
+      }
     },
     "ceriotti": {
       "group_name": "Ceriotti",
       "pi": "Michele Ceriotti",
       "paper_count": 54,
-      "focus_areas": [
-        "ML 원자 포텐셜",
-        "원자 시뮬레이션",
-        "ML 모델 분석"
-      ],
-      "summary": "Ceriotti 그룹은 머신러닝 원자간 포텐셜(MLIP) 개발 및 응용을 통해 원자 수준 시뮬레이션의 정확도와 효율성을 높이는 데 주력합니다. 이들은 새로운 MLIP 아키텍처, 범용 데이터셋 구축, 장거리 상호작용 모델링, 그리고 ML 모델의 신뢰성 및 불확실성 정량화 방법을 탐구합니다. 궁극적으로 ab initio 수준의 정확도로 복잡한 재료 시스템의 거동을 예측하고 이해하는 것을 목표로 합니다.",
-      "notable_papers": [
-        {
-          "title": "Massive Atomic Diversity: a compact universal dataset for atomistic machine learning",
-          "reason": "기존 MLIP 훈련 데이터셋의 한계를 극복하기 위해 안정 구조의 체계적 왜곡과 유기/무기 재료를 포괄하는 'Massive Atomic Diversity (MAD)' 데이터셋을 제안하여 범용 ML 모델 개발의 기반을 마련했습니다."
-        },
-        {
-          "title": "Learning the action for long-time-step simulations of molecular dynamics",
-          "reason": "기존 ML 기반 분자 동역학 통합자의 에너지 비보존 문제를 해결하고자 시스템의 역학적 작용을 학습하는 구조 보존적(symplectic) ML 통합자를 제안, 장시간 시뮬레이션의 안정성을 개선했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:31:33.875453"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "범용 MLIP 개발",
+            "description": "다양한 화학 시스템과 비평형 구조에 대해 DFT 수준의 정확도를 유지하면서 계산 비용을 낮추는 머신러닝 원자간 포텐셜(MLIP) 개발이 주요 목표입니다. 이를 위해 경량 아키텍처와 광범위한 훈련 데이터셋 구축이 시도되고 있습니다."
+          },
+          {
+            "topic": "장거리 상호작용",
+            "description": "기존 MLIP의 근거리 상호작용 모델링 한계를 넘어 정전기, 분산력 등 장거리 물리적 효과를 정확하게 통합하는 방법론이 모색되고 있습니다. 물리 기반 모델과 ML 프레임워크의 결합이 주요 접근 방식입니다."
+          },
+          {
+            "topic": "ML 모델 신뢰성",
+            "description": "ML 모델 예측의 불확실성 정량화(UQ)와 물리적 일관성(에너지 보존, 대칭성) 유지가 중요한 과제로 다루어집니다. 모델의 견고성을 평가하고 비보존적 힘 모델의 한계를 극복하는 연구가 진행 중입니다."
+          },
+          {
+            "topic": "MD 효율성 증대",
+            "description": "분자 동역학(MD) 시뮬레이션의 계산 효율성을 높이기 위해 장시간 간격 통합자를 개발하고 있습니다. 특히, ML 기반 예측기가 겪는 에너지 비보존 문제를 해결하며 구조 보존적 역학을 학습하는 접근법이 시도됩니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "연구 그룹은 범용 머신러닝 원자간 포텐셜(uMLIP) 개발에 집중하고 있으며, 기존 MLIP의 높은 계산 비용과 특정 시스템 편향 문제를 해결하기 위해 경량의 PET-MAD를 제안했습니다. 이를 훈련하기 위한 'Massive Atomic Diversity (MAD)' 데이터셋은 유기 및 무기 재료의 평형 및 의도적으로 왜곡된 구조를 포함하여 모델의 보편적 예측 능력을 강화합니다. MLIP의 장거리 상호작용 모델링 한계를 극복하기 위해 물리 기반 역제곱 법칙과 등변 메시지 전달을 결합하거나, Ewald summation과 같은 기존 장거리 알고리즘을 ML 프레임워크에 통합하는 방법이 개발되었습니다. 또한, 분자 동역학(MD) 시뮬레이션의 효율성을 높이기 위해 시스템의 역학적 작용을 학습하는 구조 보존적 ML 통합자가 제안되었으며, i-PI 3.0과 같은 유연한 시뮬레이션 프레임워크도 제공됩니다. ML 모델의 신뢰성 확보를 위해 예측의 불확실성 정량화(UQ) 프레임워크와 '예측 강성(prediction rigidities)'이라는 새로운 견고성 지표가 도입되었으며, 비보존적 힘 모델의 한계를 분석하여 물리적 일관성의 중요성을 강조합니다. 이러한 방법론들은 Li3PS4 고체 전해질의 열전도도 계산, 표면 재구성 및 반응성 분석, 분자 유기 고체의 화학적 차폐 예측(ShiftML3) 등 다양한 재료 과학 문제에 적용되고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "범용 MLIP는 다양한 시스템에 대한 적용 가능성을 확장하고 있으나, 훈련 데이터셋에 포함되지 않은 새로운 화학적 환경이나 복잡한 반응 경로에서 DFT 수준의 정확도와 예측 신뢰도를 일관되게 유지하는 데 여전히 한계가 있습니다. 특히, 장거리 상호작용 모델링은 물리 기반 접근법과 ML을 결합하여 개선되고 있지만, 복잡한 전자 비편재화나 다체 상호작용이 지배적인 시스템에서 정확한 묘사를 달성하는 것은 어려운 과제입니다. 또한, ML 기반 MD 시뮬레이션에서 장시간 스텝 통합자의 에너지 보존 및 시간 가역성 유지는 핵심적인 기술적 병목으로 남아있습니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 DFT 계산 및 MLIP 개발 연구에 있어, MAD와 같은 범용 데이터셋 구축 전략과 PET-MAD와 같은 경량 uMLIP 아키텍처는 효율적인 모델 개발에 기여할 수 있습니다. 특히, 배터리 고체 전해질의 열전도도 및 표면 반응성 연구는 CCEL의 전기화학 및 배터리 재료 연구에 MLIP 적용 가능성을 제시하며, ML 기반 MD 시뮬레이션의 효율성 및 신뢰성 확보 방법론은 CCEL의 동역학 시뮬레이션 역량을 강화할 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Massive Atomic Diversity: a compact universal dataset for atomistic machine learning",
+            "reason": "안정적인 구조뿐 아니라 임의로 왜곡된 구조를 포함하고 유기/무기 재료를 아우르는 데이터셋 구축 전략을 제시하여, 범용 MLIP 훈련을 위한 데이터 기반의 새로운 접근법을 제안했습니다."
+          },
+          {
+            "title": "Learning the action for long-time-step simulations of molecular dynamics",
+            "reason": "기존 ML 기반 예측기의 에너지 비보존 문제를 해결하기 위해 시스템의 역학적 작용을 학습하는 데이터 기반의 구조 보존적(symplectic) MD 통합자를 제안하여, ML 기반 MD 시뮬레이션의 근본적인 방법론을 개선했습니다."
+          },
+          {
+            "title": "Learning Long-Range Representations with Equivariant Messages",
+            "reason": "MLIP의 장거리 상호작용 모델링 한계를 극복하기 위해 물리 기반 역제곱 법칙 상호작용과 등변 메시지 전달을 결합한 하이브리드 접근법을 제시하여, MLIP 아키텍처의 새로운 방향을 제시했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:27:44.684093"
+      }
     },
     "csanyi": {
       "group_name": "Csanyi",
       "pi": "Gabor Csanyi",
       "paper_count": 54,
-      "focus_areas": [
-        "MLIP 개발",
-        "재료 시뮬레이션",
-        "계산 효율성"
-      ],
-      "summary": "이 그룹은 기계 학습 원자간 상호작용 포텐셜(MLIP)의 아키텍처 개발 및 이론적 통합에 중점을 둡니다. 다양한 화학 및 재료 시스템에 MLIP를 적용하여 액체 전해질 특성, 반응성 표면 동역학, 용매화 자유 에너지 등 복잡한 현상을 시뮬레이션하고 예측합니다. 또한, MLIP 훈련의 데이터 효율성과 계산 확장성을 개선하는 방법론을 탐구합니다.",
-      "notable_papers": [
-        {
-          "title": "The design space of E(3)-equivariant atom-centred interatomic potentials",
-          "reason": "이 연구는 E(3)-equivariant MLIP 아키텍처들을 통합하는 수학적 프레임워크를 제시하여 기존 모델들의 관계를 재해석하고 새로운 설계 가능성을 모색합니다."
-        },
-        {
-          "title": "Zero shot molecular generation via similarity kernels",
-          "reason": "확산 모델의 스코어 특성을 분석하여 새로운 zero-shot 분자 생성 방법론인 SiMGen을 개발, 분자 설계의 효율성을 높였습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:31:53.865402"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 아키텍처 통합",
+            "description": "다양한 E(3)-equivariant MLIP 모델들의 설계 원리를 통합하고, 기존 모델들을 재해석하여 새로운 아키텍처 설계 공간을 구축하는 연구가 진행 중이다. 이는 MLIP 개발의 체계화를 목표로 하며, 모델 간의 관계를 명확히 하고 잠재적 개선 방향을 모색한다."
+          },
+          {
+            "topic": "MLIP 신뢰성 및 전이성",
+            "description": "분자, 계면, 고체, 반응성 동역학 등 다양한 시스템에서 MLIP의 정확성, 안정성, 효율성을 종합적으로 평가하고 있다. 훈련 데이터의 전이 가능성을 분석하여 파운데이션 MLIP의 미세 조정을 가속화하고, 반복 훈련 비용을 줄이는 데 집중한다."
+          },
+          {
+            "topic": "MLIP 기반 특성 예측",
+            "description": "액체 전해질의 거시적 특성, 분자 결정의 승화 엔탈피, 용매화 자유 에너지, IR 스펙트럼 등 특정 재료 특성을 제일원리 수준의 정확도로 예측하는 방법론이 개발되고 있다. 이는 MLIP를 활용하여 계산 비용을 절감하면서 고정확도 시뮬레이션을 가능하게 한다."
+          },
+          {
+            "topic": "복잡계 시뮬레이션 효율",
+            "description": "스핀 분극 시스템, 반응성 표면 동역학, 고차원 몬테카를로 샘플링 등 기존 방법론으로 다루기 어려운 복잡한 시스템의 시뮬레이션 효율성과 정확도를 높이는 것이 주요 과제이다. 이를 위해 새로운 알고리즘 분석 및 데이터 효율적 훈련 전략이 모색되고 있다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Csanyi 그룹은 MLIP 아키텍처의 통합 및 효율적인 훈련 방법론 개발에 집중하고 있다. E(3)-equivariant 포텐셜의 설계 공간을 통합하는 수학적 프레임워크를 제시하고(2025-01-15), 대규모 화학 파운데이션 모델(MACE)의 데이터 분배 및 커널 연산 최적화를 통해 훈련 효율성을 높였다(2025-04-14). 또한, MLIP의 신뢰성과 전이성을 검증하고 활용 범위를 넓히는 연구가 활발하다. 다양한 MLFF 모델들의 분자 동역학 시뮬레이션 성능을 벤치마킹하고(2025-01-01), MLIP 모델 간 훈련 데이터의 전이 가능성을 평가하여 파운데이션 모델의 미세 조정을 가속화하는 시도가 이루어지고 있다(2024-09-09). MLIP를 활용하여 특정 재료 시스템의 복잡한 특성을 예측하고 새로운 재료를 설계하는 데 주력하고 있으며, 액체 전해질의 거시적 특성 예측을 위한 BAMBOO 워크플로우(2025-07-10)나, 분자 결정의 승화 엔탈피를 데이터 효율적으로 예측하는 파운데이션 모델 미세 조정 프로토콜(MACE-MP-0, 2024-08-09) 등이 개발되었다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "MLIP는 여전히 새로운 화학적 환경이나 반응 경로에 대한 예측 신뢰성 확보에 어려움이 있다. 특히 스핀 분극 시스템의 지면 상태 예측(2024-10-21)이나 금속 표면에서의 반응성 동역학(2024-07-03)과 같이 복잡한 전자 구조 및 반응 메커니즘을 정확히 포착하는 데 한계가 존재한다. 대규모 파운데이션 모델의 훈련 및 미세 조정 과정에서 데이터 효율성과 계산 비용 간의 균형을 맞추는 것이 지속적인 과제이다. 소량의 데이터로 제일원리 수준의 정확도를 달성하는 데이터 효율적 미세 조정(2024-08-09)은 진전이 있었으나, 여전히 광범위한 적용을 위해서는 더 많은 최적화가 필요하다. 또한, MLIP 기반 시뮬레이션의 통계적 샘플링 효율성 문제도 남아있다. 고차원 시스템에서 부정확한 반사를 사용하는 몬테카를로 알고리즘의 느린 혼합 문제(2025-04-22)는 MLIP의 장기 동역학 시뮬레이션 적용에 병목으로 작용할 수 있다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL은 MLIP의 아키텍처 설계 및 최적화 연구를 통해 촉매 및 전기화학 시스템에 특화된 고성능 MLIP 개발에 기여할 수 있다. MLIP 기반 분자 동역학 시뮬레이션의 신뢰성 검증 및 데이터 전이성 연구는 배터리 전해액, 촉매 반응 등 CCEL의 주요 연구 분야에 MLIP를 효과적으로 적용하는 데 중요한 기반을 제공할 것이다. MLIP를 활용한 CO2 포집 물질, 액체 전해질, 열전도 물질 등 특정 재료 시스템의 특성 예측 및 설계 방법론은 CCEL의 신소재 개발 및 에너지 전환 연구에 직접적으로 활용될 수 있다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "The design space of E(3)-equivariant atom-centred interatomic potentials",
+            "reason": "E(3)-equivariant MLIP 아키텍처들을 통합하는 수학적 프레임워크를 제시하여, 기존 모델들을 재해석하고 새로운 설계 공간을 구축한 방법론적 기여가 있다."
+          },
+          {
+            "title": "A predictive framework for liquid electrolytes takes root with BAMBOO",
+            "reason": "DFT 기반 분자 클러스터 데이터로 훈련된 GNN 앙상블을 활용하여 응축상 데이터를 라벨링하고 student 모델을 증류하는 새로운 MLIP 워크플로우를 제안하여 액체 전해질의 거시적 특성 예측 정확도를 향상시켰다."
+          },
+          {
+            "title": "Bond-Network Entropy Governs Heat Transport in Coordination-Disordered Solids",
+            "reason": "무질서 고체 내 열 전달 메커니즘을 설명하기 위해 원자 결합 네트워크의 위상학적 이질성을 정량화하는 '결합 네트워크 엔트로피(BNE)'라는 새로운 구조 기술자를 제안하여 열전도도 예측에 활용했다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:28:18.598370"
+      }
     },
     "vonlilienfeld": {
       "group_name": "von Lilienfeld",
       "pi": "Anatole von Lilienfeld",
       "paper_count": 33,
-      "focus_areas": [
-        "화학 ML",
-        "연금술 변환",
-        "계산 방법론"
-      ],
-      "summary": "이 연구 그룹은 양자화학 및 재료 과학 분야에서 머신러닝을 활용하여 분자 및 재료 특성을 예측하고 새로운 물질을 발굴하는 데 집중합니다. 특히, 핵 전하 변화를 탐구하는 '연금술적' 접근법을 통해 화학 공간을 이해하고 새로운 이론적 통찰 및 계산 방법론을 개발하며, 대규모 양자역학 데이터셋 구축 및 효율적인 샘플링 기법 개선에도 기여하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "Boltzmann Generators and the New Frontier of Computational Sampling in Many-Body Systems",
-          "reason": "다체계 시뮬레이션에서 통계역학적 평형 상태의 효율적인 샘플링이라는 난제를 해결하기 위해 딥 생성 모델인 볼츠만 생성기를 적용한 방법론을 제시하여, 기존 샘플링 방식의 한계를 개선했습니다."
-        },
-        {
-          "title": "Adaptive atomic basis sets",
-          "reason": "양자화학 계산의 정확도와 효율성을 높이기 위해 머신러닝을 활용하여 원자의 국소 화학 환경에 따라 가우시안 기저 함수의 분산을 동적으로 조절하는 새로운 접근법을 제안했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:32:13.220770"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "화학 공간 탐색",
+            "description": "머신러닝을 활용하여 방대한 화학 화합물 공간(CCS)에서 원하는 특성을 가진 물질을 효율적으로 발굴하는 것이 목표입니다. 데이터셋 구축, 샘플링 전략, 그리고 화학적 직관을 ML 모델에 통합하는 방법론이 중요하게 다루어집니다."
+          },
+          {
+            "topic": "양자화학 계산 효율화",
+            "description": "고정밀 양자화학 계산의 높은 비용을 낮추기 위해 머신러닝을 활용하거나, 기존 양자화학 방법론 자체를 개선하는 시도가 진행됩니다. 특히 기저 함수 최적화나 통계역학적 샘플링 문제 해결에 ML이 적용됩니다."
+          },
+          {
+            "topic": "알케미컬 원리 활용",
+            "description": "핵전하 변화에 따른 화학적 특성 변화를 예측하고 이해하는 '알케미컬' 접근법이 머신러닝과 결합되어 화학 공간의 연속성을 탐색하고, ∆-머신러닝의 기준선으로 활용됩니다. 이는 화학적 직관과 물리적 원리를 ML에 통합하는 중요한 방향입니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "von Lilienfeld 그룹은 대규모 양자역학 데이터셋 구축, 화학 머신러닝 방법론 개발, 알케미컬 변환 및 섭동 이론 연구, 그리고 이를 활용한 물질 발굴에 중점을 둡니다. 특히 C, N, O, F, Si, P, S, Cl, Br 원자로 구성된 83만 6천여 개의 중성 폐각 분자에 대한 VQM24 데이터셋을 ωB97X-D3/cc-pVDZ DFT 수준으로 구축하여 머신러닝 모델 훈련을 위한 기반을 제공합니다. 또한, 머신러닝 모델의 훈련 효율성과 견고성을 높이기 위한 Gradient-Guided Furthest Point Sampling (GGFPS)과 같은 새로운 샘플링 방법론을 개발하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "방대한 화학 화합물 공간에서 머신러닝 모델 훈련에 필요한 대표성 있는 데이터를 효율적으로 선정하는 것은 여전히 중요합니다. GGFPS와 같은 샘플링 방법론이 제안되었으나, 고차원적이고 복잡한 화학 공간 전체를 포괄하며 예측 견고성을 유지하는 데이터셋 구축은 지속적인 과제입니다. 또한, 머신러닝 모델이 높은 예측 정확도를 보이지만, 그 예측의 물리적/화학적 근거를 명확히 설명하고 새로운 화학적 환경에 대한 일반화 능력을 보장하는 것은 어렵습니다. 알케미컬 원리나 섭동 이론을 ML에 통합하려는 시도는 이러한 해석 가능성을 높이려는 노력의 일환이지만, 복잡한 다체 상호작용을 포괄하는 일반화된 이론적 틀을 ML과 효과적으로 결합하는 것은 아직 미해결 과제입니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "von Lilienfeld 그룹의 대규모 양자역학 데이터셋 구축 및 머신러닝 기반 샘플링 전략은 CCEL의 MLIP 개발 및 촉매/배터리 물질 탐색에 필요한 고품질 데이터 확보 및 효율적인 훈련 데이터 선정에 활용될 수 있습니다. 특히, 알케미컬 접근법을 통해 핵전하 변화에 따른 특성 변화를 예측하는 방법론은 CCEL의 다양한 원소 조합을 탐색하는 연구에 새로운 관점을 제공할 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Gradient-Guided Furthest Point Sampling for Robust Training Set Selection",
+            "reason": "기존 Furthest Point Sampling에 분자 힘 정보를 통합하여 머신러닝 모델의 훈련 데이터 효율성과 예측 견고성을 향상시키는 새로운 샘플링 방법론을 제안했습니다."
+          },
+          {
+            "title": "Adaptive atomic basis sets",
+            "reason": "기계 학습을 활용하여 원자의 국소 화학 환경에 따라 가우시안 기저 함수의 방사형 분산을 조절함으로써 양자화학 계산의 정확도와 효율성을 높이는 새로운 접근법을 제시했습니다."
+          },
+          {
+            "title": "Antisymmetry rules of response properties in certain chemical spaces",
+            "reason": "핵전하 섭동 이론과 반대칭성 원리를 기반으로 화학 화합물 공간 내 응답 특성의 근사적 관계를 도출하고 APDFT로 검증하여 화학적 특성 예측에 대한 이론적 이해를 확장했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:28:42.776691"
+      }
     },
     "behler": {
       "group_name": "Behler",
       "pi": "Jorg Behler",
       "paper_count": 42,
-      "focus_areas": [
-        "머신러닝 포텐셜",
-        "계면 동역학",
-        "반응 시뮬레이션"
-      ],
-      "summary": "Behler 그룹은 주로 고차원 신경망 포텐셜(HDNNP) 및 4세대 머신러닝 포텐셜(4G-MLP) 개발 및 적용에 집중합니다. 이들은 기존 DFT 및 AIMD의 높은 계산 비용과 시간/규모 제약을 극복하여, 복잡한 촉매 반응, 수용액 시스템 및 재료 계면의 원자 수준 메커니즘을 대규모로 시뮬레이션하는 문제를 해결하고 있습니다. 최근 연구는 장거리 상호작용 및 산화환원 반응의 정확도 향상과 포텐셜 개발 워크플로우 자동화에 중점을 둡니다.",
-      "notable_papers": [
-        {
-          "title": "Iterative charge equilibration for fourth-generation high-dimensional neural network potentials",
-          "reason": "이 논문은 4세대 머신러닝 포텐셜의 장거리 전하 이동 계산 비용 문제를 반복적 전하 평형화 방법으로 효율적으로 해결하여, 해당 포텐셜의 실제 적용 가능성을 향상시켰습니다."
-        },
-        {
-          "title": "Machine learning potentials for redox chemistry in solution",
-          "reason": "이 논문은 4세대 머신러닝 포텐셜을 활용하여 용액 내 산화환원 반응에서 가변적인 산화 상태와 전자 전달 과정을 정확히 기술함으로써, 기존 MLP의 한계를 극복하고 복잡한 화학 시스템 분석 역량을 확장했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:32:32.832549"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLP 기반 복잡계 시뮬레이션",
+            "description": "기존 ab initio 분자 동역학(AIMD)의 계산 비용 및 시간적 제약을 극복하기 위해 머신러닝 포텐셜(MLP)을 활용하여 이종 촉매, 고체-액체 계면, 용액 내 반응 등 복잡한 시스템의 시간 및 규모 스케일을 확장하는 것이 주요 목표입니다. HDNNP(고차원 신경망 포텐셜)가 핵심 도구로 사용됩니다."
+          },
+          {
+            "topic": "MLP 장거리 상호작용 개선",
+            "description": "MLP의 한계로 지적되는 장거리 정전기적 상호작용 및 동적 전하 이동을 정확하고 효율적으로 기술하는 방법론 개발이 중요하게 다루어지고 있습니다. 특히 전하 평형화(QEq) 과정의 계산 비용을 줄이고 분산 상호작용을 개선하는 연구가 진행 중입니다."
+          },
+          {
+            "topic": "MLP 개발 워크플로우 자동화",
+            "description": "DFT 데이터 생성, MLP 피팅, 검증에 이르는 전 과정을 자동화하고 능동 학습(active learning)을 도입하여 MLP 개발의 효율성과 신뢰성을 높이는 데 집중하고 있습니다. 이는 다양한 재료 시스템에 MLP를 적용하는 데 필요한 시간과 노력을 줄이는 것을 목표로 합니다."
+          },
+          {
+            "topic": "수용액 및 계면 반응 모델링",
+            "description": "액체 물의 핵 양자 효과(NQE)를 포함한 구조 및 동역학, 그리고 용액 내 전이 금속 이온의 산화환원 반응과 같은 복잡한 수용액 및 고체-액체 계면 반응을 MLP로 정확하게 예측하는 것이 도전 과제입니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Behler 그룹은 HDNNP를 활용하여 DFT 수준의 정확도로 이종 촉매 반응, Co3O4(001)-물 계면, γ-벨라이트(010)-물 계면 등 복잡한 시스템의 분자 동역학 시뮬레이션을 수행합니다. 이는 기존 AIMD의 시간 및 규모 한계를 극복하여 수천 개 원자 규모, 수십 나노초 이상의 시뮬레이션을 가능하게 합니다. 4세대 MLP(4G-MLP)에 반복적 전하 평형화(iQEq) 방법을 도입하여 장거리 전하 이동 계산 비용을 줄이고, MLXDM 모델을 통해 분산 상호작용을 개선하여 HDNNP의 정확도를 향상시키고 있습니다. 또한, `pyiron` 기반의 자동화된 워크플로우를 개발하여 DFT 데이터베이스 구축, 다양한 MLP(HDNNP, ACE) 피팅, 포텐셜 검증 과정을 통합하고 있습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "4세대 MLP를 통해 특정 Fe2+/Fe3+ 시스템의 산화 상태 및 전자 전달을 기술하는 데 성공했으나, 다양한 전이 금속 및 복잡한 산화환원 반응에 대한 MLP의 일반화된 정확도와 신뢰성 확보가 여전히 과제입니다. 능동 학습(active learning)이 훈련 데이터셋 구축에 효율적임을 보였지만, MLP가 예측하는 모든 화학적 환경과 반응 경로를 포괄하는 최소한의 데이터셋을 구성하는 것은 여전히 도전입니다. 액체 물의 동역학에서 핵 양자 효과(NQE)의 중요성이 확인되었으나, 이를 고정밀 경로 적분 시뮬레이션으로 통합하는 것은 여전히 높은 계산 비용을 수반하며, 효율적인 통합 방법론 개발이 필요합니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "CCEL의 촉매 및 전기화학 시스템 연구에서 DFT의 시간 및 규모적 한계를 극복하기 위해 Behler 그룹의 HDNNP 개발 및 장거리 상호작용 모델링 기법을 활용할 수 있습니다. 특히, 자동화된 MLP 워크플로우는 복잡한 계면 반응 및 용액 내 동역학을 원자 수준에서 분석하고 새로운 재료 시스템에 대한 포텐셜 개발 효율성을 높이는 데 기여할 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Iterative charge equilibration for fourth-generation high-dimensional neural network potentials",
+            "reason": "4세대 MLP에서 장거리 전하 이동 계산의 높은 비용 문제를 해결하기 위해 반복적 전하 평형화(iQEq) 방법을 제안하여, MLP의 전하 이동 모델링 효율성과 정확성을 개선한 방법론적 진전입니다."
+          },
+          {
+            "title": "From electrons to phase diagrams with machine learning potentials using pyiron based automated workflows",
+            "reason": "DFT 데이터 구축부터 MLP 피팅 및 검증에 이르는 전 과정을 통합하고 자동화하는 `pyiron` 기반의 워크플로우 프레임워크를 제시하여, MLP 개발의 접근성과 효율성을 높인 방법론적 기여입니다."
+          },
+          {
+            "title": "Machine learning potentials for redox chemistry in solution",
+            "reason": "기존 MLP가 어려움을 겪던 용액 내 전이 금속 이온의 산화 상태 변화 및 전자 전달 과정을 4세대 MLP로 성공적으로 기술하여, MLP의 적용 범위를 산화환원 반응으로 확장한 연구입니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:29:09.183852"
+      }
     },
     "kozinsky": {
       "group_name": "Kozinsky",
       "pi": "Boris Kozinsky",
       "paper_count": 75,
-      "focus_areas": [
-        "머신러닝 시뮬레이션",
-        "양자 동역학",
-        "재료 특성 예측"
-      ],
-      "summary": "Kozinsky 그룹은 제일원리 계산의 정확도를 유지하면서 시뮬레이션의 시간 및 길이 스케일 한계를 극복하기 위해 머신러닝 방법론을 적극적으로 개발하고 적용합니다. 특히 등변 신경망 상호작용 포텐셜(MLIP)과 활성 학습을 활용하여 전고체 배터리 계면 반응, 촉매 활성점 진화, 고온 상전이 등 다양한 재료 시스템의 원자 수준 동역학을 규명합니다. 또한 비평형 양자 핵 동역학 시뮬레이션 기법을 발전시켜 초고속 레이저 유도 현상 및 양자 물질의 특성을 예측하는 데 집중하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "Addressing the Band Gap Problem with a Machine-Learned Exchange Functional",
-          "reason": "준국소 밀도범함수 이론의 고질적인 밴드갭 과소평가 문제를 머신러닝 기반 교환 범함수로 해결하여 양자화학 계산 방법론의 정확도를 향상시켰습니다."
-        },
-        {
-          "title": "Unified differentiable learning of electric response",
-          "reason": "외부 전기장에 대한 재료의 다양한 응답 특성(힘, 분극, Born 전하 등)을 물리적 제약과 대칭성을 통합한 단일 등변 머신러닝 프레임워크로 예측하여 재료 특성 예측의 통합성과 정확도를 높였습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:33:04.022509"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 효율성/정확도 한계 극복",
+            "description": "머신러닝 상호작용 포텐셜(MLIP)의 훈련 및 추론 성능을 개선하고, 다양한 재료 시스템에서의 정확도와 일반화 능력을 확보하는 것이 주요 과제입니다. 특히 전이 금속과 같이 복잡한 다체 상호작용을 포함하는 시스템에서 MLIP의 신뢰성을 높이는 접근법이 시도되고 있습니다."
+          },
+          {
+            "topic": "비평형 양자 동역학 해석",
+            "description": "초고속 레이저 펌프-프로브 실험 등에서 관찰되는 결정 내 핵의 비평형 양자 동역학을 원자 수준에서 시뮬레이션하고 해석하는 것이 목표입니다. 기존 방법론의 한계를 극복하고 양자 요동의 영향을 정확히 반영하는 새로운 알고리즘 개발이 진행 중입니다."
+          },
+          {
+            "topic": "DFT 근본적 문제 해결",
+            "description": "밀도범함수 이론(DFT)의 고질적인 밴드갭 과소평가 문제나 극성자 모델링 시 발생하는 전자 자기상호작용 문제를 해결하기 위한 방법론이 모색되고 있습니다. 머신러닝 기반의 교환 범함수 개발 및 이론적 정식화 개선을 통해 DFT의 정확도와 적용 범위를 확장하려는 시도가 있습니다."
+          },
+          {
+            "topic": "계면/동적 반응 메커니즘 규명",
+            "description": "전고체 배터리 고체-전해질 계면(SEI) 형성, 나노입자 촉매의 표면 재구성, 고체산 전해질의 양성자 전도 등 복잡한 재료 계면 및 동적 반응 메커니즘을 원자 수준에서 이해하는 것이 중요합니다. 대규모 MLMD 시뮬레이션을 통해 기존 열역학적 예측을 넘어서는 동적 통찰을 얻는 접근법이 활용됩니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Kozinsky 연구 그룹은 주로 머신러닝 기반 시뮬레이션 방법론을 개발하고 이를 재료 과학의 난제에 적용하는 데 집중하고 있습니다. 첫째, 딥 이퀴베리언트 신경망 상호작용 포텐셜(MLIP)의 훈련 및 추론 성능을 최적화하고(NequIP, Allegro 프레임워크), 이를 전고체 배터리 계면 진화(Li|Li6PS5Cl|Li), 촉매 활성점 동적 진화(PdAu), SiC 상평형도 및 용융 방식 규명 등에 활용하여 제일원리 수준의 정확도로 대규모 시뮬레이션을 수행하고 있습니다. 둘째, 초고속 레이저 유도 현상과 관련된 비평형 양자 핵 동역학을 해석하기 위한 시간 의존적 자기 일관성 조화 근사(TD-SCHA) 알고리즘을 개발하고, 이를 SrTiO3의 레이저 유도 강유전성 발현 메커니즘 규명에 적용하고 있습니다. 셋째, 밀도범함수 이론(DFT)의 밴드갭 과소평가 문제를 머신러닝 기반 교환 범함수로 해결하거나, 극성자 모델링 시 자기상호작용 문제를 해결하는 등 제일원리 계산의 근본적인 한계를 극복하려는 방법론적 연구도 진행 중입니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "MLIP의 경우, 특정 훈련 데이터셋 범위 밖의 화학 환경이나 상전이 과정에서 예측의 일반화 및 신뢰성 확보가 여전히 도전적입니다. 특히 전이 금속과 같이 복잡한 전자 구조를 가진 시스템에서는 MLFF의 정확도 확보가 어렵다는 점이 TM23 데이터셋 연구를 통해 확인되었습니다. 또한, 비평형 양자 동역학 시뮬레이션은 시간 및 길이 스케일의 한계가 있어, 실제 재료의 거시적 특성이나 장기적인 진화를 예측하기 위해서는 전자-포논-광자 상호작용과 같은 다중 물리 현상을 효과적으로 통합하고, 이를 더 큰 스케일로 연결하는 방법론적 발전이 요구됩니다. DFT의 밴드갭 문제나 자기상호작용 문제에 대한 ML 기반의 해결책은 특정 문제에 대한 개선이며, DFT의 범용적인 정확도를 향상시키기 위한 새로운 범함수 개발 또는 ML과 양자화학의 더 깊은 통합이 필요합니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Kozinsky 그룹의 연구는 MLIP 개발 및 이를 활용한 재료의 동적 거동 및 반응 메커니즘 규명, 그리고 제일원리 계산의 한계를 극복하려는 방법론적 시도가 CCEL의 DFT, 촉매, 전기화학, 배터리, MLIP 연구 방향과 밀접하게 연관됩니다. 특히 MLIP를 이용한 복잡한 계면 반응 및 동적 활성점 진화 연구는 CCEL의 촉매 및 배터리 연구에 새로운 시뮬레이션 도구와 통찰을 제공할 수 있으며, 비평형 양자 동역학 방법론은 CCEL의 양자 물질 및 초고속 현상 연구에 적용 가능성이 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Addressing the Band Gap Problem with a Machine-Learned Exchange Functional",
+            "reason": "머신러닝을 활용하여 DFT의 고질적인 밴드갭 과소평가 문제를 해결하기 위한 새로운 교환 범함수를 제안하여, 제일원리 계산의 근본적인 한계를 개선하는 방법론적 접근을 제시했습니다."
+          },
+          {
+            "title": "Atomistic simulations of out-of-equilibrium quantum nuclear dynamics",
+            "reason": "비평형 양자 핵 동역학을 시뮬레이션하기 위한 안정적이고 에너지 보존적인 TD-SCHA 알고리즘을 개발하여, 초고속 현상 해석의 새로운 방법론적 기반을 마련했습니다."
+          },
+          {
+            "title": "Revealing the proton slingshot mechanism in solid acid electrolytes through machine learning molecular dynamics",
+            "reason": "MLMD 시뮬레이션을 통해 고체산 전해질에서 기존 모델과 다른 '양성자 새총' 메커니즘을 규명하여, 복잡한 이온 전도 현상에 대한 새로운 이해를 제시했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:29:42.028039"
+      }
     },
     "ong": {
       "group_name": "Ong",
       "pi": "Shyue Ping Ong",
       "paper_count": 48,
-      "focus_areas": [
-        "재료 ML",
-        "에너지 재료",
-        "재료 물성 예측"
-      ],
-      "summary": "이 그룹은 머신러닝, 특히 그래프 딥러닝 모델과 원자간 포텐셜을 활용하여 재료 특성 예측 및 설계를 가속화하는 데 집중합니다. 밀도범함수 이론(DFT) 계산과 결합된 이러한 방법론을 통해 에너지 재료(배터리, 촉매)의 성능 향상과 복잡한 재료 현상의 원자 수준 메커니즘을 규명합니다.",
-      "notable_papers": [
-        {
-          "title": "Superionic surface Li-ion transport in carbonaceous materials",
-          "reason": "탄소계 물질 표면에서 상온 초고속 리튬 이온 수송 현상을 발견하고 그 원자적 메커니즘을 규명하여 고체 전해질 계면 안정화에 적용 가능성을 제시했습니다."
-        },
-        {
-          "title": "Purely electronic insulator-metal transition in rutile VO2",
-          "reason": "VO2에서 구조 변화 없이 광전 효과를 통해 순수하게 전자로만 유도되는 절연체-금속 전이를 성공적으로 구현하여 뉴로모픽 소자 응용의 새로운 가능성을 열었습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:33:25.379441"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "데이터 효율적 MLIP 구축",
+            "description": "고정확도 제일원리 계산 데이터의 높은 비용 문제를 해결하며, 제한된 데이터로도 신뢰성 있는 원자간 포텐셜을 개발하는 것이 중요합니다. 다중 충실도 학습(multi-fidelity learning)이 주요 접근법으로 시도되고 있습니다."
+          },
+          {
+            "topic": "ML 기반 재료 발견 가속화",
+            "description": "재료 특성 예측, 폐쇄 루프 발견(능동 학습), 생성 및 역설계, 물리 기반 모델 개발 등 머신러닝을 활용하여 재료 발견 및 최적화 과정을 가속화하는 것이 목표입니다. 이를 위한 오픈소스 라이브러리 및 파운데이션 모델 개발이 진행 중입니다."
+          },
+          {
+            "topic": "이온 수송 메커니즘 규명",
+            "description": "배터리 성능 향상을 위해 리튬 및 나트륨 이온의 고속 수송 메커니즘을 원자 수준에서 이해하고, 이를 바탕으로 새로운 전극/전해질 소재를 설계하는 것이 중요합니다. 특히 계면 및 표면에서의 이온 수송 현상에 주목하고 있습니다."
+          },
+          {
+            "topic": "복합 재료 미세구조-물성",
+            "description": "복잡한 합금이나 이종 재료에서 가공 조건, 단거리 규칙도, 결정립계 구조 등이 기계적 특성, 열전도도 등에 미치는 영향을 원자 수준에서 규명하고 제어하는 것이 과제입니다. ML-IAP 및 고급 특성 분석 기법이 활용됩니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "재료 과학 분야에서 머신러닝(ML)의 활용이 심화되고 있습니다. MatGL과 같은 오픈소스 그래프 딥러닝 라이브러리 개발을 통해 M3GNet, MEGNet, CHGNet 등 다양한 모델을 효율적으로 구현하고, 재료 특성 예측 및 원자간 포텐셜 개발을 위한 확장 가능한 도구를 제공합니다. 특히 고정확도 DFT 데이터의 높은 비용 문제를 해결하기 위해 저정확도(GGA)와 고정확도(SCAN) DFT 데이터를 통합하는 다중 충실도(multi-fidelity) M3GNet 접근법을 통해 데이터 효율적인 고정확도 ML 원자간 포텐셜 구축이 시도되고 있습니다. 에너지 저장 소재의 이온 수송 및 안정성 연구에서는 탄소계 물질 표면에서 상온 18.1 mS cm-1의 높은 이온 전도도를 보이는 리튬 이온의 초고속 수송 현상을 발견하고, P2형 Na-ion 배터리 양극재에서 Li 도핑이 층간 양이온 배열을 조절하여 Na+ 확산을 촉진하는 메커니즘을 규명했습니다. 또한, Li 이온 배터리 양극재 NCM의 수분 노출 시 발생하는 양성자 교환 반응과 이로 인한 구조적 결함 및 재리튬화 메커니즘을 심층 분석하여 배터리 안정성 문제를 다룹니다. 기능성 재료의 물리적 특성 제어 및 메커니즘 규명 연구에서는 VO2에서 구조 변화 없이 순수하게 전자로만 유도되는 절연체-금속 전이(MIT)를 달성하여 뉴로모픽 소자 응용 가능성을 탐구했으며, SrTiO3 결정립계의 기울기 및 비틀림 각도가 포논 수송 및 열전도도에 미치는 영향을 원자 수준에서 규명하여 열전도도 제어 가능성을 제시했습니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "ML 원자간 포텐셜(MLIP)은 DFT 계산의 정확도를 유지하면서 계산 비용을 크게 낮추는 데 기여하지만, 훈련 데이터의 범위 밖에서는 예측 신뢰도가 저하될 수 있습니다. 특히 복잡한 반응 경로, 상전이, 결함 거동 등 다양한 환경에서 MLIP의 일반화 및 전이성(transferability)을 확보하는 것이 여전히 도전 과제입니다. 현재 다중 충실도 학습이 데이터 효율성을 높이는 데 기여하지만, 여전히 고정확도 데이터의 양적, 질적 확보가 중요하며, 훈련 데이터셋의 편향을 줄이고 예측 불확실성을 정량화하는 방법론이 더 필요합니다. 새로운 기능성 재료의 발견 및 최적화 과정에서 ML 모델은 유망한 후보를 제시하지만, 실제 합성 및 실험적 검증으로 이어지는 폐쇄 루프(closed-loop) 시스템의 효율성을 극대화하는 데는 한계가 있습니다. 특히 생성 모델(generative models)을 통해 완전히 새로운 구조를 제안할 때, 해당 구조의 합성 가능성 및 안정성을 예측하는 데 어려움이 있으며, 실험적 검증 과정에서 발생하는 예상치 못한 결과들을 ML 모델에 효과적으로 피드백하여 모델을 개선하는 체계적인 방법론이 아직 충분히 확립되지 않았습니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Ong 그룹의 MLIP 개발 및 활용 연구는 CCEL의 DFT 기반 촉매 및 전기화학 연구에 고정확도 대규모 시뮬레이션 가능성을 제공하며, 특히 다중 충실도 학습 접근법은 CCEL의 계산 자원 효율성을 높이는 데 기여할 수 있습니다. 또한, 배터리 소재의 이온 수송 메커니즘 및 안정성 연구는 CCEL의 전기화학 및 배터리 연구에 직접적인 통찰을 제공하며, ML 기반 재료 발견 패러다임은 CCEL의 촉매 및 신소재 탐색 전략에 새로운 방향을 제시할 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Materials Graph Library (MatGL), an open-source graph deep learning library for materials science and chemistry",
+            "reason": "재료 과학 및 화학 분야를 위한 오픈소스 그래프 딥러닝 라이브러리와 주기율표 전체를 포괄하는 사전 학습된 파운데이션 모델을 제공하여, ML 기반 재료 연구의 인프라를 구축하고 접근성을 높였습니다."
+          },
+          {
+            "title": "Data-efficient construction of high-fidelity graph deep learning interatomic potentials",
+            "reason": "고정확도 DFT 데이터의 높은 비용 문제를 해결하기 위해 저정확도 및 고정확도 DFT 데이터를 통합하는 다중 충실도 학습 전략을 제시하여, ML 원자간 포텐셜 구축의 데이터 효율성을 개선했습니다."
+          },
+          {
+            "title": "Purely electronic insulator-metal transition in rutile VO2",
+            "reason": "VO2에서 구조 변화 없이 순수하게 전자로만 유도되는 절연체-금속 전이를 실험적으로 구현하고 제일원리 계산으로 메커니즘을 규명하여, 뉴로모픽 소자 개발의 새로운 가능성을 제시했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:30:15.089007"
+      }
     },
     "schutt": {
       "group_name": "Schutt",
       "pi": "Kristof Schutt",
       "paper_count": 21,
-      "focus_areas": [
-        "결정 구조 탐색",
-        "리간드 생성",
-        "약물 발견 데이터"
-      ],
-      "summary": "이 연구 그룹은 계산 비용이 높은 재료 과학 및 약물 발견 문제를 해결하는 데 집중합니다. 재료 과학 분야에서는 신경망 힘장과 능동 학습을 활용하여 결정 구조 탐색의 효율성을 높이고 있습니다. 약물 발견 분야에서는 등변 확산 모델을 기반으로 단백질 포켓에 특화된 신규 리간드를 생성하며, 대규모 고품질 데이터 구축 및 데이터 과학 로드맵 제시에도 기여하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "Accelerating crystal structure search through active learning with neural networks for rapid relaxations",
-          "reason": "불확실성 추정 기능을 갖춘 신경망 힘장과 능동 학습을 활용하여 결정 구조 탐색 시 후보 구조 이완에 필요한 DFT 계산 비용을 최대 두 자릿수까지 절감하여 실용적 효율성을 개선했습니다."
-        },
-        {
-          "title": "Latent-Conditioned Equivariant Diffusion for Structure-Based De Novo Ligand Generation",
-          "reason": "잠재 조건부 및 표적 인식 등변 확산 모델을 통해 단백질 포켓 내에서 기존 리간드의 잠재 인코딩을 기반으로 모양 유사성을 갖는 신규 리간드를 생성하는 방법론을 제시했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:33:40.378751"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "신소재 탐색 가속화",
+            "description": "인공지능 기반 방법론을 통해 결정 구조 탐색의 계산 비용을 절감한다."
+          },
+          {
+            "topic": "신약 개발 AI",
+            "description": "등변 확산 모델을 활용하여 단백질 포켓에 적합한 신규 리간드를 생성한다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 동향",
+            "content": "Schutt 그룹은 계산 재료 과학 및 신약 개발 분야에서 인공지능 활용을 연구한다. 결정 구조 탐색의 계산 비용을 줄이기 위해 불확실성 추정 기능을 갖춘 신경망 힘장과 능동 학습을 적용한다. 또한, 단백질 포켓에 특화된 신규 리간드를 생성하기 위해 등변 확산 모델을 활용하며, 잠재 조건화 및 다중 목표 유도를 통해 생성 과정을 제어한다. 이와 함께 AI 기반 신약 개발을 위한 데이터 관리 및 대규모 데이터 구축 전략에도 기여한다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Accelerating crystal structure search through active learning with neural networks for rapid relaxations",
+            "reason": "불확실성 추정 기능을 갖춘 신경망 힘장과 능동 학습을 활용하여 결정 구조 탐색의 이완 단계 계산 비용을 최대 두 자릿수까지 절감하는 방법론을 제시했다."
+          },
+          {
+            "title": "Latent-Conditioned Equivariant Diffusion for Structure-Based De Novo Ligand Generation",
+            "reason": "단백질 포켓 내 표적 지향적인 신규 리간드 생성을 위해 잠재 조건부 및 표적 인식 등변 확산 모델을 도입하여 생성 모델의 제어 가능성을 높였다."
+          }
+        ],
+        "depth": "light",
+        "generated_at": "2026-03-19T13:30:33.894256"
+      }
     },
     "aspuruguzik": {
       "group_name": "Aspuru-Guzik",
       "pi": "Alan Aspuru-Guzik",
       "paper_count": 159,
-      "focus_areas": [
-        "자율 연구실",
-        "양자 컴퓨팅",
-        "AI 화학/재료"
-      ],
-      "summary": "이 그룹은 인공지능과 로봇 공학을 활용하여 화학 및 재료 과학 분야의 발견 속도를 높이는 데 집중합니다. 특히 자율 주행 연구실 개발을 통해 실험을 자동화하고, 머신러닝 및 생성형 AI 모델로 분자 및 재료를 설계하며, 양자 컴퓨팅 알고리즘을 화학 문제 해결에 적용하는 연구를 수행합니다. 이들은 계산 효율성, 예측 정확도, 그리고 새로운 과학적 지식 발굴을 목표로 합니다.",
-      "notable_papers": [
-        {
-          "title": "ELECTRA: A Cartesian Network for 3D Charge Density Prediction with Floating Orbitals",
-          "reason": "부유 오비탈 개념을 도입한 대칭성 보존형 Cartesian 텐서 네트워크 모델을 제안하여 3D 전하 밀도 예측의 계산 효율성과 정확도를 개선했습니다."
-        },
-        {
-          "title": "EGMOF: Efficient Generation of Metal-Organic Frameworks Using a Hybrid Diffusion-Transformer Architecture",
-          "reason": "원하는 물성으로부터 MOF 구조를 역설계하는 하이브리드 확산-트랜스포머 아키텍처를 개발하여, 방대한 화학 공간 탐색 및 데이터 부족 문제를 해결하려는 시도입니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:34:18.099786"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "양자 계산 효율화",
+            "description": "슈뢰딩거 방정식 해결의 어려움과 높은 계산 비용으로 인해 양자 화학(QM) 및 밀도 범함수 이론(DFT)의 적용에 한계가 있다. AI/ML 모델을 통합하여 에너지 및 특성 예측을 보완하고, 양자 시뮬레이션을 통해 복잡한 화학 반응의 동적 특성을 모델링하여 고전 컴퓨터의 한계를 극복하려는 시도가 진행 중이다."
+          },
+          {
+            "topic": "AI 분자 합성 가능성",
+            "description": "AI 기반 분자 생성 모델은 새로운 분자 구조를 제안하지만, 실제 합성 가능성이 낮은 문제가 있다. 역합성(retrosynthesis) 정보를 활용하거나, 화학 지식을 학습한 대규모 언어 모델(LLM)을 진화 알고리즘에 통합하여 합성 경로를 고려한 분자를 설계하고 화학 공간 탐색 효율을 높이는 접근법이 연구된다."
+          },
+          {
+            "topic": "SDL 지식 발굴/일반화",
+            "description": "로봇 공학과 AI를 결합한 자율 주행 연구실(SDL)은 실험 자동화 및 최적화를 가속화한다. 단순 최적화를 넘어 화학적 지식을 발굴하는 폐쇄 루프 전이(CLT) 방법론이 제시되며, LLM 기반 에이전트를 활용하여 비정형화된 실험 지식을 통합하고 다단계 실험 절차를 자동화하여 SDL의 일반화 및 적용 범위를 확장하려는 노력이 이루어진다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Aspuru-Guzik 그룹은 AI/ML을 활용하여 분자 및 재료의 물성을 예측하고 새로운 구조를 생성하며 합성 경로를 최적화하는 연구를 수행한다. `ELECTRA`는 부유 오비탈을 활용한 3D 전하 밀도 예측 모델을 제시하며, `EGMOF`는 확산-트랜스포머 아키텍처를 통해 MOF를 효율적으로 생성한다. 또한, 로봇 공학과 AI를 결합한 자율 주행 연구실(SDL)을 구축하여 실험 과정을 자동화하고 효율적인 조건 탐색을 수행한다. `RAISE`는 액체 조성 최적화 및 표면 젖음성 평가를 위한 SDL을 개발했으며, `Closed-loop transfer`는 AI 기반 폐쇄 루프 실험이 단순 최적화를 넘어 새로운 화학적 지식을 발굴하도록 하는 방법론을 제시한다. 양자 시뮬레이션을 통해 복잡한 화학 반응의 동역학 및 자유 에너지 장벽을 모델링하고, 양자 알고리즘을 활용하여 고전 계산의 한계를 극복하려는 시도도 진행 중이다. `Cracking chemistry with quantum simulations`는 양자 시뮬레이션의 가능성을 제시하며, `Range‐separated density functional theory using multiresolution analysis and quantum computing`은 RS-DFT와 VQE를 결합하여 큐비트 해밀토니안의 압축성을 개선한다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "AI 생성 분자의 낮은 합성 가능성은 주요 과제로 남아있다. AI가 제안하는 분자 구조가 이론적으로는 매력적일 수 있으나, 실제 합성 가능성이 낮거나 실험적으로 구현하기 어려운 경우가 많다. `SynTwins`와 같은 역합성 기반 프레임워크가 이를 개선하려 하지만, 여전히 방대한 합성 경로 공간을 효율적으로 탐색하고 실제 실험실 조건과 연계하는 데 한계가 있다. 또한, 자율 주행 연구실의 일반화 및 안전성 확보도 중요한 문제이다. 특정 실험에 최적화된 SDL은 개발되고 있으나, 다양한 화학 반응 및 재료 시스템에 적용 가능한 일반화된 SDL 구축은 여전히 어렵다. `Steering towards safe self-driving laboratories` 논문에서 지적하듯이, 자율 시스템의 오작동이나 예상치 못한 상황 발생 시 안전을 확보하기 위한 체계적인 안전장치 및 평가 방법론이 부족하다. 마지막으로, ML 모델의 물리적 직관 및 해석 가능성 부족 문제도 존재한다. ML 모델이 높은 예측 성능을 보일 때에도, 그 예측이 어떤 물리적/화학적 원리에 기반하는지 명확히 설명하기 어려운 경우가 많으며, `A tomographic interpretation of structure-property relations for materials discovery` 논문이 이 문제에 대한 해석적 접근을 시도한다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Aspuru-Guzik 그룹의 연구는 계산 촉매 및 신소재 연구실(CCEL)에 MLIP 개발, DFT 계산 효율화, 그리고 새로운 촉매 및 배터리 소재 발견을 위한 자율 실험 플랫폼 구축에 대한 방향성을 제시한다. 특히, 양자 화학과 ML의 통합, 생성형 모델을 통한 소재 역설계, 그리고 SDL을 활용한 고처리량 실험 자동화는 CCEL의 연구 효율성과 발견 잠재력을 높이는 데 기여할 수 있다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "ELECTRA: A Cartesian Network for 3D Charge Density Prediction with Floating Orbitals",
+            "reason": "부유 오비탈과 대칭성 보존형 Cartesian 텐서 네트워크를 활용하여 3D 전하 밀도를 예측하는 새로운 모델을 제안하여, 기존 양자 화학 계산의 효율성 및 정확도 한계를 개선한다."
+          },
+          {
+            "title": "Stiefel Flow Matching for Moment-Constrained Structure Elucidation",
+            "reason": "분자식과 관성 모멘트 정보만으로 분자의 3D 구조를 예측하는 생성 모델을 Stiefel manifold 공간에서 개발하여, 분자 구조 규명에 대한 새로운 수학적 접근법을 제시한다."
+          },
+          {
+            "title": "One Set to Rule Them All: How to Obtain General Chemical Conditions via Bayesian Optimization over Curried Functions",
+            "reason": "베이지안 최적화의 단일 작업 최적화 한계를 극복하고, 'curried functions' 개념을 도입하여 다양한 화학 반응에 적용 가능한 일반적인 반응 조건을 효율적으로 탐색하는 방법론을 제시한다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:31:07.623483"
+      }
     },
     "kulik": {
       "group_name": "Kulik",
       "pi": "Heather Kulik",
       "paper_count": 81,
-      "focus_areas": [
-        "재료 ML 설계",
-        "전이금속/촉매",
-        "기계화학/동적 재료"
-      ],
-      "summary": "Kulik 그룹은 계산 화학(DFT, QM, MD) 및 머신러닝(GNN, 생성 모델, 최적 수송, NLP)을 활용하여 다양한 재료의 설계, 특성 예측 및 반응 메커니즘 규명에 집중하고 있습니다. 특히 전이 금속 복합체 및 촉매의 활성점 동역학, 금속-리간드 배위 모드, 그리고 MOF의 안정성 및 기계적 특성 연구에 주력합니다. 또한, 기계화학적 힘에 반응하는 고분자 재료 및 동적 초분자 네트워크 설계에도 기여하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "Enhancing Materials Discovery with Valence Constrained Design in Generative Modeling",
-          "reason": "생성 모델이 화학적 유효성(산화 상태 균형)을 간과하여 비현실적인 재료를 생성하는 문제를 해결하기 위해 트랜스포머 기반 언어 모델과 확산 모델을 결합하여 화학 규칙을 통합한 CrysVCD 프레임워크를 제시한 점이 주목할 만합니다."
-        },
-        {
-          "title": "React-OT: Optimal Transport for Generating Transition State in Chemical Reactions",
-          "reason": "반응물과 생성물로부터 전이 상태 구조를 생성하는 문제에 최적 수송(Optimal Transport) 기반의 머신러닝 방법론을 적용하여 높은 정확도와 속도를 달성한 점이 방법론적 진전을 보여줍니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:34:46.706415"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "ML 기반 재료 설계",
+            "description": "생성 모델이 화학적으로 유효한 재료를 생성하고, 예측 모델이 훈련 범위를 넘어선 미지 화학 시스템에 대해 일반화된 성능을 보이는 것이 주요 과제입니다. 데이터셋 확장 및 새로운 특징 발굴을 통해 모델의 신뢰성과 적용 범위를 넓히는 시도가 이루어지고 있습니다."
+          },
+          {
+            "topic": "촉매 반응 메커니즘",
+            "description": "촉매 활성점의 동적 거동을 정량적으로 이해하고, 반응물-생성물로부터 전이 상태(TS) 구조를 정확하고 효율적으로 예측하는 것이 중요합니다. DFT와 ML을 결합하여 반응 경로 및 설계 규칙을 규명하는 접근법이 활용됩니다."
+          },
+          {
+            "topic": "기계화학적 재료 제어",
+            "description": "외부 기계적 힘에 반응하여 특정 화학 반응을 유도하거나 재료의 물성을 조절하는 메카노포어의 설계 및 메커니즘 규명이 진행됩니다. 고분자 네트워크의 인성 조절, 특정 분자(SO2, HF) 방출 등 다양한 기능 구현을 목표로 합니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "Kulik 연구 그룹은 계산화학 및 머신러닝을 통합하여 재료 설계 및 촉매 발견을 가속화하는 데 집중하고 있습니다. 전이 금속 복합체(TMC)의 동적 배위 모드 예측, MOF의 안정성 및 기계적 특성 예측, 그리고 촉매 반응의 설계 규칙 학습에 그래프 신경망(GNN) 및 DFT 기반 방법론을 활용합니다. 또한, 생성 모델의 화학적 유효성(예: 원자가 균형)을 확보하고 전이 상태(TS) 예측 모델의 일반화 능력을 향상시키는 방법론 개발에 주력합니다. 이와 함께 기계적 힘에 반응하는 메카노포어를 고속으로 발굴하고, 이를 통해 고분자 재료의 물성을 조절하거나 특정 분자를 방출하는 연구도 활발히 진행됩니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "머신러닝 모델의 일반화 능력과 화학적 유효성 확보는 여전히 중요한 과제입니다. 특히 생성 모델이 열역학적으로 안정하고 화학적 규칙을 따르는 재료를 생성하는 비율을 높이는 것이 필요하며, 전이 상태 예측 모델은 훈련 데이터 범위를 벗어나는 미지의 화학 반응에 대한 신뢰성 있는 예측에 한계를 보입니다. 또한, 촉매 활성점의 동적 거동이나 복잡한 고분자 네트워크 내의 다중 상호작용과 같은 복잡한 시스템을 정확하게 모델링하고 예측하기 위한 다중 스케일 접근법의 통합이 요구됩니다. 현재는 데이터셋의 규모와 다양성을 확장하고 새로운 특징을 발굴하는 방향으로 한계를 극복하려는 시도가 이루어지고 있습니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "Kulik 그룹의 연구는 DFT 기반 계산 화학과 머신러닝을 결합하여 촉매 설계 규칙을 학습하고, 전이 상태를 예측하며, 재료의 안정성 및 동적 특성을 이해하는 데 중점을 둡니다. 이는 CCEL의 DFT, 촉매, MLIP 연구 방향과 일치하며, 특히 ML 기반 전이 상태 예측 모델의 일반화 능력 향상 및 생성 모델의 화학적 유효성 확보 방법론은 CCEL의 MLIP 개발 및 촉매 반응 메커니즘 규명 연구에 직접적인 시사점을 제공합니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Beyond the Training Domain: Robust Generative Transition State Models for Unseen Chemistry",
+            "reason": "미지의 화학 반응에 대한 전이 상태 예측 모델의 일반화 능력을 향상시키기 위해 평형 구조 기반의 자기 지도 사전 학습 전략을 도입하여 비현실적 구조 생성 문제를 해결한 방법론적 진전을 보였습니다."
+          },
+          {
+            "title": "Enhancing Materials Discovery with Valence Constrained Design in Generative Modeling",
+            "reason": "생성 모델이 화학적 유효성을 간과하는 문제를 해결하기 위해 원자가 균형 제약 조건을 통합한 CrysVCD 프레임워크를 제시하여, 열역학적으로 안정하고 유효한 재료 생성 효율을 높였습니다."
+          },
+          {
+            "title": "React-OT: Optimal Transport for Generating Transition State in Chemical Reactions",
+            "reason": "반응물과 생성물로부터 전이 상태 구조를 생성하는 새로운 최적 수송(Optimal Transport) 기반 머신러닝 방법론을 제안하여, 기존 방식 대비 높은 정확도와 빠른 속도를 달성했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:31:38.512782"
+      }
     },
     "kimjihan": {
       "group_name": "Kim Jihan",
       "pi": "Jihan Kim",
       "paper_count": 66,
-      "focus_areas": [
-        "MOF 연구",
-        "AI 기반 재료",
-        "계산 재료 과학"
-      ],
-      "summary": "김지한 연구 그룹은 금속-유기 골격체(MOF)를 중심으로 한 첨단 재료의 설계, 발견 및 응용에 집중합니다. 이들은 머신러닝, 대규모 언어 모델, 양자 컴퓨팅 등 다양한 계산 방법론을 활용하여 고속 스크리닝, 특성 예측 및 역설계 문제를 해결합니다. 촉매, 가스 분리/감지, 에너지 저장 등 여러 분야에서 목표 특성을 가진 재료 개발을 가속화하는 데 주력하고 있습니다.",
-      "notable_papers": [
-        {
-          "title": "MLIP Arena: Advancing Fairness and Transparency in Machine Learning Interatomic Potentials via an Open, Accessible Bench",
-          "reason": "기존 머신러닝 상호작용 전위(MLIP) 벤치마크의 데이터 유출 및 전이성 부족 문제를 해결하기 위해 물리적 일관성, 화학 반응성 등을 평가 기준으로 삼는 새로운 벤치마크 플랫폼을 제안하여 MLIP 개발의 신뢰성 향상에 기여합니다."
-        },
-        {
-          "title": "ChatMOF: an artificial intelligence system for predicting and generating metal-organic frameworks using large language m",
-          "reason": "대규모 언어 모델(LLM)을 MOF 데이터 검색, 특성 예측, 구조 생성에 활용하는 에이전트 기반 시스템을 개발하여, LLM의 재료 과학 분야 적용 가능성을 탐색하고 MOF 설계 프로세스의 자동화 가능성을 제시합니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:35:02.125349"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "AI 기반 재료 역설계",
+            "description": "원하는 특정 물성을 갖는 재료 구조를 효율적으로 탐색하고 생성하는 것이 재료 개발의 핵심 과제입니다. 딥러닝 기반 생성 모델(확산 모델, LLM) 및 양자 컴퓨팅을 활용한 역설계 접근법이 시도되고 있습니다."
+          },
+          {
+            "topic": "MLIP 신뢰성/범용성",
+            "description": "머신러닝 상호작용 전위(MLIP)의 예측 정확도와 다양한 화학 환경에서의 적용 가능성을 객관적으로 평가할 수 있는 표준화된 벤치마크 및 평가 지표 개발이 필요합니다."
+          },
+          {
+            "topic": "복잡 재료 동적 거동 예측",
+            "description": "MOF의 유연성이나 고분자의 분자 패킹과 같은 동적 특성은 재료의 성능에 중요하지만, 이를 정확하고 효율적으로 모델링하는 것은 여전히 계산적 난이도가 높습니다."
+          },
+          {
+            "topic": "과학 문헌 데이터 활용",
+            "description": "방대한 양의 비정형 과학 문헌에서 재료 특성 및 합성 조건을 자동으로 추출하고 분석하여, 데이터 기반 재료 연구를 가속화하는 방법론이 요구됩니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 연구 동향",
+            "content": "연구 그룹은 MOF, 폴리머, 촉매 등 다양한 재료의 특성 예측 및 구조 생성을 위해 머신러닝, 대규모 언어 모델(LLM), 양자 자연어 처리(QNLP) 등 첨단 AI/ML 기법을 적극적으로 활용합니다. 예를 들어, MLIP를 이용한 Ru-SAC-MOF의 고속 스크리닝([2025-11-13]), LLM 기반 MOF 데이터 수집 및 생성 시스템(ChatMOF, L2M3, [2024-06-03], [2024-03-31]), SDF 기반 MOF 생성 확산 모델(MOFFUSION, [2025-01-02]), QNLP를 활용한 MOF 역설계([2025-10-28]) 등이 진행되고 있습니다. 또한 MOF의 구조-특성 관계를 규명하고 특정 응용을 위한 MOF를 설계하는 데 중점을 둡니다. 가스 분리(Cr-MOF의 N2/CH4 분리, polyMOF의 자일렌 이성질체 분리, [2024-04-25], [2024-07-08]), 전도성 MOF 개발(Ni-Diamine cMOF, [2024-07-15]), 센서 응용(광활성 cMOF 박막 가스 센서, [2025-10-30]), 유연 MOF의 가스 저장 능력 예측([2024-05-22]) 등 다양한 기능성 MOF 연구가 수행됩니다. 기존 계산 방법론의 한계를 극복하고 신뢰성을 높이기 위한 연구도 진행됩니다. MLIP의 공정하고 투명한 벤치마크 플랫폼 'MLIP Arena' 개발([2025-09-25]), 유연 MOF의 상전이 예측을 위한 UFF4MOF 개선 포스 필드(UFF4WR-MOF, [2025-05-23]), 다변량 다공성 물질 설계를 위한 양자 컴퓨팅 적용([2025-02-10]) 등이 이에 해당합니다."
+          },
+          {
+            "title": "미해결 과제",
+            "content": "AI 모델의 예측 신뢰성 및 범용성 부족은 여전히 중요한 과제입니다. MLIP의 전이성 부족 문제(MLIP Arena, [2025-09-25])에서 드러나듯이, 특정 데이터셋에 학습된 AI 모델이 새로운 화학 공간이나 극한 조건에서 얼마나 신뢰성 있는 예측을 제공할지는 검증이 필요하며, 생성된 구조의 실제 합성 가능성 및 안정성 검증도 중요합니다. 복잡한 재료 시스템의 동적 거동 및 상호작용 모델링 또한 난이도가 높습니다. 유연 MOF의 상전이(UFF4WR-MOF, [2025-05-23])나 고분자 필름의 나노구조 패킹([2024-06-10])과 같이 재료의 동적 거동 및 복잡한 분자간 상호작용을 정확하게 예측하는 것은 여전히 계산 비용이 높고, 범용적인 포스 필드나 모델 개발에 어려움이 있습니다. 양자 컴퓨팅의 실질적 재료 설계 적용은 아직 초기 단계입니다. 양자 자연어 처리(QNLP)나 양자 컴퓨팅 기반 다변량 다공성 물질 설계([2025-10-28], [2025-02-10]) 연구가 시도되고 있으나, 현재 양자 하드웨어의 한계로 인해 소규모 시스템에 대한 개념 증명 단계에 머물러 있으며, 실제 복잡한 재료 시스템의 설계에 적용되기까지는 상당한 기술 발전이 요구됩니다."
+          },
+          {
+            "title": "CCEL 시사점",
+            "content": "김지한 연구 그룹의 AI/ML 기반 재료 설계 및 계산 방법론 개발은 CCEL의 DFT 기반 촉매, 전기화학, 배터리 연구에 고속 탐색 및 역설계 패러다임을 도입하는 데 기여할 수 있습니다. 특히 MLIP 벤치마크 개발 및 MOF-SAC 촉매 스크리닝 연구는 CCEL의 촉매 설계 효율성을 높이는 데 활용될 수 있습니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "MLIP Arena: Advancing Fairness and Transparency in Machine Learning Interatomic Potentials via an Open, Accessible Bench",
+            "reason": "기존 MLIP 벤치마크의 한계를 지적하고, 데이터 유출 방지, 전이성 평가, 물리적 일관성 등 새로운 평가 기준을 제시하는 오픈 플랫폼을 제안하여 MLIP 개발의 투명성과 신뢰성 향상에 기여하는 방법론적 진전을 보였습니다."
+          },
+          {
+            "title": "Multi-modal conditional diffusion model using signed distance functions for metal-organic frameworks generation",
+            "reason": "MOF 구조 표현에 Signed Distance Functions(SDFs)를 최초로 적용하여 복잡한 기공 구조를 효과적으로 묘사하고, 사용자 맞춤형 다중 모달 특성을 가진 MOF를 생성하는 딥 제너레이티브 모델을 제안하여 MOF 설계의 새로운 접근법을 제시했습니다."
+          },
+          {
+            "title": "Harnessing Large Language Model to collect and analyze Metal-organic framework property dataset",
+            "reason": "40,000개 이상의 MOF 논문에서 32가지 특성과 21가지 합성 과정을 LLM 기반 시스템(L2M3)으로 자동 추출하여, 방대한 비정형 과학 문헌에서 재료 데이터를 효율적으로 수집하고 분석하는 새로운 데이터 마이닝 방법론을 제시했습니다."
+          }
+        ],
+        "depth": "full",
+        "generated_at": "2026-03-19T13:32:13.757384"
+      }
     },
     "schwalbekoda": {
       "group_name": "Schwalbe-Koda",
       "pi": "Daniel Schwalbe-Koda",
       "paper_count": 18,
-      "focus_areas": [
-        "원자 ML",
-        "생성 모델",
-        "촉매 시뮬"
-      ],
-      "summary": "이 그룹은 원자론적 머신러닝(ML) 방법론을 개발하고 재료 과학 문제에 적용하는 데 집중한다. 특히, ML 잠재력(MLIP) 학습 데이터셋의 효율성, 불확실성 정량화 및 이상치 감지를 정보 이론 기반으로 개선하는 연구를 수행한다. 또한, 확산 모델과 같은 생성 모델을 활용하여 비정질 재료의 구조를 효율적으로 생성하고 촉매 반응의 피복 효과를 대규모로 샘플링하는 데 기여한다.",
-      "notable_papers": [
-        {
-          "title": "A Generative Diffusion Model for Amorphous Materials",
-          "reason": "GNN 기반 확산 모델을 활용하여 비정질 재료 구조를 생성하는 접근 방식은 복잡한 비정질 구조 예측 및 시뮬레이션 비용 문제를 해결하는 데 새로운 방법론을 제시하며, 기존 방식 대비 최대 1000배 빠른 속도를 달성했다."
-        },
-        {
-          "title": "Maximizing Efficiency of Dataset Compression for Machine Learning Potentials With Information Theory",
-          "reason": "정보 이론과 최소 집합 커버 문제를 활용하여 MLIP 훈련 데이터셋의 중복을 제거하고 효율적으로 압축하는 방법론은 MLIP 개발 비용을 절감하면서 정확도를 유지하는 실질적인 해결책을 제시한다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:35:21.135004"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "MLIP 신뢰성 및 효율",
+            "description": "원자론적 머신러닝 포텐셜(MLIP)의 훈련 데이터셋 구성, 불확실성 정량화 및 압축 효율을 정보 이론 기반으로 개선하는 연구가 진행됩니다."
+          },
+          {
+            "topic": "비정질 재료 구조 생성",
+            "description": "생성형 확산 모델을 활용하여 비정질 재료의 복잡한 구조를 효율적으로 생성하고 역설계하는 방법론을 개발합니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "핵심 동향",
+            "content": "이 연구 그룹은 계산 재료 과학의 난제를 해결하기 위해 고급 머신러닝 방법론을 개발하고 적용합니다. 특히, 정보 이론을 기반으로 머신러닝 원자간 포텐셜(MLIP)의 훈련 데이터셋 구성, 불확실성 정량화, 데이터 압축 효율을 개선하여 MLIP의 신뢰성과 효율성을 높이는 데 주력합니다. 또한, 그래프 신경망 기반 확산 모델과 같은 생성형 모델을 활용하여 비정질 재료의 복잡한 구조를 빠르게 생성하고, 이종 촉매 반응에서 흡착물 피복 효과를 포괄적으로 샘플링하는 등 다양한 재료 시스템에 ML을 적용합니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "A Generative Diffusion Model for Amorphous Materials",
+            "reason": "그래프 신경망 기반 확산 모델을 비정질 재료 구조 생성에 적용하여 기존 시뮬레이션 대비 최대 1000배 빠른 속도를 달성하는 새로운 방법론을 제시했습니다."
+          },
+          {
+            "title": "Model-free quantification of completeness, uncertainties, and outliers in atomistic machine learning using information t",
+            "reason": "원자론적 머신러닝에서 훈련 세트의 완전성, 불확실성, 이상치를 모델에 구애받지 않는 정보 이론 기반으로 정량화하는 프레임워크를 제시했습니다."
+          }
+        ],
+        "depth": "light",
+        "generated_at": "2026-03-19T13:32:34.557249"
+      }
     },
     "rignanese": {
       "group_name": "Rignanese",
       "pi": "Gian-Marco Rignanese",
       "paper_count": 75,
-      "focus_areas": [
-        "계산 재료 과학",
-        "재료 인공지능",
-        "데이터 기반 재료"
-      ],
-      "summary": "Rignanese 그룹은 제일원리 계산(DFT/DFPT)을 활용하여 물질의 근본적인 특성을 규명하고, Abinit 소프트웨어 개발을 통해 계산 방법론을 발전시키고 있습니다. 최근에는 생성형 AI를 포함한 머신러닝 기법을 재료 설계 및 발견에 적극적으로 통합하며, 고처리량 계산 및 연합 데이터베이스 구축을 통해 재료 탐색 과정을 가속화하는 데 집중하고 있습니다. 이들은 복잡한 재료 거동 예측과 효율적인 재료 설계 프레임워크 구축 문제를 다룹니다.",
-      "notable_papers": [
-        {
-          "title": "A substitutional quantum defect in WS2 discovered by high-throughput computational screening and fabricated by site-sele",
-          "reason": "고처리량 DFT 계산으로 예측된 WS2 내 코발트-황 치환 양자 결함(Co0S)이 STM 조작을 통해 실험적으로 구현되었으며, 이는 계산적 예측이 실제 재료 공학으로 이어진 구체적인 사례입니다."
-        },
-        {
-          "title": "On the Role of Interlayer Electrons on the Frictional Behavior of Two-Dimensional Electrides",
-          "reason": "제일원리 계산과 분자 동역학 시뮬레이션을 통해 2차원 전해도체 Ba2N이 강한 층간 접착력에도 낮은 마찰을 보이는 원인이 슬라이딩 시 발생하는 층간 전하 재분배임을 규명하여, 2D 전해도체의 독특한 마찰 메커니즘에 대한 새로운 이해를 제시했습니다."
-        }
-      ],
-      "generated_at": "2026-03-19T10:35:44.161991"
+      "digest": {
+        "hot_issues": [
+          {
+            "topic": "생성형 AI 기반 재료 설계",
+            "description": "계산 비용이 높은 제일원리 계산 없이 새로운 결정 구조를 직접 제안하고 특정 특성에 맞춰 재료를 설계하는 접근법이 발전하고 있습니다. 이는 재료 발견의 속도를 높이는 데 기여합니다."
+          },
+          {
+            "topic": "ML 활용 재료 물성 예측 및 발굴",
+            "description": "방대한 가상 물질 공간에서 특정 물성(안정성, 위상 특성, 광학 특성, 이동도 등)을 가진 후보 물질을 효율적으로 스크리닝하고 예측하는 데 머신러닝 모델과 고처리량 계산이 적극적으로 활용됩니다."
+          },
+          {
+            "topic": "제일원리 계산 코드 역량 확장",
+            "description": "복잡한 다체 효과, 여기 상태, 응답 함수 등을 정확하게 기술하기 위한 밀도범함수 이론(DFT) 기반 코드의 기능 확장 및 정확도 개선이 지속적으로 이루어지고 있습니다."
+          }
+        ],
+        "sections": [
+          {
+            "title": "AI/ML 기반 재료 발견 및 예측",
+            "content": "생성형 AI 모델(예: 결정 구조 생성)과 머신러닝 원자간 포텐셜(uMLIPs)의 성능 평가를 통해 재료 발견 가속화 및 계산 비용 절감 노력이 진행됩니다. 위상 물질 데이터베이스 통합 및 ML 분류(XGBoost 85.2% 정확도)와 비선형 광학(NLO) 물질 발굴을 위한 능동 학습 및 고처리량 DFT-PT 계산 프레임워크가 개발되었습니다. MatterVial과 같은 하이브리드 ML 프레임워크는 GNN과 특징 기반 접근법을 결합하여 예측 성능과 해석 가능성을 동시에 향상시키는 방향으로 발전합니다."
+          },
+          {
+            "title": "계산 방법론 및 소프트웨어 개발",
+            "content": "Abinit 2025 업데이트를 통해 구속된 전하/스핀/온도 조건 계산, 플렉소전기 및 폴라론을 위한 DFPT 확장, GW, DMFT, Coupled Cluster와 같은 다체 이론 기능이 추가되었습니다. DFT+U/J 계산에 필수적인 Hubbard U 및 J 파라미터를 선형 응답 방식으로 정확하게 계산하는 `lrUJ` 유틸리티 개발도 포함됩니다. 이는 제일원리 계산의 정확도와 적용 범위를 넓히는 데 기여합니다."
+          },
+          {
+            "title": "재료 물성 및 메커니즘 제일원리 연구",
+            "content": "2D 전해도체 Ba2N의 층간 마찰 특성(전하 재분배 메커니즘) 및 CrSBr 내 리튬의 이방성 삽입 메커니즘을 제일원리 계산 및 분자 동역학 시뮬레이션으로 규명했습니다. WS2 내 양자 결함(Co0S) 발견을 위한 고처리량 DFT 스크리닝과 Sn(II) 산화물의 정공 이동도 및 수송 메커니즘 연구도 진행되었습니다. KNbO3 박막에서 변형을 통한 강유전 전이 온도 및 잔류 분극 조절 연구는 계산 예측과 실험 검증을 병행합니다."
+          },
+          {
+            "title": "데이터 인프라 및 표준화",
+            "content": "위상 물질 데이터베이스의 불일치와 파편화를 해결하기 위해 Materiae와 Topological Materials Database를 통합한 데이터셋(35,608개 물질)을 구축하고, 4,710개의 머신러닝용 디스크립터로 특징화하는 방법론이 개발되었습니다. Datatractor 프레임워크는 데이터 추출 도구의 상호운용성을 높여 FAIR 데이터 원칙 적용을 용이하게 합니다."
+          }
+        ],
+        "notable_papers": [
+          {
+            "title": "Generative AI for crystal structures: a review",
+            "reason": "기존 결정 구조 예측(CSP) 방법의 한계를 넘어 계산 비용 없이 새로운 구조를 직접 제안하는 생성형 AI 모델의 발전 동향을 종합적으로 제시하여 재료 발견 패러다임 변화를 조망합니다."
+          },
+          {
+            "title": "Combining feature-based approaches with graph neural networks and symbolic regression for synergistic performance and in",
+            "reason": "GNN의 예측력과 특징 기반 모델의 해석 가능성을 결합한 하이브리드 프레임워크 MatterVial을 제안하여, 재료 과학 ML 모델의 성능과 이해도를 동시에 높이는 새로운 방법론을 제시합니다."
+          },
+          {
+            "title": "A substitutional quantum defect in WS2 discovered by high-throughput computational screening and fabricated by site-sele",
+            "reason": "고처리량 DFT 스크리닝을 통해 WS2 내 유망한 양자 결함(Co0S)을 이론적으로 예측하고, 이를 STM 조작을 통해 실험적으로 구현 가능성을 제시하여 계산-실험 연계 연구의 새로운 방향을 보여줍니다."
+          }
+        ],
+        "미해결 과제": "생성형 AI가 제안하는 새로운 결정 구조의 실제 합성 가능성 및 예측된 특성의 실험적 검증은 여전히 중요한 과제입니다. 머신러닝 모델의 미지의 화학 공간에 대한 일반화 능력과 예측 메커니즘의 해석 가능성을 높이는 연구가 필요합니다. 또한, 다체 효과 및 복잡한 상호작용을 정확하게 기술하는 제일원리 계산의 높은 비용과 보편적 적용의 한계는 지속적인 도전 과제입니다.",
+        "CCEL 시사점": "CCEL의 제일원리 계산 역량은 Rignanese 그룹의 Abinit 개발 및 활용, 그리고 다양한 재료의 물성 및 메커니즘 연구와 직접적으로 연결됩니다. 촉매, 전기화학, 배터리 분야에서 새로운 물질 발견 및 반응 메커니즘 규명을 위해 생성형 AI 및 MLIPs를 활용하는 데이터 기반 접근법을 적극적으로 도입할 수 있습니다.",
+        "depth": "full",
+        "generated_at": "2026-03-19T13:33:20.642398"
+      }
     }
   },
   "groups": [

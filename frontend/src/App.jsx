@@ -239,43 +239,38 @@ function SourceBreakdown({papers}){
 
 function CategoryTrends({trends}){
   const [activeCat,setActiveCat]=useState(null);
-  const [timeView,setTimeView]=useState("monthly"); // "monthly" or "yearly"
 
   if(!trends||Object.keys(trends).length===0) return null;
 
   const catOrder=["dft","catalysis","electrochemistry","battery","ml","policy"];
   const available=catOrder.filter(c=>trends[c]);
 
-  // Default to first category
   const current=activeCat&&trends[activeCat]?activeCat:available[0];
   if(!current)return null;
   const t=trends[current];
-
-  const text=timeView==="monthly"?t.monthly_trend:t.yearly_trend;
-  const hotTopics=t.hot_topics||[];
+  const digest=t.digest||t;
+  const color=cc(current);
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
-    {/* Header */}
     <div style={{padding:"16px 20px 0",borderBottom:`1px solid ${C.borderLight}`}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
         <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:10,fontWeight:800,flexShrink:0}}>AI</div>
         <div>
-          <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Category Research Trends</h4>
+          <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Category Research Digests</h4>
           <p style={{fontSize:11,color:C.gray500,margin:0}}>AI-generated analysis per research area</p>
         </div>
       </div>
 
-      {/* Category tabs */}
       <div style={{display:"flex",gap:0,overflowX:"auto"}}>
         {available.map(catId=>{
           const label=CATEGORIES.find(c=>c.id===catId)?.label||catId;
-          const color=cc(catId);
+          const catColor=cc(catId);
           const isActive=catId===current;
           const count=trends[catId]?.paper_count_monthly||0;
           return <button key={catId} onClick={()=>setActiveCat(catId)} style={{
-            padding:"8px 14px",border:"none",borderBottom:isActive?`2.5px solid ${color}`:"2.5px solid transparent",
+            padding:"8px 14px",border:"none",borderBottom:isActive?`2.5px solid ${catColor}`:"2.5px solid transparent",
             background:"transparent",cursor:"pointer",fontFamily:"inherit",fontSize:11.5,
-            fontWeight:isActive?700:400,color:isActive?color:C.gray500,transition:"all .15s",whiteSpace:"nowrap",
+            fontWeight:isActive?700:400,color:isActive?catColor:C.gray500,transition:"all .15s",whiteSpace:"nowrap",
           }}>
             {label} <span style={{fontSize:10,opacity:.7}}>({count})</span>
           </button>;
@@ -283,51 +278,74 @@ function CategoryTrends({trends}){
       </div>
     </div>
 
-    {/* Content */}
-    <div style={{padding:"16px 20px"}}>
-      {/* Time toggle */}
-      <div style={{display:"flex",gap:3,marginBottom:14}}>
-        {[["monthly","Recent 1 Month"],["yearly","Past 1 Year"]].map(([k,l])=>
-          <button key={k} onClick={()=>setTimeView(k)} style={{
-            padding:"4px 14px",border:"none",fontFamily:"inherit",cursor:"pointer",fontSize:11.5,fontWeight:600,borderRadius:2,
-            background:timeView===k?cc(current)+"18":"transparent",
-            color:timeView===k?cc(current):C.gray500,
-          }}>{l}</button>
-        )}
-        <div style={{marginLeft:"auto",display:"flex",gap:5,alignItems:"center"}}>
-          <span style={{fontSize:10,color:C.gray500}}>
-            {timeView==="monthly"?t.paper_count_monthly:t.paper_count_yearly} papers
-          </span>
-        </div>
+    <div style={{padding:"0"}}>
+      <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8}}>
+        <span style={{fontSize:11,color:C.gray500}}>Monthly: {t.paper_count_monthly} papers</span>
+        <span style={{fontSize:11,color:C.gray300}}>|</span>
+        <span style={{fontSize:11,color:C.gray500}}>Yearly: {t.paper_count_yearly} papers</span>
+        {digest.depth&&<span style={{fontSize:10,color,marginLeft:"auto",fontWeight:600,textTransform:"uppercase"}}>{digest.depth}</span>}
       </div>
-
-      {/* Hot topics */}
-      {hotTopics.length>0&&<div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:12}}>
-        {hotTopics.map((topic,i)=><span key={i} style={{
-          padding:"2px 10px",borderRadius:10,fontSize:11,fontWeight:500,
-          color:cc(current),background:cc(current)+"10",border:`1px solid ${cc(current)}25`,
-        }}>{topic}</span>)}
-      </div>}
-
-      {/* Trend text */}
-      {text?text.split("\n\n").map((p,i)=>
-        <p key={i} style={{fontSize:13.5,color:C.textBody,lineHeight:1.75,margin:i===0?0:"10px 0 0"}}>{p}</p>
-      ):<p style={{fontSize:13,color:C.gray500,textAlign:"center",padding:"20px 0"}}>
-        {timeView==="yearly"?"Not enough historical data yet. Trends will appear after data accumulates.":"No trend data available. Run --digest to generate."}
-      </p>}
-
-      {/* Generated timestamp */}
-      {t.generated_at&&<p style={{fontSize:10,color:C.gray300,marginTop:12,textAlign:"right"}}>
-        Generated: {t.generated_at.slice(0,10)}
-      </p>}
+      <StructuredDigestContent digest={digest} accentColor={color}/>
     </div>
   </div>;
+}
+
+function StructuredDigestContent({digest,accentColor}){
+  const color=accentColor||C.accent;
+  if(!digest)return null;
+
+  if(digest.depth==="skip"){
+    return <div style={{padding:"20px",textAlign:"center",color:C.gray500}}>
+      <p style={{fontSize:13,margin:0}}>논문이 충분히 축적되면 AI 분석이 제공됩니다.</p>
+    </div>;
+  }
+
+  const hotIssues=digest.hot_issues||[];
+  const sections=digest.sections||[];
+  const notablePapers=digest.notable_papers||[];
+  if(hotIssues.length===0&&sections.length===0&&notablePapers.length===0)return null;
+
+  return <>
+    {hotIssues.length>0&&<div style={{padding:"14px 20px",background:color+"08",borderBottom:`1px solid ${C.borderLight}`}}>
+      <div style={{fontSize:11,fontWeight:700,color,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Hot Issues</div>
+      <div style={{display:"flex",flexDirection:"column",gap:8}}>
+        {hotIssues.map((issue,i)=><div key={i} style={{display:"flex",gap:10,alignItems:"flex-start"}}>
+          <span style={{flexShrink:0,width:22,height:22,borderRadius:3,background:color,color:C.white,fontSize:11,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center"}}>{i+1}</span>
+          <div>
+            <span style={{fontSize:13,fontWeight:700,color:C.textDark}}>{issue.topic}</span>
+            <p style={{fontSize:12.5,color:C.textBody,margin:"2px 0 0",lineHeight:1.6}}>{issue.description}</p>
+          </div>
+        </div>)}
+      </div>
+    </div>}
+
+    <div style={{padding:"16px 20px"}}>
+      {sections.map((sec,i)=>{
+        if(!sec.content)return null;
+        return <div key={i} style={{marginBottom:i<sections.length-1?18:0}}>
+          <h5 style={{fontSize:13.5,fontWeight:700,color:C.textDark,margin:"0 0 6px",borderLeft:`3px solid ${color}`,paddingLeft:10}}>{sec.title}</h5>
+          {sec.content.split("\n\n").map((p,j)=><p key={j} style={{fontSize:13,color:C.textBody,lineHeight:1.72,margin:j===0?0:"8px 0 0",paddingLeft:13}}>{p}</p>)}
+        </div>;
+      })}
+
+      {notablePapers.length>0&&<div style={{marginTop:sections.length>0?14:0,borderTop:sections.length>0?`1px solid ${C.borderLight}`:"none",paddingTop:sections.length>0?12:0}}>
+        <div style={{fontSize:11,fontWeight:700,color:C.gray600,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Notable Papers</div>
+        {notablePapers.map((np,i)=><div key={i} style={{marginBottom:8,paddingLeft:10,borderLeft:`2px solid ${color}30`}}>
+          <div style={{fontSize:12.5,fontWeight:600,color:C.textDark,lineHeight:1.4}}>{np.title}</div>
+          <div style={{fontSize:12,color:C.gray600,marginTop:2,lineHeight:1.5}}>{np.reason}</div>
+        </div>)}
+      </div>}
+
+      {digest.generated_at&&<p style={{fontSize:10,color:C.gray300,marginTop:12,textAlign:"right"}}>
+        Generated: {digest.generated_at.slice(0,10)}
+      </p>}
+    </div>
+  </>;
 }
 
 function WeeklyDigest({digest}){
   if(!digest)return null;
 
-  // backward compat: plain string
   if(typeof digest==="string"){
     if(!digest)return null;
     return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,borderLeft:`4px solid ${C.accent}`,padding:20,boxShadow:C.shadow}}>
@@ -347,7 +365,6 @@ function WeeklyDigest({digest}){
   if(sections.length===0&&hotIssues.length===0)return null;
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
-    {/* Header */}
     <div style={{padding:"16px 20px",borderBottom:`1px solid ${C.borderLight}`,display:"flex",alignItems:"center",gap:10}}>
       <div style={{width:30,height:30,borderRadius:3,background:C.accent,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:11,fontWeight:800,flexShrink:0}}>AI</div>
       <div>
@@ -355,35 +372,11 @@ function WeeklyDigest({digest}){
         <p style={{fontSize:11,color:C.gray500,margin:0}}>Auto-generated by Gemini{digest.generated_at?` · ${digest.generated_at.slice(0,10)}`:""}</p>
       </div>
     </div>
-
-    {/* Hot Issues */}
-    {hotIssues.length>0&&<div style={{padding:"14px 20px",background:C.accentSoft,borderBottom:`1px solid ${C.borderLight}`}}>
-      <div style={{fontSize:11,fontWeight:700,color:C.accent,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Hot Issues</div>
-      <div style={{display:"flex",flexDirection:"column",gap:8}}>
-        {hotIssues.map((issue,i)=><div key={i} style={{display:"flex",gap:10,alignItems:"flex-start"}}>
-          <span style={{flexShrink:0,width:22,height:22,borderRadius:3,background:C.accent,color:C.white,fontSize:11,fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center"}}>{i+1}</span>
-          <div>
-            <span style={{fontSize:13,fontWeight:700,color:C.textDark}}>{issue.topic}</span>
-            <p style={{fontSize:12.5,color:C.textBody,margin:"2px 0 0",lineHeight:1.6}}>{issue.description}</p>
-          </div>
-        </div>)}
-      </div>
-    </div>}
-
-    {/* Sections */}
-    <div style={{padding:"16px 20px"}}>
-      {sections.map((sec,i)=>{
-        if(!sec.content)return null;
-        return <div key={i} style={{marginBottom:i<sections.length-1?18:0}}>
-          <h5 style={{fontSize:13.5,fontWeight:700,color:C.textDark,margin:"0 0 6px",borderLeft:`3px solid ${C.accent}`,paddingLeft:10}}>{sec.title}</h5>
-          {sec.content.split("\n\n").map((p,j)=><p key={j} style={{fontSize:13,color:C.textBody,lineHeight:1.72,margin:j===0?0:"8px 0 0",paddingLeft:13}}>{p}</p>)}
-        </div>;
-      })}
-    </div>
+    <StructuredDigestContent digest={digest} accentColor={C.accent}/>
   </div>;
 }
 
-function GroupDigests({groupDigests,groups}){
+function GroupDigests({groupDigests}){
   const [activeGroup,setActiveGroup]=useState(null);
 
   if(!groupDigests||Object.keys(groupDigests).length===0)return null;
@@ -392,10 +385,10 @@ function GroupDigests({groupDigests,groups}){
   const current=activeGroup&&groupDigests[activeGroup]?activeGroup:available[0];
   if(!current)return null;
   const gd=groupDigests[current];
+  const digest=gd.digest||gd;
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
-    {/* Header */}
-    <div style={{padding:"16px 20px 0",borderBottom:`1px solid ${C.borderLight}`}}>
+    <div style={{padding:"16px 20px",borderBottom:`1px solid ${C.borderLight}`}}>
       <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
         <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:9,fontWeight:800,flexShrink:0}}>GRP</div>
         <div>
@@ -404,55 +397,22 @@ function GroupDigests({groupDigests,groups}){
         </div>
       </div>
 
-      {/* Group tabs */}
-      <div style={{display:"flex",gap:0,overflowX:"auto"}}>
+      <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
         {available.map(gid=>{
           const g=groupDigests[gid];
           const isActive=gid===current;
-          return <button key={gid} onClick={()=>setActiveGroup(gid)} style={{
-            padding:"8px 14px",border:"none",borderBottom:isActive?`2.5px solid ${C.accent}`:"2.5px solid transparent",
-            background:"transparent",cursor:"pointer",fontFamily:"inherit",fontSize:11.5,
-            fontWeight:isActive?700:400,color:isActive?C.accent:C.gray500,transition:"all .15s",whiteSpace:"nowrap",
-          }}>
-            {g.group_name} <span style={{fontSize:10,opacity:.7}}>({g.paper_count})</span>
-          </button>;
+          return <Pill key={gid} label={`${g.group_name} (${g.paper_count})`} active={isActive} color={C.accent} onClick={()=>setActiveGroup(gid)}/>;
         })}
       </div>
     </div>
 
-    {/* Content */}
-    <div style={{padding:"16px 20px"}}>
-      <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:12}}>
+    <div style={{padding:"0"}}>
+      <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8}}>
         <span style={{fontSize:14,fontWeight:700,color:C.textDark}}>{gd.group_name}</span>
         {gd.pi&&<span style={{fontSize:12,color:C.gray500}}>PI: {gd.pi}</span>}
         <span style={{fontSize:11,color:C.gray500,marginLeft:"auto"}}>{gd.paper_count} papers</span>
       </div>
-
-      {/* Focus areas */}
-      {gd.focus_areas&&gd.focus_areas.length>0&&<div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:12}}>
-        {gd.focus_areas.map((area,i)=><span key={i} style={{
-          padding:"3px 10px",borderRadius:10,fontSize:11,fontWeight:500,
-          color:C.accent,background:C.accentSoft,border:`1px solid ${C.accent}25`,
-        }}>{area}</span>)}
-      </div>}
-
-      {/* Summary */}
-      {gd.summary&&gd.summary.split("\n\n").map((p,i)=>
-        <p key={i} style={{fontSize:13,color:C.textBody,lineHeight:1.72,margin:i===0?0:"8px 0 0"}}>{p}</p>
-      )}
-
-      {/* Notable papers */}
-      {gd.notable_papers&&gd.notable_papers.length>0&&<div style={{marginTop:14,borderTop:`1px solid ${C.borderLight}`,paddingTop:12}}>
-        <div style={{fontSize:11,fontWeight:700,color:C.gray600,textTransform:"uppercase",letterSpacing:1,marginBottom:8}}>Notable Papers</div>
-        {gd.notable_papers.map((np,i)=><div key={i} style={{marginBottom:8,paddingLeft:10,borderLeft:`2px solid ${C.accent}30`}}>
-          <div style={{fontSize:12.5,fontWeight:600,color:C.textDark,lineHeight:1.4}}>{np.title}</div>
-          <div style={{fontSize:12,color:C.gray600,marginTop:2,lineHeight:1.5}}>{np.reason}</div>
-        </div>)}
-      </div>}
-
-      {gd.generated_at&&<p style={{fontSize:10,color:C.gray300,marginTop:12,textAlign:"right"}}>
-        Generated: {gd.generated_at.slice(0,10)}
-      </p>}
+      <StructuredDigestContent digest={digest} accentColor={C.accent}/>
     </div>
   </div>;
 }
@@ -638,7 +598,7 @@ export default function App(){
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:14}}>
           <WeeklyDigest digest={digest}/>
-          <GroupDigests groupDigests={groupDigests} groups={allGroups}/>
+          <GroupDigests groupDigests={groupDigests}/>
           <CategoryTrends trends={categoryTrends}/>
           <TrendChart papers={papers}/>
           <SourceBreakdown papers={papers}/>
