@@ -129,9 +129,9 @@ function Stat({value,label,color}){
   </div>;
 }
 
-function NewsCard({d,bm,onBm}){
+function NewsCard({d,bm,onBm,groups}){
   const cats = getPaperCats(d);
-  const grp=d.group?DEFAULT_GROUPS.find(g=>g.id===d.group):null;
+  const grp=d.group?(groups||DEFAULT_GROUPS).find(g=>g.id===d.group):null;
   const isCcel=d.ccel||d.group==="ccel";
   const summary=d.summary||d.abstract||"";
   const rel=d.relevance||d.rel||0;
@@ -372,6 +372,7 @@ export default function App(){
   const toggleBm=id=>setBms(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});
 
   const papers=data?.papers||[];
+  const allGroups=data?.groups||DEFAULT_GROUPS;
   const digest=data?.weekly_digest||"";
   const categoryTrends=data?.category_trends||{};
   const genDate=data?.date||data?.generated_at?.slice(0,10)||"";
@@ -449,7 +450,7 @@ export default function App(){
         <div style={{marginBottom:10}}>
           <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Groups</span>
           <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {DEFAULT_GROUPS.map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
+            {allGroups.map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
           </div>
         </div>
         <div>
@@ -500,7 +501,7 @@ export default function App(){
 
         <div style={{display:"flex",flexDirection:"column",gap:8}}>
           {paged.length===0?<div style={{textAlign:"center",padding:50,color:C.gray500,fontSize:13}}>No results.{selectedCats.size>=2?" Try removing a category filter.":""}</div>
-            :paged.map((d,i)=><div key={d.doi||d.title||i} style={{animationDelay:`${Math.min(i,10)*0.03}s`}}><NewsCard d={d} bm={bms.has(d.doi||d.title)} onBm={toggleBm}/></div>)
+            :paged.map((d,i)=><div key={d.doi||d.title||i} style={{animationDelay:`${Math.min(i,10)*0.03}s`}}><NewsCard d={d} bm={bms.has(d.doi||d.title)} onBm={toggleBm} groups={allGroups}/></div>)
           }
         </div>
         {hasMore&&<div style={{textAlign:"center",padding:"20px 0"}}>

@@ -76,6 +76,11 @@ def save_output(papers: list, digest: str, category_trends: dict, config: dict):
     history_dir = Path(config["output"]["history_dir"])
     history_dir.mkdir(parents=True, exist_ok=True)
 
+    groups_meta = [
+        {"id": gid, "name": gcfg.get("name", gid), "pi": gcfg.get("pi", "")}
+        for gid, gcfg in config.get("groups", {}).items()
+    ]
+
     output = {
         "generated_at": datetime.now().isoformat(),
         "date": datetime.now().strftime("%Y-%m-%d"),
@@ -83,6 +88,7 @@ def save_output(papers: list, digest: str, category_trends: dict, config: dict):
         "ccel_papers": sum(1 for p in papers if p.get("ccel")),
         "weekly_digest": digest or existing.get("weekly_digest", ""),
         "category_trends": category_trends or existing.get("category_trends", {}),
+        "groups": groups_meta,
         "papers": papers,
     }
 
