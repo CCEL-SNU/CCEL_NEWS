@@ -186,16 +186,29 @@ function TrendChart({papers}){
 
   if(months.length===0)return <div style={{padding:20,color:C.gray500,textAlign:"center"}}>Not enough data for trend chart.</div>;
 
-  const W=600,H=200,PL=40,PR=14,PT=8,PB=30;
+  const W=600,H=200,PL=45,PR=30,PT=8,PB=30;
   const cW=W-PL-PR,cH=H-PT-PB;
   let mx=1;
   months.forEach(m=>{topCats.forEach(c=>{const v=(byMonth[m]||{})[c]||0;if(v>mx)mx=v;});});
   const sx=months.length>1?cW/(months.length-1):cW;
 
+  const niceStep=(v)=>{const raw=v/4;const mag=Math.pow(10,Math.floor(Math.log10(raw)));const r=raw/mag;return(r<=1?1:r<=2?2:r<=5?5:10)*mag;};
+  const step=niceStep(mx);
+  const yTicks=[];
+  for(let v=0;v<=mx;v+=step)yTicks.push(v);
+  if(yTicks[yTicks.length-1]<mx)yTicks.push(yTicks[yTicks.length-1]+step);
+
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:20,boxShadow:C.shadow}}>
     <h4 style={{fontSize:15,fontWeight:700,color:C.textDark,margin:"0 0 2px"}}>Topic Distribution</h4>
     <p style={{fontSize:11,color:C.gray500,margin:"0 0 12px"}}>Papers by category</p>
     <svg viewBox={`0 0 ${W} ${H}`} width="100%">
+      {yTicks.map(v=>{
+        const y=PT+cH*(1-v/mx);
+        return <g key={`yt-${v}`}>
+          <line x1={PL} y1={y} x2={W-PR} y2={y} stroke={C.gray200||"#e5e7eb"} strokeWidth=".5" strokeDasharray="4 3"/>
+          <text x={PL-6} y={y+3.5} textAnchor="end" style={{fontSize:9,fill:C.gray500}}>{v}</text>
+        </g>;
+      })}
       {months.map((m,i)=><text key={m} x={PL+i*sx} y={H-6} textAnchor="middle" style={{fontSize:10,fill:C.gray500}}>{m}</text>)}
       {topCats.map(cat=>{
         const pts=months.map((m,i)=>[PL+i*sx,PT+cH*(1-((byMonth[m]||{})[cat]||0)/mx)]);
@@ -217,8 +230,9 @@ function TrendChart({papers}){
 }
 
 function SourceBreakdown({papers}){
+  const normalizeSource=(s)=>/^ar[Xx]iv/i.test(s)?"arXiv":s;
   const sources={};
-  (papers||[]).forEach(p=>{const s=p.source||"Unknown";sources[s]=(sources[s]||0)+1;});
+  (papers||[]).forEach(p=>{const s=normalizeSource(p.source||"Unknown");sources[s]=(sources[s]||0)+1;});
   const sorted=Object.entries(sources).sort((a,b)=>b[1]-a[1]);
   const mx=sorted.length?sorted[0][1]:1;
 
