@@ -43,6 +43,8 @@ const DEFAULT_GROUPS = [
   { id: "noguera", name: "Noguera" },
 ];
 
+function normalizeSource(s){return /^ar[Xx]iv/i.test(s)?"arXiv":s;}
+
 /* ===== Helper: get categories array from paper (backward compat) ===== */
 function getPaperCats(d) {
   if (d.categories && Array.isArray(d.categories) && d.categories.length > 0) {
@@ -230,7 +232,6 @@ function TrendChart({papers}){
 }
 
 function SourceBreakdown({papers}){
-  const normalizeSource=(s)=>/^ar[Xx]iv/i.test(s)?"arXiv":s;
   const sources={};
   (papers||[]).forEach(p=>{const s=normalizeSource(p.source||"Unknown");sources[s]=(sources[s]||0)+1;});
   const sorted=Object.entries(sources).sort((a,b)=>b[1]-a[1]);
@@ -452,6 +453,7 @@ export default function App(){
   const [view,setView]=useState("feed");
   const [selectedCats,setSelectedCats]=useState(new Set()); // multi-select categories (AND logic)
   const [grps,setGrps]=useState(new Set());
+  const [selectedJournals,setSelectedJournals]=useState(new Set());
   const [q,setQ]=useState("");
   const [bms,setBms]=useState(new Set());
   const [bmOnly,setBmOnly]=useState(false);
@@ -466,7 +468,7 @@ export default function App(){
   },[]);
 
   // Reset page on filter change
-  useEffect(()=>{setPage(1);},[selectedCats,grps,q,bmOnly,sort,view]);
+  useEffect(()=>{setPage(1);},[selectedCats,grps,selectedJournals,q,bmOnly,sort,view]);
 
   const toggleCat=id=>{
     setSelectedCats(prev=>{
@@ -476,6 +478,7 @@ export default function App(){
     });
   };
   const toggleGrp=id=>setGrps(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});
+  const toggleJournal=id=>setSelectedJournals(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});
   const toggleBm=id=>setBms(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});
 
   const papers=data?.papers||[];
@@ -484,6 +487,12 @@ export default function App(){
   const categoryTrends=data?.category_trends||{};
   const groupDigests=data?.group_digests||{};
   const genDate=data?.date||data?.generated_at?.slice(0,10)||"";
+
+  const topJournals=useMemo(()=>{
+    const cnt={};
+    papers.forEach(p=>{const s=normalizeSource(p.source||"Unknown");cnt[s]=(cnt[s]||0)+1;});
+    return Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,30).map(([name,count])=>({name,count}));
+  },[papers]);
 
   const filtered=useMemo(()=>{
     return papers.filter(d=>{
@@ -497,6 +506,7 @@ export default function App(){
       }
 
       if(grps.size>0&&!grps.has(d.group))return false;
+      if(selectedJournals.size>0&&!selectedJournals.has(normalizeSource(d.source||"Unknown")))return false;
       if(bmOnly&&!bms.has(d.doi||d.title))return false;
       if(q){
         const s=q.toLowerCase();
@@ -507,7 +517,7 @@ export default function App(){
       if(sort==="relevance")return (b.relevance||b.rel||0)-(a.relevance||a.rel||0);
       return ((b.date||"")<(a.date||"")?-1:1);
     });
-  },[papers,selectedCats,grps,bmOnly,bms,q,sort]);
+  },[papers,selectedCats,grps,selectedJournals,bmOnly,bms,q,sort]);
 
   const paged=filtered.slice(0,page*PER_PAGE);
   const hasMore=paged.length<filtered.length;
@@ -561,7 +571,7 @@ export default function App(){
             {allGroups.map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
           </div>
         </div>
-        <div>
+        <div style={{marginBottom:10}}>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Categories</span>
             {activeFilterCount>=2&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>AND filter ({activeFilterCount} selected)</span>}
@@ -569,6 +579,16 @@ export default function App(){
           </div>
           <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
             {CATEGORIES.map(c=><Pill key={c.id} label={c.label} active={selectedCats.has(c.id)} color={cc(c.id)} onClick={()=>toggleCat(c.id)}/>)}
+          </div>
+        </div>
+        <div>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Journals</span>
+            {selectedJournals.size>0&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>{selectedJournals.size} selected</span>}
+            {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
+          </div>
+          <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
+            {topJournals.map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
           </div>
         </div>
       </div>
@@ -598,7 +618,7 @@ export default function App(){
                 background:sort===k?C.textDark:"transparent",color:sort===k?C.white:C.gray500,
               }}>{l}</button>)}
             </div>
-            <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{selectedCats.size>0?` (filtered)`:""}</span>
+            <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{(selectedCats.size>0||selectedJournals.size>0)?` (filtered)`:""}</span>
           </div>
           <button className="ccel-pill" onClick={()=>setBmOnly(!bmOnly)} style={{
             padding:"4px 12px",fontFamily:"inherit",border:bmOnly?`1.5px solid ${C.ccelGold}`:`1px solid ${C.border}`,
