@@ -568,7 +568,7 @@ export default function App(){
         <div style={{marginBottom:10}}>
           <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Groups</span>
           <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {allGroups.map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
+            {[...allGroups].sort((a,b)=>a.name.localeCompare(b.name)).map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
           </div>
         </div>
         <div style={{marginBottom:10}}>
@@ -588,7 +588,7 @@ export default function App(){
             {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
           </div>
           <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {topJournals.map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
+            {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
           </div>
         </div>
       </div>
