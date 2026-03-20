@@ -20,11 +20,11 @@ REM
 REM Schedule in Windows Task Scheduler:
 REM   1. Open Task Scheduler (taskschd.msc)
 REM   2. Create Basic Task > "CCEL Daily News"
-REM   3. Trigger: Daily at 07:00
+REM   3. Trigger: Daily at 04:00
 REM   4. Action: Start a program
 REM      Program: cmd.exe
-REM      Arguments: /c "C:\path\to\ccel-daily-news\backend\run_daily.bat"
-REM      Start in: C:\path\to\ccel-daily-news\backend
+REM      Arguments: /c "C:\Users\parwg\Documents\개인프로젝트\01_CCEL_NEWS\ccel-daily-news\backend\run_daily.bat"
+REM      Start in: C:\Users\parwg\Documents\개인프로젝트\01_CCEL_NEWS\ccel-daily-news\backend
 REM
 REM Configuration:
 REM   - API keys & settings: backend/config.yaml (not tracked by git)
@@ -37,12 +37,9 @@ REM ============================================================
 REM Navigate to backend directory
 cd /d "%~dp0"
 
-REM Activate virtual environment if you have one
-REM call venv\Scripts\activate.bat
-
-REM Run the daily pipeline
+REM Run the daily pipeline using venv Python
 echo [%date% %time%] Starting CCEL Daily News pipeline...
-python run_daily.py %*
+.\venv\Scripts\python run_daily.py %*
 set EXIT_CODE=%ERRORLEVEL%
 
 echo [%date% %time%] Pipeline complete (exit code: %EXIT_CODE%).

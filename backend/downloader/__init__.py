@@ -135,6 +135,45 @@ class PaperDownloader:
                 pass
             self._driver = None
 
+    def _get_stealth_driver(self):
+        """Create a one-off anti-detection Chrome driver for bot-protected sites."""
+        if not self._check_selenium():
+            return None
+
+        from selenium import webdriver
+        from selenium.webdriver.chrome.options import Options
+
+        options = Options()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option("useAutomationExtension", False)
+
+        prefs = {
+            "download.default_directory": str(self.pdf_dir.resolve()),
+            "download.prompt_for_download": False,
+            "download.directory_upgrade": True,
+            "plugins.always_open_pdf_externally": True,
+        }
+        options.add_experimental_option("prefs", prefs)
+
+        try:
+            driver = webdriver.Chrome(options=options)
+            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+                "source": "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
+            })
+            driver.set_page_load_timeout(self.timeout + 10)
+            logger.info("Stealth Chrome WebDriver initialized")
+            return driver
+        except Exception as e:
+            logger.error(f"Failed to initialize stealth WebDriver: {e}")
+            return None
+
     def _get_doi_prefix(self, doi: str) -> str:
         """Extract publisher prefix from DOI."""
         if not doi:
@@ -346,11 +385,78 @@ class PaperDownloader:
                 logger.debug(f"    Cookie-based download failed: {e2}")
 
             logger.warning(f"    Selenium could not retrieve PDF")
-            return None
+            logger.info(f"    Retrying with stealth driver...")
+            return self._retry_with_stealth_driver(paper, pdf_url, filepath)
 
         except Exception as e:
             logger.error(f"    Selenium download failed: {e}")
+            logger.info(f"    Retrying with stealth driver...")
+            return self._retry_with_stealth_driver(paper, pdf_url, filepath)
+
+    def _retry_with_stealth_driver(self, paper: dict, pdf_url: str, filepath: Path) -> Optional[str]:
+        """Retry PDF download with a stealth driver that bypasses bot detection."""
+        driver = self._get_stealth_driver()
+        if not driver:
             return None
+
+        try:
+            existing_files = {f.name for f in self.pdf_dir.iterdir() if f.suffix == ".pdf"}
+
+            doi = paper.get("doi", "")
+            if doi:
+                html_url = f"https://doi.org/{doi}"
+                logger.info(f"    Stealth: visiting article page first ({html_url})")
+                driver.get(html_url)
+                time.sleep(5)
+
+            logger.info(f"    Stealth: navigating to PDF URL...")
+            driver.get(pdf_url)
+            time.sleep(3)
+
+            downloaded = self._wait_for_download(existing_files, max_wait=15)
+            if downloaded:
+                if downloaded.name != filepath.name:
+                    if filepath.exists():
+                        filepath.unlink()
+                    downloaded.rename(filepath)
+                paper["local_pdf"] = str(filepath)
+                logger.info(f"    Success (stealth/auto-download): {filepath.stat().st_size} bytes")
+                return str(filepath)
+
+            try:
+                cookies = driver.get_cookies()
+                cookie_str = "; ".join(f"{c['name']}={c['value']}" for c in cookies)
+
+                req = urllib.request.Request(pdf_url, headers={
+                    "User-Agent": driver.execute_script("return navigator.userAgent"),
+                    "Cookie": cookie_str,
+                    "Accept": "application/pdf,*/*",
+                    "Referer": paper.get("url", pdf_url),
+                })
+
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    data = resp.read()
+
+                if len(data) > 1000 and data[:5] == b'%PDF-':
+                    with open(filepath, "wb") as f:
+                        f.write(data)
+                    paper["local_pdf"] = str(filepath)
+                    logger.info(f"    Success (stealth/cookies): {len(data)} bytes")
+                    return str(filepath)
+            except Exception as e:
+                logger.debug(f"    Stealth cookie-based download failed: {e}")
+
+            logger.warning(f"    Stealth retry also failed")
+            return None
+
+        except Exception as e:
+            logger.error(f"    Stealth retry error: {e}")
+            return None
+        finally:
+            try:
+                driver.quit()
+            except Exception:
+                pass
 
     def _validate_pdf(self, filepath: Path) -> bool:
         """Validate that a downloaded PDF contains actual paper content."""

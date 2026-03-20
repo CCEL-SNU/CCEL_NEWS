@@ -67,6 +67,7 @@ const CSS = `
 .ccel-tab{position:relative}
 .ccel-tab::after{content:'';position:absolute;bottom:-1px;left:50%;width:0;height:2px;background:${C.accent};transition:all .2s;transform:translateX(-50%)}
 .ccel-tab[data-active="true"]::after{width:100%}
+.ccel-landscape-section{scroll-margin-top:72px}
 *{box-sizing:border-box}
 body{margin:0;padding:0}
 `;
@@ -188,7 +189,7 @@ function TrendChart({papers}){
 
   if(months.length===0)return <div style={{padding:20,color:C.gray500,textAlign:"center"}}>Not enough data for trend chart.</div>;
 
-  const W=600,H=200,PL=45,PR=30,PT=8,PB=30;
+  const W=600,H=210,PL=45,PR=30,PT=18,PB=30;
   const cW=W-PL-PR,cH=H-PT-PB;
   let mx=1;
   months.forEach(m=>{topCats.forEach(c=>{const v=(byMonth[m]||{})[c]||0;if(v>mx)mx=v;});});
@@ -235,13 +236,16 @@ function SourceBreakdown({papers}){
   const sources={};
   (papers||[]).forEach(p=>{const s=normalizeSource(p.source||"Unknown");sources[s]=(sources[s]||0)+1;});
   const sorted=Object.entries(sources).sort((a,b)=>b[1]-a[1]);
-  const mx=sorted.length?sorted[0][1]:1;
+  const top=sorted.slice(0,30);
+  const othersCount=sorted.slice(30).reduce((acc,[,n])=>acc+n,0);
+  const rows=othersCount>0?[...top,["Others",othersCount]]:top;
+  const mx=rows.length?Math.max(...rows.map(([,n])=>n)):1;
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:20,boxShadow:C.shadow}}>
     <h4 style={{fontSize:15,fontWeight:700,color:C.textDark,margin:"0 0 2px"}}>Source Breakdown</h4>
-    <p style={{fontSize:11,color:C.gray500,margin:"0 0 14px"}}>Papers by journal</p>
+    <p style={{fontSize:11,color:C.gray500,margin:"0 0 14px"}}>Papers by journal (top 30 + Others)</p>
     <div style={{display:"flex",flexDirection:"column",gap:8}}>
-      {sorted.map(([s,n])=><div key={s} style={{display:"flex",alignItems:"center",gap:12}}>
+      {rows.map(([s,n])=><div key={s} style={{display:"flex",alignItems:"center",gap:12}}>
         <div style={{width:140,flexShrink:0,fontSize:12,fontWeight:500,color:C.textDark,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s}</div>
         <div style={{flex:1,height:14,background:C.gray100,borderRadius:2,overflow:"hidden"}}>
           <div style={{width:`${(n/mx)*100}%`,height:"100%",background:C.accent,opacity:.6,borderRadius:2}}/>
@@ -410,7 +414,13 @@ function GroupDigests({groupDigests}){
 
   if(!groupDigests||Object.keys(groupDigests).length===0)return null;
 
-  const available=Object.keys(groupDigests);
+  const available=[...Object.keys(groupDigests)].sort((a,b)=>{
+    if(a==="ccel")return-1;
+    if(b==="ccel")return 1;
+    const na=(groupDigests[a].group_name||a).toLowerCase();
+    const nb=(groupDigests[b].group_name||b).toLowerCase();
+    return na.localeCompare(nb);
+  });
   const current=activeGroup&&groupDigests[activeGroup]?activeGroup:available[0];
   if(!current)return null;
   const gd=groupDigests[current];
@@ -544,9 +554,9 @@ export default function App(){
           <span style={{fontSize:12,color:C.gray500,fontWeight:400,letterSpacing:.5}}>DAILY NEWS</span>
         </div>
         <div style={{display:"flex",gap:2,height:"100%"}}>
-          {tabs.map(t=><button key={t.id} className="ccel-tab" data-active={view===t.id} onClick={()=>setView(t.id)} style={{
-            padding:"0 18px",border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:13,fontWeight:view===t.id?700:400,height:"100%",background:"transparent",color:view===t.id?C.accent:C.gray600,transition:"color .15s",
-          }}>{t.label}</button>)}
+          {tabs.map(t=><button key={t.id} className="ccel-tab" data-active={view===t.id} title={t.id==="milestones"?"곧 제공될 예정입니다":undefined} onClick={()=>setView(t.id)} style={{
+            padding:"0 18px",border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:13,fontWeight:view===t.id?700:400,height:"100%",background:"transparent",color:view===t.id?C.accent:C.gray600,transition:"color .15s",display:"flex",alignItems:"center",gap:6,
+          }}>{t.label}{t.id==="milestones"&&<span style={{fontSize:9,fontWeight:700,color:C.gray500,background:C.gray100,padding:"2px 5px",borderRadius:2,letterSpacing:0}}>준비 중</span>}</button>)}
         </div>
         <div style={{marginLeft:"auto",fontSize:12,color:C.gray500}}>{genDate}</div>
       </div>
@@ -563,8 +573,7 @@ export default function App(){
     {/* Main */}
     <div style={{maxWidth:980,margin:"0 auto",padding:"20px 20px 0"}}>
 
-      {/* Filters */}
-      <div style={{background:C.bgAlt,border:`1px solid ${C.borderLight}`,padding:"14px 16px",marginBottom:22}}>
+      {view==="feed"&&<div style={{background:C.bgAlt,border:`1px solid ${C.borderLight}`,padding:"14px 16px",marginBottom:22}}>
         <div style={{marginBottom:10}}>
           <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Groups</span>
           <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
@@ -591,7 +600,7 @@ export default function App(){
             {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* DAILY FEED */}
       {view==="feed"&&<div>
@@ -606,6 +615,32 @@ export default function App(){
           <Stat value={highCnt} label="High relevance" color="#E17055"/>
         </div>
 
+        {(grps.size>0||selectedCats.size>0||selectedJournals.size>0||bmOnly)&&<div style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center",marginBottom:10}}>
+          <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,marginRight:4}}>활성 필터</span>
+          {[...grps].map(id=>{
+            const g=allGroups.find(x=>x.id===id);
+            return <span key={`g-${id}`} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:C.accent+"14",color:C.accent,border:`1px solid ${C.accent}40`}}>
+              {g?.name||id}
+              <button type="button" onClick={()=>toggleGrp(id)} aria-label={`Remove ${g?.name||id}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:C.accent}}>×</button>
+            </span>;
+          })}
+          {[...selectedCats].map(cid=>{
+            const lab=CATEGORIES.find(c=>c.id===cid)?.label||cid;
+            return <span key={`c-${cid}`} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:cc(cid)+"18",color:cc(cid),border:`1px solid ${cc(cid)}50`}}>
+              {lab}
+              <button type="button" onClick={()=>toggleCat(cid)} aria-label={`Remove ${lab}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:cc(cid)}}>×</button>
+            </span>;
+          })}
+          {[...selectedJournals].map(jn=><span key={`j-${jn}`} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:"#6C5CE718",color:"#6C5CE7",border:"1px solid #6C5CE750"}}>
+            {jn}
+            <button type="button" onClick={()=>toggleJournal(jn)} aria-label={`Remove ${jn}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:"#6C5CE7"}}>×</button>
+          </span>)}
+          {bmOnly&&<span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:C.ccelGold+"18",color:C.ccelGold,border:`1px solid ${C.ccelGold}50`}}>
+            Bookmarks
+            <button type="button" onClick={()=>setBmOnly(false)} aria-label="Remove bookmarks filter" style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:C.ccelGold}}>×</button>
+          </span>}
+        </div>}
+
         <input ref={searchRef} className="ccel-search" type="text" placeholder='Search papers, authors, keywords...  ("/" to focus)' value={q} onChange={e=>setQ(e.target.value)} style={{
           width:"100%",padding:"10px 14px",border:`1px solid ${C.border}`,background:C.white,color:C.textDark,fontSize:13,fontFamily:"inherit",outline:"none",marginBottom:12,
         }}/>
@@ -618,7 +653,7 @@ export default function App(){
                 background:sort===k?C.textDark:"transparent",color:sort===k?C.white:C.gray500,
               }}>{l}</button>)}
             </div>
-            <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{(selectedCats.size>0||selectedJournals.size>0)?` (filtered)`:""}</span>
+            <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{(selectedCats.size>0||selectedJournals.size>0||grps.size>0)?` (filtered)`:""}</span>
           </div>
           <button className="ccel-pill" onClick={()=>setBmOnly(!bmOnly)} style={{
             padding:"4px 12px",fontFamily:"inherit",border:bmOnly?`1.5px solid ${C.ccelGold}`:`1px solid ${C.border}`,
@@ -644,12 +679,21 @@ export default function App(){
           <p style={{fontSize:13,color:C.gray500,margin:"4px 0 0"}}>Trends, source breakdown, and AI-powered analysis</p>
           <CLine/>
         </div>
+        <nav style={{display:"flex",flexWrap:"wrap",gap:"8px 14px",justifyContent:"center",marginBottom:18,padding:"10px 12px",background:C.bgAlt,border:`1px solid ${C.borderLight}`,borderRadius:4}} aria-label="Research Landscape sections">
+          {[
+            ["#landscape-weekly-digest","Weekly Digest"],
+            ["#landscape-group-digests","Group Research Digests"],
+            ["#landscape-category-digests","Category Research Digests"],
+            ["#landscape-topic-distribution","Topic Distribution"],
+            ["#landscape-source-breakdown","Source Breakdown"],
+          ].map(([href,lab])=><a key={href} href={href} style={{fontSize:12,color:C.accent,fontWeight:600,textDecoration:"none",borderBottom:`1px solid ${C.accent}40`}}>{lab}</a>)}
+        </nav>
         <div style={{display:"flex",flexDirection:"column",gap:14}}>
-          <WeeklyDigest digest={digest}/>
-          <GroupDigests groupDigests={groupDigests}/>
-          <CategoryTrends trends={categoryTrends}/>
-          <TrendChart papers={papers}/>
-          <SourceBreakdown papers={papers}/>
+          <div id="landscape-weekly-digest" className="ccel-landscape-section"><WeeklyDigest digest={digest}/></div>
+          <div id="landscape-group-digests" className="ccel-landscape-section"><GroupDigests groupDigests={groupDigests}/></div>
+          <div id="landscape-category-digests" className="ccel-landscape-section"><CategoryTrends trends={categoryTrends}/></div>
+          <div id="landscape-topic-distribution" className="ccel-landscape-section"><TrendChart papers={papers}/></div>
+          <div id="landscape-source-breakdown" className="ccel-landscape-section"><SourceBreakdown papers={papers}/></div>
         </div>
       </div>}
 
