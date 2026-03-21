@@ -1,4 +1,4 @@
-# CCEL Daily News - GitHub Pages Deployment
+# CCEL Weekly News - GitHub Pages Deployment
 # Triggers on push to main branch (when news.json is updated by the lab server)
 
 name: Deploy to GitHub Pages

@@ -1,4 +1,4 @@
-# CCEL Daily News - Setup Guide
+# CCEL Weekly News - Setup Guide
 # =============================
 
 ## Prerequisites
@@ -70,7 +70,7 @@ git push origin main  # Enter credentials once, they'll be saved
 
 1. Open Task Scheduler: press Win+R, type `taskschd.msc`
 2. Click "Create Basic Task..."
-3. Name: "CCEL Daily News"
+3. Name: "CCEL Weekly News"
 4. Trigger: Daily, Start time: 07:00
 5. Action: Start a program
    - Program/script: `cmd.exe`
