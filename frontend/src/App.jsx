@@ -628,6 +628,8 @@ export default function App(){
   const paged=filtered.slice(0,page*PER_PAGE);
   const hasMore=paged.length<filtered.length;
 
+  const hasPaperFeedFilters=grps.size>0||selectedCats.size>0||selectedJournals.size>0||bmOnly||!!(q&&q.trim());
+
   const tabs=[{id:"landscape",label:"Research Landscape"},{id:"feed",label:"Paper Feed"},{id:"milestones",label:"Milestones"}];
 
   if(loading)return <div style={{fontFamily:"'Noto Sans KR',sans-serif",display:"flex",justifyContent:"center",alignItems:"center",height:"100vh",color:C.gray500}}>Loading...</div>;
@@ -666,35 +668,6 @@ export default function App(){
     {/* Main */}
     <div style={{maxWidth:980,margin:"0 auto",padding:"20px 20px 0"}}>
 
-      {view==="feed"&&<div style={{background:C.bgAlt,border:`1px solid ${C.borderLight}`,padding:"14px 16px",marginBottom:22}}>
-        <div style={{marginBottom:10}}>
-          <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Groups</span>
-          <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {[...allGroups].sort((a,b)=>a.name.localeCompare(b.name)).map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
-          </div>
-        </div>
-        <div style={{marginBottom:10}}>
-          <div style={{display:"flex",alignItems:"center",gap:8}}>
-            <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Categories</span>
-            {activeFilterCount>=2&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>AND filter ({activeFilterCount} selected)</span>}
-            {activeFilterCount>0&&<button onClick={()=>setSelectedCats(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
-          </div>
-          <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {CATEGORIES.map(c=><Pill key={c.id} label={c.label} active={selectedCats.has(c.id)} color={cc(c.id)} onClick={()=>toggleCat(c.id)}/>)}
-          </div>
-        </div>
-        <div>
-          <div style={{display:"flex",alignItems:"center",gap:8}}>
-            <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Journals</span>
-            {selectedJournals.size>0&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>{selectedJournals.size} selected</span>}
-            {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
-          </div>
-          <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-            {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
-          </div>
-        </div>
-      </div>}
-
       {/* PAPER FEED */}
       {view==="feed"&&<div>
         <div style={{textAlign:"center",marginBottom:20}}>
@@ -703,6 +676,35 @@ export default function App(){
         </div>
 
         <PaperCollectionStatsGrid paperCollectionStats={paperCollectionStats}/>
+
+        <div style={{background:C.bgAlt,border:`1px solid ${C.borderLight}`,padding:"14px 16px",marginTop:8,marginBottom:20}}>
+          <div style={{marginBottom:10}}>
+            <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Groups</span>
+            <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
+              {[...allGroups].sort((a,b)=>a.name.localeCompare(b.name)).map(g=><Pill key={g.id} label={g.name} active={grps.has(g.id)} color={C.accent} onClick={()=>toggleGrp(g.id)}/>)}
+            </div>
+          </div>
+          <div style={{marginBottom:10}}>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Categories</span>
+              {activeFilterCount>=2&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>AND filter ({activeFilterCount} selected)</span>}
+              {activeFilterCount>0&&<button onClick={()=>setSelectedCats(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
+            </div>
+            <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
+              {CATEGORIES.map(c=><Pill key={c.id} label={c.label} active={selectedCats.has(c.id)} color={cc(c.id)} onClick={()=>toggleCat(c.id)}/>)}
+            </div>
+          </div>
+          <div>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,textTransform:"uppercase",letterSpacing:1}}>Journals</span>
+              {selectedJournals.size>0&&<span style={{fontSize:10,color:C.accent,fontWeight:600}}>{selectedJournals.size} selected</span>}
+              {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
+            </div>
+            <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
+              {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
+            </div>
+          </div>
+        </div>
 
         {(grps.size>0||selectedCats.size>0||selectedJournals.size>0||bmOnly)&&<div style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center",marginBottom:10}}>
           <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,marginRight:4}}>활성 필터</span>
@@ -731,8 +733,19 @@ export default function App(){
         </div>}
 
         <input ref={searchRef} className="ccel-search" type="text" placeholder='Search papers, authors, keywords...  ("/" to focus)' value={q} onChange={e=>setQ(e.target.value)} style={{
-          width:"100%",padding:"10px 14px",border:`1px solid ${C.border}`,background:C.white,color:C.textDark,fontSize:13,fontFamily:"inherit",outline:"none",marginBottom:12,
+          width:"100%",padding:"10px 14px",border:`1px solid ${C.border}`,background:C.white,color:C.textDark,fontSize:13,fontFamily:"inherit",outline:"none",marginBottom:8,
         }}/>
+        <div style={{fontSize:12.5,color:C.textBody,marginBottom:12,lineHeight:1.5}} aria-live="polite">
+          {hasPaperFeedFilters?<>
+            <strong style={{color:C.accent}}>{filtered.length.toLocaleString()}</strong>
+            <span style={{color:C.gray600}}> / {papers.length.toLocaleString()} papers shown</span>
+            <span style={{color:C.gray500,fontSize:11.5,display:"block",marginTop:2}}>총 {papers.length.toLocaleString()}편 중 {filtered.length.toLocaleString()}편이 조건에 맞습니다.</span>
+          </>:<>
+            <span style={{color:C.gray600}}>Showing all </span>
+            <strong>{filtered.length.toLocaleString()}</strong>
+            <span style={{color:C.gray600}}> papers</span>
+          </>}
+        </div>
 
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:12,marginBottom:10,flexWrap:"wrap"}}>
           <div style={{display:"flex",flexDirection:"column",gap:8}}>
@@ -750,7 +763,11 @@ export default function App(){
                   borderRadius:3,
                 }}>{l}</button>)}
               </div>
-              <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{(selectedCats.size>0||selectedJournals.size>0||grps.size>0)?` (filtered)`:""}</span>
+              <span style={{fontSize:11,color:C.gray500}} title="목록에 표시되는 논문 수">
+                {hasPaperFeedFilters
+                  ?`${filtered.length.toLocaleString()} / ${papers.length.toLocaleString()} papers`
+                  :`${filtered.length.toLocaleString()} papers`}
+              </span>
             </div>
             <div>
               <button type="button" onClick={()=>setShowRelevanceInfo(v=>!v)} style={{
