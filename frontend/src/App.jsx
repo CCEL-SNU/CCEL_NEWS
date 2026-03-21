@@ -141,6 +141,15 @@ function Stat({value,label,color}){
   </div>;
 }
 
+const RELEVANCE_TOOLTIP = `Relevance (0–100): Google Gemini가 제목·초록·요약을 바탕으로 CCEL 연구와의 관련성을 산정합니다. 단순 키워드 매칭이 아닙니다.
+
+점수 구간(파이프라인 기준):
+• 95–100 — CCEL의 활성 연구 주제와 직접 연관
+• 80–94 — 방법론·응용 분야에서 매우 높은 관련성
+• 60–79 — 관련 분야, 배경으로 유용
+• 40–59 — 간접적 연관
+• 0–39 — 관련성 낮음`;
+
 function NewsCard({d,bm,onBm,groups}){
   const cats = getSortedPaperCatIds(d);
   const grp=d.group?(groups||DEFAULT_GROUPS).find(g=>g.id===d.group):null;
@@ -167,7 +176,7 @@ function NewsCard({d,bm,onBm,groups}){
       <span style={{fontSize:11,color:C.gray500}}>{d.source||""}</span>
       <span style={{fontSize:11,color:C.gray500}}>{date}</span>
       <div style={{marginLeft:"auto",display:"flex",alignItems:"center",gap:6}}>
-        {rel>0&&<span title="Google Gemini가 논문 제목·초록·AI 요약 등을 바탕으로 CCEL(계산 촉매·신소재) 연구 맥락과의 관련성을 0~100으로 산정한 점수입니다. 단순 키워드 매칭이 아닙니다." style={{fontSize:10,fontWeight:600,color:rel>=90?C.accent:C.gray500,background:rel>=90?C.accentSoft:"transparent",padding:"1px 7px",borderRadius:2,cursor:"help"}}>Gemini 연관성 {rel}</span>}
+        {rel>0&&<span title={RELEVANCE_TOOLTIP} style={{fontSize:10,fontWeight:600,color:rel>=95?C.accent:C.gray500,background:rel>=95?C.accentSoft:"transparent",padding:"1px 7px",borderRadius:2,cursor:"help",}}>Relevance {rel}</span>}
         <button onClick={()=>onBm(d.doi||d.title)} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:16,color:bm?C.ccelGold:C.gray300,transition:"color .15s"}}>{bm?"\u2605":"\u2606"}</button>
       </div>
     </div>
@@ -477,7 +486,7 @@ export default function App(){
   const [bms,setBms]=useState(new Set());
   const [bmOnly,setBmOnly]=useState(false);
   const [sort,setSort]=useState("latest");
-  const [showGeminiRelInfo,setShowGeminiRelInfo]=useState(false);
+  const [showRelevanceInfo,setShowRelevanceInfo]=useState(false);
   const [page,setPage]=useState(1);
   const searchRef=useRef(null);
   const PER_PAGE=20;
@@ -662,7 +671,7 @@ export default function App(){
                   ["latest","최신순"],
                   ["oldest","과거순"],
                   ["title","제목 A–Z"],
-                  ["relevance","Gemini 연관성"],
+                  ["relevance","Relevance"],
                 ].map(([k,l])=><button key={k} onClick={()=>setSort(k)} style={{
                   padding:"4px 10px",border:"none",fontFamily:"inherit",cursor:"pointer",fontSize:11.5,fontWeight:600,
                   background:sort===k?C.textDark:"transparent",color:sort===k?C.white:C.gray500,
@@ -672,16 +681,24 @@ export default function App(){
               <span style={{fontSize:11,color:C.gray500}}>{filtered.length} papers{(selectedCats.size>0||selectedJournals.size>0||grps.size>0)?` (filtered)`:""}</span>
             </div>
             <div>
-              <button type="button" onClick={()=>setShowGeminiRelInfo(v=>!v)} style={{
+              <button type="button" onClick={()=>setShowRelevanceInfo(v=>!v)} style={{
                 fontSize:11,color:C.accent,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",padding:0,textDecoration:"underline",fontWeight:600,
-              }}>{showGeminiRelInfo?"▲ Gemini 연관성 점수 안내 닫기":"▼ Gemini 연관성 점수 안내"}</button>
-              {showGeminiRelInfo&&<div style={{
+              }}>{showRelevanceInfo?"▲ Relevance 점수 안내 닫기":"▼ Relevance 점수 안내"}</button>
+              {showRelevanceInfo&&<div style={{
                 marginTop:8,padding:"12px 14px",background:C.bgAlt,border:`1px solid ${C.borderLight}`,borderRadius:4,
                 fontSize:12,color:C.textBody,lineHeight:1.65,maxWidth:640,
               }}>
-                <p style={{margin:"0 0 8px",fontWeight:700,color:C.textDark}}>연관성 점수는 어떻게 정해지나요?</p>
-                <p style={{margin:0}}>각 논문에 대해 <strong>Google Gemini</strong>가 제목·초록·파이프라인에서 생성한 요약 텍스트를 읽고, <strong>CCEL(계산 촉매·신소재 연구실)의 관심 주제</strong>와 얼마나 맞는지 <strong>0~100의 수치</strong>로 평가합니다. 단순히 특정 단어가 들어있는지 세는 방식이 아니라, 문맥을 반영한 판단입니다.</p>
-                <p style={{margin:"8px 0 0"}}>같은 점수대라도 논문마다 이유가 다를 수 있으며, <strong>분류용 카테고리 태그</strong>(DFT, 촉매 등)는 별도로 모델이 부여한 라벨입니다. 정렬에서 <strong>최신순·과거순·제목순</strong>은 날짜·제목만 사용하고, <strong>Gemini 연관성</strong>을 고를 때만 이 점수 순으로 목록이 정렬됩니다.</p>
+                <p style={{margin:"0 0 8px",fontWeight:700,color:C.textDark}}>Relevance 점수는 어떻게 정해지나요?</p>
+                <p style={{margin:0}}>각 논문에 대해 <strong>Google Gemini</strong>가 제목·초록·파이프라인에서 생성한 요약 텍스트를 읽고, <strong>CCEL(계산 촉매·신소재 연구실)의 관심 주제</strong>와 얼마나 맞는지 <strong>0~100의 수치</strong>로 평가합니다. 단순 키워드 빈도가 아니라, 아래 구간에 맞춰 <strong>정량적으로 한 점수</strong>를 부여하도록 파이프라인에서 안내합니다.</p>
+                <p style={{margin:"10px 0 6px",fontWeight:700,color:C.textDark,fontSize:11.5}}>점수 구간 (summarizer 프롬프트 기준)</p>
+                <ul style={{margin:0,paddingLeft:18,listStyle:"disc"}}>
+                  <li><strong>95–100</strong> — CCEL의 활성 연구 주제와 직접 연관 (Directly related to CCEL&apos;s active research topics)</li>
+                  <li><strong>80–94</strong> — 방법론·응용 분야에서 매우 높은 관련성 (Highly relevant methodology or application area)</li>
+                  <li><strong>60–79</strong> — 관련 분야, 배경으로 유용 (Related field, useful background)</li>
+                  <li><strong>40–59</strong> — 간접적 연관 (Tangentially related)</li>
+                  <li><strong>0–39</strong> — 관련성 낮음 (Not very relevant)</li>
+                </ul>
+                <p style={{margin:"10px 0 0"}}>같은 구간 안에서도 논문마다 의미는 다를 수 있습니다. <strong>카테고리 태그</strong>(DFT, 촉매 등)는 별도 라벨입니다. 정렬에서 <strong>최신순·과거순·제목순</strong>은 날짜·제목만 쓰고, <strong>Relevance</strong>를 고를 때만 이 점수 순으로 정렬됩니다.</p>
               </div>}
             </div>
           </div>
