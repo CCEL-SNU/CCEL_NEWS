@@ -7,6 +7,8 @@ import logging
 import hashlib
 from typing import List
 
+from journal_normalize import normalize_journal_source
+
 from . import arxiv_collector
 from . import openalex_collector
 from . import rss_collector
@@ -97,6 +99,9 @@ def collect_all(config: dict) -> List:
                     break
         if p.get("group") == "ccel":
             p["ccel"] = True
+
+    for p in papers:
+        p["source"] = normalize_journal_source(p.get("source") or "Unknown")
 
     logger.info("=" * 50)
     logger.info(f"Total collected: {len(papers)} unique papers")

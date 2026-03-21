@@ -43,11 +43,29 @@ const DEFAULT_GROUPS = [
   { id: "noguera", name: "Noguera" },
 ];
 
-function normalizeSource(s){return /^ar[Xx]iv/i.test(s)?"arXiv":s;}
+/** Align with backend/journal_normalize.py — merge API vs RSS spellings for the same venue. */
+const CANONICAL_SOURCE_BY_LOWER = {
+  "journal of the american chemical society": "JACS",
+  "j. am. chem. soc.": "JACS",
+  "j am chem soc": "JACS",
+  "jacs": "JACS",
+};
+
+function normalizeSource(s){
+  if(s==null||s==="")return"Unknown";
+  const t=String(s).trim();
+  if(!t)return"Unknown";
+  if(/^ar[Xx]iv/i.test(t))return"arXiv";
+  const c=CANONICAL_SOURCE_BY_LOWER[t.toLowerCase()];
+  if(c)return c;
+  return t;
+}
 
 /** Display-only short names for journal filter pills (filter state still uses full normalized name). */
 const JOURNAL_SHORT_LABELS = {
   "arXiv": "arXiv",
+  "JACS": "JACS",
+  "Journal of the American Chemical Society": "JACS",
   "Science": "Science",
   "Nature Materials": "Nat. Mater.",
   "Nature Energy": "Nat. Energy",
@@ -261,7 +279,7 @@ function NewsCard({d,bm,onBm,groups}){
         return <Badge key={catId} label={label} color={color}/>;
       })}
       {grp&&!isCcel&&<Badge label={grp.name} color={C.accent}/>}
-      <span style={{fontSize:11,color:C.gray500}}>{d.source||""}</span>
+      <span style={{fontSize:11,color:C.gray500}}>{normalizeSource(d.source||"")}</span>
       <span style={{fontSize:11,color:C.gray500}}>{date}</span>
       <div style={{marginLeft:"auto",display:"flex",alignItems:"center",gap:6}}>
         {rel>0&&<span title={RELEVANCE_TOOLTIP} style={{fontSize:10,fontWeight:600,color:rel>=95?C.accent:C.gray500,background:rel>=95?C.accentSoft:"transparent",padding:"1px 7px",borderRadius:2,cursor:"help",}}>Relevance {rel}</span>}
