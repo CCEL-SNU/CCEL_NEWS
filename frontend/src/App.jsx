@@ -134,11 +134,44 @@ function Pill({label,active,color,onClick}){
   }}>{label}</button>;
 }
 
-function Stat({value,label,color}){
-  return <div style={{textAlign:"center",padding:"10px 0"}}>
+function Stat({value,label,color,title}){
+  return <div style={{textAlign:"center",padding:"10px 0"}} title={title}>
     <div style={{fontSize:26,fontWeight:800,color,lineHeight:1}}>{value}</div>
     <div style={{fontSize:11,color:C.gray500,marginTop:4}}>{label}</div>
   </div>;
+}
+
+/** YYYY-MM-DD only; returns null if invalid */
+function paperDateYmd(p){
+  const raw=(p?.date||p?.updated||"").trim().slice(0,10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(raw)?raw:null;
+}
+
+/** As-of date for collection stats: feed snapshot date, then generated_at, then today */
+function getCollectionAsOfYmd(data){
+  const d=data?.date;
+  if(typeof d==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(d))return d;
+  const ga=data?.generated_at;
+  if (typeof ga==="string"&&ga.length>=10){
+    const s=ga.slice(0,10);
+    if(/^\d{4}-\d{2}-\d{2}$/.test(s))return s;
+  }
+  const n=new Date();
+  const y=n.getFullYear();
+  const m=String(n.getMonth()+1).padStart(2,"0");
+  const day=String(n.getDate()).padStart(2,"0");
+  return `${y}-${m}-${day}`;
+}
+
+/** Subtract n days in local calendar (noon anchor) → YYYY-MM-DD */
+function ymdMinusDays(ymd,nDays){
+  const [y,mo,da]=ymd.split("-").map(Number);
+  const dt=new Date(y,mo-1,da,12,0,0);
+  dt.setDate(dt.getDate()-nDays);
+  const yy=dt.getFullYear();
+  const mm=String(dt.getMonth()+1).padStart(2,"0");
+  const dd=String(dt.getDate()).padStart(2,"0");
+  return `${yy}-${mm}-${dd}`;
 }
 
 const RELEVANCE_TOOLTIP = `Relevance (0–100): Google Gemini가 제목·초록·요약을 바탕으로 CCEL 연구와의 관련성을 산정합니다. 단순 키워드 매칭이 아닙니다.
@@ -511,6 +544,21 @@ export default function App(){
   const toggleBm=id=>setBms(p=>{const n=new Set(p);n.has(id)?n.delete(id):n.add(id);return n;});
 
   const papers=data?.papers||[];
+  const paperCollectionStats=useMemo(()=>{
+    const total=papers.length;
+    const asOf=getCollectionAsOfYmd(data);
+    const min30=ymdMinusDays(asOf,30);
+    const min365=ymdMinusDays(asOf,365);
+    let count30=0,count365=0;
+    for(const p of papers){
+      const pd=paperDateYmd(p);
+      if(!pd)continue;
+      if(pd>asOf)continue;
+      if(pd>=min30)count30++;
+      if(pd>=min365)count365++;
+    }
+    return{count30,count365,total,asOf,min30,min365};
+  },[papers,data]);
   const allGroups=data?.groups||DEFAULT_GROUPS;
   const digest=data?.weekly_digest||null;
   const categoryTrends=data?.category_trends||{};
@@ -628,8 +676,28 @@ export default function App(){
           <CLine/>
         </div>
 
-        <div style={{background:C.white,border:`1px solid ${C.borderLight}`,marginBottom:16,boxShadow:C.shadow,maxWidth:320,marginLeft:"auto",marginRight:"auto"}}>
-          <Stat value={papers.length} label="Collected papers" color={C.accent}/>
+        <div style={{
+          background:C.white,border:`1px solid ${C.borderLight}`,marginBottom:16,boxShadow:C.shadow,
+          display:"grid",gridTemplateColumns:"repeat(3, 1fr)",maxWidth:720,marginLeft:"auto",marginRight:"auto",
+        }}>
+          <Stat
+            value={paperCollectionStats.count30}
+            label="Last 30 days"
+            color={C.accent}
+            title={`Papers dated between ${paperCollectionStats.min30} and ${paperCollectionStats.asOf} (rolling 30 days). Undated papers are excluded.`}
+          />
+          <Stat
+            value={paperCollectionStats.count365}
+            label="Last 365 days"
+            color={C.accent}
+            title={`Papers dated between ${paperCollectionStats.min365} and ${paperCollectionStats.asOf} (rolling 365 days). Undated papers are excluded.`}
+          />
+          <Stat
+            value={paperCollectionStats.total}
+            label="Total"
+            color={C.accent}
+            title="All papers in this feed snapshot."
+          />
         </div>
 
         {(grps.size>0||selectedCats.size>0||selectedJournals.size>0||bmOnly)&&<div style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center",marginBottom:10}}>
