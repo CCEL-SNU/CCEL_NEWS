@@ -141,6 +141,32 @@ function Stat({value,label,color,title}){
   </div>;
 }
 
+function PaperCollectionStatsGrid({paperCollectionStats:s}){
+  return <div style={{
+    background:C.white,border:`1px solid ${C.borderLight}`,marginBottom:16,boxShadow:C.shadow,
+    display:"grid",gridTemplateColumns:"repeat(3, 1fr)",maxWidth:720,marginLeft:"auto",marginRight:"auto",
+  }}>
+    <Stat
+      value={s.count30}
+      label="Last 30 days"
+      color={C.accent}
+      title={`Papers dated between ${s.min30} and ${s.asOf} (rolling 30 days). Undated papers are excluded.`}
+    />
+    <Stat
+      value={s.count365}
+      label="Last 365 days"
+      color={C.accent}
+      title={`Papers dated between ${s.min365} and ${s.asOf} (rolling 365 days). Undated papers are excluded.`}
+    />
+    <Stat
+      value={s.total}
+      label="Total"
+      color={C.accent}
+      title="All papers in this feed snapshot."
+    />
+  </div>;
+}
+
 /** YYYY-MM-DD only; returns null if invalid */
 function paperDateYmd(p){
   const raw=(p?.date||p?.updated||"").trim().slice(0,10);
@@ -676,29 +702,7 @@ export default function App(){
           <CLine/>
         </div>
 
-        <div style={{
-          background:C.white,border:`1px solid ${C.borderLight}`,marginBottom:16,boxShadow:C.shadow,
-          display:"grid",gridTemplateColumns:"repeat(3, 1fr)",maxWidth:720,marginLeft:"auto",marginRight:"auto",
-        }}>
-          <Stat
-            value={paperCollectionStats.count30}
-            label="Last 30 days"
-            color={C.accent}
-            title={`Papers dated between ${paperCollectionStats.min30} and ${paperCollectionStats.asOf} (rolling 30 days). Undated papers are excluded.`}
-          />
-          <Stat
-            value={paperCollectionStats.count365}
-            label="Last 365 days"
-            color={C.accent}
-            title={`Papers dated between ${paperCollectionStats.min365} and ${paperCollectionStats.asOf} (rolling 365 days). Undated papers are excluded.`}
-          />
-          <Stat
-            value={paperCollectionStats.total}
-            label="Total"
-            color={C.accent}
-            title="All papers in this feed snapshot."
-          />
-        </div>
+        <PaperCollectionStatsGrid paperCollectionStats={paperCollectionStats}/>
 
         {(grps.size>0||selectedCats.size>0||selectedJournals.size>0||bmOnly)&&<div style={{display:"flex",flexWrap:"wrap",gap:6,alignItems:"center",marginBottom:10}}>
           <span style={{fontSize:10.5,color:C.gray500,fontWeight:600,marginRight:4}}>활성 필터</span>
@@ -794,6 +798,7 @@ export default function App(){
           <p style={{fontSize:13,color:C.gray500,margin:"4px 0 0"}}>Trends, source breakdown, and AI-powered analysis</p>
           <CLine/>
         </div>
+        <PaperCollectionStatsGrid paperCollectionStats={paperCollectionStats}/>
         <nav style={{display:"flex",flexWrap:"wrap",gap:"8px 14px",justifyContent:"center",marginBottom:18,padding:"10px 12px",background:C.bgAlt,border:`1px solid ${C.borderLight}`,borderRadius:4}} aria-label="Research Landscape sections">
           {[
             ["#landscape-weekly-digest","Weekly Digest"],
