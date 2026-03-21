@@ -45,6 +45,35 @@ const DEFAULT_GROUPS = [
 
 function normalizeSource(s){return /^ar[Xx]iv/i.test(s)?"arXiv":s;}
 
+/** Display-only short names for journal filter pills (filter state still uses full normalized name). */
+const JOURNAL_SHORT_LABELS = {
+  "arXiv": "arXiv",
+  "Science": "Science",
+  "Nature Materials": "Nat. Mater.",
+  "Nature Energy": "Nat. Energy",
+  "Nature Catalysis": "Nat. Catal.",
+  "Nature Computational Science": "Nat. Comput. Sci.",
+  "Advanced Energy Materials": "Adv. Energy Mater.",
+  "npj Computational Materials": "npj Comput. Mater.",
+  "ACS Energy Letters": "ACS Energy Lett.",
+  "Energy Environ. Sci.": "EES",
+  "Unknown": "?",
+};
+
+function shortJournalLabel(full){
+  if(!full)return"";
+  if(Object.prototype.hasOwnProperty.call(JOURNAL_SHORT_LABELS,full))return JOURNAL_SHORT_LABELS[full];
+  if(full.length<=14)return full;
+  const parts=full.split(/[\s\/]+/).filter(Boolean);
+  const skip=new Set(["of","the","and","a","an","in","for","on","de","la","le","du","des"]);
+  const ac=parts.filter(w=>!skip.has(w.toLowerCase())&&/[A-Za-z]/.test(w)).map(w=>{
+    const c=w.replace(/[^A-Za-z0-9]/g,"");
+    return c[0];
+  }).filter(Boolean).join("");
+  if(ac.length>=2&&ac.length<=8)return ac;
+  return full.slice(0,12)+"\u2026";
+}
+
 /* ===== Helper: get categories array from paper (backward compat) ===== */
 function getPaperCats(d) {
   if (d.categories && Array.isArray(d.categories) && d.categories.length > 0) {
@@ -126,8 +155,8 @@ function Badge({label,color}){
   return <span style={{display:"inline-block",padding:"2px 9px",borderRadius:2,fontSize:11,fontWeight:600,lineHeight:"18px",color,background:color+"12"}}>{label}</span>;
 }
 
-function Pill({label,active,color,onClick}){
-  return <button className="ccel-pill" onClick={onClick} style={{
+function Pill({label,active,color,onClick,title}){
+  return <button type="button" className="ccel-pill" title={title} onClick={onClick} style={{
     padding:"5px 14px",borderRadius:3,border:active?`1.5px solid ${color||C.accent}`:`1px solid ${C.border}`,
     background:active?(color||C.accent)+"12":"transparent",color:active?(color||C.accent):C.gray600,
     fontSize:12.5,fontWeight:active?700:400,fontFamily:"inherit",
@@ -701,7 +730,7 @@ export default function App(){
               {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
             </div>
             <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-              {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} label={`${j.name} (${j.count})`} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
+              {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} title={j.name} label={shortJournalLabel(j.name)} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
             </div>
           </div>
         </div>
@@ -722,8 +751,8 @@ export default function App(){
               <button type="button" onClick={()=>toggleCat(cid)} aria-label={`Remove ${lab}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:cc(cid)}}>×</button>
             </span>;
           })}
-          {[...selectedJournals].map(jn=><span key={`j-${jn}`} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:"#6C5CE718",color:"#6C5CE7",border:"1px solid #6C5CE750"}}>
-            {jn}
+          {[...selectedJournals].map(jn=><span key={`j-${jn}`} title={jn} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:"#6C5CE718",color:"#6C5CE7",border:"1px solid #6C5CE750"}}>
+            {shortJournalLabel(jn)}
             <button type="button" onClick={()=>toggleJournal(jn)} aria-label={`Remove ${jn}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:"#6C5CE7"}}>×</button>
           </span>)}
           {bmOnly&&<span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:C.ccelGold+"18",color:C.ccelGold,border:`1px solid ${C.ccelGold}50`}}>
