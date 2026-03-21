@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
+import { getJournalDisplayLabel } from "./journalDisplayLabels.js";
 
 /*
  * CCEL Weekly News - Production App
@@ -59,37 +60,6 @@ function normalizeSource(s){
   const c=CANONICAL_SOURCE_BY_LOWER[t.toLowerCase()];
   if(c)return c;
   return t;
-}
-
-/** Display-only short names for journal filter pills (filter state still uses full normalized name). */
-const JOURNAL_SHORT_LABELS = {
-  "arXiv": "arXiv",
-  "JACS": "JACS",
-  "Journal of the American Chemical Society": "JACS",
-  "Science": "Science",
-  "Nature Materials": "Nat. Mater.",
-  "Nature Energy": "Nat. Energy",
-  "Nature Catalysis": "Nat. Catal.",
-  "Nature Computational Science": "Nat. Comput. Sci.",
-  "Advanced Energy Materials": "Adv. Energy Mater.",
-  "npj Computational Materials": "npj Comput. Mater.",
-  "ACS Energy Letters": "ACS Energy Lett.",
-  "Energy Environ. Sci.": "EES",
-  "Unknown": "?",
-};
-
-function shortJournalLabel(full){
-  if(!full)return"";
-  if(Object.prototype.hasOwnProperty.call(JOURNAL_SHORT_LABELS,full))return JOURNAL_SHORT_LABELS[full];
-  if(full.length<=14)return full;
-  const parts=full.split(/[\s\/]+/).filter(Boolean);
-  const skip=new Set(["of","the","and","a","an","in","for","on","de","la","le","du","des"]);
-  const ac=parts.filter(w=>!skip.has(w.toLowerCase())&&/[A-Za-z]/.test(w)).map(w=>{
-    const c=w.replace(/[^A-Za-z0-9]/g,"");
-    return c[0];
-  }).filter(Boolean).join("");
-  if(ac.length>=2&&ac.length<=8)return ac;
-  return full.slice(0,12)+"\u2026";
 }
 
 /* ===== Helper: get categories array from paper (backward compat) ===== */
@@ -370,7 +340,7 @@ function SourceBreakdown({papers}){
     <p style={{fontSize:11,color:C.gray500,margin:"0 0 14px"}}>Papers by journal (top 30 + Others)</p>
     <div style={{display:"flex",flexDirection:"column",gap:8}}>
       {rows.map(([s,n])=><div key={s} style={{display:"flex",alignItems:"center",gap:12}}>
-        <div style={{width:140,flexShrink:0,fontSize:12,fontWeight:500,color:C.textDark,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s}</div>
+        <div title={s} style={{width:140,flexShrink:0,fontSize:12,fontWeight:500,color:C.textDark,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{getJournalDisplayLabel(s)}</div>
         <div style={{flex:1,height:14,background:C.gray100,borderRadius:2,overflow:"hidden"}}>
           <div style={{width:`${(n/mx)*100}%`,height:"100%",background:C.accent,opacity:.6,borderRadius:2}}/>
         </div>
@@ -748,7 +718,7 @@ export default function App(){
               {selectedJournals.size>0&&<button onClick={()=>setSelectedJournals(new Set())} style={{fontSize:10,color:C.gray500,background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",textDecoration:"underline",padding:0}}>Clear</button>}
             </div>
             <div style={{display:"flex",gap:5,flexWrap:"wrap",marginTop:5}}>
-              {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} title={j.name} label={shortJournalLabel(j.name)} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
+              {[...topJournals].sort((a,b)=>a.name.localeCompare(b.name)).map(j=><Pill key={j.name} title={j.name} label={getJournalDisplayLabel(j.name)} active={selectedJournals.has(j.name)} color="#6C5CE7" onClick={()=>toggleJournal(j.name)}/>)}
             </div>
           </div>
         </div>
@@ -770,7 +740,7 @@ export default function App(){
             </span>;
           })}
           {[...selectedJournals].map(jn=><span key={`j-${jn}`} title={jn} style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:"#6C5CE718",color:"#6C5CE7",border:"1px solid #6C5CE750"}}>
-            {shortJournalLabel(jn)}
+            {getJournalDisplayLabel(jn)}
             <button type="button" onClick={()=>toggleJournal(jn)} aria-label={`Remove ${jn}`} style={{background:"none",border:"none",cursor:"pointer",padding:0,fontSize:14,lineHeight:1,color:"#6C5CE7"}}>×</button>
           </span>)}
           {bmOnly&&<span style={{display:"inline-flex",alignItems:"center",gap:4,fontSize:11,padding:"3px 8px",borderRadius:3,background:C.ccelGold+"18",color:C.ccelGold,border:`1px solid ${C.ccelGold}50`}}>
