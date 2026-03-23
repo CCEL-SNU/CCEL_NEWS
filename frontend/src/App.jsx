@@ -488,17 +488,17 @@ function StructuredDigestContent({digest,accentColor,papers,bms,onBm,groups}){
         <div style={{fontSize:11,fontWeight:700,color:C.gray600,textTransform:"uppercase",letterSpacing:1,marginBottom:10}}>Notable Papers</div>
         {notablePapers.map((np,i)=>{
           const matched=Array.isArray(papers)&&papers.length?findPaperForNotable(papers,np.title):null;
-          return <div key={`np-${i}-${np.title?.slice(0,24)||i}`} style={{marginBottom:18}}>
+          return <div key={`np-${i}-${np.title?.slice(0,24)||i}`} style={{marginBottom:22}}>
             <div
-              title={np.reason||""}
               style={{
-                fontSize:12,color:C.textBody,marginBottom:10,paddingLeft:11,borderLeft:`3px solid ${color}`,
-                lineHeight:1.45,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",
+                fontSize:12,color:C.textBody,marginBottom:12,paddingLeft:11,borderLeft:`3px solid ${color}`,
+                lineHeight:1.65,wordBreak:"break-word",
               }}
             >
-              <span style={{fontWeight:700,color,marginRight:6}}>선정 이유</span>
-              {np.reason||"—"}
+              <span style={{fontWeight:700,color,marginRight:6,whiteSpace:"nowrap"}}>선정 이유</span>
+              <span>{np.reason||"—"}</span>
             </div>
+            <div style={{marginLeft:20,paddingLeft:4}}>
             {matched&&onBm
               ?<NewsCard d={matched} bm={!!bms?.has(matched.doi||matched.title)} onBm={onBm} groups={groups||DEFAULT_GROUPS}/>
               :<div style={{
@@ -508,6 +508,7 @@ function StructuredDigestContent({digest,accentColor,papers,bms,onBm,groups}){
                 <span style={{display:"block",marginBottom:6,color:C.gray500}}>Feed에서 동일 제목을 찾지 못했습니다. AI가 준 제목과 feed의 제목이 다를 수 있습니다.</span>
                 <strong style={{color:C.textDark,fontSize:12.5}}>{np.title}</strong>
               </div>}
+            </div>
           </div>;
         })}
       </div>}
