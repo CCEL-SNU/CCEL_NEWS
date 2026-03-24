@@ -611,6 +611,7 @@ function GroupDigests({groupDigests,papers,bms,onBm,groups}){
   if(!current)return null;
   const gd=groupDigests[current];
   const digest=gd.digest||gd;
+  const winDays=typeof gd.paper_count_window_days==="number"?gd.paper_count_window_days:7;
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
     <div style={{padding:"16px 20px",borderBottom:`1px solid ${C.borderLight}`}}>
@@ -618,7 +619,7 @@ function GroupDigests({groupDigests,papers,bms,onBm,groups}){
         <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:9,fontWeight:800,flexShrink:0}}>GRP</div>
         <div>
           <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Group Research Digests</h4>
-          <p style={{fontSize:11,color:C.gray500,margin:0}}>Per-group research direction analysis</p>
+          <p style={{fontSize:11,color:C.gray500,margin:0}}>그룹별 연구 동향 · 괄호 안 숫자는 최근 {winDays}일(발행일 기준) 고유 논문 수</p>
         </div>
       </div>
 
@@ -626,16 +627,17 @@ function GroupDigests({groupDigests,papers,bms,onBm,groups}){
         {available.map(gid=>{
           const g=groupDigests[gid];
           const isActive=gid===current;
-          return <Pill key={gid} label={`${g.group_name} (${g.paper_count})`} active={isActive} color={C.accent} onClick={()=>setActiveGroup(gid)}/>;
+          const wd=typeof g.paper_count_window_days==="number"?g.paper_count_window_days:7;
+          return <Pill key={gid} title={`최근 ${wd}일 · DOI/제목 기준 중복 제거 후`} label={`${g.group_name} (${g.paper_count})`} active={isActive} color={C.accent} onClick={()=>setActiveGroup(gid)}/>;
         })}
       </div>
     </div>
 
     <div style={{padding:"0"}}>
-      <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8}}>
+      <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
         <span style={{fontSize:14,fontWeight:700,color:C.textDark}}>{gd.group_name}</span>
         {gd.pi&&<span style={{fontSize:12,color:C.gray500}}>PI: {gd.pi}</span>}
-        <span style={{fontSize:11,color:C.gray500,marginLeft:"auto"}}>{gd.paper_count} papers</span>
+        <span style={{fontSize:11,color:C.gray500,marginLeft:"auto"}}>{gd.paper_count} papers · 최근 {winDays}일</span>
       </div>
       <StructuredDigestContent digest={digest} accentColor={C.accent} papers={papers} bms={bms} onBm={onBm} groups={groups}/>
     </div>

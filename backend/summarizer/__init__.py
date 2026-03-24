@@ -724,14 +724,29 @@ def _generate_structured_digest(
 def generate_group_digests(papers: List, config: dict = None) -> Dict:
     """
     Generate per-group structured digests with adaptive depth.
+    Papers are deduped (DOI/title) and limited to a rolling date window
+    (summarizer.weekly_digest_days, default 7) so counts match "recent" scope
+    and --digest history merges do not inflate totals.
     Returns a dict keyed by group_id, each containing metadata + digest.
     """
     groups = config.get("groups", {}) if config else {}
     if not groups:
         return {}
 
+    cfg = config or {}
+    window_days = int(cfg.get("summarizer", {}).get("weekly_digest_days", 7))
+    raw_n = len(papers or [])
+    scoped = _dedupe_papers_by_doi_or_title(papers or [])
+    scoped = _filter_papers_by_rolling_days(scoped, window_days)
+    logger.info(
+        "Group digests: %s unique papers in last %s days by date (from %s raw rows)",
+        len(scoped),
+        window_days,
+        raw_n,
+    )
+
     by_group = {}
-    for p in papers:
+    for p in scoped:
         gid = p.get("group")
         if gid:
             by_group.setdefault(gid, []).append(p)
@@ -746,7 +761,7 @@ def generate_group_digests(papers: List, config: dict = None) -> Dict:
         pi_name = gcfg.get("pi", gid)
         group_name = gcfg.get("name", gid)
 
-        logger.info(f"Generating group digest: {group_name} ({len(group_papers)} papers)")
+        logger.info(f"Generating group digest: {group_name} ({len(group_papers)} papers in window)")
 
         digest = _generate_structured_digest(
             group_papers,
@@ -760,6 +775,7 @@ def generate_group_digests(papers: List, config: dict = None) -> Dict:
             "group_name": group_name,
             "pi": pi_name,
             "paper_count": len(group_papers),
+            "paper_count_window_days": window_days,
             "digest": digest,
         }
 
