@@ -29,7 +29,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from collectors import collect_all
 from downloader import PaperDownloader
-from summarizer import summarize_batch, generate_weekly_digest, generate_category_trends, generate_group_digests
+from summarizer import (
+    summarize_batch,
+    generate_weekly_digest,
+    generate_category_trends,
+    generate_group_digests,
+    _dedupe_papers_by_doi_or_title,
+)
 
 # ---- Logging setup ----
 LOG_DIR = Path(__file__).parent / "logs"
@@ -121,6 +127,20 @@ def save_output(
     hist_file = history_dir / f"news_{datetime.now():%Y%m%d}.json"
     shutil.copy2(output_path, hist_file)
     logger.info(f"History saved to {hist_file}")
+
+    copy_news_json_to_frontend(config)
+
+
+def copy_news_json_to_frontend(config: dict) -> None:
+    """Copy backend news.json to frontend/public/data so local UI stays in sync (e.g. after --digest)."""
+    output_path = Path(config["output"]["json_path"])
+    if not output_path.is_file():
+        return
+    frontend_data = Path(__file__).parent.parent / "frontend" / "public" / "data"
+    frontend_data.mkdir(parents=True, exist_ok=True)
+    dest = frontend_data / "news.json"
+    shutil.copy2(output_path, dest)
+    logger.info(f"Copied news.json to {dest}")
 
 
 def git_push(config: dict):
@@ -217,6 +237,8 @@ def run_digest(papers: list, config: dict) -> tuple:
     if not week_papers:
         week_papers = papers
 
+    week_papers = _dedupe_papers_by_doi_or_title(week_papers)
+
     digest = {}
     digest_in_group = {}
     digest_out_group = {}
@@ -298,6 +320,8 @@ def main():
                 with open(hist_file, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     week_papers = week_papers + data.get("papers", [])
+
+        week_papers = _dedupe_papers_by_doi_or_title(week_papers)
 
         digest = generate_weekly_digest(week_papers, config, subset=None)
         time.sleep(2)

@@ -451,6 +451,12 @@ function StructuredDigestContent({digest,accentColor,papers,bms,onBm,groups}){
   const color=accentColor||C.accent;
   if(!digest)return null;
 
+  if(digest.depth==="empty"){
+    return <div style={{padding:"20px",textAlign:"center",color:C.gray500}}>
+      <p style={{fontSize:13,margin:0}}>이 기간(발행일 기준)에 표시할 논문이 없습니다.</p>
+    </div>;
+  }
+
   if(digest.depth==="skip"){
     return <div style={{padding:"20px",textAlign:"center",color:C.gray500}}>
       <p style={{fontSize:13,margin:0}}>논문이 충분히 축적되면 AI 분석이 제공됩니다.</p>
@@ -597,6 +603,7 @@ function WeeklyDigest({digest,digestInGroup,digestOutGroup,papers,bms,onBm,group
 
 function GroupDigests({groupDigests,papers,bms,onBm,groups}){
   const [activeGroup,setActiveGroup]=useState(null);
+  const [groupTimeView,setGroupTimeView]=useState("monthly");
 
   if(!groupDigests||Object.keys(groupDigests).length===0)return null;
 
@@ -610,25 +617,57 @@ function GroupDigests({groupDigests,papers,bms,onBm,groups}){
   const current=activeGroup&&groupDigests[activeGroup]?activeGroup:available[0];
   if(!current)return null;
   const gd=groupDigests[current];
-  const digest=gd.digest||gd;
-  const winDays=typeof gd.paper_count_window_days==="number"?gd.paper_count_window_days:7;
+  const hasTriple=gd.digest_monthly!=null||gd.digest_yearly!=null||gd.digest_3year!=null;
+  const digest=hasTriple
+    ?(groupTimeView==="monthly"
+      ?(gd.digest_monthly||{})
+      :groupTimeView==="yearly"
+        ?(gd.digest_yearly||{})
+        :(gd.digest_3year||{}))
+    :(gd.digest||gd);
+  const pm=typeof gd.paper_count_monthly==="number"?gd.paper_count_monthly:(gd.paper_count!=null?gd.paper_count:0);
+  const py=typeof gd.paper_count_yearly==="number"?gd.paper_count_yearly:0;
+  const p3=typeof gd.paper_count_3year==="number"?gd.paper_count_3year:0;
+  const paperCount=hasTriple
+    ?(groupTimeView==="monthly"?pm:groupTimeView==="yearly"?py:p3)
+    :(typeof gd.paper_count==="number"?gd.paper_count:0);
+  const periodLabel=hasTriple
+    ?(groupTimeView==="monthly"?"최근 1개월":groupTimeView==="yearly"?"최근 1년":"최근 3년")
+    :"저장된 digest(이전 포맷)";
 
   return <div className="ccel-card" style={{background:C.white,border:`1px solid ${C.borderLight}`,padding:0,boxShadow:C.shadow,overflow:"hidden"}}>
     <div style={{padding:"16px 20px",borderBottom:`1px solid ${C.borderLight}`}}>
-      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+      <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12,flexWrap:"wrap"}}>
         <div style={{width:30,height:30,borderRadius:3,background:C.textDark,display:"flex",alignItems:"center",justifyContent:"center",color:C.white,fontSize:9,fontWeight:800,flexShrink:0}}>GRP</div>
-        <div>
+        <div style={{flex:1,minWidth:200}}>
           <h4 style={{fontSize:15,fontWeight:700,margin:0,color:C.textDark}}>Group Research Digests</h4>
-          <p style={{fontSize:11,color:C.gray500,margin:0}}>그룹별 연구 동향 · 괄호 안 숫자는 최근 {winDays}일(발행일 기준) 고유 논문 수</p>
+          <p style={{fontSize:11,color:C.gray500,margin:0}}>그룹별 연구 동향 · 괄호는 1달/1년/3년 고유 논문 수(발행일 기준)</p>
         </div>
+        {hasTriple&&<div style={{display:"flex",background:C.bg,borderRadius:6,padding:2,gap:0}}>
+          {[
+            {id:"monthly",label:"1달"},
+            {id:"yearly",label:"1년"},
+            {id:"threeYear",label:"3년"},
+          ].map(v=><button key={v.id} type="button" onClick={()=>setGroupTimeView(v.id)} style={{
+            padding:"5px 10px",border:"none",borderRadius:5,cursor:"pointer",fontFamily:"inherit",
+            fontSize:11,fontWeight:v.id===groupTimeView?700:400,
+            background:v.id===groupTimeView?C.white:"transparent",
+            color:v.id===groupTimeView?C.textDark:C.gray500,
+            boxShadow:v.id===groupTimeView?"0 1px 3px rgba(0,0,0,.1)":"none",
+            transition:"all .15s",
+          }}>{v.label}</button>)}
+        </div>}
       </div>
 
       <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
         {available.map(gid=>{
           const g=groupDigests[gid];
           const isActive=gid===current;
-          const wd=typeof g.paper_count_window_days==="number"?g.paper_count_window_days:7;
-          return <Pill key={gid} title={`최근 ${wd}일 · DOI/제목 기준 중복 제거 후`} label={`${g.group_name} (${g.paper_count})`} active={isActive} color={C.accent} onClick={()=>setActiveGroup(gid)}/>;
+          const m=typeof g.paper_count_monthly==="number"?g.paper_count_monthly:(g.paper_count!=null?g.paper_count:"—");
+          const y=typeof g.paper_count_yearly==="number"?g.paper_count_yearly:"—";
+          const t3=typeof g.paper_count_3year==="number"?g.paper_count_3year:"—";
+          const cntLabel=g.paper_count!=null&&!g.paper_count_monthly?`(${g.paper_count})`:`(${m}/${y}/${t3})`;
+          return <Pill key={gid} title="발행일 기준 · 히스토리+현재 병합 후 중복 제거" label={`${g.group_name} ${cntLabel}`} active={isActive} color={C.accent} onClick={()=>setActiveGroup(gid)}/>;
         })}
       </div>
     </div>
@@ -637,7 +676,7 @@ function GroupDigests({groupDigests,papers,bms,onBm,groups}){
       <div style={{padding:"12px 20px 0",display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
         <span style={{fontSize:14,fontWeight:700,color:C.textDark}}>{gd.group_name}</span>
         {gd.pi&&<span style={{fontSize:12,color:C.gray500}}>PI: {gd.pi}</span>}
-        <span style={{fontSize:11,color:C.gray500,marginLeft:"auto"}}>{gd.paper_count} papers · 최근 {winDays}일</span>
+        <span style={{fontSize:11,color:C.gray500,marginLeft:"auto"}}>{periodLabel}: {paperCount} papers</span>
       </div>
       <StructuredDigestContent digest={digest} accentColor={C.accent} papers={papers} bms={bms} onBm={onBm} groups={groups}/>
     </div>

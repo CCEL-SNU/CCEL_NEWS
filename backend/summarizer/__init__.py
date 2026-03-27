@@ -143,12 +143,17 @@ def _paper_date_ymd(paper: dict) -> str:
     return ""
 
 
+def _paper_merge_key(p: dict) -> str:
+    """Identity key for merging history + feed; matches row dedupe in _dedupe_papers_by_doi_or_title."""
+    return (p.get("doi") or p.get("arxiv_id") or p.get("title") or "").strip().lower()
+
+
 def _dedupe_papers_by_doi_or_title(papers: List) -> List:
     """Stable dedupe across merged history snapshots."""
     seen = set()
     out = []
     for p in papers:
-        key = (p.get("doi") or p.get("arxiv_id") or p.get("title") or "").strip().lower()
+        key = _paper_merge_key(p)
         if not key:
             continue
         if key in seen:
@@ -204,7 +209,7 @@ def _load_history_papers(config: dict) -> List[dict]:
             with open(hist_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 for p in data.get("papers", []):
-                    key = p.get("doi") or p.get("title", "")
+                    key = _paper_merge_key(p)
                     if key and key not in all_papers:
                         all_papers[key] = p
         except Exception as e:
@@ -649,16 +654,30 @@ def _generate_structured_digest(
     context_label: str,
     context_detail: str = "",
     config: dict = None,
+    *,
+    min_papers_for_ai: int = 10,
 ) -> dict:
     """
     Shared digest generator with adaptive depth.
     context_type: "category" | "group"
     Returns unified schema: {depth, hot_issues, sections, notable_papers, generated_at}
     On JSON parse failure: retries with fewer papers / compact instructions, then a safe error section.
+
+    min_papers_for_ai: if > 0, skip Gemini when n is below this (category default).
+        If 0, no low-n skip (group 1달/1년/3년). n==0 returns depth empty without API.
     """
     n = len(papers)
 
-    if n < 10:
+    if n == 0:
+        return {
+            "depth": "empty",
+            "hot_issues": [],
+            "sections": [],
+            "notable_papers": [],
+            "generated_at": datetime.now().isoformat(),
+        }
+
+    if min_papers_for_ai > 0 and n < min_papers_for_ai:
         return {
             "depth": "skip",
             "hot_issues": [],
@@ -721,68 +740,114 @@ def _generate_structured_digest(
     return _digest_failed_fallback(depth, context_label, api_gave_text=any_text)
 
 
-def generate_group_digests(papers: List, config: dict = None) -> Dict:
+def generate_group_digests(current_papers: List, config: dict = None) -> Dict:
     """
-    Generate per-group structured digests with adaptive depth.
-    Papers are deduped (DOI/title) and limited to a rolling date window
-    (summarizer.weekly_digest_days, default 7) so counts match "recent" scope
-    and --digest history merges do not inflate totals.
-    Returns a dict keyed by group_id, each containing metadata + digest.
+    Per-group structured digests for three rolling windows: 30d, 365d, 1095d.
+    Merges history + current (like category trends), filters by date.
+    Uses min_papers_for_ai=0 for all three (no minimum paper count). n==0 yields depth empty.
     """
     groups = config.get("groups", {}) if config else {}
     if not groups:
         return {}
 
-    cfg = config or {}
-    window_days = int(cfg.get("summarizer", {}).get("weekly_digest_days", 7))
-    raw_n = len(papers or [])
-    scoped = _dedupe_papers_by_doi_or_title(papers or [])
-    scoped = _filter_papers_by_rolling_days(scoped, window_days)
+    history_papers = _load_history_papers(config) if config else []
+    all_papers_map = {}
+    for p in history_papers:
+        key = _paper_merge_key(p)
+        if key:
+            all_papers_map[key] = p
+    for p in current_papers or []:
+        key = _paper_merge_key(p)
+        if key:
+            all_papers_map[key] = p
+    all_papers = list(all_papers_map.values())
+
+    papers_30 = _filter_papers_by_rolling_days(all_papers, 30)
+    papers_365 = _filter_papers_by_rolling_days(all_papers, 365)
+    papers_1095 = _filter_papers_by_rolling_days(all_papers, 1095)
+
     logger.info(
-        "Group digests: %s unique papers in last %s days by date (from %s raw rows)",
-        len(scoped),
-        window_days,
-        raw_n,
+        "Group digests: merged unique papers %s; windows 30d=%s 365d=%s 1095d=%s",
+        len(all_papers),
+        len(papers_30),
+        len(papers_365),
+        len(papers_1095),
     )
 
-    by_group = {}
-    for p in scoped:
-        gid = p.get("group")
-        if gid:
-            by_group.setdefault(gid, []).append(p)
+    def by_group_id(window_list: List, gid: str) -> List:
+        return [p for p in window_list if p.get("group") == gid]
 
     digests = {}
 
     for gid, gcfg in groups.items():
-        group_papers = by_group.get(gid, [])
-        if not group_papers:
+        gm = by_group_id(papers_30, gid)
+        gy = by_group_id(papers_365, gid)
+        g3 = by_group_id(papers_1095, gid)
+        if not gm and not gy and not g3:
             continue
 
         pi_name = gcfg.get("pi", gid)
         group_name = gcfg.get("name", gid)
 
-        logger.info(f"Generating group digest: {group_name} ({len(group_papers)} papers in window)")
+        logger.info(
+            "Generating group digests: %s (30d=%s 365d=%s 1095d=%s)",
+            group_name,
+            len(gm),
+            len(gy),
+            len(g3),
+        )
 
-        digest = _generate_structured_digest(
-            group_papers,
+        digest_monthly = _generate_structured_digest(
+            gm,
             context_type="group",
-            context_label=group_name,
+            context_label=f"{group_name} (최근 1개월)",
             context_detail=pi_name,
             config=config,
+            min_papers_for_ai=0,
         )
+        if digest_monthly["depth"] not in ("skip", "empty"):
+            time.sleep(2)
+
+        digest_yearly = _generate_structured_digest(
+            gy,
+            context_type="group",
+            context_label=f"{group_name} (최근 1년)",
+            context_detail=pi_name,
+            config=config,
+            min_papers_for_ai=0,
+        )
+        if digest_yearly["depth"] not in ("skip", "empty"):
+            time.sleep(2)
+
+        digest_3year = _generate_structured_digest(
+            g3,
+            context_type="group",
+            context_label=f"{group_name} (최근 3년)",
+            context_detail=pi_name,
+            config=config,
+            min_papers_for_ai=0,
+        )
+        if digest_3year["depth"] not in ("skip", "empty"):
+            time.sleep(2)
 
         digests[gid] = {
             "group_name": group_name,
             "pi": pi_name,
-            "paper_count": len(group_papers),
-            "paper_count_window_days": window_days,
-            "digest": digest,
+            "paper_count_monthly": len(gm),
+            "paper_count_yearly": len(gy),
+            "paper_count_3year": len(g3),
+            "digest_monthly": digest_monthly,
+            "digest_yearly": digest_yearly,
+            "digest_3year": digest_3year,
         }
 
-        logger.info(f"  {group_name}: depth={digest['depth']}, issues={len(digest.get('hot_issues', []))}")
-
-        if digest["depth"] != "skip":
-            time.sleep(4)
+        logger.info(
+            "  %s: depths monthly=%s yearly=%s y3=%s",
+            group_name,
+            digest_monthly.get("depth"),
+            digest_yearly.get("depth"),
+            digest_3year.get("depth"),
+        )
 
     return digests
 
@@ -796,11 +861,11 @@ def generate_category_trends(current_papers: List, config: dict = None) -> Dict:
 
     all_papers_map = {}
     for p in history_papers:
-        key = p.get("doi") or p.get("title", "")
+        key = _paper_merge_key(p)
         if key:
             all_papers_map[key] = p
     for p in current_papers:
-        key = p.get("doi") or p.get("title", "")
+        key = _paper_merge_key(p)
         if key:
             all_papers_map[key] = p
     all_papers = list(all_papers_map.values())
