@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-26T07:44:53.309816",
-  "date": "2026-10-26",
-  "total_papers": 1660,
-  "ccel_papers": 109,
+  "generated_at": "2026-10-27T07:46:20.888094",
+  "date": "2026-10-27",
+  "total_papers": 1658,
+  "ccel_papers": 108,
   "weekly_digest": {
     "sections": [],
     "hot_issues": [],
@@ -203,7 +203,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:08.837582"
+        "generated_at": "2026-10-27T07:43:39.327023"
       },
       "digest_yearly": {
         "depth": "light",
@@ -216,7 +216,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:11.688008"
+        "generated_at": "2026-10-27T07:43:42.133389"
       },
       "digest_3year": {
         "depth": "full",
@@ -229,7 +229,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:15.064936"
+        "generated_at": "2026-10-27T07:43:45.468526"
       }
     },
     "norskov": {
@@ -243,7 +243,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:17.066675"
+        "generated_at": "2026-10-27T07:43:47.471107"
       },
       "digest_yearly": {
         "depth": "light",
@@ -256,7 +256,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:17.893803"
+        "generated_at": "2026-10-27T07:43:48.304135"
       },
       "digest_3year": {
         "depth": "light",
@@ -269,7 +269,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:20.735874"
+        "generated_at": "2026-10-27T07:43:51.115926"
       }
     },
     "persson": {
@@ -289,7 +289,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:23.542060"
+        "generated_at": "2026-10-27T07:43:53.924152"
       },
       "digest_yearly": {
         "depth": "light",
@@ -302,7 +302,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:26.356846"
+        "generated_at": "2026-10-27T07:43:56.739523"
       },
       "digest_3year": {
         "depth": "full",
@@ -315,27 +315,21 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:29.708323"
+        "generated_at": "2026-10-27T07:44:00.060828"
       }
     },
     "curtarolo": {
       "group_name": "Curtarolo",
       "pi": "Stefano Curtarolo",
-      "paper_count_monthly": 1,
+      "paper_count_monthly": 0,
       "paper_count_yearly": 14,
-      "paper_count_3year": 33,
+      "paper_count_3year": 32,
       "digest_monthly": {
-        "depth": "light",
-        "parse_failed": true,
+        "depth": "empty",
         "hot_issues": [],
-        "sections": [
-          {
-            "title": "AI 요약을 불러오지 못했습니다",
-            "content": "「Curtarolo (최근 1개월)」digest 생성 중 Gemini API 응답이 없었습니다. API 키, 네트워크, 할당량을 확인한 뒤 다시 실행하세요."
-          }
-        ],
+        "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:32.523717"
+        "generated_at": "2026-10-27T07:44:02.063033"
       },
       "digest_yearly": {
         "depth": "light",
@@ -348,7 +342,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:35.380432"
+        "generated_at": "2026-10-27T07:44:02.873757"
       },
       "digest_3year": {
         "depth": "full",
@@ -361,7 +355,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:38.740239"
+        "generated_at": "2026-10-27T07:44:06.113222"
       }
     },
     "ceriotti": {
@@ -381,7 +375,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:41.559937"
+        "generated_at": "2026-10-27T07:44:08.936242"
       },
       "digest_yearly": {
         "depth": "light",
@@ -394,7 +388,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:44.386583"
+        "generated_at": "2026-10-27T07:44:11.781946"
       },
       "digest_3year": {
         "depth": "full",
@@ -407,7 +401,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:47.637860"
+        "generated_at": "2026-10-27T07:44:15.033468"
       }
     },
     "csanyi": {
@@ -427,7 +421,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:50.426498"
+        "generated_at": "2026-10-27T07:44:17.858201"
       },
       "digest_yearly": {
         "depth": "light",
@@ -440,7 +434,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:53.237328"
+        "generated_at": "2026-10-27T07:44:20.690407"
       },
       "digest_3year": {
         "depth": "full",
@@ -453,7 +447,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:56.506404"
+        "generated_at": "2026-10-27T07:44:23.938382"
       }
     },
     "vonlilienfeld": {
@@ -467,7 +461,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:58.508631"
+        "generated_at": "2026-10-27T07:44:25.939784"
       },
       "digest_yearly": {
         "depth": "light",
@@ -480,7 +474,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:42:59.299039"
+        "generated_at": "2026-10-27T07:44:26.789394"
       },
       "digest_3year": {
         "depth": "light",
@@ -493,7 +487,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:02.115128"
+        "generated_at": "2026-10-27T07:44:29.617816"
       }
     },
     "behler": {
@@ -507,7 +501,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:04.118165"
+        "generated_at": "2026-10-27T07:44:31.619544"
       },
       "digest_yearly": {
         "depth": "light",
@@ -520,7 +514,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:04.942385"
+        "generated_at": "2026-10-27T07:44:32.457147"
       },
       "digest_3year": {
         "depth": "full",
@@ -533,7 +527,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:08.267705"
+        "generated_at": "2026-10-27T07:44:35.677880"
       }
     },
     "kozinsky": {
@@ -553,7 +547,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:11.079690"
+        "generated_at": "2026-10-27T07:44:38.504638"
       },
       "digest_yearly": {
         "depth": "light",
@@ -566,7 +560,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:13.894611"
+        "generated_at": "2026-10-27T07:44:41.333526"
       },
       "digest_3year": {
         "depth": "full",
@@ -579,7 +573,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:17.138392"
+        "generated_at": "2026-10-27T07:44:44.682848"
       }
     },
     "ong": {
@@ -599,7 +593,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:19.966606"
+        "generated_at": "2026-10-27T07:44:47.528945"
       },
       "digest_yearly": {
         "depth": "light",
@@ -612,7 +606,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:22.786204"
+        "generated_at": "2026-10-27T07:44:50.347758"
       },
       "digest_3year": {
         "depth": "light",
@@ -625,7 +619,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:25.613609"
+        "generated_at": "2026-10-27T07:44:53.168333"
       }
     },
     "schutt": {
@@ -639,14 +633,14 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:27.615262"
+        "generated_at": "2026-10-27T07:44:55.170551"
       },
       "digest_yearly": {
         "depth": "empty",
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:27.615262"
+        "generated_at": "2026-10-27T07:44:55.170551"
       },
       "digest_3year": {
         "depth": "light",
@@ -659,7 +653,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:28.430766"
+        "generated_at": "2026-10-27T07:44:56.003108"
       }
     },
     "aspuruguzik": {
@@ -679,7 +673,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:31.261508"
+        "generated_at": "2026-10-27T07:44:58.835178"
       },
       "digest_yearly": {
         "depth": "full",
@@ -692,7 +686,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:34.487041"
+        "generated_at": "2026-10-27T07:45:02.087477"
       },
       "digest_3year": {
         "depth": "full",
@@ -705,7 +699,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:37.828685"
+        "generated_at": "2026-10-27T07:45:05.405569"
       }
     },
     "kulik": {
@@ -725,7 +719,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:40.640530"
+        "generated_at": "2026-10-27T07:45:08.228980"
       },
       "digest_yearly": {
         "depth": "light",
@@ -738,7 +732,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:43.453596"
+        "generated_at": "2026-10-27T07:45:11.026242"
       },
       "digest_3year": {
         "depth": "full",
@@ -751,15 +745,15 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:46.796462"
+        "generated_at": "2026-10-27T07:45:14.345193"
       }
     },
     "kimjihan": {
       "group_name": "Kim Jihan",
       "pi": "Jihan Kim",
-      "paper_count_monthly": 3,
-      "paper_count_yearly": 12,
-      "paper_count_3year": 61,
+      "paper_count_monthly": 4,
+      "paper_count_yearly": 13,
+      "paper_count_3year": 62,
       "digest_monthly": {
         "depth": "light",
         "parse_failed": true,
@@ -771,7 +765,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:49.627736"
+        "generated_at": "2026-10-27T07:45:17.178877"
       },
       "digest_yearly": {
         "depth": "light",
@@ -784,7 +778,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:52.463240"
+        "generated_at": "2026-10-27T07:45:20.019733"
       },
       "digest_3year": {
         "depth": "full",
@@ -797,7 +791,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:55.786571"
+        "generated_at": "2026-10-27T07:45:23.344574"
       }
     },
     "schwalbekoda": {
@@ -811,7 +805,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:57.789269"
+        "generated_at": "2026-10-27T07:45:25.346922"
       },
       "digest_yearly": {
         "depth": "light",
@@ -824,7 +818,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:43:58.613401"
+        "generated_at": "2026-10-27T07:45:26.190835"
       },
       "digest_3year": {
         "depth": "light",
@@ -837,7 +831,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:01.437445"
+        "generated_at": "2026-10-27T07:45:29.030680"
       }
     },
     "unke": {
@@ -851,7 +845,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:03.439117"
+        "generated_at": "2026-10-27T07:45:31.032793"
       },
       "digest_yearly": {
         "depth": "light",
@@ -864,7 +858,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:04.268351"
+        "generated_at": "2026-10-27T07:45:31.839643"
       },
       "digest_3year": {
         "depth": "light",
@@ -877,7 +871,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:07.097826"
+        "generated_at": "2026-10-27T07:45:34.665161"
       }
     },
     "gasteiger": {
@@ -891,14 +885,14 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:09.100159"
+        "generated_at": "2026-10-27T07:45:36.667601"
       },
       "digest_yearly": {
         "depth": "empty",
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:09.100159"
+        "generated_at": "2026-10-27T07:45:36.667601"
       },
       "digest_3year": {
         "depth": "light",
@@ -911,7 +905,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:09.914027"
+        "generated_at": "2026-10-27T07:45:37.494461"
       }
     },
     "zitnick": {
@@ -925,7 +919,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:11.915818"
+        "generated_at": "2026-10-27T07:45:39.497574"
       },
       "digest_yearly": {
         "depth": "light",
@@ -938,7 +932,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:12.751555"
+        "generated_at": "2026-10-27T07:45:40.315947"
       },
       "digest_3year": {
         "depth": "light",
@@ -951,7 +945,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:15.575509"
+        "generated_at": "2026-10-27T07:45:43.122482"
       }
     },
     "hammer": {
@@ -965,7 +959,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:17.577546"
+        "generated_at": "2026-10-27T07:45:45.125057"
       },
       "digest_yearly": {
         "depth": "light",
@@ -978,7 +972,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:18.404635"
+        "generated_at": "2026-10-27T07:45:46.062545"
       },
       "digest_3year": {
         "depth": "light",
@@ -991,7 +985,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:21.234596"
+        "generated_at": "2026-10-27T07:45:48.890331"
       }
     },
     "goddard": {
@@ -1005,7 +999,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:23.236100"
+        "generated_at": "2026-10-27T07:45:50.893080"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1018,7 +1012,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:24.058700"
+        "generated_at": "2026-10-27T07:45:51.647598"
       },
       "digest_3year": {
         "depth": "full",
@@ -1031,7 +1025,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:27.384566"
+        "generated_at": "2026-10-27T07:45:54.982508"
       }
     },
     "nazar": {
@@ -1045,7 +1039,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:29.387356"
+        "generated_at": "2026-10-27T07:45:56.984426"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1058,7 +1052,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:30.203940"
+        "generated_at": "2026-10-27T07:45:57.791372"
       },
       "digest_3year": {
         "depth": "full",
@@ -1071,7 +1065,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:33.483808"
+        "generated_at": "2026-10-27T07:46:01.061950"
       }
     },
     "ceder": {
@@ -1091,7 +1085,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:36.308043"
+        "generated_at": "2026-10-27T07:46:03.911993"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1104,7 +1098,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:39.115803"
+        "generated_at": "2026-10-27T07:46:06.719952"
       },
       "digest_3year": {
         "depth": "full",
@@ -1117,7 +1111,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:42.378707"
+        "generated_at": "2026-10-27T07:46:10.058781"
       }
     },
     "rignanese": {
@@ -1125,7 +1119,7 @@
       "pi": "Gian-Marco Rignanese",
       "paper_count_monthly": 1,
       "paper_count_yearly": 24,
-      "paper_count_3year": 55,
+      "paper_count_3year": 54,
       "digest_monthly": {
         "depth": "light",
         "parse_failed": true,
@@ -1137,7 +1131,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:45.195650"
+        "generated_at": "2026-10-27T07:46:12.811266"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1150,7 +1144,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:48.018703"
+        "generated_at": "2026-10-27T07:46:15.626267"
       },
       "digest_3year": {
         "depth": "full",
@@ -1163,7 +1157,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-10-26T07:44:51.282484"
+        "generated_at": "2026-10-27T07:46:18.861981"
       }
     }
   },
@@ -1287,6 +1281,77 @@
   "papers": [
     {
       "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71740",
+      "title": "Helical Keratin‐Derived Aqueous Binders for High‐Performance Lithium–Sulfur Batteries",
+      "authors": [],
+      "authors_str": "Bingzhong Chen, \nHao Chen, \nXuqi Lin, \nKunwei Huang, \nYuhao Liang, \nCheng Yan, \nShanqing Zhang",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-10-25",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71740?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71737",
+      "title": "Trash to Treasure: PFAS‐Functionalized MOFs for Boosted Piezocatalytic H2 Production",
+      "authors": [],
+      "authors_str": "Haijun Hu, \nXiaodong Sun, \nYixuan Wang, \nGe Yan, \nShiyuan Liu, \nLingfeng Zhu, \nLiqun Ye, \nHongwei Huang, \nZhen Zhao, \nXinyi Yang, \nBo Zou, \nTianyi Ma",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-10-25",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71737?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Functional Materials",
+      "openalex_id": "W7223290560",
+      "doi": "10.1002/adfm.79293",
+      "title": "How the Porous Transport Layer Dictates Membrane Electrode Assembly Performance of IrO 2 Catalysts",
+      "authors": [
+        "Hyeseong Jeon",
+        "한승희",
+        "Jonghyeon Park",
+        "Sujin Park",
+        "Won-Jae Lee",
+        "Jihan Kim",
+        "Hyunjoo Lee"
+      ],
+      "authors_str": "Hyeseong Jeon; 한승희; Jonghyeon Park; Sujin Park; Won-Jae Lee et al.",
+      "abstract": "ABSTRACT Reducing the use of precious metals is essential for the commercialization of proton exchange membrane water electrolysis (PEMWE). The Schottky contact formed between the catalyst layer and Ti porous transport layer (PTL) at the anode significantly degrades cell performance and necessitates high Ir loading or Pt coating. IrO 2 catalysts with various crystallite sizes (1.7‒11.0 nm) were synthesized, and their membrane electrode assembly (MEA) performance was evaluated at a low Ir loading of 0.3 mg Ir cm −2 using Pt‐coated Ti PTL and bare Ti PTL. The MEA performance exhibited opposite trends depending on the type of PTL, primarily due to variation in the work function, which is determined by the surface oxygen configuration of the IrO 2 catalyst. Smaller crystallites exhibited a larger work function, resulting in a greater performance discrepancy between the two PTL types. To overcome the suboptimal performance of IrO 2 , we utilized the crystalline 7.1 nm‐sized IrO 2 as an electron pathway and deposited highly active amorphous IrO x on its surface. This mixed‐phase Ir oxide exhibited good cell performance and durability even with a bare Ti PTL. This study highlights that the Schottky contact problem of IrO 2 catalysts can be overcome through surface engineering, enabling low Ir use for PEMWE.",
+      "date": "2026-10-24",
+      "citations": 1,
+      "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/adfm.79293",
+      "url": "https://doi.org/10.1002/adfm.79293",
+      "open_access": true,
+      "group": "kimjihan",
+      "summary": "ABSTRACT Reducing the use of precious metals is essential for the commercialization of proton exchange membrane water electrolysis (PEMWE). The Schottky contact formed between the catalyst layer and T",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
       "doi": "10.1002/aenm.71748",
       "title": "Mineral Particle Suspensions in Carbonate Electrolyte Enable LiF‐Rich Interphases for Durable Lithium Metal Batteries",
       "authors": [],
@@ -1300,6 +1365,29 @@
       "categories": [
         "dft"
       ],
+      "category": "dft",
+      "relevance": 50,
+      "ccel": false
+    },
+    {
+      "source": "arXiv",
+      "arxiv_id": "2610.32652v1",
+      "doi": null,
+      "title": "Low-variance force estimators for nuclear quantum mean forces",
+      "authors": [
+        "Venkat Kapil"
+      ],
+      "authors_str": "Venkat Kapil",
+      "abstract": "Quantum equilibrium structure can be sampled using classical molecular dynamics with a learned effective potential for a single path-integral replica, but the primitive mean-force estimates obtained from path-integral molecular dynamics with that replica held fixed are noisy. We derive a scaled-gradient estimator with zero sampling variance for a one-dimensional harmonic oscillator and an estimated 4.7--57.5-fold reduction in constrained-sampling time for the molecular tests. The resulting potentials can be trained on these forces like standard machine-learning interatomic potentials and yield stable production simulations from which quantum expectation values of position-dependent observables are obtained as classical ensemble averages.",
+      "date": "2026-10-23",
+      "updated": "2026-10-23",
+      "categories": [
+        "dft"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.32652v1",
+      "url": "https://arxiv.org/abs/2610.32652v1",
+      "open_access": true,
+      "summary": "Quantum equilibrium structure can be sampled using classical molecular dynamics with a learned effective potential for a single path-integral replica, but the primitive mean-force estimates obtained f",
       "category": "dft",
       "relevance": 50,
       "relevance_reason": "",
@@ -2038,7 +2126,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -2096,7 +2183,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -2496,7 +2582,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -2843,25 +2928,6 @@
     },
     {
       "source": "Advanced Energy Materials",
-      "doi": "10.1002/aenm.71724",
-      "title": "Synergistic Proton Transport Regulation and Interfacial Anion Adsorption Engineering in ZIF‐8‐Derived PtCu Electrocatalysts for High‐Performance Light and Heavy‐Duty PEM Fuel Cells",
-      "authors": [],
-      "authors_str": "Mayank U. Singh, \nRiya M. Robert, \nNikhil S. Samudre, \nSailaja Krishnamurty, \nSreekumar Kurungot",
-      "abstract": "Advanced Energy Materials, EarlyView.",
-      "date": "2026-10-20",
-      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71724?af=R",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Advanced Energy Materials, EarlyView.",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "Advanced Energy Materials",
       "doi": "10.1002/aenm.71721",
       "title": "Dual Anion‐Involved Interfacial Chemistry Enables Ultra‐Stable PEO‐Based Solid‐State Lithium Metal Batteries by Suppressing NMP‐Induced Side Reactions",
       "authors": [],
@@ -2907,6 +2973,25 @@
       "abstract": "Advanced Energy Materials, EarlyView.",
       "date": "2026-10-20",
       "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71723?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71724",
+      "title": "Synergistic Proton Transport Regulation and Interfacial Anion Adsorption Engineering in ZIF‐8‐Derived PtCu Electrocatalysts for High‐Performance Light and Heavy‐Duty PEM Fuel Cells",
+      "authors": [],
+      "authors_str": "Mayank U. Singh, \nRiya M. Robert, \nNikhil S. Samudre, \nSailaja Krishnamurty, \nSreekumar Kurungot",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-10-20",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71724?af=R",
       "pdf_url": null,
       "open_access": false,
       "summary": "Advanced Energy Materials, EarlyView.",
@@ -5256,33 +5341,6 @@
     },
     {
       "source": "arXiv",
-      "arxiv_id": "2610.14429v1",
-      "doi": null,
-      "title": "Large Out-of-plane Polarization in Two-dimensional Bi2O3 Monolayers Predicted by an AI-driven Inverse-design Workflow",
-      "authors": [
-        "Hongmei Tan",
-        "Jing Zhang",
-        "Shan Gao",
-        "Yueyu Zhang",
-        "Xiangmei Duan"
-      ],
-      "authors_str": "Hongmei Tan; Jing Zhang; Shan Gao; Yueyu Zhang; Xiangmei Duan",
-      "abstract": "Two-dimensional (2D) polar oxides with built-in electric fields offer promising opportunities for nanoscale electronics, optoelectronics, and surface charge engineering. However, their discovery remains challenging due to the enormous structural complexity of nonlayered oxide networks. Here, we combine inverse structural design with a machine-learning interatomic potential and first-principles calculations to explore 2D oxide configurations. Using Bi2O3 as a representative system, we identify two previously unreported polar monolayers with tetragonal and orthorhombic symmetries. Both structures exhibit vertically separated Bi and O sublayers, giving rise to pronounced intrinsic polarity with Berry-phase 2D polarizations of 34.12 and 37.15 pC/m, respectively. Notably, the o-Bi2O3 monolayer exhibits one of the largest reported out-of-plane polarizations among 2D oxides. Both monolayers exhibit dynamical stability, finite-temperature structural integrity, and wide band gaps (~3.8 eV). The large polarization originates from dimensionality-induced reconstruction of the nonlayered Bi-O network, which breaks local coordination symmetry and produces out-of-plane charge redistribution, while the stereochemically active Bi 6s2 lone pair further favors asymmetric Bi-O bonding. These findings suggest dimensionality-induced local-coordination symmetry breaking as a promising design motif for high-polarization 2D oxides, and demonstrate the utility of combining inverse design with machine-learning-assisted screening to explore unconventional polar phases in nonlayered oxide networks.",
-      "date": "2026-10-10",
-      "updated": "2026-10-10",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.14429v1",
-      "url": "https://arxiv.org/abs/2610.14429v1",
-      "open_access": true,
-      "summary": "Two-dimensional (2D) polar oxides with built-in electric fields offer promising opportunities for nanoscale electronics, optoelectronics, and surface charge engineering. However, their discovery remai",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
       "arxiv_id": "2610.15214v2",
       "doi": null,
       "title": "Transition-Metal Chalcogenide Nanowires: A First-Principles Study of Stability, Electronic Structure, and Mechanical Response",
@@ -5754,63 +5812,6 @@
       "ccel": false
     },
     {
-      "source": "Advanced Energy Materials",
-      "doi": "10.1002/aenm.71654",
-      "title": "Integrated d‐p Orbital Coupling Within High‐Entropy Oxide/Halloysite Accelerates Sulfur Reduction Kinetics in Sodium‐Sulfur Batteries",
-      "authors": [],
-      "authors_str": "Guangming Cao, \nHeng Zhang, \nYoucun Bai, \nYingying Song, \nLang Qiu, \nXiang‐Long Huang, \nTao Song, \nWei Sun, \nChang Ming Li",
-      "abstract": "Advanced Energy Materials, EarlyView.",
-      "date": "2026-10-08",
-      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71654?af=R",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Advanced Energy Materials, EarlyView.",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "Advanced Energy Materials",
-      "doi": "10.1002/aenm.71687",
-      "title": "Chloride‐Mediated Photoelectrochemical Selective Oxidation of Polyols Coupled With Hydrogen Evolution",
-      "authors": [],
-      "authors_str": "Lan Luo, \nShanshan Zhang, \nXiaomei Zhang, \nYutong Cai, \nWangsong Chen, \nWenjing Dai, \nHaisong Feng, \nZhen Yin, \nZhenhua Li, \nMingfei Shao",
-      "abstract": "Advanced Energy Materials, EarlyView.",
-      "date": "2026-10-08",
-      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71687?af=R",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Advanced Energy Materials, EarlyView.",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "Advanced Energy Materials",
-      "doi": "10.1002/aenm.71682",
-      "title": "In Situ Formation of a Hybrid Alloy‐Fluoride Interphase for Stable High‐Capacity Phosphorus Anodes",
-      "authors": [],
-      "authors_str": "Gengchang Lai, \nQiuyan Li, \nXiaoxiao Feng, \nHuijuan Ma, \nChao Peng, \nPaul K. Chu, \nXue‐Feng Yu, \nJiahong Wang",
-      "abstract": "Advanced Energy Materials, EarlyView.",
-      "date": "2026-10-08",
-      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71682?af=R",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Advanced Energy Materials, EarlyView.",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
       "source": "arXiv",
       "arxiv_id": "2610.09719v1",
       "doi": null,
@@ -5984,25 +5985,6 @@
       "open_access": false,
       "group": "kimjihan",
       "summary": "ABSTRACT Controlling when an adsorbed guest leaves a porous solid is as important as controlling how much it takes up, yet desorption is almost always dictated by adsorption‐site energetics and the he",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "Advanced Energy Materials",
-      "doi": "10.1002/aenm.71684",
-      "title": "Janus Ag Nanoskin‐Armored Polyimide Bilayer Separator Enables Efficient Li‐Nucleation Regulation for Dendrite‐Free Lithium Metal Battery",
-      "authors": [],
-      "authors_str": "Pengpeng Li, \nXinluo Li, \nQingsong Zhang, \nYisong Zhou, \nJunyi Han, \nNianyu Yue, \nJiameng Li, \nJiaji Yue, \nGuohua Sun, \nNanjun Chen",
-      "abstract": "Advanced Energy Materials, EarlyView.",
-      "date": "2026-10-07",
-      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71684?af=R",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Advanced Energy Materials, EarlyView.",
       "categories": [
         "dft"
       ],
@@ -7335,7 +7317,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -13376,7 +13357,7 @@
       "doi": "10.1039/d5ee07777j",
       "title": "Conformal hetero-electrolyte interface between soft oxyhalides and garnet enables low-pressure lithium-reservoir-free solid-state batteries",
       "authors": [
-        "Max Palmer",
+        "Max J. Palmer",
         "Vipin K. Singh",
         "Leonardo Merola",
         "Karthikeyen Natarajan Pugazhendhi",
@@ -13391,7 +13372,7 @@
         "Jeff S. Sakamoto",
         "Linda F. Nazar"
       ],
-      "authors_str": "Max Palmer; Vipin K. Singh; Leonardo Merola; Karthikeyen Natarajan Pugazhendhi; Pallab Barai et al.",
+      "authors_str": "Max J. Palmer; Vipin K. Singh; Leonardo Merola; Karthikeyen Natarajan Pugazhendhi; Pallab Barai et al.",
       "abstract": "Soft oxyhalide electrolytes enable low hetero-electrolyte (H-E) resistance with garnet at low stack pressures for “reservoir-free” dual electrolyte batteries.",
       "date": "2026-01-01",
       "citations": 8,
@@ -16597,7 +16578,7 @@
         "Yi Cui"
       ],
       "authors_str": "Mun Sek Kim; Jingyang Wang; Wenbo Zhang; Philaphon Sayavong; Zewen Zhang et al.",
-      "abstract": "O. These findings shed light on the effects of LiF on Li metal anodes and the arrangement characteristic of LiF within the SEI. By integrating key discoveries regarding LiF, a projected working mechanism for LiF is illustrated. Overall, our study on LiF provides valuable insights that advance the understanding of the SEI and interphase nanostructures, contributing to the development of more reliable and practical Li metal batteries.",
+      "abstract": "LiF is widely recognized as a crucial component of a solid-electrolyte interphase (SEI) for Li metal anodes. However, the roles of LiF in the SEI remain elusive. Herein, we examined the evolution of SEI influenced by LiF and identified distinct features that elucidate functional characteristics of LiF for Li metal anodes. Through comprehensive empirical and theoretical analyses, we found that LiF enriches Li2O within the SEI, forms LiF/Li2O interfaces, exhibits non-negligible solubility with spontaneous dissolution-reprecipitation behavior in the electrolyte, and works synergistically with Li2O. These findings shed light on the effects of LiF on Li metal anodes and the arrangement characteristic of LiF within the SEI. By integrating key discoveries regarding LiF, a projected working mechanism for LiF is illustrated. Overall, our study on LiF provides valuable insights that advance the understanding of the SEI and interphase nanostructures, contributing to the development of more reliable and practical Li metal batteries.",
       "date": "2025-09-29",
       "citations": 43,
       "pdf_url": "https://escholarship.org/content/qt1093k12f/qt1093k12f.pdf",
@@ -18197,9 +18178,9 @@
       "abstract": "",
       "date": "2025-07-23",
       "citations": 22,
-      "pdf_url": null,
+      "pdf_url": "https://doi.org/10.26434/chemrxiv-2025-b009c",
       "url": "https://doi.org/10.1038/s41570-025-00737-z",
-      "open_access": false,
+      "open_access": true,
       "group": "schutt",
       "summary": "이 논문은 Target 2035 이니셔티브의 로드맵을 제시하며, 2035년까지 모든 인간 단백질에 대한 약리학적 조절인자 개발을 목표로 한다. 소분자 히트 발굴의 병목 현상을 해결하기 위해 대규모의 고품질 단백질-소분자 결합 데이터를 구축하는 데 중점을 둔다. 친화성 선택 질량 분석법(AS-MS) 및 DNA 인코딩 화학 라이브러리(DEL) 스크리닝을 활용하여 수백만에서 수십억 개의 소분자에 대한 2,000개 이상의 단백질 결합 데이터를 생성한다. 생성된 데이터를 기반으로 머신러닝 모델을 개발하고 반복적인 예측 및 실험 검증을 통해 2030년까지 수천 개의 단백질에 대한 실험적으로 검증된 히트를 식별하며, 미지의 단백질에 대한 히트 예측 알고리즘을 발전시킬 계획이다. 이는 AI 기반 신약 설계의 돌파구를 마련하고, 대규모 데이터 기반 머신러닝 접근 방식의 중요성을 강조한다.",
       "categories": [
@@ -22472,7 +22453,7 @@
       "authors_str": "Joe Pitfield; Florian Brix; Zeyuan Tang; Andreas Møller Slavensky; Nikolaj Rønne et al.",
       "abstract": "Universal potentials open the door for DFT level calculations at a fraction of their cost. We find that for application to systems outside the scope of its training data, pretrained CHGNet [Deng et al., Nat. Mach. Intell. 5, 1031 (2023)] has the potential to succeed out of the box, but can also fail significantly in predicting the ground state configuration. We demonstrate that via fine-tuning or a Δ-learning approach it is possible to augment the overall performance of universal potentials for specific cluster and surface systems. We utilize this to investigate and explain experimentally observed defects in the Ag(111)-O surface reconstruction and explain the mechanics behind their formation.",
       "date": "2025-02-04",
-      "citations": 16,
+      "citations": 17,
       "pdf_url": "https://arxiv.org/pdf/2407.14288",
       "url": "https://doi.org/10.1103/physrevlett.134.056201",
       "open_access": true,
@@ -23449,14 +23430,16 @@
       "authors": [
         "Hyein Lee",
         "Miyeon Kim",
+        "Miyeon Kim",
         "JeongHan Roh",
         "KwangHo Lee",
-        "Jooyoung Shin",
         "Jeong Woo Han",
+        "Jeong Woo Han",
+        "MinJoong Kim",
         "MinJoong Kim",
         "EunAe Cho"
       ],
-      "authors_str": "Hyein Lee; Miyeon Kim; JeongHan Roh; KwangHo Lee; Jooyoung Shin et al.",
+      "authors_str": "Hyein Lee; Miyeon Kim; Miyeon Kim; JeongHan Roh; KwangHo Lee et al.",
       "abstract": "A hollow-confined Co–Mo 2 C heterostructure enhances interfacial charge transfer, lowers water dissociation energy, suppresses Mo leaching, and boosts HER kinetics and stability.",
       "date": "2025-01-01",
       "citations": 8,
@@ -24772,7 +24755,7 @@
       "authors_str": "Nikolaj Rønne; Alán Aspuru‐Guzik; Bjørk Hammer",
       "abstract": "The generative diffusion method is adapted for use in connection with surface structure determination. The authors introduce here the concepts required to train a diffusion model on structures from small-cell density functional theory calculations. Using the diffusion model to generate large-cell surface structures, the authors demonstrate that highly plausible structures result. The efficiency of generating low-energy structures is compared to that of the random structure search method. Finally, using the diffusion method, a structure for a Ag-based surface-oxide grain boundary is proposed.",
       "date": "2024-12-24",
-      "citations": 29,
+      "citations": 30,
       "pdf_url": "https://arxiv.org/pdf/2402.17404",
       "url": "https://doi.org/10.1103/physrevb.110.235427",
       "open_access": true,
@@ -33283,7 +33266,7 @@
       "authors_str": "John M. Dagdelen; Alexander Dunn; Sang‐Hoon Lee; Nicholas Walker; Andrew Rosen et al.",
       "abstract": "Extracting structured knowledge from scientific text remains a challenging task for machine learning models. Here, we present a simple approach to joint named entity recognition and relation extraction and demonstrate how pretrained large language models (GPT-3, Llama-2) can be fine-tuned to extract useful records of complex scientific knowledge. We test three representative tasks in materials chemistry: linking dopants and host materials, cataloging metal-organic frameworks, and general composition/phase/morphology/application information extraction. Records are extracted from single sentences or entire paragraphs, and the output can be returned as simple English sentences or a more structured format such as a list of JSON objects. This approach represents a simple, accessible, and highly flexible route to obtaining large databases of structured specialized scientific knowledge extracted from research papers.",
       "date": "2024-02-15",
-      "citations": 756,
+      "citations": 757,
       "pdf_url": "https://www.nature.com/articles/s41467-024-45563-x.pdf",
       "url": "https://doi.org/10.1038/s41467-024-45563-x",
       "open_access": true,
@@ -35494,7 +35477,7 @@
       "authors_str": "Tristan A. Pitt; Haojun Jia; Tyler J. Azbell; Mary E. Zick; Aditya Nandy et al.",
       "abstract": "Anthropogenic emissions of N2O, the third most abundant greenhouse gas after CO2 and CH4, are contributing to global climate change. Although metal-organic frameworks (MOFs) have been widely studied as adsorbents for CO2¬ and CH4, less effort has focused on the use of MOFs to remove N2O from emission streams or from air. Further, N2O activation would enable its use as an inexpensive oxidant for fine chemical synthesis. Herein, we identify features that contribute to strong binding and high uptake of N2O at coorinatively unsaturated metal sites in the M2Cl2(btdd) (M= Mn, Co, Ni, Cu; btdd2– = bis(1,2,3-triazolo[4,5-b],[4′,5′-i])dibenzo[1,4]dioxin) and M2(dobdc) (M = Mg, Mn, Fe, Co, Ni, Cu, Zn; dobdc4− = 2,5-dioxido-1,4-benzenedicarboxylate) series of MOFs. Combined experimental and computational studies suggest that N2O adsorption at open-metal-sites is primarily based on electrostatic interactions, rather than π-backbonding, causing MOFs with more Lewis acidic metal centers to be superior N2O adsorbents. As a result, Mg2(dobdc) demonstrates strong binding and record-setting N2O uptake (8.75 mmol/g at 1 bar and 298 K). Using density functional theory (DFT) to characterize reactive intermediates and transition states, we demonstrate that N2O activation to form a M(IV)-oxo species and N2 is thermodynamically favorable in Mn2(dobdc) and Fe2(dobdc) but appears to be kinetically limited in Mn2(dobdc). Our work lays a foundation for understanding N2O adsorption and activation in MOFs, paving the way for the design of promising next-generation materials for N2O capture and utilization.",
       "date": "2024-01-01",
-      "citations": 13,
+      "citations": 14,
       "pdf_url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/65732ac0cf8b3c3cd71c2009/original/benchmarking-nitrous-oxide-adsorption-and-activation-in-metal-organic-frameworks-bearing-coordinatively-unsaturated-metal-centers.pdf",
       "url": "https://doi.org/10.1039/d3tc04492k",
       "open_access": true,
@@ -36235,7 +36218,7 @@
       "authors_str": "Yuyin Li; Charles B. Musgrave; Moon Young Yang; Minho M. Kim; Kenan Zhang et al.",
       "abstract": "Abstract A new reactive force field based on quantum mechanical data for describing formation of the Zn electrode‐electrolyte interface (EEI) chemistry in aqueous zinc‐ion batteries (ZIBs) is developed. This is the first demonstration in which Reactive Molecular Dynamics (RMD) simulation is used to follow the Zn reduction and anode structural evolution at the EEI. It is found that under axial pressure, Zn dendrite formation is inhibited. This is associated with accelerated ion transport and reduction while increasing preference towards horizontal (002) plane growth. Pressure‐induced desolvation of Zn ions within the electric double layer, which promotes faster reduction kinetics is observed. It is found that axial pressure stabilizes adatoms on the (002) plane by decreasing axial atom stress during nucleation and by increasing favorable lateral adatom diffusion, which reduces atomic scale dendrite formation. Finally, these are confirmed results by experimental characterization and electrochemical tests.",
       "date": "2023-12-18",
-      "citations": 31,
+      "citations": 32,
       "pdf_url": null,
       "url": "https://doi.org/10.1002/aenm.202303047",
       "open_access": false,
@@ -36324,7 +36307,7 @@
       "authors_str": "Chenru Duan; Yuanqi Du; Haojun Jia; Heather J. Kulik",
       "abstract": "",
       "date": "2023-12-15",
-      "citations": 87,
+      "citations": 88,
       "pdf_url": null,
       "url": "https://doi.org/10.1038/s43588-023-00563-7",
       "open_access": false,
@@ -36380,7 +36363,7 @@
       "authors_str": "Tsz Wai Ko; Shyue Ping Ong",
       "abstract": "",
       "date": "2023-12-13",
-      "citations": 130,
+      "citations": 131,
       "pdf_url": null,
       "url": "https://doi.org/10.1038/s43588-023-00561-9",
       "open_access": false,
@@ -36676,7 +36659,7 @@
       "authors_str": "Nathan J. Szymanski; Bernardus Rendy; Yuxing Fei; Rishi E. Kumar; Tanjin He et al.",
       "abstract": ", we introduce the A-Lab, an autonomous laboratory for the solid-state synthesis of inorganic powders. This platform uses computations, historical data from the literature, machine learning (ML) and active learning to plan and interpret the outcomes of experiments performed using robotics. Over 17 days of continuous operation, the A-Lab realized 41 novel compounds from a set of 58 targets including a variety of oxides and phosphates that were identified using large-scale ab initio phase-stability data from the Materials Project and Google DeepMind. Synthesis recipes were proposed by natural-language models trained on the literature and optimized using an active-learning approach grounded in thermodynamics. Analysis of the failed syntheses provides direct and actionable suggestions to improve current techniques for materials screening and synthesis design. The high success rate demonstrates the effectiveness of artificial-intelligence-driven platforms for autonomous materials discovery and motivates further integration of computations, historical knowledge and robotics.",
       "date": "2023-11-29",
-      "citations": 1021,
+      "citations": 1022,
       "pdf_url": "https://www.nature.com/articles/s41586-023-06734-w.pdf",
       "url": "https://doi.org/10.1038/s41586-023-06734-w",
       "open_access": true,
@@ -37071,7 +37054,7 @@
       "ccel": false
     },
     {
-      "source": "2012 International Conference for High Performance Computing, Networking, Storage and Analysis",
+      "source": "International Conference for High Performance Computing, Networking, Storage and Analysis (SC)",
       "openalex_id": "W4388697929",
       "doi": "10.1145/3581784.3627041",
       "title": "Scaling the Leading Accuracy of Deep Equivariant Models to Biomolecular Simulations of Realistic Size",
@@ -44977,7 +44960,7 @@
       "authors_str": "Mohsen Tamtaji; Qiuming Peng; Tongchao Liu; Xue Zhao; Zhihang Xu et al.",
       "abstract": "",
       "date": "2023-01-18",
-      "citations": 75,
+      "citations": 76,
       "pdf_url": "https://doi.org/10.1016/j.nanoen.2023.108218",
       "url": "https://doi.org/10.1016/j.nanoen.2023.108218",
       "open_access": true,
@@ -48321,7 +48304,7 @@
       "authors_str": "Mario Krenn; Robert Pollice; Si Yue Guo; Matteo Aldeghi; Alba Cervera-Lierta et al.",
       "abstract": "",
       "date": "2022-10-11",
-      "citations": 375,
+      "citations": 376,
       "pdf_url": "https://pure.mpg.de/rest/items/item_3450670/component/file_3450671/content",
       "url": "https://doi.org/10.1038/s42254-022-00518-3",
       "open_access": true,
@@ -52486,37 +52469,6 @@
       "relevance": 90,
       "relevance_reason": "CCEL은 DFT/계산화학을 활용하여 다양한 재료를 연구하지만, 0K DFT 예측과 실제 합성 결과 간의 불일치는 여전히 중요한 과제입니다. 본 논문은 무질서(disorder)가 고온에서 다형체의 상대적 안정성을 어떻게 변화시키는지 통계적 다형체 샘플러와 DFT를 통해 규명하여, 예측된 재료의 실제 합성 가능성을 평가하는 데 핵심적인 통찰을 제공합니다. 이는 CCEL이 새로운 촉매, 전극 재료 등을 설계하고 합성 가능성을 예측하는 데 직접적으로 적용될 수 있는 중요한 방법론적 기여입니다.",
       "ccel": false
-    },
-    {
-      "source": "Journal of Advanced Ceramics",
-      "openalex_id": "W4226153630",
-      "doi": "10.1007/s40145-022-0570-x",
-      "title": "Precise control of surface oxygen vacancies in ZnO nanoparticles for extremely high acetone sensing response",
-      "authors": [
-        "Jihyun Lee",
-        "Young Moon Choi",
-        "Byoung Joon Park",
-        "Jeong Woo Han",
-        "Hyun-Sook Lee",
-        "Jong Hyeok Park",
-        "Wooyoung Lee"
-      ],
-      "authors_str": "Jihyun Lee; Young Moon Choi; Byoung Joon Park; Jeong Woo Han; Hyun-Sook Lee et al.",
-      "abstract": "Abstract ZnO has been studied intensely for chemical sensors due to its high sensitivity and fast response. Here, we present a simple approach to precisely control oxygen vacancy contents to provide significantly enhanced acetone sensing performance of commercial ZnO nanopowders. A combination of H2O2 treatment and thermal annealing produces optimal surface defects with oxygen vacancies on the ZnO nanoparticles (NPs). The highest response of ~27,562 was achieved for 10 ppm acetone in 0.125 M H2O2 treated/annealed ZnO NPs at the optimal working temperature of 400 ℃, which is significantly higher than that of reported so far in various acetone sensors based on metal-oxide-semiconductor (MOS). Furthermore, first-principles calculations indicate that pre-adsorbed O formed on the surface of H2O2-treated ZnO NPs can provide a favorable adsorption energy, especially for acetone detection, due to strong bidentate bonding between carbonyl C atom of acetone molecules and pre-adsorbed O on the ZnO surface. Our study demonstrates that controlling surface oxygen vacancies by H2O2 treatment and re-annealing at optimal temperature is an effective method to improve the sensing properties of commercial MOS materials.",
-      "date": "2022-04-19",
-      "citations": 75,
-      "pdf_url": "https://link.springer.com/content/pdf/10.1007/s40145-022-0570-x.pdf",
-      "url": "https://doi.org/10.1007/s40145-022-0570-x",
-      "open_access": true,
-      "group": "ccel",
-      "ccel": true,
-      "summary": "본 연구는 상용 ZnO 나노입자의 아세톤 감지 성능을 향상시키기 위해 표면 산소 결함을 정밀하게 제어하는 간단한 방법을 제시합니다. H2O2 처리와 열처리를 조합하여 ZnO 나노입자 표면에 최적의 산소 결함을 형성하였으며, 0.125 M H2O2 처리 및 열처리된 ZnO는 400°C에서 10 ppm 아세톤에 대해 ~27,562의 매우 높은 감응도를 달성했습니다. 제일원리 계산(DFT)을 통해 H2O2 처리된 ZnO 표면의 사전 흡착된 산소와 아세톤 카르보닐 탄소 원자 간의 강한 이중치 결합이 감지 성능 향상에 기여함을 규명했습니다. 이는 상용 금속 산화물 반도체(MOS) 재료의 감지 특성을 개선하는 효과적인 방법임을 보여주며, 기존 보고된 아세톤 센서 중 최고 수준의 감응도를 달성했습니다. CCEL의 DFT/계산화학 및 불균일 촉매 연구 분야와 직접적으로 관련됩니다.",
-      "categories": [
-        "catalysis",
-        "dft"
-      ],
-      "category": "catalysis",
-      "relevance": 90
     }
   ]
 }
