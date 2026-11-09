@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-09T07:41:44.312696",
-  "date": "2026-11-09",
+  "generated_at": "2026-11-10T08:01:26.889980",
+  "date": "2026-11-10",
   "total_papers": 1453,
-  "ccel_papers": 108,
+  "ccel_papers": 107,
   "weekly_digest": {
     "sections": [],
     "hot_issues": [],
@@ -203,7 +203,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:00.762432"
+        "generated_at": "2026-11-10T07:58:43.357838"
       },
       "digest_yearly": {
         "depth": "light",
@@ -216,7 +216,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:03.517019"
+        "generated_at": "2026-11-10T07:58:46.070939"
       },
       "digest_3year": {
         "depth": "full",
@@ -229,7 +229,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:06.847487"
+        "generated_at": "2026-11-10T07:58:49.315146"
       }
     },
     "norskov": {
@@ -243,7 +243,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:08.849182"
+        "generated_at": "2026-11-10T07:58:51.316629"
       },
       "digest_yearly": {
         "depth": "light",
@@ -256,7 +256,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:09.596211"
+        "generated_at": "2026-11-10T07:58:52.074240"
       },
       "digest_3year": {
         "depth": "light",
@@ -269,7 +269,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:12.365548"
+        "generated_at": "2026-11-10T07:58:54.772662"
       }
     },
     "persson": {
@@ -289,7 +289,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:15.134986"
+        "generated_at": "2026-11-10T07:58:57.637494"
       },
       "digest_yearly": {
         "depth": "full",
@@ -302,7 +302,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:18.279773"
+        "generated_at": "2026-11-10T07:59:00.842211"
       },
       "digest_3year": {
         "depth": "full",
@@ -315,7 +315,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:21.539873"
+        "generated_at": "2026-11-10T07:59:04.091991"
       }
     },
     "curtarolo": {
@@ -329,7 +329,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:23.542106"
+        "generated_at": "2026-11-10T07:59:06.093634"
       },
       "digest_yearly": {
         "depth": "light",
@@ -342,7 +342,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:24.316901"
+        "generated_at": "2026-11-10T07:59:06.862051"
       },
       "digest_3year": {
         "depth": "full",
@@ -355,7 +355,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:27.477553"
+        "generated_at": "2026-11-10T07:59:10.002061"
       }
     },
     "ceriotti": {
@@ -363,7 +363,7 @@
       "pi": "Michele Ceriotti",
       "paper_count_monthly": 1,
       "paper_count_yearly": 33,
-      "paper_count_3year": 66,
+      "paper_count_3year": 65,
       "digest_monthly": {
         "depth": "light",
         "parse_failed": true,
@@ -375,7 +375,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:30.235379"
+        "generated_at": "2026-11-10T07:59:12.766654"
       },
       "digest_yearly": {
         "depth": "full",
@@ -388,7 +388,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:33.355263"
+        "generated_at": "2026-11-10T07:59:15.872300"
       },
       "digest_3year": {
         "depth": "full",
@@ -401,7 +401,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:36.508993"
+        "generated_at": "2026-11-10T07:59:19.107357"
       }
     },
     "csanyi": {
@@ -415,7 +415,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:38.510024"
+        "generated_at": "2026-11-10T07:59:21.109667"
       },
       "digest_yearly": {
         "depth": "light",
@@ -428,7 +428,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:39.274255"
+        "generated_at": "2026-11-10T07:59:21.870842"
       },
       "digest_3year": {
         "depth": "full",
@@ -441,7 +441,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:42.537183"
+        "generated_at": "2026-11-10T07:59:25.097066"
       }
     },
     "vonlilienfeld": {
@@ -455,7 +455,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:44.539241"
+        "generated_at": "2026-11-10T07:59:27.100023"
       },
       "digest_yearly": {
         "depth": "light",
@@ -468,7 +468,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:45.336780"
+        "generated_at": "2026-11-10T07:59:27.855237"
       },
       "digest_3year": {
         "depth": "light",
@@ -481,7 +481,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:48.118556"
+        "generated_at": "2026-11-10T07:59:30.628057"
       }
     },
     "behler": {
@@ -501,7 +501,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:50.832929"
+        "generated_at": "2026-11-10T07:59:33.398594"
       },
       "digest_yearly": {
         "depth": "light",
@@ -514,7 +514,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:53.611038"
+        "generated_at": "2026-11-10T07:59:36.155020"
       },
       "digest_3year": {
         "depth": "full",
@@ -527,7 +527,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:56.862365"
+        "generated_at": "2026-11-10T07:59:39.321649"
       }
     },
     "kozinsky": {
@@ -541,7 +541,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:58.864966"
+        "generated_at": "2026-11-10T07:59:41.323586"
       },
       "digest_yearly": {
         "depth": "light",
@@ -554,7 +554,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:39:59.619917"
+        "generated_at": "2026-11-10T07:59:42.020234"
       },
       "digest_3year": {
         "depth": "full",
@@ -567,7 +567,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:02.758525"
+        "generated_at": "2026-11-10T07:59:45.170173"
       }
     },
     "ong": {
@@ -587,7 +587,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:05.543114"
+        "generated_at": "2026-11-10T07:59:47.944935"
       },
       "digest_yearly": {
         "depth": "light",
@@ -600,7 +600,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:08.222809"
+        "generated_at": "2026-11-10T07:59:50.719515"
       },
       "digest_3year": {
         "depth": "light",
@@ -613,7 +613,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:10.993473"
+        "generated_at": "2026-11-10T07:59:53.479904"
       }
     },
     "schutt": {
@@ -627,14 +627,14 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:12.995818"
+        "generated_at": "2026-11-10T07:59:55.482439"
       },
       "digest_yearly": {
         "depth": "empty",
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:12.995818"
+        "generated_at": "2026-11-10T07:59:55.482439"
       },
       "digest_3year": {
         "depth": "light",
@@ -647,7 +647,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:13.775438"
+        "generated_at": "2026-11-10T07:59:56.161773"
       }
     },
     "aspuruguzik": {
@@ -667,7 +667,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:16.506050"
+        "generated_at": "2026-11-10T07:59:58.936513"
       },
       "digest_yearly": {
         "depth": "full",
@@ -680,7 +680,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:19.643235"
+        "generated_at": "2026-11-10T08:00:02.105522"
       },
       "digest_3year": {
         "depth": "full",
@@ -693,7 +693,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:22.791787"
+        "generated_at": "2026-11-10T08:00:05.384260"
       }
     },
     "kulik": {
@@ -713,7 +713,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:25.543706"
+        "generated_at": "2026-11-10T08:00:08.096780"
       },
       "digest_yearly": {
         "depth": "light",
@@ -726,7 +726,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:28.283331"
+        "generated_at": "2026-11-10T08:00:10.807370"
       },
       "digest_3year": {
         "depth": "full",
@@ -739,7 +739,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:31.438013"
+        "generated_at": "2026-11-10T08:00:13.995460"
       }
     },
     "kimjihan": {
@@ -759,7 +759,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:34.221560"
+        "generated_at": "2026-11-10T08:00:16.744665"
       },
       "digest_yearly": {
         "depth": "light",
@@ -772,7 +772,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:36.923328"
+        "generated_at": "2026-11-10T08:00:19.460068"
       },
       "digest_3year": {
         "depth": "full",
@@ -785,7 +785,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:40.092081"
+        "generated_at": "2026-11-10T08:00:22.710084"
       }
     },
     "schwalbekoda": {
@@ -805,7 +805,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:42.875102"
+        "generated_at": "2026-11-10T08:00:25.443661"
       },
       "digest_yearly": {
         "depth": "light",
@@ -818,7 +818,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:45.650128"
+        "generated_at": "2026-11-10T08:00:28.166615"
       },
       "digest_3year": {
         "depth": "light",
@@ -831,7 +831,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:48.344423"
+        "generated_at": "2026-11-10T08:00:30.911185"
       }
     },
     "unke": {
@@ -851,7 +851,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:51.048089"
+        "generated_at": "2026-11-10T08:00:33.650292"
       },
       "digest_yearly": {
         "depth": "light",
@@ -864,7 +864,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:53.810792"
+        "generated_at": "2026-11-10T08:00:36.386972"
       },
       "digest_3year": {
         "depth": "light",
@@ -877,7 +877,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:56.596255"
+        "generated_at": "2026-11-10T08:00:39.129737"
       }
     },
     "gasteiger": {
@@ -891,7 +891,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:58.597851"
+        "generated_at": "2026-11-10T08:00:41.132079"
       },
       "digest_yearly": {
         "depth": "light",
@@ -904,7 +904,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:40:59.294158"
+        "generated_at": "2026-11-10T08:00:41.867508"
       },
       "digest_3year": {
         "depth": "light",
@@ -917,7 +917,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:02.119732"
+        "generated_at": "2026-11-10T08:00:44.580472"
       }
     },
     "zitnick": {
@@ -931,7 +931,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:04.121400"
+        "generated_at": "2026-11-10T08:00:46.582008"
       },
       "digest_yearly": {
         "depth": "light",
@@ -944,7 +944,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:04.875826"
+        "generated_at": "2026-11-10T08:00:47.328383"
       },
       "digest_3year": {
         "depth": "light",
@@ -957,7 +957,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:07.565823"
+        "generated_at": "2026-11-10T08:00:50.067750"
       }
     },
     "hammer": {
@@ -971,7 +971,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:09.567814"
+        "generated_at": "2026-11-10T08:00:52.069406"
       },
       "digest_yearly": {
         "depth": "light",
@@ -984,7 +984,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:10.343601"
+        "generated_at": "2026-11-10T08:00:52.812148"
       },
       "digest_3year": {
         "depth": "light",
@@ -997,7 +997,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:13.086396"
+        "generated_at": "2026-11-10T08:00:55.545290"
       }
     },
     "goddard": {
@@ -1011,7 +1011,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:15.087861"
+        "generated_at": "2026-11-10T08:00:57.546301"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1024,7 +1024,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:15.780887"
+        "generated_at": "2026-11-10T08:00:58.352903"
       },
       "digest_3year": {
         "depth": "full",
@@ -1037,7 +1037,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:19.048280"
+        "generated_at": "2026-11-10T08:01:01.637943"
       }
     },
     "nazar": {
@@ -1051,7 +1051,7 @@
         "hot_issues": [],
         "sections": [],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:21.051377"
+        "generated_at": "2026-11-10T08:01:03.640063"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1064,7 +1064,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:21.817037"
+        "generated_at": "2026-11-10T08:01:04.361773"
       },
       "digest_3year": {
         "depth": "full",
@@ -1077,7 +1077,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:24.961120"
+        "generated_at": "2026-11-10T08:01:07.496145"
       }
     },
     "ceder": {
@@ -1097,7 +1097,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:27.672564"
+        "generated_at": "2026-11-10T08:01:10.245550"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1110,7 +1110,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:30.435815"
+        "generated_at": "2026-11-10T08:01:12.984403"
       },
       "digest_3year": {
         "depth": "full",
@@ -1123,7 +1123,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:33.598717"
+        "generated_at": "2026-11-10T08:01:16.095089"
       }
     },
     "rignanese": {
@@ -1143,7 +1143,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:36.338052"
+        "generated_at": "2026-11-10T08:01:18.808070"
       },
       "digest_yearly": {
         "depth": "light",
@@ -1156,7 +1156,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:39.123028"
+        "generated_at": "2026-11-10T08:01:21.575712"
       },
       "digest_3year": {
         "depth": "full",
@@ -1169,7 +1169,7 @@
           }
         ],
         "notable_papers": [],
-        "generated_at": "2026-11-09T07:41:42.287743"
+        "generated_at": "2026-11-10T08:01:24.865548"
       }
     }
   },
@@ -1293,6 +1293,66 @@
   "papers": [
     {
       "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71739",
+      "title": "Dual Suppression of Triplet Exciton and Energetic Disorder via Organic Room‐Temperature Phosphorescent Additive to Reduce Energy Loss in Organic Solar Cells",
+      "authors": [],
+      "authors_str": "Qingqiu Zhu, \nJunhong Liang, \nXiaosong Qiu, \nLiangliang Chen, \nYiyun Zeng, \nMingxuan Yang, \nZixun Chen, \nWentao Miao, \nMing Wan, \nYao Wu, \nRenqiang Yang, \nXunchang Wang",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-11-07",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71739?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71800",
+      "title": "Synergistic Crystallization Regulation and Defect Suppression via Dual‐Site Molecular Coordination for Efficient Inverted Perovskite Solar Cells",
+      "authors": [],
+      "authors_str": "Xingyan Wang, \nGuangpeng Feng, \nXiaoya Chen, \nXilai He, \nRanhao Yin, \nHui Chen, \nJunkang Hou, \nZihao Zhou, \nChenghao Wen, \nFarid Ruziev, \nDapeng Wang, \nXiaohu Yu, \nQi Cao, \nXuanhua Li",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-11-07",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71800?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
+      "doi": "10.1002/aenm.71813",
+      "title": "Ultra‐High Ionic Conductivity Sulfide‐Based Composite Membranes Paired With Stable Interfacial Layer Enables High‐Energy‐Density All‐Solid‐State Batteries",
+      "authors": [],
+      "authors_str": "Yang Li, \nJiachen Hu, \nHuan Li, \nXianyi Zhao, \nPeng Lei, \nXiaoxue Zhao, \nHong Liu, \nCe‐Wen Nan, \nLi‐Zhen Fan",
+      "abstract": "Advanced Energy Materials, EarlyView.",
+      "date": "2026-11-07",
+      "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.71813?af=R",
+      "pdf_url": null,
+      "open_access": false,
+      "summary": "Advanced Energy Materials, EarlyView.",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "Advanced Energy Materials",
       "doi": "10.1002/aenm.71826",
       "title": "Non‐Planar Chlorine‐Coordinated Activation of Triatomic Ruthenium Sites for Efficient Oxygen Reduction",
       "authors": [],
@@ -1349,6 +1409,92 @@
       "ccel": false
     },
     {
+      "source": "arXiv",
+      "arxiv_id": "2611.09325v1",
+      "doi": null,
+      "title": "Physics Informed Priors for Machine Learning Interatomic Potentials with Uncertainty Quantification",
+      "authors": [
+        "George I. Simmons",
+        "Thomas D. Swinburne",
+        "Thomas Hudson",
+        "James R. Kermode"
+      ],
+      "authors_str": "George I. Simmons; Thomas D. Swinburne; Thomas Hudson; James R. Kermode",
+      "abstract": "Standard uncertainty quantification methods for machine learning interatomic potentials often fail to quantify the effects of model misspecification despite its prominence as a source of error. To combat this, misspecification-aware uncertainty schemes have been gaining attention, pointwise optimal parameter set regression (POPS-Regression) among them. However, no guarantees on the physicality of the posterior distribution are given and uncertainty estimates can be conservative compared to the true error. To combat this, we present a model misspecification aware scheme that builds on POPS-Regression by allowing users to specify physical priors that are enforced across the obtained ensemble of models. This allows the user to incorporate misspecification-aware uncertainties without compromising on physical properties. The scheme is applicable to any physical quantity that can be represented by a convex set of parameters and so is robust for a wide variety of static properties which can help inform dynamical simulations. Here, we demonstrate the scheme for phononic vibrations and elastic properties. The scheme is also applied to both linear and message-passing neural network potentials by exploiting the linearity available in both architectures; for neural network potentials we approximate the readout layer as a linear model based on fixed non-linear features. The versatility of the method provides an alternative to hand-crafted or active learning approaches to data-set construction to correct physical failures by adding data thus reducing the computational overhead for designing potentials for specific applications.",
+      "date": "2026-11-06",
+      "updated": "2026-11-06",
+      "categories": [
+        "dft"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.09325v1",
+      "url": "https://arxiv.org/abs/2611.09325v1",
+      "open_access": true,
+      "summary": "Standard uncertainty quantification methods for machine learning interatomic potentials often fail to quantify the effects of model misspecification despite its prominence as a source of error. To com",
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "arXiv",
+      "arxiv_id": "2611.09025v1",
+      "doi": null,
+      "title": "Symmetry-Gated Sliding: Decoupling Interlayer Translation from Polarization Reversal in Boron Nitride Ferroelectrics",
+      "authors": [
+        "Yinan Wang",
+        "Teruyasu Mizoguchi"
+      ],
+      "authors_str": "Yinan Wang; Teruyasu Mizoguchi",
+      "abstract": "Electric-field-driven polarization switching in sliding ferroelectrics depends on how local interlayer motion is accommodated by the surrounding structure. Yet the relationship between sliding, domain-wall (DW) propagation, and collective domain evolution under changing vector fields remains unclear. Here, we show that local symmetry governs the coupling between field-induced forces and interlayer sliding, while DW connectivity determines how local motion contributes to net domain conversion. These effects are examined across three structural scales, from monodomains and isolated DWs to reconstructed moire networks. We investigate bilayer hexagonal boron nitride (h-BN) using molecular dynamics with a machine-learning interatomic potential that incorporates field-dependent electric enthalpy. An initially monodomain bilayer switches through directional wrinkling and interlayer sliding, while the barrier along a constrained flat path remains finite. Pre-existing DWs propagate with velocities governed by their shear and tensile character, and an additional in-plane field tunes wall velocity and width according to its orientation. In reconstructed triangular moire networks, shared junctions and boundary curvature mediate domain evolution and recovery after field removal or reversal. Most strikingly, a rotating in-plane field translates the layers and displaces the moiré nodes by approximately 1 AA yet leaves the AB/BA domain-area ratio without detectable change, because threefold connectivity cancels the contributions of individual walls. We term this response polarization-silent sliding. These results distinguish local sliding, DW translation, and net domain conversion as different responses to electric fields and establish how local structural symmetry and DW connectivity shape their selective control.",
+      "date": "2026-11-06",
+      "updated": "2026-11-06",
+      "categories": [
+        "dft"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.09025v1",
+      "url": "https://arxiv.org/abs/2611.09025v1",
+      "open_access": true,
+      "summary": "Electric-field-driven polarization switching in sliding ferroelectrics depends on how local interlayer motion is accommodated by the surrounding structure. Yet the relationship between sliding, domain",
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
+      "source": "arXiv",
+      "arxiv_id": "2611.08874v1",
+      "doi": null,
+      "title": "Fortuitous Cancellation of Competing Effects in the Free Energy of Water Autoionization: Long-Range Electrostatics, System Size, and Nuclear Quantum Effects",
+      "authors": [
+        "Samuel Varner",
+        "Yinan Xu",
+        "Yezhi Jin",
+        "Gustavo R. Pérez-Lemus",
+        "Pablo F. Zubieta Rico",
+        "Zhiying Yi",
+        "Joan M. Montes de Oca",
+        "Paul F. Nealey",
+        "Seth B. Darling",
+        "Zhen-Gang Wang",
+        "Juan J. de Pablo"
+      ],
+      "authors_str": "Samuel Varner; Yinan Xu; Yezhi Jin; Gustavo R. Pérez-Lemus; Pablo F. Zubieta Rico et al.",
+      "abstract": "Few molecular processes are more fundamental to chemistry than the autoionization of water, whose equilibrium constant, $K_w \\approx 10^{-14}$, underlies acid-base equilibria and the chemistry of life. Yet the molecular origins of the free energy cost of forming and separating ions remain incompletely understood. Efforts to explain it have been limited by the difficulty of modeling water reactivity in sufficient detail. Here we combine machine learning interatomic potentials (MLIPs) with spectral adaptive biasing force enhanced sampling to connect proton transfer and water wire configurations to the underlying free energy landscape. We identify competing influences of long-range electrostatics, system size, temperature, and nuclear quantum motion on the predicted ionization thermodynamics. The free energy surface extends from neutral water to ions separated beyond the solvent-separated ion pair (SSIP). It reveals a transition state in which a proton is shared between the second and third molecules of a three-membered water wire. The contact ion pair is unstable and the SSIP only weakly metastable, so determining pK$_w$ requires sampling longer wires. Long-range electrostatics raise the free energy at ion separations beyond $3\\,\\mathrm{\\mathring{A}}$. Models with comparable force errors give substantially different free energy profiles in this region. Increasing system size lowers the calculated pK$_w$, while nuclear quantum effects bring it closer to experiment and reproduce the higher pK$_w$ of D$_2$O relative to H$_2$O. These results establish a baseline for interpreting thermodynamic results from MLIP simulations in which charged and polar groups react and diffuse in finite cells. Our analysis also explains how cancellation among competing effects can yield ionization constants close to experiment even when simulations omit several physical contributions.",
+      "date": "2026-11-06",
+      "updated": "2026-11-06",
+      "categories": [
+        "dft"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.08874v1",
+      "url": "https://arxiv.org/abs/2611.08874v1",
+      "open_access": true,
+      "summary": "Few molecular processes are more fundamental to chemistry than the autoionization of water, whose equilibrium constant, $K_w \\approx 10^{-14}$, underlies acid-base equilibria and the chemistry of life",
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
       "source": "Research Square",
       "openalex_id": "W7225423805",
       "doi": "10.21203/rs.3.rs-11385922/v1",
@@ -1384,7 +1530,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -1423,6 +1568,30 @@
       ],
       "category": "dft",
       "relevance": 50,
+      "ccel": false
+    },
+    {
+      "source": "arXiv",
+      "arxiv_id": "2611.08678v1",
+      "doi": null,
+      "title": "Jackknife-conformal uncertainty for linear ACE potentials: calibrated forces and silicon properties compared with Bayesian and POPS baselines",
+      "authors": [
+        "James R. Kermode"
+      ],
+      "authors_str": "James R. Kermode",
+      "abstract": "Machine-learned interatomic potentials are misspecified, so Bayesian posterior variances understate their errors. For linear atomic cluster expansion (ACE) potentials we derive calibrated uncertainties from one misspecification-robust parameter covariance, the delete-one-configuration jackknife. Scaled by one conformal quantile from a held-out part of the training set, it gives per-atom force uncertainties close to their target coverage on held-out silicon data and on cracks left out of the fit; screw dislocations left out are under-covered by the smaller of the two models. With one scale fitted to the forces of a held-out test split, the same parameter distribution is propagated to 21 properties of silicon, from elastic constants to defect and surface energies, by implicit differentiation through each relaxation and by committees, and is tested against density functional theory (DFT) without tuning on any property. For a smaller and a larger model the intervals cover most properties, and the larger model's are about 4 times tighter. The Bayesian posterior with one calibrated scale has the wrong shape: it covers fewer properties and has far lower joint evidence. Pointwise optimal parameter sets (POPS), once their hypercube is numerically defined, performs comparably on the properties, but its per-atom force regions are not calibrated to a target (0.95 and 0.84 at a nominal 0.90). Where the jackknife fails is relaxed point defects, whose training cells are all hot snapshots: a bias that every configuration shares is invisible to a jackknife, but it can be measured from the training labels, and as a discrepancy term, devised after the property results were seen, it brings the coverage close to nominal.",
+      "date": "2026-11-05",
+      "updated": "2026-11-05",
+      "categories": [
+        "dft"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.08678v1",
+      "url": "https://arxiv.org/abs/2611.08678v1",
+      "open_access": true,
+      "summary": "Machine-learned interatomic potentials are misspecified, so Bayesian posterior variances understate their errors. For linear atomic cluster expansion (ACE) potentials we derive calibrated uncertaintie",
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -2000,7 +2169,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -2096,7 +2264,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -3138,7 +3305,6 @@
       ],
       "category": "dft",
       "relevance": 50,
-      "relevance_reason": "",
       "ccel": false
     },
     {
@@ -3371,7 +3537,7 @@
     },
     {
       "source": "arXiv",
-      "arxiv_id": "2611.00942v1",
+      "arxiv_id": "2611.00942v2",
       "doi": null,
       "title": "EPIC: Differentiable Energy-Force Consistent Uncertainty Quantification and Propagation for Machine-Learned Interatomic Potentials",
       "authors": [
@@ -3383,12 +3549,12 @@
       "authors_str": "Tianhao Su; Musen Li; Shunbo Hu; Tong-Yi Zhang",
       "abstract": "Machine-learned interatomic potentials (MLIPs) now rival density functional theory in accuracy and are increasingly used to screen vast crystal databases, yet they can produce unreliable predictions for chemistries outside their training distribution without clear warning. Existing force-level evidential approaches do not inherently define a corresponding uncertainty model over the potential energy surface, limiting the consistent propagation of uncertainty to energy-derived observables. Here we introduce Energy-Propagated Intrinsic Confidence (EPIC), a general energy-centered evidential framework that derives forces as exact gradients of the predicted mean energy, ensuring conservative force fields while providing an analytical estimate of energy uncertainty. Coupled to a MACE backbone trained on the Materials Project trajectory dataset, EPIC propagates uncertainty diagnostics to equations of state, anisotropic structural uncertainty ellipsoids, and phonon dispersions through a Monte Carlo procedure. Applied to 10,966 candidate crystals, the fraction classified as robustly dynamically stable increases from 11\\% in the highest-uncertainty quartile to 53\\% in the lowest-uncertainty quartile. Furthermore, element-resolved analysis reveals a pronounced chemistry dependence in the relationship between epistemic uncertainty and predicted dynamical stability, highlighting potential limitations in the description of complex bonding environments. EPIC thus provides a physics-aware, chemistry-sensitive uncertainty diagnostic for high-throughput screening and autonomous materials discovery.",
       "date": "2026-10-31",
-      "updated": "2026-10-31",
+      "updated": "2026-11-06",
       "categories": [
         "dft"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.00942v1",
-      "url": "https://arxiv.org/abs/2611.00942v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.00942v2",
+      "url": "https://arxiv.org/abs/2611.00942v2",
       "open_access": true,
       "summary": "Machine-learned interatomic potentials (MLIPs) now rival density functional theory in accuracy and are increasingly used to screen vast crystal databases, yet they can produce unreliable predictions f",
       "category": "dft",
@@ -3609,25 +3775,25 @@
     },
     {
       "source": "arXiv",
-      "arxiv_id": "2610.41675v2",
+      "arxiv_id": "2610.41675v3",
       "doi": null,
       "title": "Radial Kernel Attention for Global Feature Exchange in Polymer Machine Learning Force Fields",
       "authors": [
         "Wenbo Fu",
         "Chenghui Mao",
-        "Chengwen Hu",
         "Haifeng Lv",
+        "Chengwen Hu",
         "Zhou Lu"
       ],
-      "authors_str": "Wenbo Fu; Chenghui Mao; Chengwen Hu; Haifeng Lv; Zhou Lu",
+      "authors_str": "Wenbo Fu; Chenghui Mao; Haifeng Lv; Chengwen Hu; Zhou Lu",
       "abstract": "We introduce Radial Kernel Attention (RKA) for long-range modeling in polymer machine learning force fields. Existing approaches often rely on local neighbor graphs, which limit communication across polymer chains and their surrounding environments, whereas explicit all-pair attention incurs quadratic computational cost. RKA maps interatomic distances from the cluster centroid to learned radial features and combines their kernelized overlap with content-dependent queries and keys. Factorized aggregation and readout enable global feature exchange at linear complexity in the number of atoms for fixed feature dimensions. To ensure physically consistent predictions, we insert the invariant scalar update between EquiformerV3 local blocks and obtain conservative forces by differentiating the total energy, including its dependence on radial coordinate . Our models are trained on official OPoly26 training set for 12 epochs and evaluated directly after training on the complete official validation set. A matched 5M comparison shows that RKA reduces per-atom energy and force MAEs by 67.4% and 36.3%, respectively. The 20M RKA model attains a total-energy MAE of 15.81 meV (per-atom MAE of 0.1182 meV/atom) and a force MAE of 2.619 meV/Angstrom,improving all three metrics over UMA-S-1.2 and UMA-S-1.2.1 on the same validation structures. RKA provides a compact pathway for information exchange beyond local graph connectivity in polymer machine learning force fields.",
       "date": "2026-10-30",
-      "updated": "2026-11-02",
+      "updated": "2026-11-06",
       "categories": [
         "dft"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.41675v2",
-      "url": "https://arxiv.org/abs/2610.41675v2",
+      "pdf_url": "https://arxiv.org/pdf/2610.41675v3",
+      "url": "https://arxiv.org/abs/2610.41675v3",
       "open_access": true,
       "summary": "We introduce Radial Kernel Attention (RKA) for long-range modeling in polymer machine learning force fields. Existing approaches often rely on local neighbor graphs, which limit communication across p",
       "category": "dft",
@@ -4532,55 +4698,6 @@
     },
     {
       "source": "arXiv",
-      "arxiv_id": "2610.33315v1",
-      "doi": null,
-      "title": "MLIPDiff: Guiding Denoising Diffusion Models for Structure-Based Drug Design via Machine-Learned Interatomic Potentials",
-      "authors": [
-        "Yiyan Liao",
-        "Amin Tavakoli",
-        "Yu Zhang",
-        "Anima Anandkumar"
-      ],
-      "authors_str": "Yiyan Liao; Amin Tavakoli; Yu Zhang; Anima Anandkumar",
-      "abstract": "Diffusion models have become a dominant approach to structure-based drug design. However, because they are trained primarily to fit reference structures, they often place ligands in physically implausible poses that clash with the protein. We introduce MLIPDiff, an inference-time guidance method that can be applied to pretrained diffusion models for ligand generation. The method uses physics-informed guidance from UMA (Universal Models for Atoms), a machine-learned interatomic potential (MLIP). The guidance combines four weighted energy terms (protein-ligand interaction, ligand strain, steric clash, and pocket anchoring) and uses the original model checkpoint without retraining. On CrossDocked2020, MLIPDiff completely eliminates protein-ligand collisions while preserving the ligand's local geometry, improving bond-length distributions and physical plausibility relative to the base model. Compared to models such as NucleusDiff that are specifically designed to reduce atomic clashes, MLIPDiff achieves clash-free structures without compromising local geometry. It maintains the base model's PoseBusters pass rate and attains the best median Vina Score, Vina Min, and Vina Dock, surpassing both the base model and NucleusDiff, with a median of 59.6\\% of ligands per pocket binding more strongly than the reference. MLIPDiff thus addresses a limitation of prior methods by generating physically plausible structures with favorable predicted binding affinity using a single frozen model and no additional training.",
-      "date": "2026-10-23",
-      "updated": "2026-10-23",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.33315v1",
-      "url": "https://arxiv.org/abs/2610.33315v1",
-      "open_access": true,
-      "summary": "Diffusion models have become a dominant approach to structure-based drug design. However, because they are trained primarily to fit reference structures, they often place ligands in physically implaus",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
-      "arxiv_id": "2610.32652v2",
-      "doi": null,
-      "title": "Low-variance estimators for nuclear quantum mean forces",
-      "authors": [
-        "Venkat Kapil"
-      ],
-      "authors_str": "Venkat Kapil",
-      "abstract": "Quantum nuclear effects on the statistical properties of position-dependent operators can be rigorously captured by molecular dynamics on the learnt potential of mean force of a single path-integral replica. However, the primitive mean-force averages obtained from path integral molecular dynamics with that replica held fixed are noisy. We derive a \"scaled gradient\" estimator with zero variance for a one-dimensional harmonic oscillator. On our molecular benchmark systems, the Zundel cation at 100 K and 300 K and bulk water at 300 K we observe nearly 5 to 50 times reduction in sampling time. The resulting potentials can be trained on these forces like standard machine learning interatomic potentials and yield stable production simulations from which quantum expectation values of position-dependent observables are obtained as classical ensemble averages.",
-      "date": "2026-10-23",
-      "updated": "2026-10-26",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.32652v2",
-      "url": "https://arxiv.org/abs/2610.32652v2",
-      "open_access": true,
-      "summary": "Quantum nuclear effects on the statistical properties of position-dependent operators can be rigorously captured by molecular dynamics on the learnt potential of mean force of a single path-integral r",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
       "openalex_id": "W7223681970",
       "doi": "10.48550/arxiv.2610.32905",
       "title": "Combining Simulations and Spectroscopy to Design Protective Coatings on Sulfide Solid Electrolytes",
@@ -4604,64 +4721,6 @@
       "categories": [
         "dft"
       ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
-      "arxiv_id": "2610.31183v1",
-      "doi": null,
-      "title": "Unconstrained learning of equivariant atomistic properties",
-      "authors": [
-        "Joseph W. Abbott",
-        "Paolo Pegolo",
-        "Pol Febrer",
-        "Michelangelo Domina",
-        "Sandra Saade",
-        "Matthias Kellner",
-        "Filippo Bigi",
-        "Philip Loche",
-        "Michele Ceriotti"
-      ],
-      "authors_str": "Joseph W. Abbott; Paolo Pegolo; Pol Febrer; Michelangelo Domina; Sandra Saade et al.",
-      "abstract": "Machine-learned interatomic potentials based on graph neural networks (GNNs) have made first-principles accuracy routine for the potential energy surface (PES). Their backbones, often O(3)-equivariant by design, are increasingly used to learn other atomistic properties. Many of these are of high angular order or pseudotensorial character, defined per atom, or expanded on large atom-centered basis sets. Such targets strain equivariant GNNs, whose tensor products grow steeply in cost with angular order and can fail to represent the target if truncated, forcing difficult trade-offs between hyperparameters. Unconstrained models like the Point-Edge Transformer (PET) instead replace explicit O(3) algebra with edge-to-edge attention and learn equivariance from data, so that the same backbone can in principle learn any equivariant property. We demonstrate how to use PET to learn molecular dipoles and polarizabilities, NMR chemical shielding tensors, and auxiliary-basis expansions of the electron density. Increasing the backbone size systematically improves both accuracy and equivariance error, and targeted architectural and training choices reduce the symmetry breaking further. PET matches or improves on the released reference models at lower inference cost and, compared with equivariant models, a smaller memory footprint. The predictions give accurate IR and Raman spectra and isotropic shieldings; the predicted densities accelerate self-consistent field calculations and give one-shot ground-state properties, and pretrained density models transfer to higher levels of theory by fine-tuning on little data. The impact of approximate equivariance is small for most observables, further validating this approach to train fast, accurate, and useful surrogate models for properties beyond the PES.",
-      "date": "2026-10-22",
-      "updated": "2026-10-22",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.31183v1",
-      "url": "https://arxiv.org/abs/2610.31183v1",
-      "open_access": true,
-      "summary": "Machine-learned interatomic potentials based on graph neural networks (GNNs) have made first-principles accuracy routine for the potential energy surface (PES). Their backbones, often O(3)-equivariant",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
-      "arxiv_id": "2610.30918v1",
-      "doi": null,
-      "title": "Thermal expansion mechanisms, heat transport, and band-gap renormalization in strongly anharmonic Rb$_2$SO$_4$, Rb$_2$Ca$_2$(SO$_4$)$_3$, and Ba$_3$Lu(BO$_3$)$_3$ from machine-learned interatomic potentials",
-      "authors": [
-        "Ekaterina Spirande",
-        "Rustam Arabov",
-        "Sofya Demina",
-        "Nikita Rybin",
-        "Alexander Shapeev"
-      ],
-      "authors_str": "Ekaterina Spirande; Rustam Arabov; Sofya Demina; Nikita Rybin; Alexander Shapeev",
-      "abstract": "Rb$_2$SO$_4$, Rb$_2$Ca$_2$(SO$_4$)$_3$, and Ba$_3$Lu(BO$_3$)$_3$ are structurally complex materials whose thermal expansion has been interpreted, on the basis of high-temperature x-ray diffraction, in terms of specific polyhedral rearrangements. We study their lattice dynamics and its consequences for thermal and electronic properties using molecular dynamics with actively learned moment tensor potentials trained on density-functional theory data. The anharmonicity measure $σ^A$ (compares the anharmonic contribution to the interatomic forces with the total forces acting on atoms) reaches $\\approx$0.3-0.5 for $β$-Rb$_2$SO$_4$, Rb$_2$Ca$_2$(SO$_4$)$_3$, and Ba$_3$Lu(BO$_3$)$_3$ and $\\approx$0.75 for orientationally disordered $α$-Rb$_2$SO$_4$, and the imaginary harmonic modes of Rb$_2$Ca$_2$(SO$_4$)$_3$ and $α$-Rb$_2$SO$_4$ are stabilized at finite temperature. The simulations reproduce the measured thermal expansion and support the mechanisms proposed from diffraction: expansion along $c$ in $β$-Rb$_2$SO$_4$ arises from both elongation and straightening of corrugated Rb chains, BO$_3$ reorientation accompanies the anisotropic expansion of Ba$_3$Lu(BO$_3$)$_3$, and bending of polyhedral linkages limits expansion along the weakly expanding directions and in cubic Rb$_2$Ca$_2$(SO$_4$)$_3$. Green-Kubo lattice thermal conductivities differ by more than an order of magnitude between compounds with comparable $σ^A$, showing that the anharmonicity measure alone does not determine heat transport. Phonon-induced band-gap renormalization, including lattice thermal expansion, reaches 2.7 and 1.7 eV at 1250 K in Rb$_2$Ca$_2$(SO$_4$)$_3$ and Ba$_3$Lu(BO$_3$)$_3$ and 1.4 eV at 650 K in $β$-Rb$_2$SO$_4$, with zero-point renormalizations of 0.64, 0.70, and 0.31 eV for $β$-Rb$_2$SO$_4$, Rb$_2$Ca$_2$(SO$_4$)$_3$, and Ba$_3$Lu(BO$_3$)$_3$, respectively.",
-      "date": "2026-10-22",
-      "updated": "2026-10-22",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.30918v1",
-      "url": "https://arxiv.org/abs/2610.30918v1",
-      "open_access": true,
-      "summary": "Rb$_2$SO$_4$, Rb$_2$Ca$_2$(SO$_4$)$_3$, and Ba$_3$Lu(BO$_3$)$_3$ are structurally complex materials whose thermal expansion has been interpreted, on the basis of high-temperature x-ray diffraction, in",
       "category": "dft",
       "relevance": 50,
       "ccel": false
@@ -5012,25 +5071,6 @@
       "ccel": false
     },
     {
-      "source": "Nature Catalysis",
-      "doi": "10.1038/s41929-026-01620-w",
-      "title": "Operando resolution of CO2 electrolysis interfaces at application-relevant current density reveals water gating",
-      "authors": [],
-      "authors_str": "Anku Guha",
-      "abstract": "",
-      "date": "2026-10-15",
-      "url": "https://www.nature.com/articles/s41929-026-01620-w",
-      "pdf_url": null,
-      "open_access": false,
-      "summary": "Operando resolution of CO2 electrolysis interfaces at application-relevant current density reveals water gating",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
       "source": "arXiv",
       "openalex_id": "W7222357831",
       "doi": "10.48550/arxiv.2610.19630",
@@ -5166,57 +5206,6 @@
     },
     {
       "source": "arXiv",
-      "arxiv_id": "2610.14392v1",
-      "doi": null,
-      "title": "Atoms that Matter: Largest Materials Datasets Are 99% Redundant, and Local Chemistry Can Guide the Required 1%",
-      "authors": [
-        "Evgeny Moerman",
-        "Igor Poltavsky",
-        "Anton Charkin-Gorbulin",
-        "Alexandre Tkatchenko"
-      ],
-      "authors_str": "Evgeny Moerman; Igor Poltavsky; Anton Charkin-Gorbulin; Alexandre Tkatchenko",
-      "abstract": "General-purpose machine-learning force fields (MLFFs) for materials are now trained on the order of $100$ million structures, assuming transferability requires such scale. We test this premise on OMat24, the largest available materials dataset, by training MACE models on subsets of $6.5$ million atoms, less than $1\\%$ of OMat24, selected in three complementary ways: at random, by latent-space clustering of a pretrained MLFF (DIRECT), and by a new model-free method maximizing the diversity of discrete, interpretable local environments (EnvTok). All three models approach the full-data reference MACE-OMAT-0 model to within a few tens of $\\mathrm{meV}/\\mathring{\\mathrm{A}}$ in forces, and remain close to or exceed it on formation energies, elastic moduli, heat capacities, Li$^{+}$ migration barriers, and molecular-dynamics stability up to $3000\\,$K and $500\\,$GPa. This near-independence from the selection strategy shows that chemical environment diversity, not size, defines OMat24's information content: the remaining $99\\%$ of structures are largely redundant. Broad sampling of chemical space thus remains essential, but reference labels are needed only for structurally and chemically distinct configurations. Using atomic positions and species, optionally augmented by magnetic moments, EnvTok identifies these before any labelling or training, yielding compact, architecture-independent datasets. This hundredfold reduction makes hybrid-DFT or higher-level relabelling of general-purpose training sets feasible, and frees computational budget for extending environmental coverage and multi-fidelity learning.",
-      "date": "2026-10-09",
-      "updated": "2026-10-09",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.14392v1",
-      "url": "https://arxiv.org/abs/2610.14392v1",
-      "open_access": true,
-      "summary": "General-purpose machine-learning force fields (MLFFs) for materials are now trained on the order of $100$ million structures, assuming transferability requires such scale. We test this premise on OMat",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
-      "arxiv_id": "2610.13902v1",
-      "doi": null,
-      "title": "Accuracy of Vibrational Properties of Machine-Learning Force Fields for Molecular Crystal Transformations",
-      "authors": [
-        "Natalia Goncharova",
-        "Oskar Schweighofer",
-        "Johannes Hoja"
-      ],
-      "authors_str": "Natalia Goncharova; Oskar Schweighofer; Johannes Hoja",
-      "abstract": "Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a good agreement in energies and structures does not necessarily imply an accurate description of vibrational properties, which are essential for characterizing transition states and determining free energies at finite temperatures. Herein, we assess the accuracy of system-specific SO3krates MLFFs trained on PBE+MBD reference data for describing vibrational properties of molecular crystal transformations. As examples, we consider a polymorph transition of 1,4-diiodobenzene and a single-crystal-to-single-crystal Diels-Alder reaction. The transition state structures obtained from solid-state nudged-elastic-band (NEB) calculations with the MLFFs exhibit a single imaginary $Γ$-point frequency associated with the respective transformation. Compared with PBE+MBD, the mean absolute errors of $Γ$-point vibrational frequencies and relative harmonic free energies at 300 K are about 3 cm$^{-1}$ and 1 kJ/mol, respectively. Furthermore, we compare for the Diels-Alder reaction a collective transformation pathway with a sequential one, in which individual diene-dienophile pairs react successively, and demonstrate that PBE0+MBD single-point corrections can significantly affect the predicted reaction energetics. These results demonstrate that system-specific MLFFs can reproduce not only the energies and forces but also the local curvature of the potential-energy surface with high accuracy, enabling reliable calculations of harmonic vibrational free energies, providing a basis for extending the studies of molecular crystal transformations to larger supercells.",
-      "date": "2026-10-09",
-      "updated": "2026-10-09",
-      "categories": [
-        "dft"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.13902v1",
-      "url": "https://arxiv.org/abs/2610.13902v1",
-      "open_access": true,
-      "summary": "Machine-learning force fields (MLFFs) enable the calculation of transformation pathways in molecular crystals at a fraction of the computational cost of density functional theory (DFT). However, a goo",
-      "category": "dft",
-      "relevance": 50,
-      "ccel": false
-    },
-    {
-      "source": "arXiv",
       "openalex_id": "W7221554824",
       "doi": "10.48550/arxiv.2610.13265",
       "title": "Quantitative modeling of acid-base equilibria",
@@ -5230,7 +5219,7 @@
       "authors_str": "Qianjun Xu; Simin Liu; Cesare Malosso; Philip Loche; Michele Ceriotti",
       "abstract": "Simulating acid-base equilibria from first principles is a tremendous challenge, as it requires modeling bond-breaking events in a complex hydrogen-bonding environment. The quantum mechanical behavior of the protons is often important, complicating simulations even further. We show that by combining state-of-the-art machine-learning potentials, accelerated sampling of the dissociation process, and an efficient estimation of nuclear quantum corrections it is possible to reliably compute the dissociation constants of different species in water. We demonstrate the transferability of this workflow, applying it successfully to the autoionization of water and to the entire ladder of the aqueous dissociation of phosphoric acid. The definition of the dissociation constant, the choice of order parameters, sampling artifacts and finite-size effects, as well as quantum nuclear effects all play a non-trivial role in determining the outcome of the calculation, so that cutting corners is likely to introduce biases that can only be compensated by fortuitous cancellations of errors.",
       "date": "2026-10-09",
-      "citations": 0,
+      "citations": 1,
       "pdf_url": "https://arxiv.org/pdf/2610.13265",
       "url": "https://arxiv.org/abs/2610.13265",
       "open_access": true,
@@ -5556,7 +5545,7 @@
       "authors_str": "Jörg Behler; Michele Ceriotti; Cecilia Clementi; Gábor Cśanyi; Alin M. Elena et al.",
       "abstract": "Data-driven machine learning (ML) techniques have become an essential tool in many domains of science. Their application to atomistic simulations of matter is particularly widespread and impactful. This success is due largely to the existence of a well-developed and established physics-based modeling framework, ranging from first-principles electronic-structure calculations to molecular dynamics and statistical sampling, into which ML was integrated naturally to reshape long-standing trade-offs between accuracy, efficiency, and scale. Nevertheless, this integration raises both conceptual and practical challenges, from choosing between data-centric and physics-based modeling approaches to adapting established software stacks to modern hardware accelerators and ML libraries. As the field evolves rapidly, fueled in part by widespread enthusiasm but also by tangible impact, it seems appropriate to take a moment to consider the current state of the art and open challenges, and reflect on what can be done to better coordinate efforts across the community. With this goal in mind, several members of this community met in Lausanne in January 2026 at CECAM to discuss algorithms, models, software and hardware infrastructure, and the most promising scientific applications that have become possible thanks to the use of artificial intelligence in atomic-scale simulations. This strategic roadmap paper summarizes the outcomes of these discussions, suggesting some long-term goals, and some concrete actions, to establish a healthy, sustainable and impactful atomistic ML ecosystem.",
       "date": "2026-09-30",
-      "citations": 4,
+      "citations": 5,
       "pdf_url": "https://arxiv.org/pdf/2609.39090",
       "url": "https://arxiv.org/abs/2609.39090",
       "open_access": true,
@@ -5959,7 +5948,7 @@
       "authors_str": "Tsz Wai Ko; Jiaru Bai; Thomas Swanick; Yeonghun Kang; Changhyeok Choi et al.",
       "abstract": "Foundational machine-learning interatomic potentials (MLIPs) are transforming atomistic simulations by achieving near-ab initio accuracy across large chemical spaces at a fraction of the computational cost. A central challenge in using these tools for high-throughput property calculations is translating high-level scientific intent into adaptive simulation campaigns without compromising workflow rigour. We introduce El Agente Potente, an agentic system that combines typed execution graphs with a complementary coding mode for MLIPs-driven atomistic simulations. Typed execution graphs provide structured and provenance-aware execution for standardized workflows, with large language models (LLMs) restricted to planning and routing while deterministic Python components perform scientific computation and validation. Complementing this structured execution, a coding agent constructs customized workflows for tasks requiring greater procedural flexibility while invoking existing Potente functions for supported calculations. We demonstrate El Agente Potente across computational materials discovery, molecular energy-landscape exploration, adsorption, and catalytic reaction workflows, together with systematic benchmarks of reproducibility and LLM token cost. These results establish typed execution graphs and code-based workflow construction as complementary mechanisms for agentic scientific computing, combining controlled, auditable execution with the flexibility required for customized atomistic simulations",
       "date": "2026-09-13",
-      "citations": 2,
+      "citations": 3,
       "pdf_url": "https://arxiv.org/pdf/2609.14840",
       "url": "https://arxiv.org/abs/2609.14840",
       "open_access": true,
@@ -6178,7 +6167,7 @@
       "authors_str": "Marcel Müller; Jiaru Bai; Willi Gottstein; Abhijoy Mandal; Mohammad Nazeri et al.",
       "abstract": "Self-driving laboratories (SDLs) combine automated experimentation with adaptive decision-making to accelerate scientific discovery. Their operation nevertheless often depends on human specialists who translate scientific objectives into executable closed-loop campaigns. Specialists adjust them as data and operating conditions change. Here, we present La Agente Óptima, an agentic framework that constructs and supervises Bayesian optimization campaigns across computational and experimental systems while maintaining a persistent optimization state. By separating large language model (LLM) reasoning from executed campaigns, Óptima runs repetitive optimization loops consistently, returns control to the agent only when progress requires interpretation or campaign revision, and keeps every decision auditable. We evaluate Óptima across ablation studies, five digital discovery tasks, and two physical platforms. Throughout, Óptima maintained executable campaigns as both the scientific problem and execution environment evolved. In a closed-loop contact angle optimization campaign, Óptima identified and corrected a mid-run measurement failure, bringing the contact angle from 71.4 to 67.8 degrees, just above the 64-66 degree range. From this result, Óptima correctly inferred that the target was likely unattainable with the available reagents and recommended changing the formulation. In a five-day multi-objective flow-chemistry campaign, Óptima increased the yield from 30% to 59% over 23 experiments. Despite substantial inference costs, it cost less and used substantially less starting material than a human-directed campaign, while selecting a more mass-efficient operating point. These results show that LLM-based agents can make rigorous, long-running optimization campaigns accessible to domain scientists without specialist setup, expanding the scope of SDLs.",
       "date": "2026-09-03",
-      "citations": 4,
+      "citations": 5,
       "pdf_url": "https://arxiv.org/pdf/2609.04564",
       "url": "https://arxiv.org/abs/2609.04564",
       "open_access": true,
@@ -7240,7 +7229,7 @@
       "authors_str": "Tanjin He; Aikaterini Vriza; Logan Ward; Xu Huang; Yiming Chen et al.",
       "abstract": "X-ray absorption spectroscopy (XAS) is central to understanding the local electronic and atomic structure of materials, yet most published spectra remain inaccessible to data-driven analysis because they are embedded in figures and described through fragmented textual context in the literature. Here, we use multimodal (image and text) literature mining to transform this dispersed knowledge into an AI-ready experimental data resource. We developed a scalable spectroscopy data digitization pipeline that identifies XAS figures in full-text articles, digitizes spectral curves, and links each spectrum to accompanying metadata on the measured edge and material. Applying this pipeline to the battery literature produced an open dataset of 13,740 XAS spectra, spanning 66 absorbing elements and diverse battery chemistries, with expert validation confirming accurate extraction of spectral and metadata information. By converting literature-embedded spectra into structured numerical data, this dataset provides a foundation for large-scale XAS analysis, cross-laboratory comparison, high-throughput characterization, and autonomous discovery of advanced materials.",
       "date": "2026-07-26",
-      "citations": 0,
+      "citations": 1,
       "pdf_url": "https://arxiv.org/pdf/2607.23886",
       "url": "https://arxiv.org/abs/2607.23886",
       "open_access": true,
@@ -9149,7 +9138,7 @@
       "authors_str": "Norma Rivano; Francesco Libbi; Chuin Wei Tan; Christopher T. S. Cheung; José Luis Lado et al.",
       "abstract": "Abstract Niobium diselenide (NbSe 2 ) has garnered significant attention due to the coexistence of superconductivity and charge density waves (CDWs) down to the monolayer limit. However, realistic modeling of CDWs—capturing effects such as layer number, twist angle, and strain—remains challenging due to the high computational cost of first-principles methods. Here, we develop a physically informed workflow for training machine-learning interatomic potentials (MLIPs) based on the E(3)-equivariant Allegro architecture, tailored to capture the subtle structural and dynamical signatures of CDWs in mono- and bilayer NbSe 2 . We find that while CDW lattice distortions are relatively easy to learn, modeling vibrational properties remains more challenging. It requires targeted dataset design and careful hyperparameter tuning, pushing the boundaries and testing the extensibility of current MLIP frameworks. Our MLIPs enable reliable simulations of commensurate and incommensurate CDW phases, including their sensitivity to dimensionality and stacking, as well as CDW dynamics, phonons, and transition temperatures estimated via the stochastic self-consistent harmonic approximation. This work opens new possibilities for studying and tuning CDWs in NbSe 2 and other two-dimensional systems, with implications for electron-phonon coupling, superconductivity, and advanced materials design.",
       "date": "2026-04-24",
-      "citations": 3,
+      "citations": 4,
       "pdf_url": "https://www.nature.com/articles/s41524-026-02063-4_reference.pdf",
       "url": "https://doi.org/10.1038/s41524-026-02063-4",
       "open_access": true,
@@ -9294,7 +9283,7 @@
       "authors_str": "Zijian Zhang; Aiwei Yin; Amaan Baweja; Jiaru Bai; Ignacio Gustín et al.",
       "abstract": "AI for science promises to accelerate the discovery process. The advent of large language models (LLMs) and agentic workflows enables the expediting of a growing range of scientific tasks. However, most of the current generation of agentic systems depend on static, hand-curated toolsets that hinder adaptation to new domains and evolving libraries. We present El Agente Forjador, a multi-agent framework in which universal coding agents autonomously forge, validate, and reuse computational tools through a four-stage workflow of tool analysis, tool generation, task execution, and iterative solution evaluation. Evaluated across 24 tasks spanning quantum chemistry and quantum dynamics on five coding agent setups, we compare three operating modes: zero-shot generation of tools per task, reuse of a curriculum-built toolset, and direct problem-solving with the coding agents as the baseline. We find that our tool generation and reuse framework consistently improves accuracy over the baseline. We also show that reusing a toolset built by a stronger coding agent can reduce API cost and substantially raises the solution quality for weaker coding agents. Case studies further demonstrate that tools forged for different domains can be combined to solve hybrid tasks. Taken together, these results show that LLM-based agents can use their scientific knowledge and coding capabilities to autonomously build reusable scientific tools, pointing toward a paradigm in which agent capabilities are defined by the tasks they are designed to solve rather than by explicitly engineered implementations.",
       "date": "2026-04-16",
-      "citations": 13,
+      "citations": 14,
       "pdf_url": "https://arxiv.org/pdf/2604.14609",
       "url": "https://arxiv.org/abs/2604.14609",
       "open_access": true,
@@ -9436,7 +9425,7 @@
       "authors_str": "Yuxing Fei; Bernardus Rendy; Xiaochen Yang; Junhee Woo; Xu Huang et al.",
       "abstract": "Self-driving laboratories promise to accelerate materials discovery. Yet current automated solid-state synthesis platforms are limited to ambient conditions, thereby precluding their use for air-sensitive materials. Here, we present A-Lab for Glovebox Powder Solid-state Synthesis (A-Lab GPSS), a robotic platform capable of synthesizing and characterizing air-sensitive inorganic materials under strict air-free conditions. By integrating an agentic AI framework into the A-Lab GPSS platform, we structure autonomous experimental design through abductive and inductive reasoning. We deploy this platform to explore the vast compositional space of lithium halide spinel solid-state ionic conductors. Across a synthesis campaign comprising 352 samples with diverse compositions, the system explores a broad chemical space, experimentally realizing 72% of the 171 possible pairwise combinations among the 19 metals considered in this study. Over the course of the campaign, the fraction of compositions exhibiting both good ionic conductivity (> 0.05 mS/cm) and high halide spinel phase purity increases from 1.33% in the first 75 agent-proposed samples to 5.33% in the final 75. Furthermore, by inspecting the AI's reasoning processes, we reveal distinct yet complementary discovery strategies: abductive reasoning interrogates abnormal observations within already explored regions, whereas inductive reasoning expands the search into broader, previously unvisited chemical space. This work establishes a scalable platform for the autonomous discovery of complex, air-sensitive solid-state materials.",
       "date": "2026-04-13",
-      "citations": 11,
+      "citations": 13,
       "pdf_url": "https://arxiv.org/pdf/2604.11957",
       "url": "https://arxiv.org/abs/2604.11957",
       "open_access": true,
@@ -9810,7 +9799,7 @@
       "authors_str": "William J. Baldwin; Ilyes Batatia; Martin Vondrák; Johannes T. Margraf; Gábor Cśanyi",
       "abstract": "Machine learning interatomic potentials (MLIPs) have become widely used tools in atomistic simulations. For much of the history of this field, the most commonly employed architectures were based on short-ranged atomic energy contributions, and the assumption of locality still persists in many modern foundation models. While this approach has enabled efficient and accurate modelling for many use cases, it poses intrinsic limitations for systems where long-range electrostatics, charge transfer, or induced polarization play a central role. A growing body of work has proposed extensions that incorporate electrostatic effects, ranging from locally predicted atomic charges to self-consistent models. While these models have demonstrated success for specific examples, their underlying assumptions, and fundamental limitations are not yet well understood. In this work, we present a framework for treating electrostatics in MLIPs by viewing existing models as coarse-grained approximations to density functional theory (DFT). This perspective makes explicit the approximations involved, clarifies the physical meaning of the learned quantities, and reveals connections and equivalences between several previously proposed models. Using this formalism, we identify key design choices that define a broader design space of self-consistent electrostatic MLIPs. We implement salient points in this space using the MACE architecture and a shared representation of the charge density, enabling controlled comparisons between different approaches. Finally, we evaluate these models on two instructive test cases: metal-water interfaces, which probe the contrasting electrostatic response of conducting and insulating systems, and charged vacancies in silicon dioxide. Our results highlight the limitations of existing approaches and demonstrate how more expressive self-consistent models are needed to resolve failures.",
       "date": "2026-03-16",
-      "citations": 14,
+      "citations": 15,
       "pdf_url": "https://arxiv.org/pdf/2603.14700",
       "url": "https://arxiv.org/abs/2603.14700",
       "open_access": true,
@@ -10117,7 +10106,7 @@
       "authors_str": "Ilyes Batatia; William J. Baldwin; Domantas Kuryla; Joseph Hart; Elliott Kasoar et al.",
       "abstract": "Accurate modelling of electrostatic interactions and charge transfer is fundamental to computational chemistry, yet most machine learning interatomic potentials (MLIPs) rely on local atomic descriptors that cannot capture long-range electrostatic effects. We present a new electrostatic foundation model for molecular chemistry that extends the MACE architecture with explicit treatment of long-range interactions and electrostatic induction. Our approach combines local many-body geometric features with a non-self-consistent field formalism that updates learnable charge and spin densities through polarisable iterations to model induction, followed by global charge equilibration via learnable Fukui functions to control total charge and total spin. This design enables an accurate and physical description of systems with varying charge and spin states while maintaining computational efficiency. Trained on the OMol25 dataset of 100 million hybrid DFT calculations, our models achieve chemical accuracy across diverse benchmarks, with accuracy competitive with hybrid DFT on thermochemistry, reaction barriers, conformational energies, and transition metal complexes. Notably, we demonstrate that the inclusion of long-range electrostatics leads to a large improvement in the description of non-covalent interactions and supramolecular complexes over non-electrostatic models, including sub-kcal/mol prediction of molecular crystal formation energy in the X23-DMC dataset and a fourfold improvement over short-ranged models on protein-ligand interactions. The model's ability to handle variable charge and spin states, respond to external fields, provide interpretable spin-resolved charge densities, and maintain accuracy from small molecules to protein-ligand complexes positions it as a versatile tool for computational molecular chemistry and drug discovery.",
       "date": "2026-02-23",
-      "citations": 79,
+      "citations": 81,
       "pdf_url": "https://arxiv.org/pdf/2602.19411",
       "url": "http://arxiv.org/abs/2602.19411",
       "open_access": true,
@@ -10260,7 +10249,7 @@
       "authors_str": "Jiaru Bai; Abdulrahman Aldossary; Thomas Swanick; Marcel Müller; Yeonghun Kang et al.",
       "abstract": "Large language models (LLMs) can plan scientific workflows and generate code, but these capabilities do not specify how scientific state is validated, transferred and recorded across heterogeneous computational and experimental operations. Here we present El Agente Gráfico, a semantic execution runtime for scientific agents that uses typed execution graphs to enforce admissible scientific state transitions, record provenance and confine model judgement to explicit decision points. Using the same top-level LLM and task-specific rubrics on six university-level quantum chemistry exercises, El Agente Gráfico improved performance while reducing model cost by approximately 80% and wall-clock time by more than fourfold relative to our previous multi-agent architecture. Across ensemble spectroscopy and metal-organic framework (MOF) design, the runtime supported typed-state transfer, parallel execution and cross-session persistence. Open-ended studies of a disulfide redox mechanism and the vibrational hypothesis of olfaction required the agent to define the chemical scope and computational pathway of each investigation. A graph-construction skill distilled from these studies then enabled coding agents to author typed execution graphs for MOF literature mining. Together, these results show how typed execution graphs turn reusable procedural knowledge into scientific protocols that can be inspected, revised and transferred across computational and physical systems.",
       "date": "2026-02-19",
-      "citations": 21,
+      "citations": 22,
       "pdf_url": "https://arxiv.org/pdf/2602.17902",
       "url": "https://arxiv.org/abs/2602.17902",
       "open_access": true,
@@ -10532,7 +10521,7 @@
       "authors_str": "Changhyeok Choi; Yunheng Zou; M. Müller; Han Hao; Yeonghun Kang et al.",
       "abstract": "We present El Agente Estructural, a multimodal, natural-language-driven geometry-generation and manipulation agent for autonomous chemistry and molecular modelling. Unlike molecular generation or editing via generative models, Estructural mimics how human experts directly manipulate molecular systems in three dimensions by integrating a comprehensive set of domain-informed tools and vision-language models. This design enables precise control over atomic or functional group replacements, atomic connectivity, and stereochemistry without the need to rebuild extensive core molecular frameworks. Through a series of representative case studies, we demonstrate that Estructural enables chemically meaningful geometry manipulation across a wide range of real-world scenarios. These include site-selective functionalization, ligand binding, ligand exchange, stereochemically controlled structure construction, isomer interconversion, fragment-level structural analysis, image-guided generation of structures from schematic reaction mechanisms, and mechanism-driven geometry generation and modification. These examples illustrate how multimodal reasoning, when combined with specialized geometry-aware tools, supports interactive and context-aware molecular modelling beyond structure generation. Looking forward, the integration of Estructural into El Agente Quntur, an autonomous multi-agent quantum chemistry platform, enhances its capabilities by adding sophisticated tools for the generation and editing of three-dimensional structures.",
       "date": "2026-02-04",
-      "citations": 11,
+      "citations": 12,
       "pdf_url": "https://arxiv.org/pdf/2602.04849",
       "url": "https://arxiv.org/abs/2602.04849",
       "open_access": true,
@@ -10915,7 +10904,7 @@
       "authors_str": "Nathan J. Szymanski; Bernardus Rendy; Yuxing Fei; Rishi E. Kumar; Tanjin He et al.",
       "abstract": "Following publication of this article, concerns were raised about the unambiguous identification of the compound structures using diffraction as well as the original claims of material novelty. We acknowledge that the original claims of material novelty were subject to misinterpretation—their intention was to indicate that the materials were new to the prediction platform, not necessarily new to science. The article text has been updated to reflect this in the HTML and PDF versions of the article. For a detailed breakdown of the textual changes, please see the annotated PDF article file available as Supplementary Information accompanying this amendment.",
       "date": "2026-01-19",
-      "citations": 23,
+      "citations": 24,
       "pdf_url": "https://www.nature.com/articles/s41586-025-09992-y.pdf",
       "url": "https://doi.org/10.1038/s41586-025-09992-y",
       "open_access": true,
@@ -11034,7 +11023,7 @@
       "authors_str": "Rogério Almeida Gouvêa; Pierre-Paul De Breuck; Tatiane Pretto; Gian‐Marco Rignanese; Marcos J. L. Santos",
       "abstract": "Abstract This study introduces MatterVial, an innovative hybrid framework for feature-based machine learning in materials science. MatterVial expands the feature space by integrating latent representations from a diverse suite of pretrained graph-neural network (GNN) models—including structure-based (MEGNet), composition-based (ROOST), and equivariant (ORB) graph networks—with computationally efficient, GNN-approximated descriptors and novel features from symbolic regression. Our approach combines the chemical transparency of traditional feature-based models with the predictive power of deep learning architectures. When augmenting the feature-based model MODNet on Matbench tasks, this method yields significant error reductions and elevates its performance to be competitive with, and in several cases superior to, state-of-the-art end-to-end GNNs, with accuracy increases exceeding 40% for multiple tasks. An integrated interpretability module, employing surrogate models and symbolic regression, decodes the latent GNN-derived descriptors into explicit, physically meaningful formulas. This unified framework advances materials informatics by providing a high-performance, transparent tool that aligns with the principles of explainable AI, paving the way for more targeted and autonomous materials discovery.",
       "date": "2026-01-15",
-      "citations": 11,
+      "citations": 12,
       "pdf_url": "https://www.nature.com/articles/s41524-025-01938-2_reference.pdf",
       "url": "https://doi.org/10.1038/s41524-025-01938-2",
       "open_access": true,
@@ -11524,7 +11513,7 @@
       "authors_str": "Xu Huang; Junwu Chen; Yuxing Fei; Zhuohan Li; Philippe Schwaller et al.",
       "abstract": "Large language model (LLM) agents currently depend on predefined tools or early-stage tool generation, limiting their adaptability and scalability to complex scientific tasks. We introduce CASCADE, a self-evolving agentic framework representing an early instantiation of the transition from \"LLM + tool use\" to \"LLM + skill acquisition\". CASCADE enables agents to master complex external tools and codify knowledge through two meta-skills: continuous learning via web search, code extraction, and memory utilization; self-reflection via introspection, knowledge graph exploration, and others. We evaluate CASCADE on SciSkillBench, a benchmark of 116 materials science and chemistry research tasks. CASCADE achieves a 93.3% success rate using GPT-5, compared to 35.4% without evolution mechanisms. We further demonstrate real-world applications in computational analysis, autonomous laboratory experiments, and selective reproduction of published papers. Along with human-agent collaboration and memory consolidation, CASCADE accumulates executable skills that can be shared across agents and scientists, moving toward scalable AI-assisted scientific research.",
       "date": "2025-12-29",
-      "citations": 49,
+      "citations": 51,
       "pdf_url": "https://arxiv.org/pdf/2512.23880",
       "url": "http://arxiv.org/abs/2512.23880",
       "open_access": true,
@@ -11562,7 +11551,7 @@
       "authors_str": "Daniel S. Levine; Nicholas T. Liesen; Lauren Chua; James Diffenderfer; Helgi I. Ingólfsson et al.",
       "abstract": "Polymers-macromolecular systems composed of repeating chemical units-constitute the molecular foundation of living organisms, while their synthetic counterparts drive transformative advances across medicine, consumer products, and energy technologies. While machine learning (ML) models have been trained on millions of quantum chemical atomistic simulations for materials and/or small molecular structures to enable efficient, accurate, and transferable predictions of chemical properties, polymers have largely not been included in prior datasets due to the computational expense of high quality electronic structure calculations on representative polymeric structures. Here, we address this shortcoming with the creation of the Open Polymers 2026 (OPoly26) dataset, which contains more than 6.57 million density functional theory (DFT) calculations on up to 360 atom clusters derived from polymeric systems, comprising over 1.2 billion total atoms. OPoly26 captures the chemical diversity that makes polymers intrinsically tunable and versatile materials, encompassing variations in monomer composition, degree of polymerization, chain architectures, and solvation environments. We show that augmenting ML model training with the OPoly26 dataset improves model performance for polymer prediction tasks. We also publicly release the OPoly26 dataset to help further the development of ML models for polymers, and more broadly, strive towards universal atomistic models.",
       "date": "2025-12-28",
-      "citations": 25,
+      "citations": 26,
       "pdf_url": "https://arxiv.org/pdf/2512.23117",
       "url": "http://arxiv.org/abs/2512.23117",
       "open_access": true,
@@ -13405,7 +13394,7 @@
       "authors_str": "Ilyes Batatia; Philipp Benner; Yuan Chiang; A. M. Elena; Dávid Péter Kovács et al.",
       "abstract": "Atomistic simulations of matter, especially those that leverage first-principles (ab initio) electronic structure theory, provide a microscopic view of the world, underpinning much of our understanding of chemistry and materials science. Over the last decade or so, machine-learned force fields have transformed atomistic modeling by enabling simulations of ab initio quality over unprecedented time and length scales. However, early machine-learning (ML) force fields have largely been limited by (i) the substantial computational and human effort required to develop and validate potentials for each particular system of interest and (ii) a general lack of transferability from one chemical system to the next. Here, we show that it is possible to create a general-purpose atomistic ML model, trained on a public dataset of moderate size, that is capable of running stable molecular dynamics for a wide range of molecules and materials. We demonstrate the power of the MACE-MP-0 model-and its qualitative and at times quantitative accuracy-on a diverse set of problems in the physical sciences, including properties of solids, liquids, gases, chemical reactions, interfaces, and even the dynamics of a small protein. The model can be applied out of the box as a starting or \"foundation\" model for any atomistic system of interest and, when desired, can be fine-tuned on just a handful of application-specific data points to reach ab initio accuracy. Establishing that a stable force-field model can cover almost all materials changes atomistic modeling in a fundamental way: experienced users obtain reliable results much faster, and beginners face a lower barrier to entry. Foundation models thus represent a step toward democratizing the revolution in atomic-scale modeling that has been brought about by ML force fields.",
       "date": "2025-11-13",
-      "citations": 1073,
+      "citations": 1074,
       "pdf_url": "https://arxiv.org/pdf/2401.00096",
       "url": "https://doi.org/10.1063/5.0297006",
       "open_access": true,
@@ -15341,7 +15330,7 @@
       "authors_str": "Shi Xuan Leong; Caleb E. Griesbach; Rui Zhang; Kourosh Darvish; Yuchi Zhao et al.",
       "abstract": "",
       "date": "2025-08-18",
-      "citations": 59,
+      "citations": 60,
       "pdf_url": "https://doi.org/10.26434/chemrxiv-2024-2qx28",
       "url": "https://doi.org/10.1038/s41570-025-00747-x",
       "open_access": true,
@@ -16825,6 +16814,34 @@
       "relevance": 50
     },
     {
+      "source": "Journal of The Electrochemical Society",
+      "openalex_id": "W4412076190",
+      "doi": "10.1149/1945-7111/adecc7",
+      "title": "Ab Initio Insights to Metal Passivation: Diffusion and Defect Formation in Amorphous Zirconia and Alumina",
+      "authors": [
+        "Mackinzie S. Farnell",
+        "Jianli Cheng",
+        "Jimmy‐Xuan Shen",
+        "Kristin Aslaug Persson"
+      ],
+      "authors_str": "Mackinzie S. Farnell; Jianli Cheng; Jimmy‐Xuan Shen; Kristin Aslaug Persson",
+      "abstract": "Metal passivation refers to the formation of protective oxide films on metals, which shield them from further corrosion and oxidation, playing a crucial role in maintaining their stability. The mesoscopic Point Defect Model has successfully predicted passivity as a steady state process where oxide growth from oxygen vacancies at the metal/film interface competes with oxide dissolution at the film/environment interface. In this work, informed by the Point Defect Model parameters, we use first-principles calculations to calculate defect formation and atomic diffusion in amorphous materials and correlate these descriptors with the behavior and growth of the oxide film. Focusing on amorphous zirconia and alumina, we demonstrate that defect formation energies exhibit significant variability in amorphous systems. In alumina, vacancies dominate, with cation and anion vacancies occurring at comparable concentrations. Diffusion calculations for stoichiometric amorphous alumina and zirconia, as well as oxygen-deficient zirconia, reveal faster diffusion in the oxygen-deficient case, highlighting the impact of defects on transport. Comparison of calculated self-diffusion coefficients for the dominant defect species with experimentally measured oxide thicknesses shows a clear correlation, suggesting that first-principles-derived diffusivity information can serve as a key descriptor for surface passivation film growth.",
+      "date": "2025-07-01",
+      "citations": 2,
+      "pdf_url": "https://iopscience.iop.org/article/10.1149/1945-7111/adecc7/pdf",
+      "url": "https://doi.org/10.1149/1945-7111/adecc7",
+      "open_access": true,
+      "group": "persson",
+      "summary": "Metal passivation refers to the formation of protective oxide films on metals, which shield them from further corrosion and oxidation, playing a crucial role in maintaining their stability. The mesosc",
+      "categories": [
+        "dft"
+      ],
+      "category": "dft",
+      "relevance": 50,
+      "relevance_reason": "",
+      "ccel": false
+    },
+    {
       "source": "arXiv",
       "openalex_id": "W4416260332",
       "doi": "10.48550/arxiv.2506.21751",
@@ -17606,7 +17623,7 @@
       "authors_str": "Dávid Péter Kovács; J. Harry Moore; Nicholas J. Browning; Ilyes Batatia; Joshua T. Horton et al.",
       "abstract": "Classical empirical force fields have dominated biomolecular simulations for over 50 years. Although widely used in drug discovery, crystal structure prediction, and biomolecular dynamics, they generally lack the accuracy and transferability required for first-principles predictive modeling. In this paper, we introduce MACE-OFF, a series of short-range transferable force fields for organic molecules created using state-of-the-art machine learning technology and first-principles reference data computed with a high level of quantum mechanical theory. MACE-OFF demonstrates the remarkable capabilities of short-range models by accurately predicting a wide variety of gas- and condensed-phase properties of molecular systems. It produces accurate, easy-to-converge dihedral torsion scans of unseen molecules as well as reliable descriptions of molecular crystals and liquids, including quantum nuclear effects. We further demonstrate the capabilities of MACE-OFF by determining free energy surfaces in explicit solvent as well as the folding dynamics of peptides and nanosecond simulations of a fully solvated protein. These developments enable first-principles simulations of molecular systems for the broader chemistry community at high accuracy and relatively low computational cost.",
       "date": "2025-05-19",
-      "citations": 431,
+      "citations": 432,
       "pdf_url": "https://pubs.acs.org/doi/pdf/10.1021/jacs.4c07099?ref=article_openPDF",
       "url": "https://doi.org/10.1021/jacs.4c07099",
       "open_access": true,
@@ -19830,7 +19847,7 @@
       "authors_str": "Soonho Kwon; Prabhat Prakash; Yixiang Cao; Frances A. Houle; William A. Goddard",
       "abstract": "The recombination of water ions has diverse scientific and practical implications, ranging from acid–base chemistry and biological systems to planetary environments and applications in fuel cell and carbon conversion technologies. While spatial confinement affects the physicochemical properties of water dynamics, its impact on the recombination process has rarely been studied. In this work, we investigate the dynamics of water, the water ion distribution, and the ion recombination process in water droplets as a function of droplet size through molecular dynamics simulations and adaptive quantum mechanical/molecular mechanical calculations. We compare the dynamics of recombination in water droplet sizes ranging from 100 to 18 000 waters, both in their interiors and on their surfaces. We found that the self-diffusion of water dramatically decreases in droplets with a diameter below 2.2 nm. Using a classical RexPoN force-field, we found that the ions in 1000 H 2 O’s spend almost 50% of the time on the surface and 0.5 nm beneath it with a slight preference for OH – ion to reside longer on the surface. We estimate that, on average, recombination in these drops occurs at 400 ps in 1000 H 2 O’s and 1 ns in 3000 H 2 O’s. We also found that recombination is not limited by the local structure of the surface or the size of the droplet but can be influenced by the geometry of the water wire connecting the ions as they approach each other, which can often prevent recombination. Our results provide insights to the reaction microenvironments presented by nanoscopic water droplets.",
       "date": "2025-02-17",
-      "citations": 4,
+      "citations": 5,
       "pdf_url": "https://escholarship.org/content/qt29k6c5qf/qt29k6c5qf.pdf",
       "url": "https://doi.org/10.1021/jacs.4c15103",
       "open_access": true,
@@ -20313,7 +20330,7 @@
       "authors_str": "Haesol Kim; Minho M. Kim; Junsic Cho; Seunghoon Lee; Dong Hyun Kim et al.",
       "abstract": "Ensuring the stability of electrocatalysts is paramount to the success of electrochemical energy conversion devices. Degradation is a fundamental process involving the release of positively charged metal ions into the electric double layer (EDL) and their subsequent diffusion into the bulk electrolyte. However, despite its vital importance in achieving prolonged electrocatalysis, the underlying causality of catalyst dissolution with the EDL structure remains largely unknown. Here, we show that electrochemical Pt dissolution is strongly influenced by the identity of the alkali metal cation (AM + ) in the electrolyte. By monitoring Pt dissolution in real-time, we found a trend of reduced Pt leaching in the sequence Li + > Na + > K + > Cs + . Our computational predictions suggest that interfacial OH – concentration plays a pivotal role in Pt dissolution, where OH – facilitates the outward diffusion of dissolved Pt ions into the bulk electrolyte by neutralizing the Pt z + species, thereby screening the migration force for their redeposition. Combined with this theoretical result, we verify a strong correlation between the amount of dissolved Pt and the hydrolysis p K a or acidity of AM +, indicating that the AM + identity determines the local OH – concentration and thereby modifies the amount of Pt dissolution. Our results underscore the need to tune the EDL structure to achieve durable electrocatalysis, a promising area for future research.",
       "date": "2025-01-23",
-      "citations": 22,
+      "citations": 23,
       "pdf_url": null,
       "url": "https://doi.org/10.1021/jacs.4c17833",
       "open_access": false,
@@ -20396,7 +20413,7 @@
       "authors_str": "Mohammad Ghazi Vakili; Christoph Gorgulla; Jamie D. Snider; AkshatKumar Nigam; Dmitry S. Bezrukov et al.",
       "abstract": "We introduce a quantum–classical generative model for small-molecule design, specifically targeting KRAS inhibitors for cancer therapy. We apply the method to design, select and synthesize 15 proposed molecules that could notably engage with KRAS for cancer therapy, with two holding promise for future development as inhibitors. This work showcases the potential of quantum computing to generate experimentally validated hits that compare favorably against classical models. A hybrid model combines quantum and classical approaches to generate compounds targeting the KRAS protein.",
       "date": "2025-01-22",
-      "citations": 115,
+      "citations": 116,
       "pdf_url": "https://www.nature.com/articles/s41587-024-02526-3.pdf",
       "url": "https://doi.org/10.1038/s41587-024-02526-3",
       "open_access": true,
@@ -20479,7 +20496,7 @@
       "authors_str": "Yeonghun Kang; Wonseok Lee; Taeun Bae; Seunghee Han; Huiwon Jang et al.",
       "abstract": "This research focused on the efficient collection of experimental metal-organic framework (MOF) data from scientific literature to address the challenges of accessing hard-to-find data and improving the quality of information available for machine learning studies in materials science. Utilizing a chain of advanced large language models (LLMs), we developed a systematic approach to extract and organize MOF data into a structured format. Our methodology successfully compiled information from more than 40,000 research articles, creating a comprehensive and ready-to-use data set. Specifically, data regarding MOF synthesis conditions and properties were extracted from both tables and text and then analyzed. Subsequently, we utilized the curated database to analyze the relationships between synthesis conditions, properties, and structure. Through machine learning, we identified the existence of a gap between simulation data and experimental data, and further analysis revealed the factors contributing to this discrepancy. Additionally, we leveraged the extracted synthesis condition data to develop a synthesis condition recommender system. This system suggests optimal synthesis conditions based on the provided precursors, offering a practical tool to refine synthesis strategies. This underscores the importance of experimental datasets in advancing MOF research.",
       "date": "2025-01-21",
-      "citations": 121,
+      "citations": 122,
       "pdf_url": "https://arxiv.org/pdf/2404.13053",
       "url": "https://doi.org/10.1021/jacs.4c11085",
       "open_access": true,
@@ -21510,7 +21527,7 @@
       "authors_str": "Riley J. Hickman; Malcolm Sim; Sergio Pablo‐García; Gary Tom; Ivan Woolhouse et al.",
       "abstract": "Self-driving laboratories (SDLs) are next-generation research and development platforms for closed-loop, autonomous experimentation that combine ideas from artificial intelligence, robotics, and high-performance computing. A critical component of SDLs is the decision-making algorithm used to prioritize experiments to be performed. This SDL “brain” often relies on optimization strategies that are guided by machine learning models, such as Bayesian optimization. However, the diversity of hardware constraints and scientific questions being tackled by SDLs require the availability of a set of flexible algorithms that have yet to be implemented in a single software tool. Here, we report Atlas, an application-agnostic Python library for Bayesian optimization that is specifically tailored to the needs of SDLs. Atlas provides facile access to state-of-the-art, model-based optimization algorithms—including mixed-parameter, multi-objective, constrained, robust, multi-fidelity, meta-learning, and molecular optimization—as an all-in-one tool that is expected to suit the majority of specialized SDL needs. After a brief description of its core capabilities, we demonstrate Atlas’ utility by optimizing the oxidation potential of metal complexes with an autonomous electrochemical experimentation platform. We expect Atlas to expand the breadth of design and discovery problems in the natural sciences that are immediately addressable with SDLs.",
       "date": "2025-01-01",
-      "citations": 62,
+      "citations": 63,
       "pdf_url": "https://pubs.rsc.org/en/content/articlepdf/2025/dd/d4dd00115j",
       "url": "https://doi.org/10.1039/d4dd00115j",
       "open_access": true,
@@ -21540,7 +21557,7 @@
       "authors_str": "Riley J. Hickman; Gary Tom; Yunheng Zou; Matteo Aldeghi; Alán Aspuru‐Guzik",
       "abstract": "Model-based optimization strategies, such as Bayesian optimization (BO), have been deployed across the natural sciences in design and discovery campaigns due to their sample efficiency and flexibility. The combination of such strategies with automated laboratory equipment and/or high-performance computing in a suggest-make-measure closed-loop constitutes a self-driving laboratory (SDL), which have been endorsed as a next-generation technology for autonomous scientific experimentation. Despite the promise of early SDL prototypes, a lack of flexible experiment planning algorithms prevents certain prevalent optimization problem types from being addressed. For instance, many experiment planning algorithms are unable to intelligently deal with failed measurements resulting from a priori unknown constraints on the parameter space. Such constraint functions are pervasive in chemistry and materials science research, stemming from unexpected equipment failures, failed/abandoned syntheses, or unstable molecules or materials. In this work, we provide a comprehensive discussion and benchmark of BO strategies to deal with a priori unknown constraints, characterized by learning the constraint function on-the-fly using a variational Gaussian process classifier and combining its predictions with the typical BO regression surrogate to parameterize feasibility-aware acquisition functions. These acquisition functions balance sampling parameter space regions deemed to be promising in terms of optimization objectives with avoidance of regions predicted to be infeasible. In addition to benchmarking feasibility-aware acquisition functions on analytic optimization benchmark surfaces, we conduct two realistic optimization benchmarks derived from previously reported studies: inverse design of hybrid organic-inorganic halide perovskite materials with unknown stability constraints, and the design of BCR-Abl kinase inhibitors with unknown synthetic accessibility constraints. We deliver intuitive recommendations to readers on which strategies work best for various scenarios. Overall, this work contributes to advancing the practicality and efficiency of autonomous experimentation in SDLs. All strategies introduced in this work are implemented as part of the open-source Atlas Python library.",
       "date": "2025-01-01",
-      "citations": 27,
+      "citations": 28,
       "pdf_url": "https://pubs.rsc.org/en/content/articlepdf/2025/dd/d5dd00018a",
       "url": "https://doi.org/10.1039/d5dd00018a",
       "open_access": true,
@@ -21640,7 +21657,7 @@
       "authors_str": "Brandon M. Wood; Misko Dzamba; Xiang Fu; Meng Gao; Muhammed Shuaibi et al.",
       "abstract": "The ability to quickly and accurately compute properties from atomic simulations is critical for advancing a large number of applications in chemistry and materials science including drug discovery, energy storage, and semiconductor manufacturing. To address this need, Meta FAIR presents a family of Universal Models for Atoms (UMA), designed to push the frontier of speed, accuracy, and generalization. UMA models are trained on half a billion unique 3D atomic structures (the largest training runs to date) by compiling data across multiple chemical domains, e.g. molecules, materials, and catalysts. We develop empirical scaling laws to help understand how to increase model capacity alongside dataset size to achieve the best accuracy. The UMA small and medium models utilize a novel architectural design we refer to as mixture of linear experts that enables increasing model capacity without sacrificing speed. For example, UMA-medium has 1.4B parameters but only ~50M active parameters per atomic structure. We evaluate UMA models on a diverse set of applications across multiple domains and find that, remarkably, a single model without any fine-tuning can perform similarly or better than specialized models. We are releasing the UMA code, weights, and associated data to accelerate computational workflows and enable the community to continue to build increasingly capable AI models.",
       "date": "2025-01-01",
-      "citations": 402,
+      "citations": 404,
       "pdf_url": "https://arxiv.org/pdf/2506.23971",
       "url": "https://doi.org/10.52202/085713-4310",
       "open_access": true,
@@ -24513,7 +24530,7 @@
       "authors_str": "Shaofeng Li; Xianbiao Fu; Jens K. Nørskov; Ib Chorkendorff",
       "abstract": "",
       "date": "2024-09-23",
-      "citations": 107,
+      "citations": 108,
       "pdf_url": null,
       "url": "https://doi.org/10.1038/s41560-024-01622-7",
       "open_access": false,
@@ -25368,7 +25385,7 @@
       "authors_str": "Moritz Gubler; Jonas A. Finkler; Moritz R. Schäfer; Jörg Behler; Stefan Goedecker",
       "abstract": "Machine learning potentials (MLPs) have revolutionized the field of atomistic simulations by describing atomic interactions with the accuracy of electronic structure methods at a small fraction of the cost. Most current MLPs construct the energy of a system as a sum of atomic energies, which depend on information about the atomic environments provided in the form of predefined or learnable feature vectors. If, in addition, nonlocal phenomena like long-range charge transfer are important, fourth-generation MLPs need to be used, which include a charge equilibration (Qeq) step to take the global structure of the system into account. This Qeq can significantly increase the computational cost and thus can become a computational bottleneck for large systems. In this Article, we present a highly efficient formulation of Qeq that does not require the explicit computation of the Coulomb matrix elements, resulting in a quasi-linear scaling method. Moreover, our approach also allows for the efficient calculation of energy derivatives, which explicitly consider the global structure-dependence of the atomic charges as obtained from Qeq. Due to its generality, the method is not restricted to MLPs and can also be applied within a variety of other force fields.",
       "date": "2024-08-16",
-      "citations": 28,
+      "citations": 29,
       "pdf_url": "https://doi.org/10.1021/acs.jctc.4c00334",
       "url": "https://doi.org/10.1021/acs.jctc.4c00334",
       "open_access": true,
@@ -25489,7 +25506,7 @@
       "authors_str": "Gary Tom; Stefan P. Schmid; Sterling G. Baird; Yang Cao; Kourosh Darvish et al.",
       "abstract": "Self-driving laboratories (SDLs) promise an accelerated application of the scientific method. Through the automation of experimental workflows, along with autonomous experimental planning, SDLs hold the potential to greatly accelerate research in chemistry and materials discovery. This review provides an in-depth analysis of the state-of-the-art in SDL technology, its applications across various scientific disciplines, and the potential implications for research and industry. This review additionally provides an overview of the enabling technologies for SDLs, including their hardware, software, and integration with laboratory infrastructure. Most importantly, this review explores the diverse range of scientific domains where SDLs have made significant contributions, from drug discovery and materials science to genomics and chemistry. We provide a comprehensive review of existing real-world examples of SDLs, their different levels of automation, and the challenges and limitations associated with each domain.",
       "date": "2024-08-13",
-      "citations": 851,
+      "citations": 853,
       "pdf_url": "https://doi.org/10.1021/acs.chemrev.4c00055",
       "url": "https://doi.org/10.1021/acs.chemrev.4c00055",
       "open_access": true,
@@ -29094,7 +29111,7 @@
       "authors_str": "Shaofeng Li; Yuanyuan Zhou; Xianbiao Fu; Jakob Bruun Pedersen; Mattia Saccoccio et al.",
       "abstract": "",
       "date": "2024-03-19",
-      "citations": 246,
+      "citations": 247,
       "pdf_url": null,
       "url": "https://doi.org/10.1038/s41586-024-07276-5",
       "open_access": false,
@@ -29984,7 +30001,7 @@
       "authors_str": "Naixu Guo; Yu, Zhan; Choi, Matthew; Han, Yizhan; Agrawal, Aman et al.",
       "abstract": "Powerful generative artificial intelligence from large language models (LLMs) harnesses extensive computational resources for inference. In this work, we investigate the transformer architecture, a key component of these models, under the lens of fault-tolerant quantum computing. We develop quantum subroutines to construct the building blocks in the transformer, including the self-attention, residual connection with layer normalization, and feed-forward network. As an important subroutine, we show how to efficiently implement the Hadamard product and element-wise functions of matrices on quantum computers. Our algorithm prepares an amplitude encoding of the transformer output, which can be measured for prediction or use in the next layer. We find that the matrix norm of the input sequence plays a dominant role in the quantum complexity. With numerical experiments on open-source LLMs, including for bio-informatics applications, we demonstrate the potential of a quantum speedup for transformer inference in practical regimes.",
       "date": "2024-02-26",
-      "citations": 47,
+      "citations": 48,
       "pdf_url": "https://arxiv.org/pdf/2402.16714",
       "url": "http://arxiv.org/abs/2402.16714",
       "open_access": true,
@@ -30134,7 +30151,7 @@
       "authors_str": "John M. Dagdelen; Alexander Dunn; Sang‐Hoon Lee; Nicholas Walker; Andrew Rosen et al.",
       "abstract": "Extracting structured knowledge from scientific text remains a challenging task for machine learning models. Here, we present a simple approach to joint named entity recognition and relation extraction and demonstrate how pretrained large language models (GPT-3, Llama-2) can be fine-tuned to extract useful records of complex scientific knowledge. We test three representative tasks in materials chemistry: linking dopants and host materials, cataloging metal-organic frameworks, and general composition/phase/morphology/application information extraction. Records are extracted from single sentences or entire paragraphs, and the output can be returned as simple English sentences or a more structured format such as a list of JSON objects. This approach represents a simple, accessible, and highly flexible route to obtaining large databases of structured specialized scientific knowledge extracted from research papers.",
       "date": "2024-02-15",
-      "citations": 1057,
+      "citations": 1059,
       "pdf_url": "https://www.nature.com/articles/s41467-024-45563-x.pdf",
       "url": "https://doi.org/10.1038/s41467-024-45563-x",
       "open_access": true,
@@ -30980,7 +30997,7 @@
       "authors_str": "Kouhei Nakaji; Lasse Bjørn Kristensen; Kemmoku, Ryota; Jorge A. Campos-Gonzalez-Angulo; Mohammad Ghazi Vakili et al.",
       "abstract": "We introduce the generative quantum eigensolver (GQE), a new quantum computational framework that operates outside the variational quantum algorithm paradigm by applying classical generative models to quantum simulation. The GQE algorithm optimizes a classical generative model to produce quantum circuits with desired properties. Here, we develop a transformer-based implementation, which we name the generative pre-trained transformer-based (GPT) quantum eigensolver (GPT-QE). We show a proof-of-concept of training and pretraining of GPT-QE applied to electronic structure Hamiltonians, and demonstrate its ability illustrated by surpassing coupled cluster singles and doubles (CCSD) for the strong bond dissociation of the nitrogen molecule and approaching chemical accuracy. We also demonstrate the method on real quantum hardware.",
       "date": "2024-01-17",
-      "citations": 64,
+      "citations": 65,
       "pdf_url": "https://arxiv.org/pdf/2401.09253",
       "url": "http://arxiv.org/abs/2401.09253",
       "open_access": true,
@@ -31753,7 +31770,7 @@
       "authors_str": "Julian Cremer; Tuan Le; Frank Noé; Djork-Arné Clevert; Kristof T. Schütt",
       "abstract": "Creating ligands that fit specific protein pockets and possess desired chemical properties is a key challenge in SBDD. Guided 3D diffusion models present a promising solution, offering precise ligand generation with tailored properties.",
       "date": "2024-01-01",
-      "citations": 42,
+      "citations": 43,
       "pdf_url": "https://pubs.rsc.org/en/content/articlepdf/2024/sc/d4sc03523b",
       "url": "https://doi.org/10.1039/d4sc03523b",
       "open_access": true,
@@ -33319,7 +33336,7 @@
       "authors_str": "Nathan J. Szymanski; Bernardus Rendy; Yuxing Fei; Rishi E. Kumar; Tanjin He et al.",
       "abstract": ", we introduce the A-Lab, an autonomous laboratory for the solid-state synthesis of inorganic powders. This platform uses computations, historical data from the literature, machine learning (ML) and active learning to plan and interpret the outcomes of experiments performed using robotics. Over 17 days of continuous operation, the A-Lab realized 41 novel compounds from a set of 58 targets including a variety of oxides and phosphates that were identified using large-scale ab initio phase-stability data from the Materials Project and Google DeepMind. Synthesis recipes were proposed by natural-language models trained on the literature and optimized using an active-learning approach grounded in thermodynamics. Analysis of the failed syntheses provides direct and actionable suggestions to improve current techniques for materials screening and synthesis design. The high success rate demonstrates the effectiveness of artificial-intelligence-driven platforms for autonomous materials discovery and motivates further integration of computations, historical knowledge and robotics.",
       "date": "2023-11-29",
-      "citations": 1229,
+      "citations": 1231,
       "pdf_url": "https://www.nature.com/articles/s41586-023-06734-w.pdf",
       "url": "https://doi.org/10.1038/s41586-023-06734-w",
       "open_access": true,
@@ -33471,7 +33488,7 @@
       "authors_str": "Hyunsoo Park; Yeonghun Kang; Jihan Kim",
       "abstract": "Porous materials have emerged as promising solutions for a wide range of energy and environmental applications. However, the asymmetric development in the field of metal-organic frameworks (MOFs) has led to a data imbalance when it comes to MOFs versus other porous materials such as covalent organic frameworks (COFs), porous polymer networks (PPNs), and zeolites. To address this issue, we introduce PMTransformer (Porous Material Transformer), a multimodal Transformer model pretrained on a vast data set of 1.9 million hypothetical porous materials, including metal-organic frameworks, covalent organic frameworks, porous polymer networks, and zeolites. PMTransformer showcases remarkable transfer learning capabilities, resulting in state-of-the-art performance in predicting various porous material properties. To address the challenge of asymmetric data aggregation, we propose cross-material few-shot learning, which leverages the synergistic effect among different porous material classes to enhance the fine-tuning performance with a limited number of examples. As a proof of concept, we demonstrate its effectiveness in predicting band gap values of COFs using the available MOF data in the training set. Moreover, we established cross-material relationships in porous materials by predicting the unseen properties of other classes of porous materials. Our approach presents a new pathway for understanding the underlying relationships among various classes of porous materials, paving the way toward a more comprehensive understanding and design of porous materials.",
       "date": "2023-11-20",
-      "citations": 49,
+      "citations": 50,
       "pdf_url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/644a0651df78ec50157390c9/original/pm-transformer-universal-transfer-learning-and-cross-material-few-shot-learning-in-porous-materials.pdf",
       "url": "https://doi.org/10.1021/acsami.3c10323",
       "open_access": true,
@@ -33727,7 +33744,7 @@
       "authors_str": "Boris Kozinsky; Albert Musaelian; Anders Johansson; Simon Batzner",
       "abstract": "This work brings the leading accuracy, sample efficiency, and robustness of deep equivariant neural networks to the extreme computational scale. This is achieved through a combination of innovative model architecture, massive parallelization, and models and implementations optimized for efficient GPU utilization. The resulting Allegro architecture bridges the accuracy-speed tradeoff of atomistic simulations and enables description of dynamics in structures of unprecedented complexity at quantum fidelity. To illustrate the scalability of Allegro, we perform nanoseconds-long stable simulations of protein dynamics and scale up to a 44-million atom structure of a complete, all-atom, explicitly solvated HIV capsid on the Perlmutter supercomputer. We demonstrate excellent strong scaling up to 100 million atoms and 70% weak scaling to 5120 A100 GPUs.",
       "date": "2023-11-11",
-      "citations": 102,
+      "citations": 103,
       "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3581784.3627041",
       "url": "https://doi.org/10.1145/3581784.3627041",
       "open_access": true,
@@ -35548,7 +35565,7 @@
       "authors_str": "Bowen Deng; Peichen Zhong; KyuJung Jun; Janosh Riebesell; Kevin Han et al.",
       "abstract": "Abstract Large-scale simulations with complex electron interactions remain one of the greatest challenges for atomistic modelling. Although classical force fields often fail to describe the coupling between electronic states and ionic rearrangements, the more accurate ab initio molecular dynamics suffers from computational complexity that prevents long-time and large-scale simulations, which are essential to study technologically relevant phenomena. Here we present the Crystal Hamiltonian Graph Neural Network (CHGNet), a graph neural network-based machine-learning interatomic potential (MLIP) that models the universal potential energy surface. CHGNet is pretrained on the energies, forces, stresses and magnetic moments from the Materials Project Trajectory Dataset, which consists of over 10 years of density functional theory calculations of more than 1.5 million inorganic structures. The explicit inclusion of magnetic moments enables CHGNet to learn and accurately represent the orbital occupancy of electrons, enhancing its capability to describe both atomic and electronic degrees of freedom. We demonstrate several applications of CHGNet in solid-state materials, including charge-informed molecular dynamics in Li x MnO 2 , the finite temperature phase diagram for Li x FePO 4 and Li diffusion in garnet conductors. We highlight the significance of charge information for capturing appropriate chemistry and provide insights into ionic systems with additional electronic degrees of freedom that cannot be observed by previous MLIPs.",
       "date": "2023-09-14",
-      "citations": 1135,
+      "citations": 1136,
       "pdf_url": "https://www.nature.com/articles/s42256-023-00716-3.pdf",
       "url": "https://doi.org/10.1038/s42256-023-00716-3",
       "open_access": true,
@@ -39007,7 +39024,7 @@
       "ccel": false
     },
     {
-      "source": "Unknown",
+      "source": "OSTI OAI (U.S. Department of Energy Office of Scientific and Technical Information)",
       "openalex_id": "W4401776300",
       "doi": "10.2172/2431586",
       "title": "Electrolyte Design for Multivalent Metal Battery Interphases",
@@ -39368,7 +39385,7 @@
       "authors_str": "Yeonghun Kang; Hyunsoo Park; Berend Smit; Jihan Kim",
       "abstract": "Abstract In this work, we introduce MOFTransformer, a multi-model Transformer encoder pre-trained with 1 million hypothetical MOFs. The multi-modal model uses an integrated atom-based graph and energy-grid embeddings to capture both the local and global features of the MOFs, respectively. By fine-tuning the pre-trained model with small datasets (from 5,000 to 20,000), our model outperforms all other machine learning models across various properties that include gas adsorption, diffusion, electronic properties, and even text mined data. Beyond its universal transfer learning capabilities, MOFTransformer generates chemical insight by analyzing feature importance from attention scores within the self-attention layers. As such, this model can serve as a bedrock platform for other MOF researchers that seek to develop new machine learning models for their work.",
       "date": "2023-03-13",
-      "citations": 224,
+      "citations": 225,
       "pdf_url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/63c74dbb07308a37cb9c864f/original/a-multi-modal-pre-training-transformer-for-universal-transfer-learning-in-metal-organic-frameworks.pdf",
       "url": "https://doi.org/10.1038/s42256-023-00628-2",
       "open_access": true,
@@ -39684,7 +39701,7 @@
       "authors_str": "Nathan J. Szymanski; Christopher J. Bartel; Yan Zeng; Mouhamad Said Diallo; Haegyeom Kim et al.",
       "abstract": "Abstract Machine learning (ML) has become a valuable tool to assist and improve materials characterization, enabling automated interpretation of experimental results with techniques such as X-ray diffraction (XRD) and electron microscopy. Because ML models are fast once trained, there is a key opportunity to bring interpretation in-line with experiments and make on-the-fly decisions to achieve optimal measurement effectiveness, which creates broad opportunities for rapid learning and information extraction from experiments. Here, we demonstrate such a capability with the development of autonomous and adaptive XRD. By coupling an ML algorithm with a physical diffractometer, this method integrates diffraction and analysis such that early experimental information is leveraged to steer measurements toward features that improve the confidence of a model trained to identify crystalline phases. We validate the effectiveness of an adaptive approach by showing that ML-driven XRD can accurately detect trace amounts of materials in multi-phase mixtures with short measurement times. The improved speed of phase detection also enables in situ identification of short-lived intermediate phases formed during solid-state reactions using a standard in-house diffractometer. Our findings showcase the advantages of in-line ML for materials characterization and point to the possibility of more general approaches for adaptive experimentation.",
       "date": "2023-03-02",
-      "citations": 101,
+      "citations": 102,
       "pdf_url": "https://www.nature.com/articles/s41524-023-00984-y.pdf",
       "url": "https://doi.org/10.1038/s41524-023-00984-y",
       "open_access": true,
@@ -40324,7 +40341,7 @@
       "authors_str": "Albert Musaelian; Simon Batzner; Anders Johansson; Lixin Sun; Cameron J. Owen et al.",
       "abstract": "A simultaneously accurate and computationally efficient parametrization of the potential energy surface of molecules and materials is a long-standing goal in the natural sciences. While atom-centered message passing neural networks (MPNNs) have shown remarkable accuracy, their information propagation has limited the accessible length-scales. Local methods, conversely, scale to large simulations but have suffered from inferior accuracy. This work introduces Allegro, a strictly local equivariant deep neural network interatomic potential architecture that simultaneously exhibits excellent accuracy and scalability. Allegro represents a many-body potential using iterated tensor products of learned equivariant representations without atom-centered message passing. Allegro obtains improvements over state-of-the-art methods on QM9 and revMD17. A single tensor product layer outperforms existing deep MPNNs and transformers on QM9. Furthermore, Allegro displays remarkable generalization to out-of-distribution data. Molecular simulations using Allegro recover structural and kinetic properties of an amorphous electrolyte in excellent agreement with ab-initio simulations. Finally, we demonstrate parallelization with a simulation of 100 million atoms.",
       "date": "2023-02-03",
-      "citations": 846,
+      "citations": 847,
       "pdf_url": "https://www.nature.com/articles/s41467-023-36329-y.pdf",
       "url": "https://doi.org/10.1038/s41467-023-36329-y",
       "open_access": true,
@@ -42993,7 +43010,7 @@
       "authors_str": "Chi Chen; Shyue Ping Ong",
       "abstract": "Abstract Interatomic potentials (IAPs), which describe the potential energy surface of a collection of atoms, are a fundamental input for atomistic simulations. However, existing IAPs are either fitted to narrow chemistries or too inaccurate for general applications. Here, we report a universal IAP for materials based on graph neural networks with three-body interactions (M3GNet). The M3GNet IAP was trained on the massive database of structural relaxations performed by the Materials Project over the past 10 years and has broad applications in structural relaxation, dynamic simulations and property prediction of materials across diverse chemical spaces. About 1.8 million potentially stable materials were identified from a screening of 31 million hypothetical crystal structures, demonstrating a machine learning-accelerated pathway to the discovery of synthesizable materials with exceptional properties.",
       "date": "2022-11-28",
-      "citations": 1141,
+      "citations": 1142,
       "pdf_url": "https://www.researchsquare.com/article/rs-1348213/latest.pdf",
       "url": "https://doi.org/10.1038/s43588-022-00349-3",
       "open_access": true,
@@ -46838,7 +46855,7 @@
       "authors_str": "Zheren Wang; Olga Kononova; Kevin Cruse; Tanjin He; Haoyan Huo et al.",
       "abstract": "The development of a materials synthesis route is usually based on heuristics and experience. A possible new approach would be to apply data-driven approaches to learn the patterns of synthesis from past experience and use them to predict the syntheses of novel materials. However, this route is impeded by the lack of a large-scale database of synthesis formulations. In this work, we applied advanced machine learning and natural language processing techniques to construct a dataset of 35,675 solution-based synthesis procedures extracted from the scientific literature. Each procedure contains essential synthesis information including the precursors and target materials, their quantities, and the synthesis actions and corresponding attributes. Every procedure is also augmented with the reaction formula. Through this work, we are making freely available the first large dataset of solution-based inorganic materials synthesis procedures.",
       "date": "2022-05-25",
-      "citations": 88,
+      "citations": 89,
       "pdf_url": "https://www.nature.com/articles/s41597-022-01317-2.pdf",
       "url": "https://doi.org/10.1038/s41597-022-01317-2",
       "open_access": true,
@@ -47153,7 +47170,7 @@
       "authors_str": "Simon Batzner; Albert Musaelian; Lixin Sun; Mario Geiger; Jonathan P. Mailoa et al.",
       "abstract": "This work presents Neural Equivariant Interatomic Potentials (NequIP), an E(3)-equivariant neural network approach for learning interatomic potentials from ab-initio calculations for molecular dynamics simulations. While most contemporary symmetry-aware models use invariant convolutions and only act on scalars, NequIP employs E(3)-equivariant convolutions for interactions of geometric tensors, resulting in a more information-rich and faithful representation of atomic environments. The method achieves state-of-the-art accuracy on a challenging and diverse set of molecules and materials while exhibiting remarkable data efficiency. NequIP outperforms existing models with up to three orders of magnitude fewer training data, challenging the widely held belief that deep neural networks require massive training sets. The high data efficiency of the method allows for the construction of accurate potentials using high-order quantum chemical level of theory as reference and enables high-fidelity molecular dynamics simulations over long time scales.",
       "date": "2022-05-04",
-      "citations": 2286,
+      "citations": 2288,
       "pdf_url": "https://www.nature.com/articles/s41467-022-29939-5.pdf",
       "url": "https://doi.org/10.1038/s41467-022-29939-5",
       "open_access": true,
@@ -47234,35 +47251,6 @@
       "category": "catalysis",
       "relevance": 90,
       "ccel": false
-    },
-    {
-      "source": "ACS Applied Energy Materials",
-      "openalex_id": "W4225321536",
-      "doi": "10.1021/acsaem.1c04084",
-      "title": "Titanium Monoxide with in Situ Grown Rutile TiO2 Nanothorns as a Heterostructured Job-Sharing Anode Material for Lithium-Ion Storage",
-      "authors": [
-        "Tong‐Hyun Kang",
-        "Byong‐June Lee",
-        "Chaesung Lim",
-        "Ha‐Young Lee",
-        "Jeong Woo Han",
-        "Jong‐Sung Yu"
-      ],
-      "authors_str": "Tong‐Hyun Kang; Byong‐June Lee; Chaesung Lim; Ha‐Young Lee; Jeong Woo Han et al.",
-      "abstract": "Developing high-performance anodes is highly desired to meet the recent ever-increasing demands for high-energy lithium-ion batteries (LIBs). Titanium dioxide (TiO 2 ) shows extremely stable performance as an anode material in LIBs, but its intrinsic structural limit critically inhibits the full utilization of the TiO 2 material. Herein, we report a uniquely integrated heterostructure of rutile TiO 2 (r-TiO 2 ) nanothorns grown in situ over a new porous and conductive cubic crystalline titanium monoxide (TiO) core. The new cubic crystalline TiO is prepared from phase transformation of anatase TiO 2 by pyrolysis with Mg metal at 650 °C, and subsequent oxidative HCl treatment enables in situ growth of r-TiO 2 nanothorns on the surface of the porous TiO. Interestingly, the mixed-phased novel hybrid as an anode exhibits a new Li-ion charging mechanism consisting of two independent reactions of intercalation and pseudocapacitive interaction corresponding to the two different phases of r-TiO 2 and TiO, respectively, in the composite for Li-ion storage. Thus, it illustrates high reversible capacity and almost no capacity decay during 1000 cycles at a high current density of 20 C (4000 mA g –1 ), overcoming the issues of conventional TiO 2 . In particular, the excellent rate capability along with a long cycle life enables the new hybrid to have ultrafast charging of the system. Furthermore, unlike a conventional TiO 2 anode working in the potential range (1.0–3.0 V), the hybrid with the job-sharing property exhibits stable charge–discharge performance over a wider potential window range of 0.01–3.0 V, particularly even in the low potential range of 0.01–1.0 V. All the properties including the wider potential window allow the hybrid to realize the highest electrochemical performance that titanium oxides have ever achieved so far.",
-      "date": "2022-05-03",
-      "citations": 11,
-      "pdf_url": null,
-      "url": "https://doi.org/10.1021/acsaem.1c04084",
-      "open_access": false,
-      "group": "ccel",
-      "ccel": true,
-      "summary": "```json\n{\n  \"summary\": \"리튬 이온 배터리(LIB)의 고성능 음극재 개발을 위해 기존 TiO2의 한계를 극복하고자, 아나타제 TiO2를 Mg와 650°C에서 열분해하여 다공성 입방정 TiO 코어를 제조하고, 산화성 HCl 처리로 그 위에 루타일 TiO2 나노쏜을 *in situ* 성장시켜 이종구조 하이브리드 재료를 합성했습니다.\\n이 하이브리드 음극재는 r-TiO2의 삽입 반응과 TiO의 유사정전용량 반응을 통한 \"직무 공유\" 리튬 이온 저장 메커니즘을 보였습니다.\\n20 C (4000 mA g⁻¹)의 고전류 밀도",
-      "categories": [
-        "dft"
-      ],
-      "category": "dft",
-      "relevance": 50
     }
   ]
 }
